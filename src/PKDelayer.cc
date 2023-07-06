@@ -8,6 +8,7 @@
 #include "PKDelayer.h"
 
 #include <omnetpp.h>
+#include "UniformDistribution.h"
 
 namespace pkdelay {
 
@@ -21,18 +22,15 @@ void PKDelayer::initialize(int stage)
     PacketDelayerBase::initialize(stage);
     if (stage == INITSTAGE_LOCAL) {
         delayParameter = &par("delay");
+        delayLB = &par("delay_lowerBound");
+        delayUB = &par("delay_upperBound");
         bitrateParameter = &par("bitrate");
     }
 }
 
 clocktime_t PKDelayer::computeDelay(Packet *packet) const
 {
-//    srand(time(0));
-    double a = 1.0; // delayParameter
-    double b = 5.0;
-    cRNG *rng = getEnvir()->getRNG(0);
-    double cur_rand = omnetpp::uniform(rng, a, b);// random value between a and b
-//    double cur_rand = omnetpp::normal(rng, a, b); // normal distribution
+    double cur_rand = GetRandNum(delayLB->doubleValue(), delayUB->doubleValue());
     double dataLength = packet->getDataLength().get(); // data length in bits
     double bitrate = bitrateParameter->doubleValue(); // bitrate in bps
     tmp_rand = tmp_rand + s(cur_rand + (dataLength/bitrate)).get();
@@ -41,7 +39,9 @@ clocktime_t PKDelayer::computeDelay(Packet *packet) const
         tmp_rand = 0;
     }
 
-    return clocktime_t(tmp_rand);// or + s(cur_rand).get();
+    return delayParameter->doubleValue() + clocktime_t(tmp_rand);
+
+    //    return clocktime_t(tmp_rand);// or + s(cur_rand).get();
 }
 
 } // namespace PKDelayer

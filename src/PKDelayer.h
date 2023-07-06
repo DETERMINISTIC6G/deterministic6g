@@ -20,6 +20,8 @@ class INET_API PKDelayer : public PacketDelayerBase
 {
   protected:
     cPar *delayParameter = nullptr;
+    cPar *delayLB = nullptr;
+    cPar *delayUB = nullptr;
     cPar *bitrateParameter = nullptr;
     mutable double tmp_rand = 0;
 
