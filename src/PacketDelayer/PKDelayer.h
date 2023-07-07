@@ -11,7 +11,7 @@
 
 #include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"
-#include "DistributionBase.h"
+#include "../distribution/DistributionBase.h"
 
 namespace pkdelay {
 using namespace inet;

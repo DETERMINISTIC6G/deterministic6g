@@ -7,7 +7,7 @@
 
 #include <omnetpp.h>
 #include "PKDelayer.h"
-#include "DistributionBase.h"
+#include "../distribution/DistributionBase.h"
 
 namespace pkdelay {
 
@@ -46,8 +46,6 @@ clocktime_t PKDelayer::computeDelay(Packet *packet) const
     }
 
     return delayParameter->doubleValue() + clocktime_t(delayTime);
-
-    //    return clocktime_t(tmp_rand);// or + s(cur_rand).get();
 }
 
 } // namespace PKDelayer
