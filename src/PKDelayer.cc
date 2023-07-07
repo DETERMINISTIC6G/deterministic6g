@@ -1,14 +1,13 @@
 /*
- * pkDelay.cc
+ * PKDelayer.cc
  *
  *  Created on: Jun 22, 2023
  *      Author: dan
  */
 
-#include "PKDelayer.h"
-
 #include <omnetpp.h>
-#include "UniformDistribution.h"
+#include "PKDelayer.h"
+#include "DistributionBase.h"
 
 namespace pkdelay {
 
@@ -28,18 +27,25 @@ void PKDelayer::initialize(int stage)
     }
 }
 
+double PKDelayer::GetRandNum(double LowerBound, double UpperBound) const
+{
+    cRNG *rng = getEnvir()->getRNG(0);
+    double rand_num = omnetpp::uniform(rng, LowerBound, UpperBound);
+    return rand_num;
+}
+
 clocktime_t PKDelayer::computeDelay(Packet *packet) const
 {
-    double cur_rand = GetRandNum(delayLB->doubleValue(), delayUB->doubleValue());
+    double cur_rand =PKDelayer::GetRandNum(delayLB->doubleValue(), delayUB->doubleValue());
     double dataLength = packet->getDataLength().get(); // data length in bits
     double bitrate = bitrateParameter->doubleValue(); // bitrate in bps
-    tmp_rand = tmp_rand + s(cur_rand + (dataLength/bitrate)).get();
+    delayTime = delayTime + s(cur_rand + (dataLength/bitrate)).get();
 
-    if (tmp_rand <= 0){
-        tmp_rand = 0;
+    if (delayTime <= 0){
+        delayTime = 0;
     }
 
-    return delayParameter->doubleValue() + clocktime_t(tmp_rand);
+    return delayParameter->doubleValue() + clocktime_t(delayTime);
 
     //    return clocktime_t(tmp_rand);// or + s(cur_rand).get();
 }

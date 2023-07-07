@@ -5,18 +5,21 @@
  *      Author: dan
  */
 
-#include "UniformDistribution.h"
+#include "DistributionBase.h"
+
 #include <omnetpp.h>
 
-namespace pkdelay{
 using namespace inet;
 
-double GetRandNum(double LowerBound, double UpperBound){
-    cRNG *rng = getEnvir()->getRNG(0);
+namespace pkdelay{
 
+double DistributionBase::GetRandNum(double LowerBound, double UpperBound) const
+{
+    cRNG *rng = getEnvir()->getRNG(0);
     double rand_num = omnetpp::uniform(rng, LowerBound, UpperBound);
     return rand_num;
-    }
+}
+
 }
 
 

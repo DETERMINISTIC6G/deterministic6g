@@ -13,22 +13,6 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-//package src.PKDelay;
-//
-//import inet.queueing.base.PacketDelayerBase;
-//import inet.queueing.contract.IPacketDelayer;
-//
-////import inet.queueing.base.PacketDelayerBase;
-////import inet.queueing.contract.IPacketDelayer;
-//
-//simple PKDelay extends PacketDelayerBase like IPacketDelayer
-//{
-//    parameters:
-//        volatile double delay @unit(s) = default(uniform(-1s, 1s)); // specifies delay per packet
-//        volatile double bitrate @unit(bps) = default(inf bps); // determines additional delay per bit
-//        @class(PKDelay);
-//}
-
 package pkdelay;
 
 import inet.queueing.base.PacketDelayerBase;
@@ -37,10 +21,12 @@ import inet.queueing.contract.IPacketDelayer;
 simple PKDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:
-//        volatile double delay @unit(s) = default(uniform(-1s, 1s)); // specifies delay per packet
         volatile double delay @unit(s); // specifies delay per packet
+        
+        // ----- specify the lower and upper bound of delay time -----
         volatile double delay_lowerBound @unit(s) = default(-1s);
         volatile double delay_upperBound @unit(s) = default(1s);
+        
         volatile double bitrate @unit(bps) = default(inf bps); // determines additional delay per bit
         @class(PKDelayer);
 }
