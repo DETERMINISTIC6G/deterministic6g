@@ -24,13 +24,30 @@ class INET_API PKDelayer : public PacketDelayerBase , public DistributionBase
     cPar *delayParameter = nullptr;
     cPar *delayLB = nullptr;
     cPar *delayUB = nullptr;
+    cPar *mean = nullptr;
+    cPar *stddev = nullptr;
     cPar *bitrateParameter = nullptr;
-    mutable double delayTime = 0;
+    mutable double delayTime = 0; // or declare clocktime_t delayTime
+    cHistogram *delayStats; // Declare cHistogram object
 
   protected:
     virtual void initialize(int stage) override;
+
+    /* ---------------------------- Random Delay Time ---------------------------- */
+    // Method 1
     virtual double GetRandNum(double LowerBound, double UpperBound) const override;
+    // Method 2
+    virtual double ArbitraryDelayTime(double mean, double stddev) const override;
+    /* --------------------------------------------------------------------------- */
     virtual clocktime_t computeDelay(Packet *packet) const override;
+
+// For creating a histogram below -----------------------------------------------
+    virtual void finish() override; // Add finish method to record the histogram
+
+  public:
+    virtual ~PKDelayer(); // Add destructor declaration
+// ------------------------------------------------------------------------------
+
 };
 
 } // PKDelayer

@@ -16,6 +16,8 @@ namespace pkdelay{
 class DistributionBase{
 protected:
     virtual double GetRandNum(double LowerBound, double UpperBound) const;
+    virtual double ArbitraryDelayTime(double mean, double stddev) const;
+
 };
 
 }

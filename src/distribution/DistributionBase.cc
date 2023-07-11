@@ -20,6 +20,13 @@ double DistributionBase::GetRandNum(double LowerBound, double UpperBound) const
     return rand_num;
 }
 
+double DistributionBase::ArbitraryDelayTime(double mean, double stddev) const
+{
+    cRNG *rng = getEnvir()->getRNG(0);
+    double ADT = omnetpp::normal(rng, mean, stddev);
+    return ADT;
+}
+
 }
 
 
