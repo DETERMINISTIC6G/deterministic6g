@@ -28,8 +28,8 @@ void PKDelayer::initialize(int stage)
 clocktime_t PKDelayer::computeDelay(Packet *packet) const
 {
 //    srand(time(0));
-    double a = 1.0; // delayParameter
-    double b = 5.0;
+    double a = 0; // delayParameter
+    double b = 0;
     cRNG *rng = getEnvir()->getRNG(0);
     double cur_rand = omnetpp::uniform(rng, a, b);// random value between a and b
 //    double cur_rand = omnetpp::normal(rng, a, b); // normal distribution
