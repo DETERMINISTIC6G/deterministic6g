@@ -8,26 +8,27 @@
 #include "DistributionBase.h"
 
 #include <omnetpp.h>
+#include "inet/clock/contract/ClockTime.h"
 
+namespace pkdelay {
 using namespace inet;
 
-namespace pkdelay{
-
-double DistributionBase::GetRandNum(double LowerBound, double UpperBound) const
+clocktime_t DistributionBase::Static(clocktime_t mean, clocktime_t stddev) const
 {
     cRNG *rng = getEnvir()->getRNG(0);
-    double rand_num = omnetpp::uniform(rng, LowerBound, UpperBound);
-    return rand_num;
+    double distri = omnetpp::truncnormal(rng, mean.dbl(), stddev.dbl());
+    return clocktime_t(distri);
 }
 
-double DistributionBase::ArbitraryDelayTime(double mean, double stddev) const
-{
-    cRNG *rng = getEnvir()->getRNG(0);
-    double ADT = omnetpp::normal(rng, mean, stddev);
-    return ADT;
-}
+//cNEDValue DistributionBase::ned_Static(cComponent *context, cNEDValue argv[], int argc)
+//{
+//    DistributionBase *instance = dynamic_cast<DistributionBase *>(context);
+//    if (!instance)
+//        throw cRuntimeError("The ned_Static function can only be called in the context of a DistributionBase object");
+//
+//    return instance->Static(argv[0].doubleValue(), argv[1].doubleValue());
+//}
+//
+//Define_NED_Function(DistributionBase::ned_Static, "default(double mean, double stddev)");
 
 }
-
-
-

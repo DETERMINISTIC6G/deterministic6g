@@ -9,16 +9,17 @@
 #define DISTRIBUTIONBASE_H_
 
 #include "inet/common/INETDefs.h"
-
+#include "inet/clock/contract/ClockTime.h"
 
 namespace pkdelay{
+using namespace inet;
 
-class DistributionBase{
+class DistributionBase {
 protected:
-    virtual double GetRandNum(double LowerBound, double UpperBound) const;
-    virtual double ArbitraryDelayTime(double mean, double stddev) const;
-
+    virtual clocktime_t Static(clocktime_t mean, clocktime_t stddev) const;
+//    static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
 };
+
 
 }
 
