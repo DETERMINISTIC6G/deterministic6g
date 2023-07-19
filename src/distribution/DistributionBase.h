@@ -16,7 +16,7 @@ using namespace inet;
 
 class DistributionBase {
 protected:
-    virtual clocktime_t Static(clocktime_t mean, clocktime_t stddev) const;
+    virtual clocktime_t Static(clocktime_t staticDelay) const;
 //    static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
 };
 

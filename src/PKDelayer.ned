@@ -23,10 +23,6 @@ simple PKDelayer extends PacketDelayerBase like IPacketDelayer
     parameters:
         volatile double delay @unit(s); // specifies delay per packet
         
-        // ----- specify the lower and upper bound of delay time -----
-//        volatile double delay_lowerBound @unit(s) = default(-1s);
-//        volatile double delay_upperBound @unit(s) = default(1s);
-        
 //        volatile double mean_delaytime @unit(s);
 //        volatile double stddev @unit(s);
         

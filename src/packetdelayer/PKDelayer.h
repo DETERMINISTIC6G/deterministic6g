@@ -39,7 +39,7 @@ class INET_API PKDelayer : public PacketDelayerBase , public DistributionBase
 
     virtual clocktime_t computeDelay(Packet *packet) const override;
 
-    virtual clocktime_t Static(clocktime_t mean, clocktime_t stddev) const override;
+    virtual clocktime_t Static(clocktime_t staticDelay) const override;
 
 //// For creating a histogram below -----------------------------------------------
 //    virtual void finish() override; // Add finish method to record the histogram
@@ -50,7 +50,6 @@ class INET_API PKDelayer : public PacketDelayerBase , public DistributionBase
 
 
   public:
-
     static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
 
 };

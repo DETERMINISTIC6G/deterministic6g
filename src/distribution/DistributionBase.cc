@@ -13,11 +13,10 @@
 namespace pkdelay {
 using namespace inet;
 
-clocktime_t DistributionBase::Static(clocktime_t mean, clocktime_t stddev) const
+clocktime_t DistributionBase::Static(clocktime_t staticDelay) const
 {
-    cRNG *rng = getEnvir()->getRNG(0);
-    double distri = omnetpp::truncnormal(rng, mean.dbl(), stddev.dbl());
-    return clocktime_t(distri);
+    double staticDelayDbl = staticDelay.dbl(); // convert to double
+    return clocktime_t(staticDelayDbl);
 }
 
 //cNEDValue DistributionBase::ned_Static(cComponent *context, cNEDValue argv[], int argc)
