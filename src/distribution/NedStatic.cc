@@ -14,13 +14,9 @@
 // 
 
 #include "NedStatic.h"
-#include "inet/queueing/base/PacketDelayerBase.h"
 #include <omnetpp.h>
 
 namespace pkdelay {
-
-using namespace inet;
-using namespace queueing;
 
 NedStatic::NedStatic() {
     // TODO Auto-generated constructor stub
@@ -33,15 +29,16 @@ NedStatic::~NedStatic() {
 
 cNEDValue NedStatic::ned_Static(cComponent *context, cNEDValue argv[], int argc)
 {
-    //PKDelayer *instance = dynamic_cast<PKDelayer *>(context);
+    //NedStatic *instance = dynamic_cast<NedStatic *>(context);
     //if (!instance)
     //    throw cRuntimeError("The ned_Static function can only be called in the context of a PKDelayer object");
 
     double arg0 = argv[0].doubleValueInUnit("us"); // convert to double
 
-    clocktime_t delay = clocktime_t(arg0);
-    double staticDelayDbl = delay.dbl(); // convert to double
-    clocktime_t temp =  clocktime_t(staticDelayDbl);
+//    clocktime_t delay = clocktime_t(arg0);
+//    double staticDelayDbl = delay.dbl(); // convert to double
+//    clocktime_t temp =  clocktime_t(staticDelayDbl);
+    clocktime_t temp =  clocktime_t(arg0);
     return cNEDValue(temp.dbl(), "us"); // specify unit
 }
 

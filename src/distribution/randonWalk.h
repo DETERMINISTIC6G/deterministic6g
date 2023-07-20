@@ -13,24 +13,31 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef DISTRIBUTION_NEDSTATIC_H_
-#define DISTRIBUTION_NEDSTATIC_H_
+#ifndef DISTRIBUTION_RANDONWALK_H_
+#define DISTRIBUTION_RANDONWALK_H_
 
-//#include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"
 
 namespace pkdelay {
 
 using namespace inet;
 
-class INET_API NedStatic {
-public:
-    NedStatic();
-    virtual ~NedStatic();
+class randonWalk {
+private:
+    static double cur_delay;
+    static int count;
 
-    static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
+public:
+//    double return_delay;
+//    double cur_delay;
+//    int count = 0;
+
+    randonWalk();
+    virtual ~randonWalk();
+
+    static cNEDValue ned_randonWalk(cComponent *context, cNEDValue argv[], int argc);
 };
 
 } /* namespace pkdelay */
 
-#endif /* DISTRIBUTION_NEDSTATIC_H_ */
+#endif /* DISTRIBUTION_RANDONWALK_H_ */
