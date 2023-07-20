@@ -37,7 +37,7 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
 
     if (count == 0) {
         cur_delay = arg0;
-        EV << "Initial return_delay: " << cur_delay << "us\n";
+        EV << "Initial cur_delay: " << cur_delay << "us\n";
     }
 
     else {
@@ -51,7 +51,7 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
 
     clocktime_t tmp = clocktime_t(cur_delay);
     count++;
-    return cNEDValue(tmp.dbl(), "us");
+    return cNEDValue(tmp.dbl(), "us");  // change "us" to non hard-coded
 }
 
 Define_NED_Function(randonWalk::ned_randonWalk, "any randonwalk(any init, any randValue)");
