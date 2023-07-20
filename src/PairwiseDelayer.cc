@@ -27,13 +27,20 @@ void PairwiseDelayer::initialize(int stage)
 
 clocktime_t PairwiseDelayer::computeDelay(Packet *packet) const
 {
-    int incInterface = 100;
-    int outInterface = 101;
+   // if (packet->getSenderGate()->getIndex()==100 && packet->getArrivalGate()->getIndex()==100){
+//get the sender gate and arrival gate
+   cGate* senderGate=packet->getSenderGate();
+   cGate* arrivalGate=packet->getArrivalGate();
+   if(senderGate && senderGate->getIndex()==100 &&arrivalGate && arrivalGate->getIndex()==101)
+   {
+       EV<<"In address is 100 and 101"<<endl;
+   }
 
 
     return delayParameter->doubleValue() + s(packet->getDataLength() / bps(bitrateParameter->doubleValue())).get();
 }
+}//namespace pairwisedelayer
 
-} // namespace PKDelayer
+
 
 

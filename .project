@@ -3,6 +3,8 @@
 	<name>PkDelay</name>
 	<comment></comment>
 	<projects>
+		<project>det6gg</project>
+		<project>inet</project>
 		<project>inet4.5</project>
 	</projects>
 	<buildSpec>

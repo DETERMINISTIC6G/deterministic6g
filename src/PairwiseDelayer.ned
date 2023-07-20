@@ -37,6 +37,7 @@ import inet.queueing.contract.IPacketDelayer;
 simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:
+      
         volatile double delay @unit(s) = default(uniform(-1s, 1s)); // specifies delay per packet
         volatile double bitrate @unit(bps) = default(inf bps); // determines additional delay per bit
         @class(PairwiseDelayer);
