@@ -2,7 +2,7 @@ out
 simulations/frames
 *.mp4
 *.sif
-src/PKDelay
-src/PKDelay_dbg
+src/PkDelay
+src/PkDelay_dbg
 simulations/results/*
 omnetpp-gui
