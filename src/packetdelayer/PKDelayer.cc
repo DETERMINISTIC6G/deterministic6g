@@ -22,37 +22,13 @@ using namespace queueing;
 //        rng = getEnvir()->getRNG(0); //
 //        delayParameter = &par("delay");
 //        bitrateParameter = &par("bitrate");
-//
-////        // Initialize the cHistogram object
-////        delayStats = new cHistogram("delayStats");
-////        delayStats->setRange(-0.000004, 0.000004);
-////        delayStats->setNumBinsHint(100);
-////        delayStats->setNumPrecollectedValues(200);
 //    }
 //}
 
-/* ---------------------------- Random Delay Time ---------------------------- */
-//double PKDelayer::ArbitraryDelayTime(double mean, double stddev) const
-//{
-////    cRNG *rng = getEnvir()->getRNG(0);
-//    double ADT = omnetpp::normal(rng, mean, stddev);
-//
-//    // ---- Simulation delay time ----
-//    simtime_t delay = ADT;
-//    delayStats->collect(delay);
-//    // -------------------------------
-//
-//    return ADT;
-//}
 
 //clocktime_t PKDelayer::computeDelay(Packet *packet) const
 //{
 //    return delayParameter->doubleValue(); // return default value, e.g. 0
-//}
-
-//clocktime_t PKDelayer::Static(clocktime_t staticDelay) const
-//{
-//
 //}
 
 //cNEDValue PKDelayer::ned_Static(cComponent *context, cNEDValue argv[], int argc)
@@ -68,21 +44,7 @@ using namespace queueing;
 //    clocktime_t temp =  clocktime_t(staticDelayDbl);
 //    return cNEDValue(temp.dbl(), "us"); // specify unit
 //}
-//
-//Define_NED_Function(PKDelayer::ned_Static, "any static(any staticDelay)");
 
-//// record as a histogram -------------------
-//void PKDelayer::finish()
-//{
-//    // Record the histogram
-//    delayStats->recordAs("histogram");
-//}
-//
-//PKDelayer::~PKDelayer()
-//{
-//    // Delete cHistogram object
-//    delete delayStats;
-//}
-//// ----------------------------------------
+//Define_NED_Function(PKDelayer::ned_Static, "any static(any staticDelay)");
 
 } // namespace PKDelayer
