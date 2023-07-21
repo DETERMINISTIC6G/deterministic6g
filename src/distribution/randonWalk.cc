@@ -15,7 +15,7 @@
 
 #include "randonWalk.h"
 #include <omnetpp.h>
-
+//#include <algorithm>
 
 namespace pkdelay {
 
@@ -35,18 +35,12 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
     double arg0 = argv[0].doubleValueInUnit("us");
     double arg1 = argv[1].doubleValueInUnit("us");
 
-    if (count == 0) {
-        cur_delay = arg0;
-        EV << "Initial cur_delay: " << cur_delay << "us\n";
-    }
+    cur_delay = (count == 0) ? arg0 : cur_delay + arg1;
+    cur_delay = std::max(0.0, cur_delay);
 
-    else {
-        cur_delay = cur_delay + arg1;
-        if(cur_delay < 0){
-            EV << "Calculated delay is negative. Setting delay to 0.";
-            cur_delay = 0;
-        }
-        EV << "Calculated cur_delay: " << cur_delay << "us\n";
+    EV << "Calculated cur_delay: " << (count == 0 ? "Initial " : "") << cur_delay << "us\n";
+    if (cur_delay == 0) {
+        EV << "Calculated delay is negative. Setting delay to 0.\n";
     }
 
     clocktime_t tmp = clocktime_t(cur_delay);

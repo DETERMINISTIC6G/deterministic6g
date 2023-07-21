@@ -3,13 +3,9 @@
 	<name>pkdelay</name>
 	<comment></comment>
 	<projects>
-<<<<<<< HEAD
-		<project>inet</project>
-=======
 		<project>det6gg</project>
 		<project>inet</project>
 		<project>inet4.5</project>
->>>>>>> main
 	</projects>
 	<buildSpec>
 		<buildCommand>
