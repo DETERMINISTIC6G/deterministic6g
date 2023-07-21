@@ -15,7 +15,6 @@
 
 #include "randonWalk.h"
 #include <omnetpp.h>
-//#include <algorithm>
 
 namespace pkdelay {
 
