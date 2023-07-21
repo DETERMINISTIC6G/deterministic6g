@@ -1,0 +1,4 @@
+<config>
+	<delay in="100" out="101">1ms</delay>
+	<delay in="101" out="100">2ms</delay>
+</config>

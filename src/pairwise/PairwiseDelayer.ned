@@ -13,20 +13,17 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package pkdelay;
+package pkdelay.pairwise;
 
 import inet.queueing.base.PacketDelayerBase;
 import inet.queueing.contract.IPacketDelayer;
 
-simple PKDelayer extends PacketDelayerBase like IPacketDelayer
+simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:
-        volatile double delay @unit(s); // specifies delay per packet
-        
-//        volatile double mean_delaytime @unit(s);
-//        volatile double stddev @unit(s);
-        
+      
+        volatile double delay @unit(s) = default(uniform(-1s, 1s)); // specifies delay per packet
         volatile double bitrate @unit(bps) = default(inf bps); // determines additional delay per bit
-        @class(PKDelayer);
+        @class(PairwiseDelayer);
 }
 
