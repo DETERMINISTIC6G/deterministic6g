@@ -29,7 +29,7 @@
 //        @class(PKDelay);
 //}
 
-package pkdelay;
+package pkdelay.pairwise;
 
 import inet.queueing.base.PacketDelayerBase;
 import inet.queueing.contract.IPacketDelayer;

@@ -5,8 +5,8 @@
  *      Author: dan
  */
 
-#ifndef PKDELAYER_H_
-#define PKDELAYER_H_
+#ifndef PAIRWISEDELAYER_H_
+#define PAIRWISEDELAYER_H_
 
 #include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"
