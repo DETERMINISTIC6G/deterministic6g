@@ -27,6 +27,8 @@ private:
     static double cur_delay;
     static int count;
 
+    static std::map<std::string, double> conversionFactors;
+
 public:
 //    double return_delay;
 //    double cur_delay;
