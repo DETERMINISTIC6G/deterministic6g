@@ -31,20 +31,27 @@ randonWalk::~randonWalk() {
 }
 
 cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int argc){
-    double arg0 = argv[0].doubleValueInUnit("us");
-    double arg1 = argv[1].doubleValueInUnit("us");
+    // Retrieve the time units from the input parameters
+    const char* unit0 = argv[0].getUnit();
+    const char* unit1 = argv[1].getUnit();
 
+    // Convert the input parameters to double, according to their respective time units
+    double arg0 = argv[0].doubleValueInUnit(unit0);
+    double arg1 = argv[1].doubleValueInUnit(unit1);
+
+    // Calculate the delay time. If it's the first calculation (count == 0), set the delay to arg0.
+    // On subsequent calculations, increment the current delay by arg1 and ensure the delay never goes below 0.
     cur_delay = (count == 0) ? arg0 : cur_delay + arg1;
     cur_delay = std::max(0.0, cur_delay);
 
-    EV << "Calculated cur_delay: " << (count == 0 ? "Initial " : "") << cur_delay << "us\n";
+    EV << "Calculated cur_delay: " << (count == 0 ? "Initial " : "") << cur_delay << unit0 << "\n";
     if (cur_delay == 0) {
         EV << "Calculated delay is negative. Setting delay to 0.\n";
     }
 
     clocktime_t tmp = clocktime_t(cur_delay);
     count++;
-    return cNEDValue(tmp.dbl(), "us");  // change "us" to non hard-coded
+    return cNEDValue(tmp.dbl(), unit0);  // change "us" to non hard-coded
 }
 
 Define_NED_Function(randonWalk::ned_randonWalk, "any randonwalk(any init, any randValue)");
