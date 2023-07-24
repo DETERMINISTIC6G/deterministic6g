@@ -40,7 +40,8 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
     double arg1 = argv[1].doubleValueInUnit(unit1);
 
     // Calculate the delay time. If it's the first calculation (count == 0), set the delay to arg0.
-    // On subsequent calculations, increment the current delay by arg1 and ensure the delay never goes below 0.
+    // In subsequent calculations, increment the current delay by the sum of the previous delay and arg1.
+    // Also, ensure the delay never goes below 0.
     cur_delay = (count == 0) ? arg0 : cur_delay + arg1;
     cur_delay = std::max(0.0, cur_delay);
 
