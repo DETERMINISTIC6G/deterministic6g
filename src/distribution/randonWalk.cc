@@ -49,9 +49,9 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
         EV << "Calculated delay is negative. Setting delay to 0.\n";
     }
 
-    clocktime_t tmp = clocktime_t(cur_delay);
     count++;
-    return cNEDValue(tmp.dbl(), unit0);  // change "us" to non hard-coded
+
+    return cNEDValue(clocktime_t(cur_delay).dbl(), unit0);  // change "us" to non hard-coded
 }
 
 Define_NED_Function(randonWalk::ned_randonWalk, "any randonwalk(any init, any randValue)");
