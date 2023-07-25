@@ -16,16 +16,26 @@ using namespace inet;
 
 using namespace queueing;
 
-class INET_API PairwiseDelayer : public PacketDelayerBase
-{
-  protected:
-    cPar *delayParameter = nullptr;
-    cPar *bitrateParameter = nullptr;
+class INET_API PairwiseDelayer : public PacketDelayerBase {
+    class INET_API DelayEntry {
+    public:
+        explicit DelayEntry(cXMLElement *delayEntity);
 
-  protected:
-    virtual void initialize(int stage) override;
-    virtual clocktime_t computeDelay(Packet *packet) const override;
+        int in;
+        int out;
+        cDynamicExpression delay;
+
+        ~DelayEntry() = default;
+    };
+
+private:
+    std::map<int, std::map<int, DelayEntry *>> delays;
+
+protected:
+    void initialize(int stage) override;
+    clocktime_t computeDelay(Packet *packet) const override;
 };
+
 
 } // PKDelayer
 
