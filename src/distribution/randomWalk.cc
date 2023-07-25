@@ -38,8 +38,7 @@ cValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int arg
 
     auto lastDelay = lastDelays[key].doubleValueInUnit(unit);
 
-    // Calculate the delay time. If it's the first calculation (keyMap[key].second == 0), set the beginning delay (keyMap[key].first) to arg0.
-    // In subsequent calculations, increment the current delay by the sum of the previous delay and arg1.
+    // Calculate the new delays based on the last delay and a random value from a given distribution
     // Also, ensure the delay never goes below 0.
     double randomWalkNextValue = argv[1].doubleValueInUnit(unit);
     double nextDelayDbl = lastDelay + randomWalkNextValue;
