@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef DISTRIBUTION_RANDONWALK_H_
-#define DISTRIBUTION_RANDONWALK_H_
+#ifndef DISTRIBUTION_RANDOMWALK_H_
+#define DISTRIBUTION_RANDOMWALK_H_
 
 #include "inet/queueing/base/PacketDelayerBase.h"
 
@@ -22,12 +22,12 @@ namespace pkdelay {
 
 using namespace inet;
 
-class randonWalk {
+class randomWalk {
 private:
-    static double cur_delay;
-    static int count;
+//    static double cur_delay;
+//    static int count;
 
-    static std::map<std::string, double> keyMap; // key for different module which calle the randonWalk
+    static std::map<std::string, std::pair<double, int>> keyMap;  // key for different module which calle the randonWalk
     static std::map<std::string, double> conversionFactors;
 
 public:
@@ -35,12 +35,12 @@ public:
 //    double cur_delay;
 //    int count = 0;
 
-    randonWalk();
-    virtual ~randonWalk();
+    randomWalk();
+    virtual ~randomWalk();
 
-    static cNEDValue ned_randonWalk(cComponent *context, cNEDValue argv[], int argc);
+    static cNEDValue ned_randomWalk(cComponent *context, cNEDValue argv[], int argc);
 };
 
 } /* namespace pkdelay */
 
-#endif /* DISTRIBUTION_RANDONWALK_H_ */
+#endif /* DISTRIBUTION_RANDOMWALK_H_ */

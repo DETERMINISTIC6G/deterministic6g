@@ -13,7 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 
-#include "randonWalk.h"
+#include "randomWalk.h"
+
 #include <omnetpp.h>
 
 #define MAX_VALUE 9.22e+6
@@ -21,27 +22,27 @@
 
 namespace pkdelay {
 
-double randonWalk::cur_delay = 0.0;
-int randonWalk::count = 0;
+//double randomWalk::cur_delay = 0.0;
+//int randomWalk::count = 0;
 
-std::map<std::string, double> randonWalk::keyMap;
+std::map<std::string, std::pair<double, int>> randomWalk::keyMap;
 
-std::map<std::string, double> randonWalk::conversionFactors = {
+std::map<std::string, double> randomWalk::conversionFactors = {
     {"s", 1},
     {"ms", 1e-3},
     {"us", 1e-6}
 };
 
-randonWalk::randonWalk() {
+randomWalk::randomWalk() {
     // TODO Auto-generated constructor stub
 
 }
 
-randonWalk::~randonWalk() {
+randomWalk::~randomWalk() {
     // TODO Auto-generated destructor stub
 }
 
-cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int argc){
+cNEDValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int argc){
 
     // Retrieve the time units from the input parameters
     const char* unit0 = argv[0].getUnit();
@@ -60,26 +61,23 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
         EV << key << "=========" << "arg0: " << arg0 << unit0 << " -- arg1: " << arg1 << unit0 << "\n";
     }
 
-    // Calculate the delay time. If it's the first calculation (count == 0), set the delay to arg0.
+    // Calculate the delay time. If it's the first calculation (keyMap[key].second == 0), set the beginning delay (keyMap[key].first) to arg0.
     // In subsequent calculations, increment the current delay by the sum of the previous delay and arg1.
     // Also, ensure the delay never goes below 0.
-    cur_delay = (count == 0) ? arg0 : cur_delay + arg1;
-    cur_delay = std::max(0.0, cur_delay);
+    keyMap[key].first = (keyMap[key].second == 0) ? arg0 : keyMap[key].first + arg1;
+    keyMap[key].first = std::max(0.0, keyMap[key].first);
 //    cur_delay = std::min(MAX_VALUE, std::max(MIN_VALUE, cur_delay));
 
-    keyMap[key] = cur_delay;
-
-
-    EV << "Calculated cur_delay: " << (count == 0 ? key + "Initial " : key + "") << keyMap[key] << unit0 << "\n";
-    if (keyMap[key] == 0) {
+    EV << "Calculated cur_delay: " << (keyMap[key].second == 0 ? key + " Initial " : key + "--") << keyMap[key].first << unit0 << "\n";
+    if (keyMap[key].second == 0) {
         EV << "Calculated delay is negative. Setting delay to 0.\n";
     }
 
-    count++;
+    keyMap[key].second++;
 
-    return cNEDValue(clocktime_t(keyMap[key]).dbl(), unit0);  // change "us" to non hard-coded
+    return cNEDValue(clocktime_t(keyMap[key].first).dbl(), unit0);  // change "us" to non hard-coded
 }
 // randomWalk
-Define_NED_Function(randonWalk::ned_randonWalk, "any randonWalk(any init, any randValue, string key)");
+Define_NED_Function(randomWalk::ned_randomWalk, "any randomWalk(any init, any randValue, string key)");
 
 } /* namespace pkdelay */
