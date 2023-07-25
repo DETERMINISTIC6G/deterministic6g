@@ -17,12 +17,15 @@ using namespace inet;
 using namespace queueing;
 
 class INET_API PairwiseDelayer : public PacketDelayerBase {
+    static const short PKDELAY_ACTIVATE_KIND = 3495;
+
     class INET_API DelayEntry {
     public:
-        explicit DelayEntry(cXMLElement *delayEntity);
+        DelayEntry(cXMLElement *delayEntity, cModule *context);
 
-        int in;
-        int out;
+        int in = -1;
+        int out = -1;
+        double activateAt = 0;
         cDynamicExpression delay;
 
         ~DelayEntry() = default;
@@ -34,9 +37,11 @@ private:
 protected:
     void initialize(int stage) override;
     clocktime_t computeDelay(Packet *packet) const override;
+    virtual void handleMessage(cMessage *message) override;
+    void activateEntry(DelayEntry *delayEntry);
 };
 
 
 } // PKDelayer
 
-#endif /* PKDELAYER_H_ */
+#endif /* PAIRWISEDELAYER_H_ */

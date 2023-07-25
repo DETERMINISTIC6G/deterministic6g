@@ -1,4 +1,5 @@
 <delays>
-	<delay in="100" out="101">1ms</delay>
-	<delay in="101" out="100">truncnormal(1ms,500us)</delay>
+	<delay in="client" out="server">1ms</delay>
+	<delay in="client" out="server" activateAt="5s">2ms</delay>
+	<delay in="server" out="client">truncnormal(1ms,500us)</delay>
 </delays>
