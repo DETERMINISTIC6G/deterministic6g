@@ -1,5 +1,5 @@
 /*
- * pkDelay.cc
+ * PairwiseDelayer.cc
  *
  *  Created on: Jun 22, 2023
  *      Author: dan
@@ -13,7 +13,7 @@
 
 #include <omnetpp.h>
 
-namespace pkdelay {
+namespace d6g {
 
 using namespace inet;
 using namespace queueing;
@@ -38,7 +38,7 @@ void PairwiseDelayer::initialize(int stage) {
             if (delayEntry->activateAt > 0) {
                 EV << "PairwiseDelayer: Activate DelayEntry at " << delayEntry->activateAt << endl;
                 auto *activateDelayEntry = new cMessage();
-                activateDelayEntry->setKind(PKDELAY_ACTIVATE_KIND);
+                activateDelayEntry->setKind(PAIRWISE_ACTIVATE_KIND);
                 activateDelayEntry->setContextPointer(delayEntry);
                 scheduleAt(delayEntry->activateAt, activateDelayEntry);
             } else {
@@ -112,7 +112,7 @@ clocktime_t PairwiseDelayer::computeDelay(Packet *packet) const {
 }
 
 void PairwiseDelayer::handleMessage(cMessage *message) {
-    if (message->getKind() == PKDELAY_ACTIVATE_KIND) {
+    if (message->getKind() == PAIRWISE_ACTIVATE_KIND) {
         auto *delayEntry = static_cast<DelayEntry*>(message->getContextPointer());
         activateEntry(delayEntry);
         delete message;

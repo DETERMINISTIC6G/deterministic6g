@@ -1,3 +1,3 @@
-package pkdelay.simulations;
+package d6g.simulations;
 
 @license(LGPL);

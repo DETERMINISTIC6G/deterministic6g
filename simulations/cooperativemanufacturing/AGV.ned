@@ -13,13 +13,23 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.devices;
+package d6g.simulations.cooperativemanufacturing;
 
-import inet.node.tsn.TsnSwitch;
+import inet.networks.base.TsnNetworkBase;
+import inet.node.contract.IEthernetNetworkNode;
+import inet.node.ethernet.EthernetLink;
 
-module DetCom extends TsnSwitch
+module AGV extends Unit
 {
-    parameters:
-        bridging.typename = default("BridgingLayerWithPairwiseDelay");
-        @display("i=device/antennatower");
+    @display("i=device/cellphone");
+    submodules:
+        interAgv: <default("TsnDevice")> like IEthernetNetworkNode {
+            @display("p=300,100");
+        }
+        interToCell: <default("TsnDevice")> like IEthernetNetworkNode {
+            @display("p=400,100");
+        }
+    connections:
+        bridgeToDetcom.ethg++ <--> EthernetLink <--> interAgv.ethg++;
+        bridgeToDetcom.ethg++ <--> EthernetLink <--> interToCell.ethg++;
 }

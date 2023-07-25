@@ -18,29 +18,24 @@
 
 #include "inet/queueing/base/PacketDelayerBase.h"
 
-namespace pkdelay {
+namespace d6g {
 
 using namespace inet;
 
 class randomWalk {
-private:
+public:
 //    static double cur_delay;
 //    static int count;
 
-    static std::map<std::string, std::pair<double, int>> keyMap;  // key for different module which calle the randonWalk
-    static std::map<std::string, double> conversionFactors;
+    static std::map<std::string, cValue> lastDelays;  // key for different modules which call the randomWalk
 
 public:
 //    double return_delay;
 //    double cur_delay;
 //    int count = 0;
-
-    randomWalk();
-    virtual ~randomWalk();
-
     static cNEDValue ned_randomWalk(cComponent *context, cNEDValue argv[], int argc);
 };
 
-} /* namespace pkdelay */
+} /* namespace d6g */
 
 #endif /* DISTRIBUTION_RANDOMWALK_H_ */

@@ -1,5 +1,4 @@
 <delays>
-	<delay in="client" out="server">1ms</delay>
-	<delay in="client" out="server" activateAt="5s">2ms</delay>
-	<delay in="server" out="client">truncnormal(1ms,500us)</delay>
+	<delay in="client" out="server">randomWalk(5ms,normal(0us,25us),"clienttoserver")</delay>
+	<delay in="server" out="client">randomWalk(5ms,normal(0us,100us),"servertoclient")</delay>
 </delays>

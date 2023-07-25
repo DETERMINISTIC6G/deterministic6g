@@ -5,7 +5,7 @@
 //
 
 
-package pkdelay.pairwise;
+package d6g.pairwise;
 
 import inet.protocolelement.contract.IProtocolLayer;
 import inet.protocolelement.processing.IProcessingDelayLayer;

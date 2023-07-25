@@ -13,24 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef DISTRIBUTION_NEDSTATIC_H_
-#define DISTRIBUTION_NEDSTATIC_H_
+package d6g.simulations.cooperativemanufacturing;
 
-//#include "inet/common/INETDefs.h"
-#include "inet/queueing/base/PacketDelayerBase.h"
+import inet.networks.base.TsnNetworkBase;
+import inet.node.contract.IEthernetNetworkNode;
+import inet.node.ethernet.EthernetLink;
 
-namespace pkdelay {
-
-using namespace inet;
-
-class INET_API NedStatic {
-public:
-    NedStatic();
-    virtual ~NedStatic();
-
-    static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
-};
-
-} /* namespace pkdelay */
-
-#endif /* DISTRIBUTION_NEDSTATIC_H_ */
+module Unit {
+    parameters:
+        *.eth[*].bitrate = default(100Mbps);
+    gates:
+        inout bridgeAdapter;
+    submodules:
+        bridgeToDetcom: <default("TsnSwitch")> like IEthernetNetworkNode {
+            @display("p=350,200");
+        }
+    connections:
+        bridgeToDetcom.ethg++ <--> bridgeAdapter;
+}

@@ -1,5 +1,5 @@
 /*
- * PKDelay.h
+ * PairwiseDelayer.h
  *
  *  Created on: Jun 22, 2023
  *      Author: dan
@@ -11,13 +11,13 @@
 #include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"
 
-namespace pkdelay {
+namespace d6g {
 using namespace inet;
 
 using namespace queueing;
 
 class INET_API PairwiseDelayer : public PacketDelayerBase {
-    static const short PKDELAY_ACTIVATE_KIND = 3495;
+    static const short PAIRWISE_ACTIVATE_KIND = 3495;
 
     class INET_API DelayEntry {
     public:
@@ -42,6 +42,6 @@ protected:
 };
 
 
-} // PKDelayer
+} // PairwiseDelayer
 
 #endif /* PAIRWISEDELAYER_H_ */

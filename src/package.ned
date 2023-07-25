@@ -1,5 +1,5 @@
-package pkdelay;
+package d6g;
 
-@namespace(pkdelay);
+@namespace(d6g);
 
 @license(LGPL);

@@ -17,67 +17,38 @@
 
 #include <omnetpp.h>
 
-#define MAX_VALUE 9.22e+6
-#define MIN_VALUE -9.22e+6
+namespace d6g {
 
-namespace pkdelay {
+std::map<std::string, cValue> randomWalk::lastDelays;  // key for different modules which call the randomWalk
 
-//double randomWalk::cur_delay = 0.0;
-//int randomWalk::count = 0;
+cValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int argc) {
+    auto unit = argv[1].getUnit();
 
-std::map<std::string, std::pair<double, int>> randomWalk::keyMap;
-
-std::map<std::string, double> randomWalk::conversionFactors = {
-    {"s", 1},
-    {"ms", 1e-3},
-    {"us", 1e-6}
-};
-
-randomWalk::randomWalk() {
-    // TODO Auto-generated constructor stub
-
-}
-
-randomWalk::~randomWalk() {
-    // TODO Auto-generated destructor stub
-}
-
-cNEDValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int argc){
-
-    // Retrieve the time units from the input parameters
-    const char* unit0 = argv[0].getUnit();
-    const char* unit1 = argv[1].getUnit();
-    std::string key = argv[2];
-
-//    EV << "unit0: " << unit0 << " -- unit1: " << unit1 << "\n";
-    // Convert the input parameters to double, according to their respective time units
-    double arg0 = argv[0].doubleValueInUnit(unit0);
-    double arg1 = argv[1].doubleValueInUnit(unit1);
-    EV << "Initial Value: arg0: " << arg0 << unit0 << " -- arg1: " << arg1 << unit1 << "\n";
-
-    if(strcmp(unit0, unit1) != 0){
-        arg1 = arg1 * conversionFactors[unit1] / conversionFactors[unit0]; // Converts arg1 from its original unit (unit1) to the target unit (unit0)
-//        unit1 = unit0; // align unit1 to unit0 after conversion
-        EV << key << "=========" << "arg0: " << arg0 << unit0 << " -- arg1: " << arg1 << unit0 << "\n";
+    std::string key = context->getFullPath();
+    if (argc == 3) {
+        key += argv[2].stringValue();
     }
+
+    // Check if the key is already in the map
+    if (lastDelays.find(key) == lastDelays.end()) {
+        // If not, add it
+        double initialDelay = argv[0].doubleValueInUnit(unit);
+        lastDelays[key] = cValue(initialDelay, unit);
+    }
+
+    auto lastDelay = lastDelays[key].doubleValueInUnit(unit);
 
     // Calculate the delay time. If it's the first calculation (keyMap[key].second == 0), set the beginning delay (keyMap[key].first) to arg0.
     // In subsequent calculations, increment the current delay by the sum of the previous delay and arg1.
     // Also, ensure the delay never goes below 0.
-    keyMap[key].first = (keyMap[key].second == 0) ? arg0 : keyMap[key].first + arg1;
-    keyMap[key].first = std::max(0.0, keyMap[key].first);
-//    cur_delay = std::min(MAX_VALUE, std::max(MIN_VALUE, cur_delay));
+    double randomWalkNextValue = argv[1].doubleValueInUnit(unit);
+    double nextDelayDbl = lastDelay + randomWalkNextValue;
+    cValue nextDelay = cValue(std::max(nextDelayDbl, 0.0), unit);
+    lastDelays[key] = nextDelay;
 
-    EV << "Calculated cur_delay: " << (keyMap[key].second == 0 ? key + " Initial " : key + "--") << keyMap[key].first << unit0 << "\n";
-    if (keyMap[key].second == 0) {
-        EV << "Calculated delay is negative. Setting delay to 0.\n";
-    }
-
-    keyMap[key].second++;
-
-    return cNEDValue(clocktime_t(keyMap[key].first).dbl(), unit0);  // change "us" to non hard-coded
+    return nextDelay;
 }
 // randomWalk
-Define_NED_Function(randomWalk::ned_randomWalk, "any randomWalk(any init, any randValue, string key)");
+Define_NED_Function(randomWalk::ned_randomWalk, "double randomWalk(quantity init, quantity randValue, string key?)");
 
-} /* namespace pkdelay */
+} /* namespace d6g */
