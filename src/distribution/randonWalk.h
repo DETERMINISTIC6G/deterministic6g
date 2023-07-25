@@ -13,15 +13,33 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package pkdelay.pairwise;
+#ifndef DISTRIBUTION_RANDONWALK_H_
+#define DISTRIBUTION_RANDONWALK_H_
 
-import inet.queueing.base.PacketDelayerBase;
-import inet.queueing.contract.IPacketDelayer;
+#include "inet/queueing/base/PacketDelayerBase.h"
 
-simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
-{
-    parameters:
-        xml delayConfig = default(xml("<delays></delays>"));
-        @class(PairwiseDelayer);
-}
+namespace pkdelay {
 
+using namespace inet;
+
+class randonWalk {
+private:
+    static double cur_delay;
+    static int count;
+
+    static std::map<std::string, double> conversionFactors;
+
+public:
+//    double return_delay;
+//    double cur_delay;
+//    int count = 0;
+
+    randonWalk();
+    virtual ~randonWalk();
+
+    static cNEDValue ned_randonWalk(cComponent *context, cNEDValue argv[], int argc);
+};
+
+} /* namespace pkdelay */
+
+#endif /* DISTRIBUTION_RANDONWALK_H_ */

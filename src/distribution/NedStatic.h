@@ -13,15 +13,24 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package pkdelay.pairwise;
+#ifndef DISTRIBUTION_NEDSTATIC_H_
+#define DISTRIBUTION_NEDSTATIC_H_
 
-import inet.queueing.base.PacketDelayerBase;
-import inet.queueing.contract.IPacketDelayer;
+//#include "inet/common/INETDefs.h"
+#include "inet/queueing/base/PacketDelayerBase.h"
 
-simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
-{
-    parameters:
-        xml delayConfig = default(xml("<delays></delays>"));
-        @class(PairwiseDelayer);
-}
+namespace pkdelay {
 
+using namespace inet;
+
+class INET_API NedStatic {
+public:
+    NedStatic();
+    virtual ~NedStatic();
+
+    static cNEDValue ned_Static(cComponent *context, cNEDValue argv[], int argc);
+};
+
+} /* namespace pkdelay */
+
+#endif /* DISTRIBUTION_NEDSTATIC_H_ */
