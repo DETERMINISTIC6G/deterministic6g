@@ -24,6 +24,8 @@ namespace pkdelay {
 double randonWalk::cur_delay = 0.0;
 int randonWalk::count = 0;
 
+std::map<std::string, double> randonWalk::keyMap;
+
 std::map<std::string, double> randonWalk::conversionFactors = {
     {"s", 1},
     {"ms", 1e-3},
@@ -40,9 +42,11 @@ randonWalk::~randonWalk() {
 }
 
 cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int argc){
+
     // Retrieve the time units from the input parameters
     const char* unit0 = argv[0].getUnit();
     const char* unit1 = argv[1].getUnit();
+    std::string key = argv[2];
 
 //    EV << "unit0: " << unit0 << " -- unit1: " << unit1 << "\n";
     // Convert the input parameters to double, according to their respective time units
@@ -53,7 +57,7 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
     if(strcmp(unit0, unit1) != 0){
         arg1 = arg1 * conversionFactors[unit1] / conversionFactors[unit0]; // Converts arg1 from its original unit (unit1) to the target unit (unit0)
 //        unit1 = unit0; // align unit1 to unit0 after conversion
-        EV << "arg0: " << arg0 << unit0 << " -- arg1: " << arg1 << unit0 << "\n";
+        EV << key << "=========" << "arg0: " << arg0 << unit0 << " -- arg1: " << arg1 << unit0 << "\n";
     }
 
     // Calculate the delay time. If it's the first calculation (count == 0), set the delay to arg0.
@@ -63,16 +67,19 @@ cNEDValue randonWalk::ned_randonWalk(cComponent *context, cNEDValue argv[], int 
     cur_delay = std::max(0.0, cur_delay);
 //    cur_delay = std::min(MAX_VALUE, std::max(MIN_VALUE, cur_delay));
 
-    EV << "Calculated cur_delay: " << (count == 0 ? "Initial " : "") << cur_delay << unit0 << "\n";
-    if (cur_delay == 0) {
+    keyMap[key] = cur_delay;
+
+
+    EV << "Calculated cur_delay: " << (count == 0 ? key + "Initial " : key + "") << keyMap[key] << unit0 << "\n";
+    if (keyMap[key] == 0) {
         EV << "Calculated delay is negative. Setting delay to 0.\n";
     }
 
     count++;
 
-    return cNEDValue(clocktime_t(cur_delay).dbl(), unit0);  // change "us" to non hard-coded
+    return cNEDValue(clocktime_t(keyMap[key]).dbl(), unit0);  // change "us" to non hard-coded
 }
-
-Define_NED_Function(randonWalk::ned_randonWalk, "any randonwalk(any init, any randValue)");
+// randomWalk
+Define_NED_Function(randonWalk::ned_randonWalk, "any randonWalk(any init, any randValue, string key)");
 
 } /* namespace pkdelay */

@@ -27,6 +27,7 @@ private:
     static double cur_delay;
     static int count;
 
+    static std::map<std::string, double> keyMap; // key for different module which calle the randonWalk
     static std::map<std::string, double> conversionFactors;
 
 public:
