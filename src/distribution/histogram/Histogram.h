@@ -32,15 +32,17 @@ class INET_API Histogram : public cSimpleModule
     class INET_API BinEntry {
        public:
            BinEntry(cXMLElement *binEntity);
-           double left_boundary = -1;
-           double right_boundary = -1;
+           double leftBoundary = -1;
+           double rightBoundary = -1;
            int count = 0;
            ~BinEntry() = default;
        };
 
 private:
     // Vector to store the bins
-    std::list<BinEntry> bins;
+    std::list<BinEntry*> bins;
+    int totalCount;
+    int countBins;
 
 protected:
     virtual void initialize(int stage) override;
@@ -52,11 +54,11 @@ protected:
 public:
 
     // Get Total count of elements in all bins
-    void GetNumberElements();
+    int getTotalCount();
     // Get Number of bins
-    void GetNumberBins();
+    int getNumberBins();
     // Get a random bin with the probability corresponding to the count
-    void RandomBin();
+    double randomBin();
 
    // SUBCLASS BIN
     // left boundary

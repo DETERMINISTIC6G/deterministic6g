@@ -28,6 +28,7 @@ void Histogram::initialize(int stage)
     // TODO - Generated method body
     // Parse the histogram configuration
     if (stage == INITSTAGE_LOCAL) {
+
         cXMLElement *histogramEntity = par("histogramConfig").xmlValue();
         parseHistogramConfig(histogramEntity);
     }
@@ -48,37 +49,85 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
     }
 
     cXMLElementList binEntities = histogramEntity->getChildrenByTagName("bin");
+    BinEntry *previousBinEntry = nullptr;
+//    EV << "random Bin: " << randomBin() << endl;
     for (auto &binEntity : binEntities) {
         // TODO: Store bins somewhere. You need to declare a container to hold the bins in the Histogram class.
-        auto *histogramEntry = new BinEntry(binEntity);
-        EV << "Histogram: Bin at " << histogramEntry->count << endl;
-        EV << "Histogram: low = " << histogramEntry->left_boundary << endl;
+        auto *currentBinEntry = new BinEntry(binEntity);
+//        EV << "Histogram: Bin count " << currentBinEntry->count << endl;
+//        EV << "Histogram: low = " << currentBinEntry->leftBoundary << endl;
+        totalCount = totalCount + currentBinEntry->count;
 
-            // add to list
+        if (previousBinEntry != nullptr) {
+            previousBinEntry->rightBoundary = currentBinEntry->leftBoundary;
+        }
+
+        // add to list
+        bins.push_back(currentBinEntry);
+
+        previousBinEntry = currentBinEntry;
+
     }
+    if (previousBinEntry != nullptr) {
+        previousBinEntry->rightBoundary = std::numeric_limits<double>::infinity();
+    }
+    // Check the bins
+    for (const BinEntry* bin : bins) {
+        EV << "Left boundary: " << bin->leftBoundary << endl;
+        EV << "Right boundary: " << bin->rightBoundary << endl;
+        EV << "Count: " << bin->count << endl;
+    }
+
+    EV << "number of bins: " << getNumberBins() << endl;
+
+    EV << "random Bin: " << randomBin() << endl;
+    EV << "random Bin: " << randomBin() << endl;
+    EV << "random Bin: " << randomBin() << endl;
+    EV << "random Bin: " << randomBin() << endl;
+
 }
 
 
 
-void d6g::Histogram::GetNumberElements() {
+int d6g::Histogram::getTotalCount() {
     // TODO: Iterate over your bins and sum up the counts.
+    return totalCount;
 }
 
-void d6g::Histogram::GetNumberBins() {
+int d6g::Histogram::getNumberBins() {
     // TODO: Return the size of your bin container.
+    return bins.size();
 }
 
-void d6g::Histogram::RandomBin() {
+double d6g::Histogram::randomBin() {
     // TODO: Implement random bin selection based on count.
+    if(totalCount == 0) {
+        throw cRuntimeError("No bins to select from");
+    }
+
+    // Generate a random number between 0 and totalCount
+    int randomValue = getRNG(0)->intRand(totalCount);
+
+    // Iterate through the bins
+    int runningTotal = 0;
+    for(auto binEntry : bins) {
+        runningTotal += binEntry->count;
+        if(runningTotal > randomValue) {
+            // This is the selected bin
+            return binEntry->leftBoundary;  // Or rightBoundary, or some other value you want to return
+        }
+    }
+
+    throw cRuntimeError("totalCount is 0. This should never happen, check your totalCount calculation");
 }
 
 d6g::Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
     const char* lowAttr = binEntity->getAttribute("low");
 
     if (strcmp(lowAttr, "-inf") == 0) {
-        this->left_boundary = -std::numeric_limits<double>::infinity();
+        this->leftBoundary = -std::numeric_limits<double>::infinity();
     } else {
-        this->left_boundary = atof(lowAttr);
+        this->leftBoundary = atof(lowAttr);
     }
 
     this->count = atoi(binEntity->getNodeValue());
