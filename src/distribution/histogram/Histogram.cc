@@ -14,14 +14,23 @@
 // 
 
 #include "Histogram.h"
+#include "inet/common/XMLUtils.h"
+#include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
 
 namespace d6g {
 
+using namespace inet::xmlutils;
+
 Define_Module(Histogram);
 
-void Histogram::initialize()
+void Histogram::initialize(int stage)
 {
     // TODO - Generated method body
+    // Parse the histogram configuration
+    if (stage == INITSTAGE_LOCAL) {
+        cXMLElement *histogramEntity = par("histogramConfig").xmlValue();
+        parseHistogramConfig(histogramEntity);
+    }
 }
 
 void Histogram::handleMessage(cMessage *msg)
@@ -30,3 +39,47 @@ void Histogram::handleMessage(cMessage *msg)
 }
 
 } //namespace
+
+void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
+    if (strcmp(histogramEntity->getTagName(), "histogram") != 0) {
+        throw cRuntimeError("Cannot read histogram configuration, unaccepted '%s' entity at %s",
+                            histogramEntity->getTagName(),
+                            histogramEntity->getSourceLocation());
+    }
+
+    cXMLElementList binEntities = histogramEntity->getChildrenByTagName("bin");
+    for (auto &binEntity : binEntities) {
+        // TODO: Store bins somewhere. You need to declare a container to hold the bins in the Histogram class.
+        auto *histogramEntry = new BinEntry(binEntity);
+        EV << "Histogram: Bin at " << histogramEntry->count << endl;
+        EV << "Histogram: low = " << histogramEntry->left_boundary << endl;
+
+            // add to list
+    }
+}
+
+
+
+void d6g::Histogram::GetNumberElements() {
+    // TODO: Iterate over your bins and sum up the counts.
+}
+
+void d6g::Histogram::GetNumberBins() {
+    // TODO: Return the size of your bin container.
+}
+
+void d6g::Histogram::RandomBin() {
+    // TODO: Implement random bin selection based on count.
+}
+
+d6g::Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
+    const char* lowAttr = binEntity->getAttribute("low");
+
+    if (strcmp(lowAttr, "-inf") == 0) {
+        this->left_boundary = -std::numeric_limits<double>::infinity();
+    } else {
+        this->left_boundary = atof(lowAttr);
+    }
+
+    this->count = atoi(binEntity->getNodeValue());
+}

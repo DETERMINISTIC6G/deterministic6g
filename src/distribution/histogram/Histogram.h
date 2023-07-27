@@ -17,30 +17,52 @@
 #define __PKDELAY_HISTOGRAM_H_
 
 #include <omnetpp.h>
+#include "inet/common/INETDefs.h"
 
 using namespace omnetpp;
 
 namespace d6g {
+using namespace inet;
 
 /**
  * TODO - Generated class
  */
-class Histogram : public cSimpleModule
+class INET_API Histogram : public cSimpleModule
 {
-  protected:
-    virtual void initialize() override;
+    class INET_API BinEntry {
+       public:
+           BinEntry(cXMLElement *binEntity);
+           double left_boundary = -1;
+           double right_boundary = -1;
+           int count = 0;
+           ~BinEntry() = default;
+       };
+
+private:
+    // Vector to store the bins
+    std::list<BinEntry> bins;
+
+protected:
+    virtual void initialize(int stage) override;
     virtual void handleMessage(cMessage *msg) override;
 
-  public:
-    // Get Total count of elements in all bins
-    // Get Number of bins
-    // Get a random bin with the probability corresponding to the count
+    void parseHistogramConfig(cXMLElement *histogramEntity);
 
+
+public:
+
+    // Get Total count of elements in all bins
+    void GetNumberElements();
+    // Get Number of bins
+    void GetNumberBins();
+    // Get a random bin with the probability corresponding to the count
+    void RandomBin();
 
    // SUBCLASS BIN
     // left boundary
     // right boundary
     // count of elements in bin
+
 };
 
 } //namespace

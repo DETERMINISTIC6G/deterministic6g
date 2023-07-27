@@ -20,5 +20,7 @@ package d6g.distribution.histogram;
 //
 simple Histogram
 {
-    xml histogramFile;
+    parameters:
+    	xml histogramConfig = default(xml("<bin></bin>"));
+    	@class(Histogram);
 }
