@@ -9,11 +9,14 @@ import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 
+import d6g.distribution.histogram.Histogram;
+
 network Baseline extends TsnNetworkBase
 {
     parameters:
         *.eth[*].bitrate = default(100Mbps);
     submodules:
+        histogram: Histogram;
         talker: <default("TsnDevice")> like IEthernetNetworkNode {
             @display("p=350,200");
         }
