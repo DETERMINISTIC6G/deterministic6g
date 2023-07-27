@@ -73,12 +73,12 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
     }
     // Check the bins
     for (const BinEntry* bin : bins) {
-        EV << "Left boundary: " << bin->leftBoundary << endl;
-        EV << "Right boundary: " << bin->rightBoundary << endl;
-        EV << "Count: " << bin->count << endl;
+        EV << "Left boundary: " << bin->leftBoundary
+           << "  --  Right boundary: " << bin->rightBoundary
+           << "  --  Count: " << bin->count << endl;
     }
 
-    EV << "number of bins: " << getNumberBins() << endl;
+    EV << "Number of bins: " << getNumberBins() << endl;
 
     EV << "random Bin: " << randomBin() << endl;
     EV << "random Bin: " << randomBin() << endl;
