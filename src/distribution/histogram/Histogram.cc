@@ -25,7 +25,6 @@ Define_Module(Histogram);
 
 void Histogram::initialize(int stage)
 {
-    // TODO - Generated method body
     // Parse the histogram configuration
     if (stage == INITSTAGE_LOCAL) {
 
@@ -50,12 +49,10 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
 
     cXMLElementList binEntities = histogramEntity->getChildrenByTagName("bin");
     BinEntry *previousBinEntry = nullptr;
-//    EV << "random Bin: " << randomBin() << endl;
+
     for (auto &binEntity : binEntities) {
-        // TODO: Store bins somewhere. You need to declare a container to hold the bins in the Histogram class.
         auto *currentBinEntry = new BinEntry(binEntity);
-//        EV << "Histogram: Bin count " << currentBinEntry->count << endl;
-//        EV << "Histogram: low = " << currentBinEntry->leftBoundary << endl;
+
         totalCount += currentBinEntry->count;
 
         if (previousBinEntry != nullptr) {
@@ -66,13 +63,14 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
         bins.push_back(currentBinEntry);
 
         previousBinEntry = currentBinEntry;
-
     }
+
     if (previousBinEntry != nullptr) {
         previousBinEntry->rightBoundary = std::numeric_limits<double>::infinity();
     }
+
     // Check the bins
-    for (const BinEntry* bin : bins) {
+    for (const auto *bin : bins) {
         EV << "Left boundary: " << bin->leftBoundary
            << "  --  Right boundary: " << bin->rightBoundary
            << "  --  Count: " << bin->count << endl;
@@ -80,27 +78,24 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
 
     EV << "Number of bins: " << getNumberBins() << endl;
 
-    EV << "random Bin: " << randomBin() << endl;
-    EV << "random Bin: " << randomBin() << endl;
-    EV << "random Bin: " << randomBin() << endl;
-    EV << "random Bin: " << randomBin() << endl;
+    EV << "random Bin 1: " << randomBin() << endl;
+    EV << "random Bin 2: " << randomBin() << endl;
+    EV << "random Bin 3: " << randomBin() << endl;
+    EV << "random Bin 4: " << randomBin() << endl;
 
 }
 
 
 
 int d6g::Histogram::getTotalCount() {
-    // TODO: Iterate over your bins and sum up the counts.
     return totalCount;
 }
 
 int d6g::Histogram::getNumberBins() {
-    // TODO: Return the size of your bin container.
     return bins.size();
 }
 
 double d6g::Histogram::randomBin() {
-    // TODO: Implement random bin selection based on count.
     if(totalCount == 0) {
         throw cRuntimeError("No bins to select from");
     }
