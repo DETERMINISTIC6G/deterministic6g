@@ -56,7 +56,7 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
         auto *currentBinEntry = new BinEntry(binEntity);
 //        EV << "Histogram: Bin count " << currentBinEntry->count << endl;
 //        EV << "Histogram: low = " << currentBinEntry->leftBoundary << endl;
-        totalCount = totalCount + currentBinEntry->count;
+        totalCount += currentBinEntry->count;
 
         if (previousBinEntry != nullptr) {
             previousBinEntry->rightBoundary = currentBinEntry->leftBoundary;
