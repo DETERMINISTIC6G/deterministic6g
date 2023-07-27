@@ -8,11 +8,12 @@ package d6g.simulations.cooperativemanufacturing;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import d6g.devices.DetCom;
+import d6g.devices.sixg.DetCom;
+import d6g.devices.sixg.NNIChannel;
+import d6g.networks.DetComNetworkBase;
 
 
-
-network CooperativeManufacturing extends TsnNetworkBase
+network CooperativeManufacturing extends DetComNetworkBase
 {
     parameters:
         *.eth[*].bitrate = default(100Mbps);
@@ -30,8 +31,8 @@ network CooperativeManufacturing extends TsnNetworkBase
             @display("p=550,250");
         }
     connections:
-        agv1.bridgeAdapter <--> EthernetLink <--> detcom.ethg++;
-        agv2.bridgeAdapter <--> EthernetLink <--> detcom.ethg++;
-        processingCell.bridgeAdapter <--> EthernetLink <--> detcom.ethg++;
+        agv1.adapterGate <--> NNIChannel <--> detcom.ueg++;
+        agv2.adapterGate <--> NNIChannel <--> detcom.ueg++;
+        processingCell.adapterGate <--> EthernetLink <--> detcom.ethg++;
 }
 

@@ -13,21 +13,14 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.simulations.cooperativemanufacturing;
+package d6g.devices.sixg;
 
-import inet.networks.base.TsnNetworkBase;
-import inet.node.contract.IEthernetNetworkNode;
-import inet.node.ethernet.EthernetLink;
+import inet.linklayer.ethernet.LayeredEthernetInterface;
+import inet.node.tsn.TsnSwitch;
+import inet.linklayer.contract.IEthernetInterface;
 
-module Unit {
+module UE extends LayeredEthernetInterface {
     parameters:
-        *.eth[*].bitrate = default(100Mbps);
-    gates:
-        inout bridgeAdapter;
-    submodules:
-        bridgeToDetcom: <default("TsnSwitch")> like IEthernetNetworkNode {
-            @display("p=350,200");
-        }
-    connections:
-        bridgeToDetcom.ethg++ <--> bridgeAdapter;
+    	phyLayer.interFrameGapInserter.duration = default(0s);
+    	bitrate = default(inf Mbps);
 }

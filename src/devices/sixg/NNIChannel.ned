@@ -13,13 +13,12 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.devices;
+package d6g.devices.sixg;
 
-import inet.node.tsn.TsnSwitch;
+import inet.node.ethernet.EthernetLink;
 
-module DetCom extends TsnSwitch
-{
-    parameters:
-        bridging.typename = default("BridgingLayerWithPairwiseDelay");
-        @display("i=device/antennatower");
+channel NNIChannel extends EthernetLink {
+    length = default(0m);
+    datarate = 0bps;
+    @display("ls=,,da");
 }

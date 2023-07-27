@@ -13,27 +13,25 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.simulations.cooperativemanufacturing;
+package d6g.devices.sixg;
 
-import inet.networks.base.TsnNetworkBase;
+import inet.node.tsn.TsnSwitch;
 import inet.node.contract.IEthernetNetworkNode;
-import inet.node.ethernet.EthernetLink;
-import d6g.devices.sixg.UnitWithAdapter;
 
-module AGV extends UnitWithAdapter
-{
+module UnitWithAdapter {
     parameters:
-    	@display("i=device/cellphone");
-    	isWireless = true;
-    	*.eth[*].bitrate = default(100Mbps);
+        bool isWireless = default(true);
+    gates:
+        inout adapterGate;
     submodules:
-        interAgv: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=300,100");
-        }
-        interToCell: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=400,100");
+        detComAdapter: DetComAdapter {
+            @display("p=350,200");
         }
     connections:
-        detComAdapter.ethg++ <--> EthernetLink <--> interAgv.ethg++;
-        detComAdapter.ethg++ <--> EthernetLink <--> interToCell.ethg++;
+        if (isWireless) {
+        	detComAdapter.ueg++ <--> {@display("ls=,,da");} <--> adapterGate;
+        }
+        if (!isWireless) {
+            detComAdapter.ethg++ <--> {@display("ls=,,da");} <--> adapterGate;
+        }
 }

@@ -13,31 +13,27 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.simulations.cooperativemanufacturing;
+package d6g.networks;
 
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import d6g.devices.sixg.UnitWithAdapter;
 
-module ProcessingCell extends UnitWithAdapter
+network DetComNetworkBase extends TsnNetworkBase
 {
     parameters:
-        isWireless = false;
-    	@display("i=status/execute");
         *.eth[*].bitrate = default(100Mbps);
-    submodules:
-        bridge: <default("TsnSwitch")> like IEthernetNetworkNode {
-            @display("p=350,100");
-        }
-        swarmStatus: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=250,100");
-        }
-        swarmControl: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=250,200");
-        }
-    connections:
-        swarmControl.ethg++ <--> EthernetLink <--> detComAdapter.ethg++;
-        swarmStatus.ethg++ <--> EthernetLink <--> bridge.ethg++;
-        bridge.ethg++ <--> EthernetLink <--> detComAdapter.ethg++;
+		**.hasEgressTrafficShaping = true;
+		**.hasIncomingStreams = true;
+		
+		**.bridging.directionReverser.reverser.excludeEncapsulationProtocols = ["ieee8021qctag"];
+		**.eth[*].macLayer.queue.numTrafficClasses = 2;
+		**.bridging.streamCoder.*.mapping = [{stream: "BK", pcp: 0},
+									         {stream: "BE", pcp: 1},
+							                 {stream: "EE", pcp: 2},
+									         {stream: "CA", pcp: 3},
+									         {stream: "VI", pcp: 4},
+                                             {stream: "VO", pcp: 5},
+                                             {stream: "IC", pcp: 6},
+                                             {stream: "NV", pcp: 7}];
 }
