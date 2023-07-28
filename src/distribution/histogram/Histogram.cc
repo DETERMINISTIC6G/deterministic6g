@@ -27,7 +27,6 @@ void Histogram::initialize(int stage)
 {
     // Parse the histogram configuration
     if (stage == INITSTAGE_LOCAL) {
-
         cXMLElement *histogramEntity = par("histogramConfig").xmlValue();
         parseHistogramConfig(histogramEntity);
     }
@@ -75,15 +74,10 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
     }
 
     EV << "Number of bins: " << getNumberBins() << endl;
-
     EV << "random Bin 1: " << randomBin() << endl;
     EV << "random Bin 2: " << randomBin() << endl;
     EV << "random Bin 3: " << randomBin() << endl;
-    EV << "random Bin 4: " << randomBin() << endl;
-
 }
-
-
 
 int Histogram::getTotalCount() {
     return totalCount;
@@ -119,7 +113,9 @@ Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
 
     if (strcmp(lowAttr, "-inf") == 0) {
         this->leftBoundary = -std::numeric_limits<double>::infinity();
-    } else {
+    }
+
+    else {
         this->leftBoundary = atof(lowAttr);
     }
 
