@@ -38,9 +38,7 @@ void Histogram::handleMessage(cMessage *msg)
     // TODO - Generated method body
 }
 
-} //namespace
-
-void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
+void Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
     if (strcmp(histogramEntity->getTagName(), "histogram") != 0) {
         throw cRuntimeError("Cannot read histogram configuration, unaccepted '%s' entity at %s",
                             histogramEntity->getTagName(),
@@ -87,15 +85,15 @@ void d6g::Histogram::parseHistogramConfig(cXMLElement *histogramEntity){
 
 
 
-int d6g::Histogram::getTotalCount() {
+int Histogram::getTotalCount() {
     return totalCount;
 }
 
-int d6g::Histogram::getNumberBins() {
+int Histogram::getNumberBins() {
     return bins.size();
 }
 
-double d6g::Histogram::randomBin() {
+double Histogram::randomBin() {
     if(totalCount == 0) {
         throw cRuntimeError("No bins to select from");
     }
@@ -116,7 +114,7 @@ double d6g::Histogram::randomBin() {
     throw cRuntimeError("totalCount is 0. This should never happen, check your totalCount calculation");
 }
 
-d6g::Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
+Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
     const char* lowAttr = binEntity->getAttribute("low");
 
     if (strcmp(lowAttr, "-inf") == 0) {
@@ -127,3 +125,7 @@ d6g::Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
 
     this->count = atoi(binEntity->getNodeValue());
 }
+
+
+} //namespace
+
