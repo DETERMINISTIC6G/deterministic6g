@@ -18,6 +18,7 @@
 
 #include <omnetpp.h>
 #include "inet/common/INETDefs.h"
+#include "../contract/IRandomNumberGenerator.h"
 
 using namespace omnetpp;
 
@@ -27,11 +28,11 @@ using namespace inet;
 /**
  * TODO - Generated class
  */
-class INET_API Histogram : public cSimpleModule
+class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator
 {
     class INET_API BinEntry {
        public:
-           BinEntry(cXMLElement *binEntity);
+           explicit BinEntry(cXMLElement *binEntity);
            double leftBoundary = -1;
            double rightBoundary = -1;
            int count = 0;
@@ -42,29 +43,20 @@ private:
     // Vector to store the bins
     std::list<BinEntry*> bins;
     int totalCount;
-    int countBins;
 
 protected:
-    virtual void initialize(int stage) override;
-    virtual void handleMessage(cMessage *msg) override;
-
+    void initialize(int stage) override;
     void parseHistogramConfig(cXMLElement *histogramEntity);
-
 
 public:
 
     // Get Total count of elements in all bins
-    int getTotalCount();
+    int getTotalCount() const;
     // Get Number of bins
-    int getNumberBins();
+    size_t getNumberBins() const;
     // Get a random bin with the probability corresponding to the count
-    double randomBin();
-
-   // SUBCLASS BIN
-    // left boundary
-    // right boundary
-    // count of elements in bin
-
+    BinEntry * randomBin() const;
+    double getRand() const override;
 };
 
 } //namespace
