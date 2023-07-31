@@ -91,33 +91,39 @@ Histogram::BinEntry *Histogram::randomBin() const {
     auto randomValue = intrand(totalCount);
 
     //Binary Search
-    return BinarySearch(randomValue, 0, getNumberBins()-1);
+    return BinarySearch(randomValue);
 }
 
-Histogram::BinEntry *Histogram::BinarySearch(int target, int low, int high) const {
-    if (low > high) {
-        if (low < bins.size()) {
-            auto it = bins.begin();
-            std::advance(it, low);
+Histogram::BinEntry *Histogram::BinarySearch(int target) const {
+    int low = 0;
+    int high = bins.size() - 1;
+
+    while (low <= high) {
+        int mid = low + ((high - low) / 2);
+
+        auto it = bins.begin();
+        std::advance(it, mid);
+
+        if (target < (*it)->accumulatedCount){
+            high = mid - 1;
+        }
+        else if (target > (*it)->accumulatedCount){
+            low = mid + 1;
+        }
+        else{
             return *it;
         }
-        throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
     }
 
-    int mid = low + ((high - low) / 2);
-
-    auto it = bins.begin();
-    std::advance(it, mid);
-    if (target < (*it)->accumulatedCount){
-        return BinarySearch(target, low, mid - 1);
-    }
-    else if (target > (*it)->accumulatedCount){
-        return BinarySearch(target, mid + 1, high);
-    }
-    else{
+    if (low < bins.size()) {
+        auto it = bins.begin();
+        std::advance(it, low);
         return *it;
     }
+
+    throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
 }
+
 
 double Histogram::getRand() const {
     auto bin = randomBin();

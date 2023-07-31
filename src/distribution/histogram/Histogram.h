@@ -42,7 +42,7 @@ class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator
 
 private:
     // Vector to store the bins
-    std::list<BinEntry*> bins;
+    std::vector<BinEntry*> bins;
     int totalCount;
 
 protected:
@@ -58,7 +58,7 @@ public:
     // Get a random bin with the probability corresponding to the count
     BinEntry * randomBin() const;
     // Binary Search
-    BinEntry * BinarySearch(int target, int low, int high) const;
+    BinEntry * BinarySearch(int target) const;
     double getRand() const override;
 };
 
