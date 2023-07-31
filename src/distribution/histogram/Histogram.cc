@@ -101,24 +101,19 @@ Histogram::BinEntry *Histogram::BinarySearch(int target) const {
     while (low <= high) {
         int mid = low + ((high - low) / 2);
 
-        auto it = bins.begin();
-        std::advance(it, mid);
-
-        if (target < (*it)->accumulatedCount){
+        if (target < bins[mid]->accumulatedCount){
             high = mid - 1;
         }
-        else if (target > (*it)->accumulatedCount){
+        else if (target > bins[mid]->accumulatedCount){
             low = mid + 1;
         }
         else{
-            return *it;
+            return bins[mid];
         }
     }
 
     if (low < bins.size()) {
-        auto it = bins.begin();
-        std::advance(it, low);
-        return *it;
+        return bins[low];
     }
 
     throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
