@@ -36,6 +36,7 @@ class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator
            double leftBoundary = -1;
            double rightBoundary = -1;
            int count = 0;
+           int accumulatedCount = 0;  // new member to hold the cumulative count
            ~BinEntry() = default;
        };
 
@@ -57,7 +58,7 @@ public:
     // Get a random bin with the probability corresponding to the count
     BinEntry * randomBin() const;
     // Binary Search
-    BinEntry * BinarySearch(int target, int low, int high, const std::vector<int>& prefixSums) const;
+    BinEntry * BinarySearch(int target, int low, int high) const;
     double getRand() const override;
 };
 

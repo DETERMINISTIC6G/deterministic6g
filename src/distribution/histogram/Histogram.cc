@@ -45,6 +45,7 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
         auto *currentBinEntry = new BinEntry(binEntity);
 
         totalCount += currentBinEntry->count;
+        currentBinEntry->accumulatedCount = totalCount;
 
         if (previousBinEntry != nullptr) {
             previousBinEntry->rightBoundary = currentBinEntry->leftBoundary;
@@ -67,13 +68,10 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
            << "  --  Count: " << bin->count << endl;
     }
 
+    // Testing
     EV << "Random Bin 1: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 2: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 3: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 4: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 5: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 6: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 7: " << randomBin()->leftBoundary << endl;
+    EV << "Random Bin 1: " << randomBin()->leftBoundary << endl;
+    EV << "Random Bin 1: " << randomBin()->leftBoundary << endl;
 }
 
 int Histogram::getTotalCount() const {
@@ -92,21 +90,11 @@ Histogram::BinEntry *Histogram::randomBin() const {
     // Generate a random number between 0 and totalCount
     auto randomValue = intrand(totalCount);
 
-    std::vector<int> prefixSums;
-    prefixSums.resize(bins.size());
-    int runningTotal = 0;
-    int i = 0;
-    for(auto &binEntry : bins) {
-        runningTotal += binEntry->count;
-        prefixSums[i] = runningTotal;
-        i++;
-    }
-
     //Binary Search
-    return BinarySearch(randomValue, 0, getNumberBins()-1, prefixSums);
+    return BinarySearch(randomValue, 0, getNumberBins()-1);
 }
 
-Histogram::BinEntry *Histogram::BinarySearch(int target, int low, int high, const std::vector<int>& prefixSums) const {
+Histogram::BinEntry *Histogram::BinarySearch(int target, int low, int high) const {
     if (low > high) {
         if (low < bins.size()) {
             auto it = bins.begin();
@@ -118,15 +106,15 @@ Histogram::BinEntry *Histogram::BinarySearch(int target, int low, int high, cons
 
     int mid = low + ((high - low) / 2);
 
-    if (target < prefixSums[mid]){
-        return BinarySearch(target, low, mid - 1, prefixSums);
+    auto it = bins.begin();
+    std::advance(it, mid);
+    if (target < (*it)->accumulatedCount){
+        return BinarySearch(target, low, mid - 1);
     }
-    else if (target > prefixSums[mid]){
-        return BinarySearch(target, mid + 1, high, prefixSums);
+    else if (target > (*it)->accumulatedCount){
+        return BinarySearch(target, mid + 1, high);
     }
     else{
-        auto it = bins.begin();
-        std::advance(it, mid);
         return *it;
     }
 }
@@ -142,6 +130,4 @@ Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
     this->count = atoi(binEntity->getNodeValue());
 }
 
-
 } //namespace
-
