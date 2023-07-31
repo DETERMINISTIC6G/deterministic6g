@@ -56,6 +56,8 @@ public:
     size_t getNumberBins() const;
     // Get a random bin with the probability corresponding to the count
     BinEntry * randomBin() const;
+    // Binary Search
+    BinEntry * BinarySearch(int target, int low, int high, const std::vector<int>& prefixSums) const;
     double getRand() const override;
 };
 
