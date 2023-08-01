@@ -14,19 +14,120 @@
 // 
 
 #include "Histogram.h"
+#include "inet/common/XMLUtils.h"
+#include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
 
 namespace d6g {
 
+using namespace inet::xmlutils;
+
 Define_Module(Histogram);
 
-void Histogram::initialize()
-{
-    // TODO - Generated method body
+void Histogram::initialize(int stage) {
+    // Parse the histogram configuration
+    if (stage == INITSTAGE_LOCAL) {
+        cXMLElement *histogramEntity = par("histogramConfig").xmlValue();
+        parseHistogramConfig(histogramEntity);
+    }
 }
 
-void Histogram::handleMessage(cMessage *msg)
-{
-    // TODO - Generated method body
+void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
+    if (strcmp(histogramEntity->getTagName(), "histogram") != 0) {
+        throw cRuntimeError("Cannot read histogram configuration, unaccepted '%s' entity at %s",
+                            histogramEntity->getTagName(),
+                            histogramEntity->getSourceLocation());
+    }
+
+    cXMLElementList binEntities = histogramEntity->getChildrenByTagName("bin");
+    BinEntry *previousBinEntry = nullptr;
+
+    for (auto &binEntity: binEntities) {
+        auto *currentBinEntry = new BinEntry(binEntity);
+
+        totalCount += currentBinEntry->count;
+        currentBinEntry->accumulatedCount = totalCount;
+
+        if (previousBinEntry != nullptr) {
+            previousBinEntry->rightBoundary = currentBinEntry->leftBoundary;
+        }
+
+        // add to vector
+        bins.push_back(currentBinEntry);
+
+        previousBinEntry = currentBinEntry;
+    }
+
+    if (previousBinEntry != nullptr) {
+        previousBinEntry->rightBoundary = std::numeric_limits<double>::infinity();
+    }
+
+    // Check the bins
+    for (const auto *bin: bins) {
+        EV << "Left boundary: " << bin->leftBoundary
+           << "  --  Right boundary: " << bin->rightBoundary
+           << "  --  Count: " << bin->count << endl;
+    }
+
+    // Testing
+    EV << "Random 1: " << getRand() << endl;
+    EV << "Random 2: " << getRand() << endl;
+    EV << "Random 3: " << getRand() << endl;
+}
+
+int Histogram::getTotalCount() const {
+    return totalCount;
+}
+
+size_t Histogram::getNumberBins() const {
+    return bins.size();
+}
+
+Histogram::BinEntry *Histogram::randomBin() const {
+    if (totalCount == 0) {
+        throw cRuntimeError("No bins to select from");
+    }
+
+    // Generate a random number between 0 and totalCount
+    auto randomValue = intrand(totalCount);
+
+    //Binary Search
+    return BinarySearch(randomValue);
+}
+
+Histogram::BinEntry *Histogram::BinarySearch(int target) const {
+    int low = 0;
+    int high = bins.size() - 1;
+
+    while (low <= high) {
+        int mid = low + ((high - low) / 2);
+        if (target == bins[mid]->accumulatedCount){
+            return bins[mid];
+        }
+        else if (target < bins[mid]->accumulatedCount){
+            high = mid - 1;
+        }
+        else{
+            low = mid + 1;
+        }
+    }
+
+    if (low < bins.size()) {
+        return bins[low];
+    }
+
+    throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
+}
+
+
+double Histogram::getRand() const {
+    auto bin = randomBin();
+    return uniform(bin->leftBoundary, bin->rightBoundary);
+}
+
+Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
+    const char *lowAttr = binEntity->getAttribute("low");
+    this->leftBoundary = atof(lowAttr);
+    this->count = atoi(binEntity->getNodeValue());
 }
 
 } //namespace
