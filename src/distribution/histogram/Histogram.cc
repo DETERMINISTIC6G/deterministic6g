@@ -100,15 +100,14 @@ Histogram::BinEntry *Histogram::BinarySearch(int target) const {
 
     while (low <= high) {
         int mid = low + ((high - low) / 2);
-
-        if (target < bins[mid]->accumulatedCount){
+        if (target == bins[mid]->accumulatedCount){
+            return bins[mid];
+        }
+        else if (target < bins[mid]->accumulatedCount){
             high = mid - 1;
         }
-        else if (target > bins[mid]->accumulatedCount){
-            low = mid + 1;
-        }
         else{
-            return bins[mid];
+            low = mid + 1;
         }
     }
 
