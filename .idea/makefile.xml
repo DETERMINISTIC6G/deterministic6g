@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MakefileBuildTargetsManager">
+    <user-build-targets>
+      <build-target name="MODE=debug all">
+        <build-configurations>
+          <build-configuration>
+            <make-targets>
+              <make-target>MODE=debug</make-target>
+              <make-target>all</make-target>
+            </make-targets>
+          </build-configuration>
+        </build-configurations>
+      </build-target>
+    </user-build-targets>
+  </component>
+</project>
