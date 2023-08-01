@@ -51,7 +51,7 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
             previousBinEntry->rightBoundary = currentBinEntry->leftBoundary;
         }
 
-        // add to list
+        // add to vector
         bins.push_back(currentBinEntry);
 
         previousBinEntry = currentBinEntry;
