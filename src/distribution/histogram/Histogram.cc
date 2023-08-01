@@ -69,9 +69,9 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
     }
 
     // Testing
-    EV << "Random Bin 1: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 2: " << randomBin()->leftBoundary << endl;
-    EV << "Random Bin 3: " << randomBin()->leftBoundary << endl;
+    EV << "Random 1: " << getRand() << endl;
+    EV << "Random 2: " << getRand() << endl;
+    EV << "Random 3: " << getRand() << endl;
 }
 
 int Histogram::getTotalCount() const {
