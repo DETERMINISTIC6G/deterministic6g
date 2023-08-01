@@ -4,5 +4,11 @@ simulations/frames
 *.sif
 src/PkDelay
 src/PkDelay_dbg
+src/pkdelay
+src/pkdelay_dbg
+*.vci
+*.vec
+*.sca
+*.qtenvrc
 simulations/results/*
 omnetpp-gui
