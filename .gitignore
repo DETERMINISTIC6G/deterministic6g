@@ -8,7 +8,7 @@ src/deterministic6g_dbg
 *.vec
 *.sca
 *.qtenvrc
-simulations/results/*
+simulations/**/results/
 omnetpp-gui
 src/Makefile
 .settings/
@@ -33,3 +33,4 @@ out/
 .cmdenv-log
 netanim-trace.txt
 *.out
+.metadata
