@@ -1,3 +1,5 @@
+INET ?= ../../inet
+
 all: checkmakefiles
 	cd src && $(MAKE)
 
@@ -10,7 +12,7 @@ cleanall: checkmakefiles
 	rm -f src/Makefile
 
 makefiles:
-	cd src && opp_makemake -f --deep
+	cd src && opp_makemake -f --deep -KINET_PROJ=$(INET) -DINET_IMPORT -I'$$(INET_PROJ)/src' -L'$$(INET_PROJ)/src' -l'INET$$(D)'
 
 checkmakefiles:
 	@if [ ! -f src/Makefile ]; then \

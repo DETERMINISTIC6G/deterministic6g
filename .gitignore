@@ -13,6 +13,7 @@ src/pkdelay_dbg
 simulations/results/*
 omnetpp-gui
 src/Makefile
+.settings/
 
 # ignore binary files
 out/
