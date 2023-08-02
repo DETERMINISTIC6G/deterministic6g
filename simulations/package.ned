@@ -27,4 +27,3 @@ network TsnTestNetwork extends TsnNetworkBase
         client.ethg++ <--> EthernetLink <--> switch.ethg++;
         switch.ethg++ <--> EthernetLink <--> server.ethg++;
 }
-

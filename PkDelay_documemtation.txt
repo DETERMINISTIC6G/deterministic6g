@@ -1,7 +1,0 @@
-PKDelay Module Documentation
-
-The module establishes a connection between a packet producer and a packet consumer, enabling the transfer of packets from the producer to the consumer.
-As packets are pushed from the connected producer, they undergo a delay before being forwarded to the output. Depending on the configured parameter, the order of the packets may be altered, introducing variability in their delay can be configured based on different distribution such as uniform and normal.
-This module extends the existing Packetdelayer class available in already implemented INET.In the example network, the PKDelayer module utilizes a random delay distribution. This means that each packet passing through the module will experience a different delay time. The specific delay time for each packet is randomly determined according to the configured distribution.
-
-By customizing the delay distribution parameters in the PKDelayer module, such as setting a specific distribution function or adjusting the distribution parameters, you can fine-tune the delay characteristics to match your simulation requirements.

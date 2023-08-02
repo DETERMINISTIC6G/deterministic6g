@@ -10,7 +10,7 @@ The following guide assumes you already have a working OMNeT++ installation (see
 ### Workspace Setup
 Your workspace should have the following structure:
 ```
-<workspace>
+[path_to_your_workspace]
 ├── d6g
 └── inet
 ```
@@ -39,3 +39,16 @@ cd d6g
 make makefiles
 make -j$(nproc)
 ```
+
+### Working in the OMNeT++ IDE
+1. Open/Create the workspace located at `[path_to_your_workspace]`.
+2. Open the INET project (File > Open Projects from File System... > Directory... > `[path_to_your_workspace]/inet` > Finish)
+3. Open the D6G project (File > Open Projects from File System... > Directory... > `[path_to_your_workspace]/d6g` > Finish)
+
+## Run simulations
+
+### Using the IDE
+1. Open the `omnetpp.ini` file of the simulation you want to run.
+2. Click on the green run button in the top toolbar.
+
+### Using the command line
