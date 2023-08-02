@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>pkdelay</name>
+	<name>deterministic6g</name>
 	<comment></comment>
 	<projects>
 		<project>inet</project>
-		<project>inet4.5</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

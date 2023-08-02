@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PKDELAY_HISTOGRAM_H_
-#define __PKDELAY_HISTOGRAM_H_
+#ifndef DETERMINISTIC6G_HISTOGRAM_H_
+#define DETERMINISTIC6G_HISTOGRAM_H_
 
 #include <omnetpp.h>
 #include "inet/common/INETDefs.h"

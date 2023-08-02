@@ -5,8 +5,8 @@
  *      Author: dan
  */
 
-#ifndef PAIRWISEDELAYER_H_
-#define PAIRWISEDELAYER_H_
+#ifndef DETERMINISTIC6G_PAIRWISEDELAYER_H_
+#define DETERMINISTIC6G_PAIRWISEDELAYER_H_
 
 #include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"

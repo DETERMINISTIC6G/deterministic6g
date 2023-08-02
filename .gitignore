@@ -2,10 +2,8 @@ out
 simulations/frames
 *.mp4
 *.sif
-src/PkDelay
-src/PkDelay_dbg
-src/pkdelay
-src/pkdelay_dbg
+src/deterministic6g
+src/deterministic6g_dbg
 *.vci
 *.vec
 *.sca

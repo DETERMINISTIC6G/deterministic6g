@@ -2,8 +2,8 @@
 // Created by haugls on 7/28/23.
 //
 
-#ifndef PKDELAY_IRANDOMNUMBERGENERATOR_H
-#define PKDELAY_IRANDOMNUMBERGENERATOR_H
+#ifndef DETERMINISTIC6G_IRANDOMNUMBERGENERATOR_H
+#define DETERMINISTIC6G_IRANDOMNUMBERGENERATOR_H
 
 
 class IRandomNumberGenerator {
@@ -11,4 +11,4 @@ class IRandomNumberGenerator {
 };
 
 
-#endif //PKDELAY_IRANDOMNUMBERGENERATOR_H
+#endif

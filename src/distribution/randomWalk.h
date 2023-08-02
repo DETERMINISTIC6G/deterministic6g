@@ -13,8 +13,8 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef DISTRIBUTION_RANDOMWALK_H_
-#define DISTRIBUTION_RANDOMWALK_H_
+#ifndef DETERMINISTIC6G_RANDOMWALK_H_
+#define DETERMINISTIC6G_RANDOMWALK_H_
 
 #include "inet/queueing/base/PacketDelayerBase.h"
 
@@ -38,4 +38,4 @@ public:
 
 } /* namespace d6g */
 
-#endif /* DISTRIBUTION_RANDOMWALK_H_ */
+#endif
