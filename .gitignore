@@ -12,3 +12,25 @@ src/pkdelay_dbg
 *.qtenvrc
 simulations/results/*
 omnetpp-gui
+src/Makefile
+
+# ignore binary files
+out/
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+*.exe
+*.o
+*.obj
+*.pdb
+*.idb
+*.manifest
+.qtenv.ini
+.qtenvrc
+.tkenvrc
+.tkenvlog
+.cmdenv-log
+netanim-trace.txt
+*.out
