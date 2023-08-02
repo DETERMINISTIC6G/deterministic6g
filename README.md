@@ -11,7 +11,7 @@ The following guide assumes you already have a working OMNeT++ installation (see
 Your workspace should have the following structure:
 ```
 [path_to_your_workspace]
-├── d6g
+├── deterministic6g
 └── inet
 ```
 
@@ -31,11 +31,11 @@ make makefiles
 make -j$(nproc)
 ```
 
-### D6G installation
+### Deterministic6G installation
 1. Make sure this project is in your workspace (see [Workspace Setup](#workspace-setup)).
-2. Build the D6G framework:
+2. Build the Deterministic6G framework:
 ```shell
-cd d6g
+cd deterministic6g
 make makefiles
 make -j$(nproc)
 ```
@@ -43,7 +43,7 @@ make -j$(nproc)
 ### Working in the OMNeT++ IDE
 1. Open/Create the workspace located at `[path_to_your_workspace]`.
 2. Open the INET project (File > Open Projects from File System... > Directory... > `[path_to_your_workspace]/inet` > Finish)
-3. Open the D6G project (File > Open Projects from File System... > Directory... > `[path_to_your_workspace]/d6g` > Finish)
+3. Open the D6G project (File > Open Projects from File System... > Directory... > `[path_to_your_workspace]/deterministic6g` > Finish)
 
 ## Run simulations
 
