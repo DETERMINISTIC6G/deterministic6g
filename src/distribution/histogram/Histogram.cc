@@ -87,37 +87,20 @@ Histogram::BinEntry *Histogram::randomBin() const {
         throw cRuntimeError("No bins to select from");
     }
 
-    // Generate a random number between 0 and totalCount
-    auto randomValue = intrand(totalCount);
+    auto target = intrand(totalCount);
 
-    //Binary Search
-    return BinarySearch(randomValue);
-}
+    // Perform binary search to find the bin that contains the target
+    auto bin = std::upper_bound(bins.begin(), bins.end(), target,
+                                [](int value, const BinEntry *bin) {
+                                    return value < bin->accumulatedCount;
+                                });
 
-Histogram::BinEntry *Histogram::BinarySearch(int target) const {
-    int low = 0;
-    int high = bins.size() - 1;
-
-    while (low <= high) {
-        int mid = low + ((high - low) / 2);
-        if (target == bins[mid]->accumulatedCount){
-            return bins[mid];
-        }
-        else if (target < bins[mid]->accumulatedCount){
-            high = mid - 1;
-        }
-        else{
-            low = mid + 1;
-        }
+    if (bin != bins.end()) {
+        return *bin;
+    } else {
+        throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
     }
-
-    if (low < bins.size()) {
-        return bins[low];
-    }
-
-    throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
 }
-
 
 cValue Histogram::getRand() const {
     auto bin = randomBin();
