@@ -5,10 +5,11 @@
 #ifndef DETERMINISTIC6G_IRANDOMNUMBERGENERATOR_H
 #define DETERMINISTIC6G_IRANDOMNUMBERGENERATOR_H
 
-
+namespace d6g {
+using namespace inet;
 class IRandomNumberGenerator {
-    virtual double getRand() const = 0;
+    virtual cValue getRand() const = 0;
 };
-
+}
 
 #endif

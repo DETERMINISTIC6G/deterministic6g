@@ -48,6 +48,6 @@ cValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int arg
     return nextDelay;
 }
 // randomWalk
-Define_NED_Function(randomWalk::ned_randomWalk, "double randomWalk(quantity init, quantity randValue, string key?)");
+Define_NED_Function(randomWalk::ned_randomWalk, "quantity randomWalk(quantity init, quantity randValue, string key?)");
 
 } /* namespace d6g */

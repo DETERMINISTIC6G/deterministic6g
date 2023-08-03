@@ -42,7 +42,7 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
     BinEntry *previousBinEntry = nullptr;
 
     for (auto &binEntity: binEntities) {
-        auto *currentBinEntry = new BinEntry(binEntity);
+        auto *currentBinEntry = new BinEntry(binEntity, this);
 
         totalCount += currentBinEntry->count;
         currentBinEntry->accumulatedCount = totalCount;
@@ -63,15 +63,15 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
 
     // Check the bins
     for (const auto *bin: bins) {
-        EV << "Left boundary: " << bin->leftBoundary
-           << "  --  Right boundary: " << bin->rightBoundary
+        EV << "Left boundary: " << bin->leftBoundary.str()
+           << "  --  Right boundary: " << bin->rightBoundary.str()
            << "  --  Count: " << bin->count << endl;
     }
 
     // Testing
-    EV << "Random 1: " << getRand() << endl;
-    EV << "Random 2: " << getRand() << endl;
-    EV << "Random 3: " << getRand() << endl;
+    EV << "Random 1: " << getRand().str() << endl;
+    EV << "Random 2: " << getRand().str() << endl;
+    EV << "Random 3: " << getRand().str() << endl;
 }
 
 int Histogram::getTotalCount() const {
@@ -119,14 +119,20 @@ Histogram::BinEntry *Histogram::BinarySearch(int target) const {
 }
 
 
-double Histogram::getRand() const {
+cValue Histogram::getRand() const {
     auto bin = randomBin();
-    return uniform(bin->leftBoundary, bin->rightBoundary);
+    auto unit = bin->leftBoundary.getUnit();
+    auto leftBoundaryDbl = bin->leftBoundary.doubleValueInUnit(unit);
+    auto rightBoundaryDbl = bin->rightBoundary.doubleValueInUnit(unit);
+    auto rnd = uniform(leftBoundaryDbl, rightBoundaryDbl);
+    return cValue(rnd, unit);
 }
 
-Histogram::BinEntry::BinEntry(cXMLElement *binEntity) {
+Histogram::BinEntry::BinEntry(cXMLElement *binEntity, cModule *context) {
     const char *lowAttr = binEntity->getAttribute("low");
-    this->leftBoundary = atof(lowAttr);
+    cDynamicExpression lowerBoundPar = cDynamicExpression();
+    lowerBoundPar.parse(lowAttr);
+    this->leftBoundary = lowerBoundPar.evaluate(context);
     this->count = atoi(binEntity->getNodeValue());
 }
 

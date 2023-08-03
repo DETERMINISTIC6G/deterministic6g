@@ -25,7 +25,7 @@ class INET_API PairwiseDelayer : public PacketDelayerBase {
 
         int in = -1;
         int out = -1;
-        double activateAt = 0;
+        simtime_t activateAt = 0;
         cDynamicExpression delay;
 
         ~DelayEntry() = default;

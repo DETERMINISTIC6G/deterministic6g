@@ -28,38 +28,43 @@ using namespace inet;
 /**
  * TODO - Generated class
  */
-class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator
-{
+class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator {
     class INET_API BinEntry {
-       public:
-           explicit BinEntry(cXMLElement *binEntity);
-           double leftBoundary = -1;
-           double rightBoundary = -1;
-           int count = 0;
-           int accumulatedCount = 0;  // new member to hold the cumulative count
-           ~BinEntry() = default;
-       };
+    public:
+        explicit BinEntry(cXMLElement *binEntity, cModule *context = nullptr);
+
+        cValue leftBoundary = -INFINITY;
+        cValue rightBoundary = INFINITY;
+        int count = 0;
+        int accumulatedCount = 0;  // new member to hold the cumulative count
+        ~BinEntry() = default;
+    };
 
 private:
     // Vector to store the bins
-    std::vector<BinEntry*> bins;
+    std::vector<BinEntry *> bins;
     int totalCount;
 
 protected:
     void initialize(int stage) override;
+
     void parseHistogramConfig(cXMLElement *histogramEntity);
 
 public:
 
     // Get Total count of elements in all bins
     int getTotalCount() const;
+
     // Get Number of bins
     size_t getNumberBins() const;
+
     // Get a random bin with the probability corresponding to the count
-    BinEntry * randomBin() const;
+    BinEntry *randomBin() const;
+
     // Binary Search
-    BinEntry * BinarySearch(int target) const;
-    double getRand() const override;
+    BinEntry *BinarySearch(int target) const;
+
+    cValue getRand() const override;
 };
 
 } //namespace

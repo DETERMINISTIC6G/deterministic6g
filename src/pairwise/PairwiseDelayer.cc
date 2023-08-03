@@ -10,9 +10,6 @@
 #include "inet/common/XMLUtils.h"
 #include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
 
-
-#include <omnetpp.h>
-
 namespace d6g {
 
 using namespace inet;
@@ -32,8 +29,8 @@ void PairwiseDelayer::initialize(int stage) {
                                 configEntity->getSourceLocation());
         }
 
-        cXMLElementList delayEntitites = configEntity->getChildrenByTagName("delay");
-        for (auto &delayEntity: delayEntitites) {
+        cXMLElementList delayEntities = configEntity->getChildrenByTagName("delay");
+        for (auto &delayEntity: delayEntities) {
             auto *delayEntry = new DelayEntry(delayEntity, getContainingNode(this));
             if (delayEntry->activateAt > 0) {
                 EV << "PairwiseDelayer: Activate DelayEntry at " << delayEntry->activateAt << endl;
@@ -157,7 +154,8 @@ PairwiseDelayer::DelayEntry::DelayEntry(cXMLElement *delayEntity, cModule *conte
         // Get doublevalue from activateAtAttr using omnet++ expression
         cDynamicExpression activateAtPar = cDynamicExpression();
         activateAtPar.parse(activateAtAttr);
-        activateAt = activateAtPar.doubleValue(context, "s");
+        cValue activateAtVal = activateAtPar.evaluate(context);
+        activateAt = activateAtVal.doubleValueInUnit("s");
     }
 
     try {
