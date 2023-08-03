@@ -1,5 +1,5 @@
 <delays>
-	<delay in="client" out="server">randomWalk(5ms,normal(0us,25us),"clienttoserver")</delay>
+	<delay in="client" out="server">rngProvider(absPath("histogram"))</delay>
 	<delay in="server" out="client">randomWalk(5ms,normal(0us,10us),"servertoclient")</delay>
 	<delay in="server" out="client" activateAt="30000ms">randomWalk(5ms,normal(5us,25us),"servertoclient")</delay>
 	<delay in="server" out="client" activateAt="45s">randomWalk(5ms,normal(0us,50us),"servertoclient")</delay>

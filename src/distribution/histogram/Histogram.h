@@ -18,7 +18,7 @@
 
 #include <omnetpp.h>
 #include "inet/common/INETDefs.h"
-#include "../contract/IRandomNumberGenerator.h"
+#include "../contract/IRandomNumberProvider.h"
 
 using namespace omnetpp;
 
@@ -28,7 +28,7 @@ using namespace inet;
 /**
  * TODO - Generated class
  */
-class INET_API Histogram : public cSimpleModule, public IRandomNumberGenerator {
+class INET_API Histogram : public cSimpleModule, public IRandomNumberProvider {
     class INET_API BinEntry {
     public:
         explicit BinEntry(cXMLElement *binEntity, cModule *context = nullptr);
