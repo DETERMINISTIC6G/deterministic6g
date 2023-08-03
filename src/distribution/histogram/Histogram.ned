@@ -21,6 +21,7 @@ package d6g.distribution.histogram;
 simple Histogram
 {
     parameters:
-    	xml histogramConfig = default(xml("<bin></bin>"));
-    	@class(Histogram);
+        xml histogramConfig = default(xml("<bin></bin>"));
+        @class(Histogram);
+        @display("i=block/delay");
 }

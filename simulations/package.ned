@@ -13,7 +13,9 @@ network TsnTestNetwork extends TsnNetworkBase
     parameters:
         *.eth[*].bitrate = default(100Mbps);
     submodules:
-        histogram: Histogram;
+        histogram: Histogram {
+            @display("p=100,400;is=s");
+        }
         client: <default("TsnDevice")> like IEthernetNetworkNode {
             @display("p=350,200");
         }
