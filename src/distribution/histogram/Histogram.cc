@@ -113,6 +113,9 @@ cValue Histogram::getRand() const {
 
 Histogram::BinEntry::BinEntry(cXMLElement *binEntity, cModule *context) {
     const char *lowAttr = binEntity->getAttribute("low");
+    if (!lowAttr) {
+        throw cRuntimeError("Bin entry without low attribute at %s", binEntity->getSourceLocation());
+    }
     cDynamicExpression lowerBoundPar = cDynamicExpression();
     lowerBoundPar.parse(lowAttr);
     this->leftBoundary = lowerBoundPar.evaluate(context);
