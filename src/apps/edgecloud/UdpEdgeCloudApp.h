@@ -13,11 +13,30 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.talkertoreceiver;
+#ifndef DETERMINISTIC6G_UDPEDGECLOUDAPP_H_
+#define DETERMINISTIC6G_UDPEDGECLOUDAPP_H_
 
-import inet.applications.udpapp.UdpBasicApp;
+#include <omnetpp.h>
+#include "inet/applications/udpapp/UdpEchoApp.h"
 
-simple UdpSinkSourceApp extends UdpBasicApp {
-    parameters:
-        @class(UdpSinkSourceApp);
-}
+using namespace omnetpp;
+using namespace inet;
+namespace d6g {
+
+
+class INET_API UdpEdgeCloudApp : public UdpEchoApp {
+protected:
+    virtual void socketDataArrived(UdpSocket *socket, Packet *packet) override;
+    virtual void handleStartOperation(LifecycleOperation *operation) override;
+    virtual void initialize(int stage) override;
+    virtual void handleMessage(cMessage *msg) override;
+
+protected:
+    L3Address destAddress;
+    int destPort;
+    cPar *delayParameter = nullptr;
+};
+
+} //namespace
+
+#endif

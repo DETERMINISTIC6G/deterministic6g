@@ -1,3 +1,0 @@
-<delays>
-	<delay in="client" out="server">rngProvider(absPath("histogram"))</delay>
-</delays>

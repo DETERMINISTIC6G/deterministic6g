@@ -13,23 +13,14 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef TALKERTORECEIVER_UDPSINKSOURCEAPP_H_
-#define TALKERTORECEIVER_UDPSINKSOURCEAPP_H_
+package d6g.apps.edgecloud;
 
-#include <inet/applications/udpapp/UdpBasicApp.h>
-#include <inet/networklayer/common/L3AddressResolver.h>
+import inet.applications.udpapp.UdpEchoApp;
 
-namespace d6g {
-
-using namespace inet;
-
-class UdpSinkSourceApp : public UdpBasicApp
-{
-  protected:
-    virtual void processPacket(Packet *msg) override;
-    void sendPacket(Packet *msg);  // You might need to implement this function
-
-};
-
+simple UdpEdgeCloudApp extends UdpEchoApp {
+    parameters:
+        @class(UdpEdgeCloudApp);
+        string destAddress = default("");
+        int destPort;
+        volatile double delay @unit(s) = default(0s);
 }
-#endif /* TALKERTORECEIVER_UDPSINKSOURCEAPP_H_ */

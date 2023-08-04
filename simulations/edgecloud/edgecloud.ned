@@ -3,7 +3,7 @@
 //
 
 
-package d6g.simulations.talkertoreceiver;
+package d6g.simulations.edgecloud;
 
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
@@ -15,12 +15,16 @@ import d6g.networks.DetComNetworkBase;
 import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 import ned.DatarateChannel;
+import d6g.distribution.histogram.Histogram;
 
-network talkertoreceiver extends DetComNetworkBase
+network EdgeCloudNetwork extends DetComNetworkBase
 {
     parameters:
         
     submodules:
+        histogram: Histogram {
+            @display("p=100,400;is=s");
+        }
  		talker: TsnDevice {
             @display("p=250,200");  
         }
@@ -30,7 +34,7 @@ network talkertoreceiver extends DetComNetworkBase
         detcom: DetCom {
             @display("p=400,300");  
         }
-        bridge2: DetComAdapter {
+        bridge2: TsnSwitch {
             @display("p=500,300");
         }
         cloud: TsnDevice {
@@ -47,7 +51,7 @@ network talkertoreceiver extends DetComNetworkBase
         talker.ethg++ <--> EthernetLink <--> bridge1.ethg++;
         bridge1.ueg++ <--> NNIChannel <--> detcom.ueg++;
         
-        detcom.ueg++ <--> NNIChannel <--> bridge2.ueg++;
+        detcom.ethg++ <--> EthernetLink <--> bridge2.ethg++;
         bridge2.ethg++ <--> EthernetLink <--> cloud.ethg++;
         
         detcom.ueg++ <--> NNIChannel <--> bridge3.ueg++;
