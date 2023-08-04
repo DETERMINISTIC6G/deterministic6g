@@ -22,25 +22,25 @@ network talkertoreceiver extends DetComNetworkBase
         
     submodules:
  		talker: TsnDevice {
-            @display("p=250,200");  // Top-left position
+            @display("p=250,200");  
         }
         bridge1: TsnSwitch {
             @display("p=350,200");
         }
         detcom: DetCom {
-            @display("p=400,300");  // Middle position
+            @display("p=400,300");  
         }
         bridge2: DetComAdapter {
             @display("p=500,300");
         }
         cloud: TsnDevice {
-            @display("p=600,300");  // Right position
+            @display("p=600,300");  
         }
         bridge3: TsnSwitch {
             @display("p=350,400");
         }
         receiver: TsnDevice{
-            @display("p=250,400");  // Bottom-left position
+            @display("p=250,400");  
         }
         
     connections:
