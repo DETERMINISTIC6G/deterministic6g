@@ -24,7 +24,7 @@ network talkertoreceiver extends DetComNetworkBase
  		talker: TsnDevice {
             @display("p=250,200");  
         }
-        bridge1: TsnSwitch {
+        bridge1: DetComAdapter {
             @display("p=350,200");
         }
         detcom: DetCom {
@@ -36,7 +36,7 @@ network talkertoreceiver extends DetComNetworkBase
         cloud: TsnDevice {
             @display("p=600,300");  
         }
-        bridge3: TsnSwitch {
+        bridge3: DetComAdapter {
             @display("p=350,400");
         }
         receiver: TsnDevice{
@@ -45,12 +45,12 @@ network talkertoreceiver extends DetComNetworkBase
         
     connections:
         talker.ethg++ <--> EthernetLink <--> bridge1.ethg++;
-        bridge1.ethg++ <--> NNIChannel <--> detcom.ueg++;
+        bridge1.ueg++ <--> NNIChannel <--> detcom.ueg++;
+        
         detcom.ueg++ <--> NNIChannel <--> bridge2.ueg++;
         bridge2.ethg++ <--> EthernetLink <--> cloud.ethg++;
-        cloud.ethg++ <--> EthernetLink <--> bridge2.ethg++;
-        bridge2.ueg++ <--> NNIChannel <--> detcom.ueg++;
-        detcom.ueg++ <--> NNIChannel <--> bridge3.ethg++;
+        
+        detcom.ueg++ <--> NNIChannel <--> bridge3.ueg++;
         bridge3.ethg++ <--> EthernetLink <--> receiver.ethg++;
 }
 

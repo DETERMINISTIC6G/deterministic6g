@@ -29,7 +29,7 @@ module DetComAdapter extends TsnSwitch
         inout ueg[numUeInterfaces] @labels(EtherFrame-conn);
     submodules:
         ue[sizeof(ueg)]: <default("UE")> like IEthernetInterface {
-            @display("p=400,750,row,150;q=txQueue");
+            @display("p=325,900,row,150;q=txQueue");
         }
     connections:
         for i=0..sizeof(ueg)-1 {
