@@ -16,7 +16,6 @@
 #include "UdpEdgeCloudApp.h"
 #include "inet/common/Simsignals.h"
 #include "inet/networklayer/common/L3AddressResolver.h"
-#include "inet/clock/common/ClockEvent.h"
 
 namespace d6g {
 using namespace inet;
