@@ -17,10 +17,10 @@ import inet.protocolelement.processing.IProcessingDelayLayer;
 module BridgingLayerWithPairwiseDelay like IProtocolLayer
 {
     parameters:
-        string macTableModule = default("");
+        string macTableModule = default(""); // specifies the module handling the MAC address table
         string interfaceTableModule; // relative module path of the interface table
-        *.macTableModule = default(absPath(this.macTableModule));
-        *.interfaceTableModule = default(this.interfaceTableModule);
+        *.macTableModule = default(absPath(this.macTableModule)); // absolute path to the MAC address table module.
+        *.interfaceTableModule = default(this.interfaceTableModule); // Path reference to the interface table module.
         @display("i=block/layer");
     gates:
         input upperLayerIn;

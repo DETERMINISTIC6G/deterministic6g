@@ -18,7 +18,7 @@ import inet.applications.udpapp.UdpEchoApp;
 simple UdpEdgeCloudApp extends UdpEchoApp {
     parameters:
         @class(UdpEdgeCloudApp);
-        string destAddress = default("");
-        int destPort;
-        volatile double delay @unit(s) = default(0s);
+        string destAddress = default(""); // destination IP address for the UDP packets
+        int destPort; // destination port number for the UDP packets
+        volatile double delay @unit(s) = default(0s); //specifies delay per UDP packets
 }

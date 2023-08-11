@@ -20,7 +20,7 @@ import inet.queueing.contract.IPacketDelayer;
 simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:
-        xml delayConfig = default(xml("<delays></delays>"));
+        xml delayConfig = default(xml("<delays></delays>"));  // XML configuration definition
         @class(PairwiseDelayer);
 }
 
