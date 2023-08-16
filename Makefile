@@ -23,3 +23,11 @@ checkmakefiles:
 	echo; \
 	exit 1; \
 	fi
+
+# Generate documents
+doc:
+	@cd doc/src && $(MAKE)
+	@doxygen doxy.cfg
+
+ddoc:
+	@cd doc/src && ./docker-make html && echo "===> file:$$(pwd)/_build/html/index.html"

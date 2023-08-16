@@ -1,0 +1,39 @@
+\hypertarget{PairwiseDelayer_8ned}{}\doxysection{src/pairwise/\+Pairwise\+Delayer.ned File Reference}
+\label{PairwiseDelayer_8ned}\index{src/pairwise/PairwiseDelayer.ned@{src/pairwise/PairwiseDelayer.ned}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} \mbox{\hyperlink{PairwiseDelayer_8ned_a1f613c12f9af31799984ae59704c0235}{pairwise}}
+\item 
+import inet queueing base \mbox{\hyperlink{PairwiseDelayer_8ned_acf9a6d5797c846d604e36456fc5ae894}{Packet\+Delayer\+Base}}
+\item 
+import inet queueing contract \mbox{\hyperlink{PairwiseDelayer_8ned_a775fdc1160ae7d29a36c8e5d38ba10b9}{IPacket\+Delayer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{PairwiseDelayer_8ned_a775fdc1160ae7d29a36c8e5d38ba10b9}\label{PairwiseDelayer_8ned_a775fdc1160ae7d29a36c8e5d38ba10b9}} 
+\index{PairwiseDelayer.ned@{PairwiseDelayer.ned}!IPacketDelayer@{IPacketDelayer}}
+\index{IPacketDelayer@{IPacketDelayer}!PairwiseDelayer.ned@{PairwiseDelayer.ned}}
+\doxysubsubsection{\texorpdfstring{IPacketDelayer}{IPacketDelayer}}
+{\footnotesize\ttfamily simple Pairwise\+Delayer extends \mbox{\hyperlink{PairwiseDelayer_8ned_acf9a6d5797c846d604e36456fc5ae894}{Packet\+Delayer\+Base}} like IPacket\+Delayer}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        xml delayConfig = \textcolor{keywordflow}{default}(xml(\textcolor{stringliteral}{"{}<delays></delays>"{}}))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{PairwiseDelayer_8ned_acf9a6d5797c846d604e36456fc5ae894}\label{PairwiseDelayer_8ned_acf9a6d5797c846d604e36456fc5ae894}} 
+\index{PairwiseDelayer.ned@{PairwiseDelayer.ned}!PacketDelayerBase@{PacketDelayerBase}}
+\index{PacketDelayerBase@{PacketDelayerBase}!PairwiseDelayer.ned@{PairwiseDelayer.ned}}
+\doxysubsubsection{\texorpdfstring{PacketDelayerBase}{PacketDelayerBase}}
+{\footnotesize\ttfamily import inet queueing base Packet\+Delayer\+Base}
+
+\mbox{\Hypertarget{PairwiseDelayer_8ned_a1f613c12f9af31799984ae59704c0235}\label{PairwiseDelayer_8ned_a1f613c12f9af31799984ae59704c0235}} 
+\index{PairwiseDelayer.ned@{PairwiseDelayer.ned}!pairwise@{pairwise}}
+\index{pairwise@{pairwise}!PairwiseDelayer.ned@{PairwiseDelayer.ned}}
+\doxysubsubsection{\texorpdfstring{pairwise}{pairwise}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} pairwise}
+

@@ -1,0 +1,50 @@
+\hypertarget{Histogram_8ned}{}\doxysection{src/distribution/histogram/\+Histogram.ned File Reference}
+\label{Histogram_8ned}\index{src/distribution/histogram/Histogram.ned@{src/distribution/histogram/Histogram.ned}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Histogram_8ned_aa4d5cdbad3f5a3599d1805eb9b311173}{display}} (\char`\"{}i=block/delay\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} distribution \mbox{\hyperlink{Histogram_8ned_a8fa51d52e09c35ee2b2fa87c6230a974}{histogram}}
+\item 
+simple \mbox{\hyperlink{Histogram_8ned_a9ac7714282e24f59c138ae20aaa6d66d}{Histogram}}
+\begin{DoxyCompactList}\small\item\em This module groups the delays based on the bins assigned as per histogram xml. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{Histogram_8ned_aa4d5cdbad3f5a3599d1805eb9b311173}\label{Histogram_8ned_aa4d5cdbad3f5a3599d1805eb9b311173}} 
+\index{Histogram.ned@{Histogram.ned}!display@{display}}
+\index{display@{display}!Histogram.ned@{Histogram.ned}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Histogram_8ned_a8fa51d52e09c35ee2b2fa87c6230a974}\label{Histogram_8ned_a8fa51d52e09c35ee2b2fa87c6230a974}} 
+\index{Histogram.ned@{Histogram.ned}!histogram@{histogram}}
+\index{histogram@{histogram}!Histogram.ned@{Histogram.ned}}
+\doxysubsubsection{\texorpdfstring{histogram}{histogram}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} distribution histogram}
+
+\mbox{\Hypertarget{Histogram_8ned_a9ac7714282e24f59c138ae20aaa6d66d}\label{Histogram_8ned_a9ac7714282e24f59c138ae20aaa6d66d}} 
+\index{Histogram.ned@{Histogram.ned}!Histogram@{Histogram}}
+\index{Histogram@{Histogram}!Histogram.ned@{Histogram.ned}}
+\doxysubsubsection{\texorpdfstring{Histogram}{Histogram}}
+{\footnotesize\ttfamily simple Histogram}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        xml histogramConfig = \textcolor{keywordflow}{default}(xml(\textcolor{stringliteral}{"{}<bin></bin>"{}}))}
+
+\end{DoxyCode}
+
+
+This module groups the delays based on the bins assigned as per histogram xml. 
+
+It reads histogram configuration, calculates accumulated bin counts, generates random values within bins, and implements binary search for bin selection. 

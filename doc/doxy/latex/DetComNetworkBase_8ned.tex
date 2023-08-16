@@ -1,0 +1,99 @@
+\hypertarget{DetComNetworkBase_8ned}{}\doxysection{src/networks/\+Det\+Com\+Network\+Base.ned File Reference}
+\label{DetComNetworkBase_8ned}\index{src/networks/DetComNetworkBase.ned@{src/networks/DetComNetworkBase.ned}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} \mbox{\hyperlink{DetComNetworkBase_8ned_a4884ec44001f509b012486fc0846527f}{networks}}
+\item 
+import inet \mbox{\hyperlink{DetComNetworkBase_8ned_a4884ec44001f509b012486fc0846527f}{networks}} base \mbox{\hyperlink{DetComNetworkBase_8ned_a4478ebad0c5691666cad6a242222f265}{Tsn\+Network\+Base}}
+\item 
+import inet node contract \mbox{\hyperlink{DetComNetworkBase_8ned_a05d5e777415aeee3addbbc2ec272199f}{IEthernet\+Network\+Node}}
+\item 
+import inet node ethernet \mbox{\hyperlink{DetComNetworkBase_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}{Ethernet\+Link}}
+\item 
+$\ast$$\ast$ \mbox{\hyperlink{DetComNetworkBase_8ned_a98d9224f9df877d2a16988d6215161a8}{has\+Egress\+Traffic\+Shaping}} = true
+\item 
+$\ast$$\ast$ \mbox{\hyperlink{DetComNetworkBase_8ned_a74a95361fa161c00b9e7660ecdeeff4e}{has\+Incoming\+Streams}} = true
+\item 
+$\ast$$\ast$bridging \mbox{\hyperlink{BridgingLayerWithPairwiseDelay_8ned_a97879bbf4fecf43b177ac344f9f510b6}{direction\+Reverser}} reverser \mbox{\hyperlink{DetComNetworkBase_8ned_a2eb955a9fb90c37f2a72ae23f6815c1a}{exclude\+Encapsulation\+Protocols}} = \mbox{[}\char`\"{}ieee8021qctag\char`\"{}\mbox{]}
+\item 
+$\ast$$\ast$eth\mbox{[} $\ast$\mbox{]} \mbox{\hyperlink{DetComAdapter_8ned_af6395210b73ba3b79fcae96fe04b42b7}{mac\+Layer}} \mbox{\hyperlink{DetComAdapter_8ned_a2e8fbe29ffa39136db1a8949e4c58b76}{queue}} \mbox{\hyperlink{DetComNetworkBase_8ned_a426cc8f5a82a9677c62610c261ad809b}{num\+Traffic\+Classes}} = 2
+\item 
+$\ast$$\ast$bridging \mbox{\hyperlink{BridgingLayerWithPairwiseDelay_8ned_a81ba44d28a9b0258858c8491e7fdbd24}{stream\+Coder}} $\ast$ \mbox{\hyperlink{DetComNetworkBase_8ned_a2ebc41bb98b1b1166127fb3472a9cddd}{mapping}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}\label{DetComNetworkBase_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!EthernetLink@{EthernetLink}}
+\index{EthernetLink@{EthernetLink}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{EthernetLink}{EthernetLink}}
+{\footnotesize\ttfamily import inet node ethernet Ethernet\+Link}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a2eb955a9fb90c37f2a72ae23f6815c1a}\label{DetComNetworkBase_8ned_a2eb955a9fb90c37f2a72ae23f6815c1a}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!excludeEncapsulationProtocols@{excludeEncapsulationProtocols}}
+\index{excludeEncapsulationProtocols@{excludeEncapsulationProtocols}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{excludeEncapsulationProtocols}{excludeEncapsulationProtocols}}
+{\footnotesize\ttfamily $\ast$$\ast$ bridging \mbox{\hyperlink{BridgingLayerWithPairwiseDelay_8ned_a97879bbf4fecf43b177ac344f9f510b6}{direction\+Reverser}} reverser exclude\+Encapsulation\+Protocols = \mbox{[}\char`\"{}ieee8021qctag\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a98d9224f9df877d2a16988d6215161a8}\label{DetComNetworkBase_8ned_a98d9224f9df877d2a16988d6215161a8}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!hasEgressTrafficShaping@{hasEgressTrafficShaping}}
+\index{hasEgressTrafficShaping@{hasEgressTrafficShaping}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{hasEgressTrafficShaping}{hasEgressTrafficShaping}}
+{\footnotesize\ttfamily $\ast$$\ast$ has\+Egress\+Traffic\+Shaping = true}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a74a95361fa161c00b9e7660ecdeeff4e}\label{DetComNetworkBase_8ned_a74a95361fa161c00b9e7660ecdeeff4e}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!hasIncomingStreams@{hasIncomingStreams}}
+\index{hasIncomingStreams@{hasIncomingStreams}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{hasIncomingStreams}{hasIncomingStreams}}
+{\footnotesize\ttfamily $\ast$$\ast$ has\+Incoming\+Streams = true}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a05d5e777415aeee3addbbc2ec272199f}\label{DetComNetworkBase_8ned_a05d5e777415aeee3addbbc2ec272199f}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!IEthernetNetworkNode@{IEthernetNetworkNode}}
+\index{IEthernetNetworkNode@{IEthernetNetworkNode}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{IEthernetNetworkNode}{IEthernetNetworkNode}}
+{\footnotesize\ttfamily import inet node contract IEthernet\+Network\+Node}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a2ebc41bb98b1b1166127fb3472a9cddd}\label{DetComNetworkBase_8ned_a2ebc41bb98b1b1166127fb3472a9cddd}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!mapping@{mapping}}
+\index{mapping@{mapping}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{mapping}{mapping}}
+{\footnotesize\ttfamily $\ast$$\ast$ bridging \mbox{\hyperlink{BridgingLayerWithPairwiseDelay_8ned_a81ba44d28a9b0258858c8491e7fdbd24}{stream\+Coder}}$\ast$ mapping}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= [\{stream: \textcolor{stringliteral}{"{}BK"{}}, pcp: 0\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}BE"{}}, pcp: 1\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}EE"{}}, pcp: 2\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}CA"{}}, pcp: 3\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}VI"{}}, pcp: 4\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}VO"{}}, pcp: 5\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}IC"{}}, pcp: 6\},}
+\DoxyCodeLine{                                             \{stream: \textcolor{stringliteral}{"{}NV"{}}, pcp: 7\}]}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a4884ec44001f509b012486fc0846527f}\label{DetComNetworkBase_8ned_a4884ec44001f509b012486fc0846527f}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!networks@{networks}}
+\index{networks@{networks}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{networks}{networks}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} networks}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a426cc8f5a82a9677c62610c261ad809b}\label{DetComNetworkBase_8ned_a426cc8f5a82a9677c62610c261ad809b}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!numTrafficClasses@{numTrafficClasses}}
+\index{numTrafficClasses@{numTrafficClasses}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{numTrafficClasses}{numTrafficClasses}}
+{\footnotesize\ttfamily $\ast$$\ast$ eth \mbox{[}$\ast$\mbox{]} \mbox{\hyperlink{DetComAdapter_8ned_af6395210b73ba3b79fcae96fe04b42b7}{mac\+Layer}} \mbox{\hyperlink{DetComAdapter_8ned_a2e8fbe29ffa39136db1a8949e4c58b76}{queue}} num\+Traffic\+Classes = 2}
+
+\mbox{\Hypertarget{DetComNetworkBase_8ned_a4478ebad0c5691666cad6a242222f265}\label{DetComNetworkBase_8ned_a4478ebad0c5691666cad6a242222f265}} 
+\index{DetComNetworkBase.ned@{DetComNetworkBase.ned}!TsnNetworkBase@{TsnNetworkBase}}
+\index{TsnNetworkBase@{TsnNetworkBase}!DetComNetworkBase.ned@{DetComNetworkBase.ned}}
+\doxysubsubsection{\texorpdfstring{TsnNetworkBase}{TsnNetworkBase}}
+{\footnotesize\ttfamily network Det\+Com\+Network\+Base extends Tsn\+Network\+Base}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        *.eth[*].bitrate = \textcolor{keywordflow}{default}(100Mbps)}
+
+\end{DoxyCode}
