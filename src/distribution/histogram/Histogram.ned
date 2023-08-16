@@ -16,7 +16,10 @@
 package d6g.distribution.histogram;
 
 //
-// TODO auto-generated module
+// This module  groups the delays based on the bins assigned as per histogram xml. 
+//It reads histogram configuration, calculates accumulated bin counts,
+// generates random values within bins, and implements binary search for bin selection. 
+// 
 //
 simple Histogram
 {
