@@ -26,8 +26,9 @@ checkmakefiles:
 
 # Generate documents
 doc:
-	@cd doc/src && $(MAKE)
+	@cd docs && $(MAKE)
 	@doxygen doxy.cfg
 
 ddoc:
-	@cd doc/src && ./docker-make html && echo "===> file:$$(pwd)/_build/html/index.html"
+#	cd docs && sphinx-quickstart
+	cd docs && sphinx-build . _build/html
