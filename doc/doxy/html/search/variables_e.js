@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['sixg_201',['sixg',['../detcom_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;detcom.ned'],['../DetComAdapter_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;DetComAdapter.ned'],['../NNIChannel_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;NNIChannel.ned'],['../UE_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;UE.ned'],['../UnitWithAdapter_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;UnitWithAdapter.ned']]],
-  ['streamcoder_202',['streamCoder',['../BridgingLayerWithPairwiseDelay_8ned.html#a81ba44d28a9b0258858c8491e7fdbd24',1,'BridgingLayerWithPairwiseDelay.ned']]],
-  ['streamfilter_203',['streamFilter',['../BridgingLayerWithPairwiseDelay_8ned.html#a8bb5840dc279bdd2987fd295dabab7a9',1,'BridgingLayerWithPairwiseDelay.ned']]],
-  ['streamidentifier_204',['streamIdentifier',['../BridgingLayerWithPairwiseDelay_8ned.html#af8cd9a172b06f7be9930fe087348801c',1,'BridgingLayerWithPairwiseDelay.ned']]],
-  ['streamrelay_205',['streamRelay',['../BridgingLayerWithPairwiseDelay_8ned.html#a07faacfc59efd75875fde0c20ee46bcf',1,'BridgingLayerWithPairwiseDelay.ned']]]
+  ['server_215',['server',['../simulations_2package_8ned.html#ad2c52bc8ad1bcad55f245842ed946482',1,'package.ned']]],
+  ['simulations_216',['simulations',['../simulations_2package_8ned.html#a0230f38f376249b9fab30725bfec14ef',1,'package.ned']]],
+  ['sixg_217',['sixg',['../detcom_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;detcom.ned'],['../DetComAdapter_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;DetComAdapter.ned'],['../NNIChannel_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;NNIChannel.ned'],['../UE_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;UE.ned'],['../UnitWithAdapter_8ned.html#a6c5c2270583a69fb2d099b863a9a5b2e',1,'sixg():&#160;UnitWithAdapter.ned']]],
+  ['swarmcontrol_218',['swarmControl',['../ProcessingCell_8ned.html#af126b64e6ccc5efd2ce56d0359687566',1,'ProcessingCell.ned']]],
+  ['swarmstatus_219',['swarmStatus',['../ProcessingCell_8ned.html#a97587430e5a643c6d4335809515c5913',1,'ProcessingCell.ned']]],
+  ['switch_220',['switch',['../simulations_2package_8ned.html#a9d6bd01239a00ad16730fb6a0e0a681b',1,'package.ned']]]
 ];

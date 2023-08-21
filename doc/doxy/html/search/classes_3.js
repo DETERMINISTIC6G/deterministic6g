@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['randomwalk_110',['randomWalk',['../classd6g_1_1randomWalk.html',1,'d6g']]]
+  ['histogram_115',['Histogram',['../classd6g_1_1Histogram.html',1,'d6g']]],
+  ['histogramned_116',['HistogramNed',['../classd6g_1_1HistogramNed.html',1,'d6g']]]
 ];

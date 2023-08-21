@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nnichannel_2ened_124',['NNIChannel.ned',['../NNIChannel_8ned.html',1,'']]]
+  ['edgecloud_2ened_130',['edgecloud.ned',['../edgecloud_8ned.html',1,'']]]
 ];

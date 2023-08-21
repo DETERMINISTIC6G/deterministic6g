@@ -4,18 +4,16 @@
 \begin{DoxyCompactItemize}
 \item 
 volatile double delay \mbox{\hyperlink{UdpEdgeCloudApp_8ned_aae485166d641cd6764c6ae085ea41eef}{unit}} (s)=default(0s)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em specifies delay per UDP packets \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} apps \mbox{\hyperlink{UdpEdgeCloudApp_8ned_a66ca5179424a10cc06a1c8a1195e2dd0}{edgecloud}}
-\item 
-import inet applications udpapp \mbox{\hyperlink{UdpEdgeCloudApp_8ned_a182bf102c6a55ae30459a6409c8e33aa}{Udp\+Echo\+App}}
+simple \mbox{\hyperlink{classUdpEdgeCloudApp}{Udp\+Edge\+Cloud\+App}} extends \mbox{\hyperlink{UdpEdgeCloudApp_8ned_a182bf102c6a55ae30459a6409c8e33aa}{Udp\+Echo\+App}}
 \item 
 string \mbox{\hyperlink{UdpEdgeCloudApp_8ned_a7d5a48e2a2d9c9eb8e52c44404e4cfcd}{dest\+Address}} = default(\char`\"{}\char`\"{})
-\item 
+\begin{DoxyCompactList}\small\item\em destination IP address for the UDP packets \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{UdpEdgeCloudApp_8ned_aff707d344d6f194910c65e4668858bbd}{dest\+Port}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em destination port number for the UDP packets \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -27,6 +25,10 @@ int \mbox{\hyperlink{UdpEdgeCloudApp_8ned_aff707d344d6f194910c65e4668858bbd}{des
 
 
 
+specifies delay per UDP packets 
+
+
+
 \doxysubsection{Variable Documentation}
 \mbox{\Hypertarget{UdpEdgeCloudApp_8ned_a7d5a48e2a2d9c9eb8e52c44404e4cfcd}\label{UdpEdgeCloudApp_8ned_a7d5a48e2a2d9c9eb8e52c44404e4cfcd}} 
 \index{UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}!destAddress@{destAddress}}
@@ -34,28 +36,30 @@ int \mbox{\hyperlink{UdpEdgeCloudApp_8ned_aff707d344d6f194910c65e4668858bbd}{des
 \doxysubsubsection{\texorpdfstring{destAddress}{destAddress}}
 {\footnotesize\ttfamily string dest\+Address = default(\char`\"{}\char`\"{})}
 
+
+
+destination IP address for the UDP packets 
+
 \mbox{\Hypertarget{UdpEdgeCloudApp_8ned_aff707d344d6f194910c65e4668858bbd}\label{UdpEdgeCloudApp_8ned_aff707d344d6f194910c65e4668858bbd}} 
 \index{UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}!destPort@{destPort}}
 \index{destPort@{destPort}!UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}}
 \doxysubsubsection{\texorpdfstring{destPort}{destPort}}
 {\footnotesize\ttfamily int dest\+Port}
 
-\mbox{\Hypertarget{UdpEdgeCloudApp_8ned_a66ca5179424a10cc06a1c8a1195e2dd0}\label{UdpEdgeCloudApp_8ned_a66ca5179424a10cc06a1c8a1195e2dd0}} 
-\index{UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}!edgecloud@{edgecloud}}
-\index{edgecloud@{edgecloud}!UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}}
-\doxysubsubsection{\texorpdfstring{edgecloud}{edgecloud}}
-{\footnotesize\ttfamily package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} apps edgecloud}
+
+
+destination port number for the UDP packets 
 
 \mbox{\Hypertarget{UdpEdgeCloudApp_8ned_a182bf102c6a55ae30459a6409c8e33aa}\label{UdpEdgeCloudApp_8ned_a182bf102c6a55ae30459a6409c8e33aa}} 
 \index{UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}!UdpEchoApp@{UdpEchoApp}}
 \index{UdpEchoApp@{UdpEchoApp}!UdpEdgeCloudApp.ned@{UdpEdgeCloudApp.ned}}
 \doxysubsubsection{\texorpdfstring{UdpEchoApp}{UdpEchoApp}}
-{\footnotesize\ttfamily simple Udp\+Edge\+Cloud\+App extends Udp\+Echo\+App}
+{\footnotesize\ttfamily simple \mbox{\hyperlink{classUdpEdgeCloudApp}{Udp\+Edge\+Cloud\+App}} extends Udp\+Echo\+App}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    parameters:}
-\DoxyCodeLine{        \textcolor{keyword}{@class}(UdpEdgeCloudApp)}
+\DoxyCodeLine{        \textcolor{keyword}{@class}(\mbox{\hyperlink{classUdpEdgeCloudApp}{UdpEdgeCloudApp}})}
 
 \end{DoxyCode}

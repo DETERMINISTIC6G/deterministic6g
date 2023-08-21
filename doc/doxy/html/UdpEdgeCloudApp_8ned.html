@@ -76,17 +76,18 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aae485166d641cd6764c6ae085ea41eef"><td class="memItemLeft" align="right" valign="top">volatile double delay&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#aae485166d641cd6764c6ae085ea41eef">unit</a> (s)=default(0s)</td></tr>
+<tr class="memdesc:aae485166d641cd6764c6ae085ea41eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">specifies delay per UDP packets  <a href="UdpEdgeCloudApp_8ned.html#aae485166d641cd6764c6ae085ea41eef">More...</a><br /></td></tr>
 <tr class="separator:aae485166d641cd6764c6ae085ea41eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a66ca5179424a10cc06a1c8a1195e2dd0"><td class="memItemLeft" align="right" valign="top">package <a class="el" href="package_8ned.html#a7fbc0743bde2934ecec2aac9b80cad11">d6g</a> apps&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#a66ca5179424a10cc06a1c8a1195e2dd0">edgecloud</a></td></tr>
-<tr class="separator:a66ca5179424a10cc06a1c8a1195e2dd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a182bf102c6a55ae30459a6409c8e33aa"><td class="memItemLeft" align="right" valign="top">import inet applications udpapp&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#a182bf102c6a55ae30459a6409c8e33aa">UdpEchoApp</a></td></tr>
+<tr class="memitem:a182bf102c6a55ae30459a6409c8e33aa"><td class="memItemLeft" align="right" valign="top">simple <a class="el" href="classUdpEdgeCloudApp.html">UdpEdgeCloudApp</a> extends&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#a182bf102c6a55ae30459a6409c8e33aa">UdpEchoApp</a></td></tr>
 <tr class="separator:a182bf102c6a55ae30459a6409c8e33aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d5a48e2a2d9c9eb8e52c44404e4cfcd"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#a7d5a48e2a2d9c9eb8e52c44404e4cfcd">destAddress</a> = default(&quot;&quot;)</td></tr>
+<tr class="memdesc:a7d5a48e2a2d9c9eb8e52c44404e4cfcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">destination IP address for the UDP packets  <a href="UdpEdgeCloudApp_8ned.html#a7d5a48e2a2d9c9eb8e52c44404e4cfcd">More...</a><br /></td></tr>
 <tr class="separator:a7d5a48e2a2d9c9eb8e52c44404e4cfcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff707d344d6f194910c65e4668858bbd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="UdpEdgeCloudApp_8ned.html#aff707d344d6f194910c65e4668858bbd">destPort</a></td></tr>
+<tr class="memdesc:aff707d344d6f194910c65e4668858bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">destination port number for the UDP packets  <a href="UdpEdgeCloudApp_8ned.html#aff707d344d6f194910c65e4668858bbd">More...</a><br /></td></tr>
 <tr class="separator:aff707d344d6f194910c65e4668858bbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -114,6 +115,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>specifies delay per UDP packets </p>
+
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
@@ -129,6 +132,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>destination IP address for the UDP packets </p>
+
 </div>
 </div>
 <a id="aff707d344d6f194910c65e4668858bbd"></a>
@@ -143,19 +148,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="a66ca5179424a10cc06a1c8a1195e2dd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ca5179424a10cc06a1c8a1195e2dd0">&#9670;&nbsp;</a></span>edgecloud</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">package <a class="el" href="package_8ned.html#a7fbc0743bde2934ecec2aac9b80cad11">d6g</a> apps edgecloud</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
+<p>destination port number for the UDP packets </p>
 
 </div>
 </div>
@@ -166,13 +159,14 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">simple UdpEdgeCloudApp extends UdpEchoApp</td>
+          <td class="memname">simple <a class="el" href="classUdpEdgeCloudApp.html">UdpEdgeCloudApp</a> extends UdpEchoApp</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">{</div>
 <div class="line">    parameters:</div>
-<div class="line">        <span class="keyword">@class</span>(UdpEdgeCloudApp)</div>
+<div class="line">        <span class="keyword">@class</span>(<a class="code" href="classUdpEdgeCloudApp.html">UdpEdgeCloudApp</a>)</div>
+<div class="ttc" id="aclassUdpEdgeCloudApp_html"><div class="ttname"><a href="classUdpEdgeCloudApp.html">UdpEdgeCloudApp</a></div><div class="ttdoc">The UdpEdgeCloudApp module is designed to simulate a UDP-based application in edge cloud scenarios.</div></div>
 </div><!-- fragment -->
 </div>
 </div>

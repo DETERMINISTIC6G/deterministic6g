@@ -1,27 +1,34 @@
 //
-// Copyright (C) 2021 OpenSim Ltd.
+// Copyright (C) 2023 Deterministic 6G.
 //
 // SPDX-License-Identifier: LGPL-3.0-or-later
 //
 
-
+/// \cond
 package d6g.pairwise;
 
 import inet.protocolelement.contract.IProtocolLayer;
 import inet.protocolelement.processing.IProcessingDelayLayer;
+/// \endcond
 
-//
-// This module provides various layer 2 services such as packet forwarding,
-// interface selection, virtual LAN handling, stream handling.
-//
+/// \class BridgingLayerWithPairwiseDelay
+/// This module provides various layer 2 services such as packet forwarding,
+/// interface selection, virtual LAN handling, stream handling.
 module BridgingLayerWithPairwiseDelay like IProtocolLayer
 {
     parameters:
-        string macTableModule = default(""); // specifies the module handling the MAC address table
-        string interfaceTableModule; // relative module path of the interface table
-        *.macTableModule = default(absPath(this.macTableModule)); // absolute path to the MAC address table module.
-        *.interfaceTableModule = default(this.interfaceTableModule); // Path reference to the interface table module.
+        /// specifies the module handling the MAC address table.
+        string macTableModule = default(""); 
+        
+        /// relative module path of the interface table.
+        string interfaceTableModule; 
+        
+        /// absolute path to the MAC address table module.
+        *.macTableModule = default(absPath(this.macTableModule));
+        *.interfaceTableModule = default(this.interfaceTableModule); 
         @display("i=block/layer");
+        
+    /// \cond
     gates:
         input upperLayerIn;
         output upperLayerOut;
@@ -80,3 +87,4 @@ module BridgingLayerWithPairwiseDelay like IProtocolLayer
         directionReverser.upperLayerOut --> processingDelayLayer.lowerLayerIn;
         processingDelayLayer.upperLayerOut --> upperLayerOut;
 }
+/// \endcond
