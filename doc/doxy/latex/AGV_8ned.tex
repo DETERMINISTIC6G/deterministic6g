@@ -11,7 +11,7 @@ import inet node contract \mbox{\hyperlink{AGV_8ned_a05d5e777415aeee3addbbc2ec27
 \item 
 import inet node ethernet \mbox{\hyperlink{AGV_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}{Ethernet\+Link}}
 \item 
-import \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices \mbox{\hyperlink{UnitWithAdapter_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}{sixg}} \mbox{\hyperlink{AGV_8ned_a0f521dd6168b0144578354a97e17049f}{Unit\+With\+Adapter}}
+import \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices \mbox{\hyperlink{UnitWithAdapter_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}{sixg}} \mbox{\hyperlink{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}{Unit\+With\+Adapter}}
 \item 
 \mbox{\hyperlink{AGV_8ned_a8252aee91336a6e53e595ad496727a60}{is\+Wireless}} = true
 \item 
@@ -23,7 +23,7 @@ submodules \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+T
 \item 
 submodules \mbox{\hyperlink{AGV_8ned_ad554ae1d239cb2f8311e40d00819594e}{connections}}
 \item 
-det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{simulations_2package_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} \mbox{\hyperlink{AGV_8ned_a9cae140335d9c855f12526920efdde3d}{ethg}}
+det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{NNIChannel_8ned_a43df39bbd6ba641098ee3c6e87b5f9c8}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} \mbox{\hyperlink{AGV_8ned_a9cae140335d9c855f12526920efdde3d}{ethg}}
 \end{DoxyCompactItemize}
 
 
@@ -62,7 +62,7 @@ det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{simulations_2package_8ned_a1
 \index{AGV.ned@{AGV.ned}!ethg@{ethg}}
 \index{ethg@{ethg}!AGV.ned@{AGV.ned}}
 \doxysubsubsection{\texorpdfstring{ethg}{ethg}}
-{\footnotesize\ttfamily det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{simulations_2package_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} ethg}
+{\footnotesize\ttfamily det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{NNIChannel_8ned_a43df39bbd6ba641098ee3c6e87b5f9c8}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} ethg}
 
 \mbox{\Hypertarget{AGV_8ned_a05d5e777415aeee3addbbc2ec272199f}\label{AGV_8ned_a05d5e777415aeee3addbbc2ec272199f}} 
 \index{AGV.ned@{AGV.ned}!IEthernetNetworkNode@{IEthernetNetworkNode}}
@@ -88,16 +88,16 @@ det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{simulations_2package_8ned_a1
 \doxysubsubsection{\texorpdfstring{TsnNetworkBase}{TsnNetworkBase}}
 {\footnotesize\ttfamily import inet networks base Tsn\+Network\+Base}
 
-\mbox{\Hypertarget{AGV_8ned_a0f521dd6168b0144578354a97e17049f}\label{AGV_8ned_a0f521dd6168b0144578354a97e17049f}} 
+\mbox{\Hypertarget{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}\label{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}} 
 \index{AGV.ned@{AGV.ned}!UnitWithAdapter@{UnitWithAdapter}}
 \index{UnitWithAdapter@{UnitWithAdapter}!AGV.ned@{AGV.ned}}
 \doxysubsubsection{\texorpdfstring{UnitWithAdapter}{UnitWithAdapter}}
-{\footnotesize\ttfamily module AGV extends Unit\+With\+Adapter}
+{\footnotesize\ttfamily module Processing\+Cell extends Unit\+With\+Adapter}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{    parameters:}
-\DoxyCodeLine{        @\mbox{\hyperlink{detcom_8ned_a21fbd3253518b47dddb3893f366ffefa}{display}}(\textcolor{stringliteral}{"{}i=device/cellphone"{}})}
+\DoxyCodeLine{        @\mbox{\hyperlink{ProcessingCell_8ned_a904d3fcca29dcff126708ba597eacfee}{display}}(\textcolor{stringliteral}{"{}i=device/cellphone"{}})}
 
 \end{DoxyCode}

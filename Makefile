@@ -23,12 +23,3 @@ checkmakefiles:
 	echo; \
 	exit 1; \
 	fi
-
-# Generate documents
-doc:
-	@cd docs && $(MAKE)
-	@doxygen doxy.cfg
-
-ddoc:
-#	cd docs && sphinx-quickstart
-	cd docs && sphinx-build . _build/html
