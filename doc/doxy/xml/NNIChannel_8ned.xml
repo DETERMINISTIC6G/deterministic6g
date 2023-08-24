@@ -4,7 +4,7 @@
     <compoundname>NNIChannel.ned</compoundname>
       <sectiondef kind="var">
       <memberdef kind="variable" id="NNIChannel_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" prot="public" static="no" mutable="no">
-        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
         <definition>package d6g devices sixg</definition>
         <argsstring></argsstring>
         <name>sixg</name>
@@ -92,7 +92,7 @@
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.ethernet.EthernetLink;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">channel<sp/>NNIChannel<sp/>extends<sp/><ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">channel<sp/><ref refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref><sp/>extends<sp/><ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>{</highlight></codeline>
 <codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>length<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(0m);</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="NNIChannel_8ned_1a88dd780a96c097fc57be4363a3b023a0" kindref="member">datarate</ref><sp/>=<sp/>0bps;</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>@<ref refid="NNIChannel_8ned_1af3c094bff3ef9050771e14c5ea1fe19f" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;ls=,,da&quot;</highlight><highlight class="normal">);</highlight></codeline>

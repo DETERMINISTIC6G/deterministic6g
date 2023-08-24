@@ -20,6 +20,8 @@
   </compound>
   <compound refid="classDetComNetworkBase" kind="class"><name>DetComNetworkBase</name>
   </compound>
+  <compound refid="classEdgeCloudNetwork" kind="class"><name>EdgeCloudNetwork</name>
+  </compound>
   <compound refid="classd6g_1_1Histogram" kind="class"><name>d6g::Histogram</name>
     <member refid="classd6g_1_1Histogram_1aa41b2ede5d52bf0c8f56b9abb1316e1f" kind="variable"><name>bins</name></member>
     <member refid="classd6g_1_1Histogram_1a3214c36d02b35e65d5071a6e89ebcdec" kind="variable"><name>totalCount</name></member>
@@ -77,6 +79,89 @@
   </compound>
   <compound refid="namespacequeueing" kind="namespace"><name>queueing</name>
   </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="Baseline_8ned" kind="file"><name>Baseline.ned</name>
+    <member refid="Baseline_8ned_1a351784356b91bc8c435c652b8f4f56ff" kind="variable"><name>baseline</name></member>
+    <member refid="Baseline_8ned_1a6d6c69312c4c8df07fb76b19c79fbbc1" kind="variable"><name>TsnNetworkBase</name></member>
+    <member refid="Baseline_8ned_1a05d5e777415aeee3addbbc2ec272199f" kind="variable"><name>IEthernetNetworkNode</name></member>
+    <member refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kind="variable"><name>EthernetLink</name></member>
+    <member refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kind="variable"><name>DetCom</name></member>
+    <member refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kind="variable"><name>DetComAdapter</name></member>
+    <member refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kind="variable"><name>NNIChannel</name></member>
+    <member refid="Baseline_8ned_1ae8940d5e88cafb8023f9ae5dc45ea788" kind="variable"><name>DetComNetworkBase</name></member>
+    <member refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kind="variable"><name>TsnDevice</name></member>
+    <member refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kind="variable"><name>TsnSwitch</name></member>
+    <member refid="Baseline_8ned_1a10bdf494a2e09716ed694e9fd2ddb99c" kind="variable"><name>DatarateChannel</name></member>
+    <member refid="Baseline_8ned_1a38ff22a1c61ae61506cdba4ed366b143" kind="variable"><name>ethg</name></member>
+    <member refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kind="variable"><name>ueg</name></member>
+  </compound>
+  <compound refid="AGV_8ned" kind="file"><name>AGV.ned</name>
+    <member refid="AGV_8ned_1a4d0691aa5c0d0ec33864330d7a27dec7" kind="variable"><name>cooperativemanufacturing</name></member>
+    <member refid="AGV_8ned_1ab5b230321460f765a14bad82fdb5bf19" kind="variable"><name>TsnNetworkBase</name></member>
+    <member refid="AGV_8ned_1a05d5e777415aeee3addbbc2ec272199f" kind="variable"><name>IEthernetNetworkNode</name></member>
+    <member refid="AGV_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kind="variable"><name>EthernetLink</name></member>
+    <member refid="AGV_8ned_1ab62860ba51665653b577fc936a2c00b8" kind="variable"><name>UnitWithAdapter</name></member>
+    <member refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kind="variable"><name>isWireless</name></member>
+    <member refid="AGV_8ned_1a69d2809c81dcdc0ddd46a89ae72ae5d9" kind="variable"><name>bitrate</name></member>
+    <member refid="AGV_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" kind="variable"><name>__pad0__</name></member>
+    <member refid="AGV_8ned_1a0d17af75d0dc28b853caef6afcfb1e46" kind="variable"><name>interToCell</name></member>
+    <member refid="AGV_8ned_1ad554ae1d239cb2f8311e40d00819594e" kind="variable"><name>connections</name></member>
+    <member refid="AGV_8ned_1a9cae140335d9c855f12526920efdde3d" kind="variable"><name>ethg</name></member>
+  </compound>
+  <compound refid="CooperativeManufacturing_8ned" kind="file"><name>CooperativeManufacturing.ned</name>
+    <member refid="CooperativeManufacturing_8ned_1a4d0691aa5c0d0ec33864330d7a27dec7" kind="variable"><name>cooperativemanufacturing</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ab5b230321460f765a14bad82fdb5bf19" kind="variable"><name>TsnNetworkBase</name></member>
+    <member refid="CooperativeManufacturing_8ned_1a05d5e777415aeee3addbbc2ec272199f" kind="variable"><name>IEthernetNetworkNode</name></member>
+    <member refid="CooperativeManufacturing_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kind="variable"><name>EthernetLink</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kind="variable"><name>DetCom</name></member>
+    <member refid="CooperativeManufacturing_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kind="variable"><name>NNIChannel</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ae8940d5e88cafb8023f9ae5dc45ea788" kind="variable"><name>DetComNetworkBase</name></member>
+    <member refid="CooperativeManufacturing_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" kind="variable"><name>__pad0__</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ae28744789abedb6c7f7cf718ff209bc4" kind="variable"><name>agv2</name></member>
+    <member refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kind="variable"><name>detcom</name></member>
+    <member refid="CooperativeManufacturing_8ned_1aa6c8b77d8a7c65eefd0cb27576ac56cd" kind="variable"><name>processingCell</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ad554ae1d239cb2f8311e40d00819594e" kind="variable"><name>connections</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ad79b7361425e6b29a52c4166b95b024e" kind="variable"><name>ueg</name></member>
+    <member refid="CooperativeManufacturing_8ned_1ad11ecbdbbaccd6786fa0b7fa392f6a7f" kind="variable"><name>ethg</name></member>
+  </compound>
+  <compound refid="ProcessingCell_8ned" kind="file"><name>ProcessingCell.ned</name>
+    <member refid="ProcessingCell_8ned_1a4d0691aa5c0d0ec33864330d7a27dec7" kind="variable"><name>cooperativemanufacturing</name></member>
+    <member refid="ProcessingCell_8ned_1ab5b230321460f765a14bad82fdb5bf19" kind="variable"><name>TsnNetworkBase</name></member>
+    <member refid="ProcessingCell_8ned_1a05d5e777415aeee3addbbc2ec272199f" kind="variable"><name>IEthernetNetworkNode</name></member>
+    <member refid="ProcessingCell_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kind="variable"><name>EthernetLink</name></member>
+    <member refid="ProcessingCell_8ned_1ab62860ba51665653b577fc936a2c00b8" kind="variable"><name>UnitWithAdapter</name></member>
+    <member refid="ProcessingCell_8ned_1a69d2809c81dcdc0ddd46a89ae72ae5d9" kind="variable"><name>bitrate</name></member>
+    <member refid="ProcessingCell_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" kind="variable"><name>__pad0__</name></member>
+    <member refid="ProcessingCell_8ned_1a97587430e5a643c6d4335809515c5913" kind="variable"><name>swarmStatus</name></member>
+    <member refid="ProcessingCell_8ned_1af126b64e6ccc5efd2ce56d0359687566" kind="variable"><name>swarmControl</name></member>
+    <member refid="ProcessingCell_8ned_1ad554ae1d239cb2f8311e40d00819594e" kind="variable"><name>connections</name></member>
+    <member refid="ProcessingCell_8ned_1a014ffde3e265ca9e2e34566fe7466551" kind="variable"><name>ethg</name></member>
+    <member refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kind="function"><name>display</name></member>
+  </compound>
+  <compound refid="edgecloud_8ned" kind="file"><name>edgecloud.ned</name>
+    <member refid="edgecloud_8ned_1a1c5af8a7d4df7cd9cfb088b5a9ac23d1" kind="variable"><name>DetComNetworkBase</name></member>
+    <member refid="edgecloud_8ned_1af9215492e17264f227b9ce1732205045" kind="variable"><name>ueg</name></member>
+    <member refid="edgecloud_8ned_1a38ff22a1c61ae61506cdba4ed366b143" kind="variable"><name>ethg</name></member>
+  </compound>
+  <compound refid="simulations_2package_8ned" kind="file"><name>package.ned</name>
+    <member refid="simulations_2package_8ned_1a0230f38f376249b9fab30725bfec14ef" kind="variable"><name>simulations</name></member>
+    <member refid="simulations_2package_8ned_1a6d6c69312c4c8df07fb76b19c79fbbc1" kind="variable"><name>TsnNetworkBase</name></member>
+    <member refid="simulations_2package_8ned_1a05d5e777415aeee3addbbc2ec272199f" kind="variable"><name>IEthernetNetworkNode</name></member>
+    <member refid="simulations_2package_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kind="variable"><name>EthernetLink</name></member>
+    <member refid="simulations_2package_8ned_1a4f0ca6c429c3267a0e94c85eb51dbbd2" kind="variable"><name>Histogram</name></member>
+    <member refid="simulations_2package_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" kind="variable"><name>__pad0__</name></member>
+    <member refid="simulations_2package_8ned_1a94a6a5576916faa8896ca1600c13e139" kind="variable"><name>is</name></member>
+    <member refid="simulations_2package_8ned_1a9d6bd01239a00ad16730fb6a0e0a681b" kind="variable"><name>switch</name></member>
+    <member refid="simulations_2package_8ned_1ad2c52bc8ad1bcad55f245842ed946482" kind="variable"><name>server</name></member>
+    <member refid="simulations_2package_8ned_1ad554ae1d239cb2f8311e40d00819594e" kind="variable"><name>connections</name></member>
+    <member refid="simulations_2package_8ned_1a750aa28dc710284909f849ee21fb2f47" kind="variable"><name>ethg</name></member>
+    <member refid="simulations_2package_8ned_1ade7606b87c5055eac3db2895cef9b79e" kind="function"><name>license</name></member>
+  </compound>
+  <compound refid="src_2package_8ned" kind="file"><name>package.ned</name>
+    <member refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kind="variable"><name>d6g</name></member>
+    <member refid="src_2package_8ned_1ade7606b87c5055eac3db2895cef9b79e" kind="function"><name>license</name></member>
+  </compound>
   <compound refid="UdpEdgeCloudApp_8cc" kind="file"><name>UdpEdgeCloudApp.cc</name>
   </compound>
   <compound refid="UdpEdgeCloudApp_8h" kind="file"><name>UdpEdgeCloudApp.h</name>
@@ -92,7 +177,7 @@
   </compound>
   <compound refid="detcom_8ned" kind="file"><name>detcom.ned</name>
     <member refid="detcom_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" kind="variable"><name>sixg</name></member>
-    <member refid="detcom_8ned_1afcea3a174f8809f82673dfe4416486c4" kind="variable"><name>TsnSwitch</name></member>
+    <member refid="detcom_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" kind="variable"><name>TsnSwitch</name></member>
     <member refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kind="variable"><name>DetComAdapter</name></member>
     <member refid="detcom_8ned_1a21fbd3253518b47dddb3893f366ffefa" kind="function"><name>display</name></member>
   </compound>
@@ -159,10 +244,6 @@
     <member refid="DetComNetworkBase_8ned_1a426cc8f5a82a9677c62610c261ad809b" kind="variable"><name>numTrafficClasses</name></member>
     <member refid="DetComNetworkBase_8ned_1a2ebc41bb98b1b1166127fb3472a9cddd" kind="variable"><name>mapping</name></member>
   </compound>
-  <compound refid="package_8ned" kind="file"><name>package.ned</name>
-    <member refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kind="variable"><name>d6g</name></member>
-    <member refid="package_8ned_1ade7606b87c5055eac3db2895cef9b79e" kind="function"><name>license</name></member>
-  </compound>
   <compound refid="BridgingLayerWithPairwiseDelay_8ned" kind="file"><name>BridgingLayerWithPairwiseDelay.ned</name>
     <member refid="BridgingLayerWithPairwiseDelay_8ned_1ad44c05095f5f4e1493a36a08e870dd3a" kind="variable"><name>IProtocolLayer</name></member>
     <member refid="BridgingLayerWithPairwiseDelay_8ned_1a05a60e94173ec85c2522e5e7554f2389" kind="variable"><name>interfaceTableModule</name></member>
@@ -178,11 +259,17 @@
   </compound>
   <compound refid="dir_53adf0b982dc8545998aae3f283a5a58" kind="dir"><name>src/apps</name>
   </compound>
+  <compound refid="dir_1694e8fe1d416b514a8d2deb17b4095a" kind="dir"><name>simulations/baseline</name>
+  </compound>
   <compound refid="dir_3c2a2c26a1e2db9053d305f21e7bb3d9" kind="dir"><name>src/distribution/contract</name>
+  </compound>
+  <compound refid="dir_8f554f8c395380b68db9b02d22ef94c0" kind="dir"><name>simulations/cooperativemanufacturing</name>
   </compound>
   <compound refid="dir_6fac9273c1f4413d2ee63ba6cd0b0eb2" kind="dir"><name>src/devices</name>
   </compound>
   <compound refid="dir_eeb2d7767734b93c0d6e9690488ca877" kind="dir"><name>src/distribution</name>
+  </compound>
+  <compound refid="dir_5b344d0edad0a9f241e99bb8044b65ea" kind="dir"><name>simulations/edgecloud</name>
   </compound>
   <compound refid="dir_aeafcccafaeacfa6896c54f7661fce43" kind="dir"><name>src/apps/edgecloud</name>
   </compound>
@@ -192,8 +279,12 @@
   </compound>
   <compound refid="dir_65fc97cdcd46e82a49b68d3fda328471" kind="dir"><name>src/pairwise</name>
   </compound>
+  <compound refid="dir_83271c016684bff04ce022d17a2ba8ac" kind="dir"><name>simulations</name>
+  </compound>
   <compound refid="dir_d106d24215f838a7e5b0809ba64e4bd2" kind="dir"><name>src/devices/sixg</name>
   </compound>
   <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
   </compound>
 </doxygenindex>

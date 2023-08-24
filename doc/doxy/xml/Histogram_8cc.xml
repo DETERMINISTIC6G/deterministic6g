@@ -73,7 +73,7 @@
 <codeline lineno="21"><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">using<sp/>namespace<sp/></highlight><highlight class="normal">inet::xmlutils;</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><ref refid="namespaced6g_1ad89efa9e2c48a0c6344d0d8792b2a2d6" kindref="member">Define_Module</ref>(<ref refid="Histogram_8ned_1a9ac7714282e24f59c138ae20aaa6d66d" kindref="member">Histogram</ref>);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><ref refid="namespaced6g_1ad89efa9e2c48a0c6344d0d8792b2a2d6" kindref="member">Define_Module</ref>(<ref refid="simulations_2package_8ned_1a4f0ca6c429c3267a0e94c85eb51dbbd2" kindref="member">Histogram</ref>);</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="27"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classd6g_1_1Histogram_1a9eeca667184f0e5bfebd3aede01a0b38" kindref="member">Histogram::initialize</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>stage)<sp/>{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Parse<sp/>the<sp/>histogram<sp/>configuration</highlight><highlight class="normal"></highlight></codeline>

@@ -4,7 +4,7 @@
     <compoundname>Histogram.ned</compoundname>
       <sectiondef kind="var">
       <memberdef kind="variable" id="Histogram_8ned_1a8fa51d52e09c35ee2b2fa87c6230a974" prot="public" static="no" mutable="no">
-        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> distribution</type>
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> distribution</type>
         <definition>package d6g distribution histogram</definition>
         <argsstring></argsstring>
         <name>histogram</name>

@@ -24,11 +24,11 @@ author = 'IPVS University of Stuttgart'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
-extensions = []
-# extensions = ['breathe']
-#
-# breathe_projects = {"Deterministic6G": "/home/dan/workspace/deterministic6g/doc/doxy/XML"}
-# breathe_default_project = "Deterministic6G"
+# extensions = []
+extensions = ['breathe']
+
+breathe_projects = {"Deterministic6G": "../doxy/xml"}
+breathe_default_project = "Deterministic6G"
 
 templates_path = ['_templates']
 exclude_patterns = []

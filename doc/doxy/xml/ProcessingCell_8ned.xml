@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="ProcessingCell_8ned" kind="file" language="C++">
+    <compoundname>ProcessingCell.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a4d0691aa5c0d0ec33864330d7a27dec7" prot="public" static="no" mutable="no">
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> <ref refid="simulations_2package_8ned_1a0230f38f376249b9fab30725bfec14ef" kindref="member">simulations</ref></type>
+        <definition>package d6g simulations cooperativemanufacturing</definition>
+        <argsstring></argsstring>
+        <name>cooperativemanufacturing</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="16" column="23" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1ab5b230321460f765a14bad82fdb5bf19" prot="public" static="no" mutable="no">
+        <type>import inet networks base</type>
+        <definition>import inet networks base TsnNetworkBase</definition>
+        <argsstring></argsstring>
+        <name>TsnNetworkBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="18" column="24" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a05d5e777415aeee3addbbc2ec272199f" prot="public" static="no" mutable="no">
+        <type>import inet node contract</type>
+        <definition>import inet node contract IEthernetNetworkNode</definition>
+        <argsstring></argsstring>
+        <name>IEthernetNetworkNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="19" column="24" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" prot="public" static="no" mutable="no">
+        <type>import inet node ethernet</type>
+        <definition>import inet node ethernet EthernetLink</definition>
+        <argsstring></argsstring>
+        <name>EthernetLink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="20" column="24" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1ab62860ba51665653b577fc936a2c00b8" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices <ref refid="UnitWithAdapter_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" kindref="member">sixg</ref></type>
+        <definition>module ProcessingCell extends UnitWithAdapter</definition>
+        <argsstring></argsstring>
+        <name>UnitWithAdapter</name>
+        <initializer>{
+    parameters:
+        <ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref> = false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="21" column="22" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a69d2809c81dcdc0ddd46a89ae72ae5d9" prot="public" static="no" mutable="no">
+        <type>*eth[ *]</type>
+        <definition>* eth [*] bitrate</definition>
+        <argsstring></argsstring>
+        <name>bitrate</name>
+        <initializer>= default(100Mbps)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="28" column="12" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules __pad0__</definition>
+        <argsstring></argsstring>
+        <name>__pad0__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="29" column="5" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a97587430e5a643c6d4335809515c5913" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules swarmStatus</definition>
+        <argsstring></argsstring>
+        <name>swarmStatus</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="33" column="9" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1af126b64e6ccc5efd2ce56d0359687566" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules swarmControl</definition>
+        <argsstring></argsstring>
+        <name>swarmControl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="36" column="9" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1ad554ae1d239cb2f8311e40d00819594e" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules connections</definition>
+        <argsstring></argsstring>
+        <name>connections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="39" column="5" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ProcessingCell_8ned_1a014ffde3e265ca9e2e34566fe7466551" prot="public" static="no" mutable="no">
+        <type><ref refid="ProcessingCell_8ned_1a97587430e5a643c6d4335809515c5913" kindref="member">swarmStatus</ref> ethg&lt;--&gt; <ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref>&lt;--&gt; bridge</type>
+        <definition>bridge ethg&lt;--&gt; EthernetLink&lt;--&gt; detComAdapter ethg</definition>
+        <argsstring></argsstring>
+        <name>ethg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="41" column="46" bodyfile="simulations/cooperativemanufacturing/ProcessingCell.ned" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>display</definition>
+        <argsstring>(&quot;i=status/execute&quot;)</argsstring>
+        <name>display</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/cooperativemanufacturing/ProcessingCell.ned" line="27" column="5" declfile="simulations/cooperativemanufacturing/ProcessingCell.ned" declline="27" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software:<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>either<sp/>version<sp/>3<sp/>of<sp/>the<sp/>License,<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>along<sp/>with<sp/>this<sp/>program.<sp/><sp/>If<sp/>not,<sp/>see<sp/>http://www.gnu.org/licenses/.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.simulations.cooperativemanufacturing;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.networks.base.TsnNetworkBase;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.contract.IEthernetNetworkNode;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.ethernet.EthernetLink;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.UnitWithAdapter;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">module<sp/>ProcessingCell<sp/>extends<sp/><ref refid="ProcessingCell_8ned_1ab62860ba51665653b577fc936a2c00b8" kindref="member">UnitWithAdapter</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;i=status/execute&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*.eth[*].bitrate<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(100Mbps);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnSwitch&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="ProcessingCell_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,100&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ProcessingCell_8ned_1a97587430e5a643c6d4335809515c5913" kindref="member">swarmStatus</ref>:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnDevice&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="ProcessingCell_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=250,100&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ProcessingCell_8ned_1af126b64e6ccc5efd2ce56d0359687566" kindref="member">swarmControl</ref>:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnDevice&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="ProcessingCell_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=250,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ProcessingCell_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ProcessingCell_8ned_1af126b64e6ccc5efd2ce56d0359687566" kindref="member">swarmControl</ref>.ethg++<sp/>&lt;--&gt;<sp/><ref refid="ProcessingCell_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>detComAdapter.ethg++;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ProcessingCell_8ned_1a97587430e5a643c6d4335809515c5913" kindref="member">swarmStatus</ref>.ethg++<sp/>&lt;--&gt;<sp/><ref refid="ProcessingCell_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge.ethg++;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge.ethg++<sp/>&lt;--&gt;<sp/><ref refid="ProcessingCell_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>detComAdapter.ethg++;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="simulations/cooperativemanufacturing/ProcessingCell.ned"/>
+  </compounddef>
+</doxygen>

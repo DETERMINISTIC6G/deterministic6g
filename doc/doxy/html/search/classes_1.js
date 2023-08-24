@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['detcomnetworkbase_88',['DetComNetworkBase',['../classDetComNetworkBase.html',1,'']]]
+  ['detcomnetworkbase_116',['DetComNetworkBase',['../classDetComNetworkBase.html',1,'']]]
 ];

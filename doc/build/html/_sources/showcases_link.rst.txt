@@ -1,0 +1,2 @@
+.. include:: ../../showcases/index.rst
+

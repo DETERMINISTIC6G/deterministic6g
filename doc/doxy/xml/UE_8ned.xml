@@ -4,7 +4,7 @@
     <compoundname>UE.ned</compoundname>
       <sectiondef kind="var">
       <memberdef kind="variable" id="UE_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" prot="public" static="no" mutable="no">
-        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
         <definition>package d6g devices sixg</definition>
         <argsstring></argsstring>
         <name>sixg</name>

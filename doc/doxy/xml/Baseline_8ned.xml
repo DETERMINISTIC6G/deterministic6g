@@ -1,0 +1,272 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="Baseline_8ned" kind="file" language="C++">
+    <compoundname>Baseline.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="Baseline_8ned_1a351784356b91bc8c435c652b8f4f56ff" prot="public" static="no" mutable="no">
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> <ref refid="simulations_2package_8ned_1a0230f38f376249b9fab30725bfec14ef" kindref="member">simulations</ref></type>
+        <definition>package d6g simulations baseline</definition>
+        <argsstring></argsstring>
+        <name>baseline</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="6" column="23" bodyfile="simulations/baseline/Baseline.ned" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a6d6c69312c4c8df07fb76b19c79fbbc1" prot="public" static="no" mutable="no">
+        <type>import inet networks base</type>
+        <definition>network TsnTestNetwork extends TsnNetworkBase</definition>
+        <argsstring></argsstring>
+        <name>TsnNetworkBase</name>
+        <initializer>{
+    parameters:
+        *.eth[*].<ref refid="UE_8ned_1a9ba628ef53aa2760ee08afab49765d42" kindref="member">bitrate</ref> = default(100Mbps)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="8" column="24" bodyfile="simulations/baseline/Baseline.ned" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a05d5e777415aeee3addbbc2ec272199f" prot="public" static="no" mutable="no">
+        <type>import inet node contract</type>
+        <definition>import inet node contract IEthernetNetworkNode</definition>
+        <argsstring></argsstring>
+        <name>IEthernetNetworkNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="9" column="24" bodyfile="simulations/baseline/Baseline.ned" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" prot="public" static="no" mutable="no">
+        <type>import inet node ethernet</type>
+        <definition>channel NNIChannel extends EthernetLink</definition>
+        <argsstring></argsstring>
+        <name>EthernetLink</name>
+        <initializer>{
+    length = default(0m)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="10" column="24" bodyfile="simulations/baseline/Baseline.ned" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices <ref refid="UnitWithAdapter_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" kindref="member">sixg</ref></type>
+        <definition>import d6g devices sixg DetCom</definition>
+        <argsstring></argsstring>
+        <name>DetCom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="11" column="22" bodyfile="simulations/baseline/Baseline.ned" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices <ref refid="UnitWithAdapter_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" kindref="member">sixg</ref></type>
+        <definition>import d6g devices sixg DetComAdapter</definition>
+        <argsstring></argsstring>
+        <name>DetComAdapter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="12" column="22" bodyfile="simulations/baseline/Baseline.ned" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices <ref refid="UnitWithAdapter_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" kindref="member">sixg</ref></type>
+        <definition>import d6g devices sixg NNIChannel</definition>
+        <argsstring></argsstring>
+        <name>NNIChannel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="13" column="22" bodyfile="simulations/baseline/Baseline.ned" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1ae8940d5e88cafb8023f9ae5dc45ea788" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> networks</type>
+        <definition>network CooperativeManufacturing extends DetComNetworkBase</definition>
+        <argsstring></argsstring>
+        <name>DetComNetworkBase</name>
+        <initializer>{
+    parameters:
+        
+    submodules:
+        talker: <ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350,200&quot;);
+        }
+        bridge1: <ref refid="UnitWithAdapter_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" kindref="member">TsnSwitch</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350,300&quot;);
+        }
+        bridge2: <ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref>  {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350,400&quot;);
+        }
+        detcom: <ref refid="CooperativeManufacturing_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=450,400&quot;);
+        }
+        bridge3: <ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=550,400&quot;);
+        }
+        bridge4: <ref refid="UnitWithAdapter_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" kindref="member">TsnSwitch</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=550,300&quot;);
+        }
+        listener: <ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=550,200&quot;);
+        }
+    connections:
+        <ref refid="simulations_2package_8ned_1a750aa28dc710284909f849ee21fb2f47" kindref="member">talker.ethg</ref>++ &lt;--&gt; <ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref> &lt;--&gt; <ref refid="simulations_2package_8ned_1a750aa28dc710284909f849ee21fb2f47" kindref="member">bridge1.ethg</ref>++</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="14" column="19" bodyfile="simulations/baseline/Baseline.ned" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" prot="public" static="no" mutable="no">
+        <type>import inet node tsn</type>
+        <definition>import inet node tsn TsnDevice</definition>
+        <argsstring></argsstring>
+        <name>TsnDevice</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="15" column="19" bodyfile="simulations/baseline/Baseline.ned" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" prot="public" static="no" mutable="no">
+        <type>import inet node tsn</type>
+        <definition>module DetComAdapter extends TsnSwitch</definition>
+        <argsstring></argsstring>
+        <name>TsnSwitch</name>
+        <initializer>{
+    parameters:
+        int numUeInterfaces = default(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="16" column="19" bodyfile="simulations/baseline/Baseline.ned" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a10bdf494a2e09716ed694e9fd2ddb99c" prot="public" static="no" mutable="no">
+        <type>import ned</type>
+        <definition>import ned DatarateChannel</definition>
+        <argsstring></argsstring>
+        <name>DatarateChannel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="17" column="11" bodyfile="simulations/baseline/Baseline.ned" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1a38ff22a1c61ae61506cdba4ed366b143" prot="public" static="no" mutable="no">
+        <type>bridge1 ethg&lt;--&gt; <ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref>&lt;--&gt; bridge2</type>
+        <definition>bridge3 ethg&lt;--&gt; EthernetLink&lt;--&gt; receiver ethg</definition>
+        <argsstring></argsstring>
+        <name>ethg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="47" column="43" bodyfile="simulations/baseline/Baseline.ned" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="Baseline_8ned_1af9215492e17264f227b9ce1732205045" prot="public" static="no" mutable="no">
+        <type>bridge2 ueg&lt;--&gt; <ref refid="CooperativeManufacturing_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref>&lt;--&gt; <ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref></type>
+        <definition>detcom ueg&lt;--&gt; NNIChannel&lt;--&gt; bridge3 ueg</definition>
+        <argsstring></argsstring>
+        <name>ueg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/baseline/Baseline.ned" line="48" column="39" bodyfile="simulations/baseline/Baseline.ned" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>LGPL-3.0-or-later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.simulations.baseline;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.networks.base.TsnNetworkBase;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.contract.IEthernetNetworkNode;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.ethernet.EthernetLink;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.DetCom;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.DetComAdapter;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.NNIChannel;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.networks.DetComNetworkBase;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnDevice;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>ned.DatarateChannel;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">network<sp/>Baseline<sp/>extends<sp/><ref refid="classDetComNetworkBase" kindref="compound">DetComNetworkBase</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>talker:<sp/><ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge1:<sp/><ref refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,300&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>:<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=450,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=550,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge4:<sp/><ref refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref><sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=550,300&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>listener:<sp/><ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref><sp/>{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=550,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="AGV_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>talker.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge1.ethg++;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge1.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge2.ethg++;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2.ueg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref><sp/>&lt;--&gt;<sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>.ueg++;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>.ueg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref><sp/>&lt;--&gt;<sp/>bridge3.ueg++;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge4.ethg++;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge4.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>listener.ethg++;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="simulations/baseline/Baseline.ned"/>
+  </compounddef>
+</doxygen>

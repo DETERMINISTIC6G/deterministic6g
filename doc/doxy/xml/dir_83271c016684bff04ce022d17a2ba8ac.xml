@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_83271c016684bff04ce022d17a2ba8ac" kind="dir">
+    <compoundname>simulations</compoundname>
+    <innerdir refid="dir_1694e8fe1d416b514a8d2deb17b4095a">simulations/baseline</innerdir>
+    <innerdir refid="dir_8f554f8c395380b68db9b02d22ef94c0">simulations/cooperativemanufacturing</innerdir>
+    <innerdir refid="dir_5b344d0edad0a9f241e99bb8044b65ea">simulations/edgecloud</innerdir>
+    <innerfile refid="simulations_2package_8ned">package.ned</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="simulations/"/>
+  </compounddef>
+</doxygen>

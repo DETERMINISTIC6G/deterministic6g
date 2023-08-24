@@ -4,7 +4,7 @@
     <compoundname>detcom.ned</compoundname>
       <sectiondef kind="var">
       <memberdef kind="variable" id="detcom_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" prot="public" static="no" mutable="no">
-        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
         <definition>package d6g devices sixg</definition>
         <argsstring></argsstring>
         <name>sixg</name>
@@ -16,14 +16,11 @@
         </inbodydescription>
         <location file="src/devices/sixg/detcom.ned" line="16" column="19" bodyfile="src/devices/sixg/detcom.ned" bodystart="16" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="detcom_8ned_1afcea3a174f8809f82673dfe4416486c4" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="detcom_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" prot="public" static="no" mutable="no">
         <type>import inet node tsn</type>
-        <definition>module DetComAdapter extends TsnSwitch</definition>
+        <definition>import inet node tsn TsnSwitch</definition>
         <argsstring></argsstring>
         <name>TsnSwitch</name>
-        <initializer>{
-    parameters:
-        int numUeInterfaces = default(0)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -33,7 +30,7 @@
         <location file="src/devices/sixg/detcom.ned" line="18" column="19" bodyfile="src/devices/sixg/detcom.ned" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" prot="public" static="no" mutable="no">
-        <type>module DetCom extends</type>
+        <type>module <ref refid="CooperativeManufacturing_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref> extends</type>
         <definition>module DetCom extends DetComAdapter</definition>
         <argsstring></argsstring>
         <name>DetComAdapter</name>
@@ -88,7 +85,7 @@
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">module<sp/>DetCom<sp/>extends<sp/><ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">module<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>extends<sp/><ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref></highlight></codeline>
 <codeline lineno="21"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridging.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;BridgingLayerWithPairwiseDelay&quot;</highlight><highlight class="normal">);</highlight></codeline>

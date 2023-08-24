@@ -8,7 +8,7 @@
     <innerdir refid="dir_b6d0e2cb8efd242ccb7fc649323ceed9">src/networks</innerdir>
     <innerdir refid="dir_65fc97cdcd46e82a49b68d3fda328471">src/pairwise</innerdir>
     <innerfile refid="d6g-index_8ned">d6g-index.ned</innerfile>
-    <innerfile refid="package_8ned">package.ned</innerfile>
+    <innerfile refid="src_2package_8ned">package.ned</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

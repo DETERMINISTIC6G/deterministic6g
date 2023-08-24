@@ -14,5 +14,5 @@ Table of Contents
    :name: mastertoc
 
    users-guide/index
-   developers-guide/index
+   showcases_link
    ← INET Site <https://inet.omnetpp.org>

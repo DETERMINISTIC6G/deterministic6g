@@ -4,7 +4,7 @@
     <compoundname>UnitWithAdapter.ned</compoundname>
       <sectiondef kind="var">
       <memberdef kind="variable" id="UnitWithAdapter_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" prot="public" static="no" mutable="no">
-        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
         <definition>package d6g devices sixg</definition>
         <argsstring></argsstring>
         <name>sixg</name>
@@ -49,7 +49,7 @@
         <name>UnitWithAdapter</name>
         <initializer>{
     parameters:
-        bool isWireless = default(true)</initializer>
+        bool <ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref> = default(true)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -170,19 +170,19 @@
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
 <codeline lineno="21"><highlight class="normal">module<sp/><ref refid="UnitWithAdapter_8ned_1a92e326e870963c896a24b2c2bae23545" kindref="member">UnitWithAdapter</ref><sp/>{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isWireless<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref><sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="keyword">true</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>gates:</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inout<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter:<sp/><ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref><sp/>{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="detcom_8ned_1a21fbd3253518b47dddb3893f366ffefa" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="UnitWithAdapter_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(isWireless)<sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter.ueg++<sp/>&lt;--&gt;<sp/>{@<ref refid="detcom_8ned_1a21fbd3253518b47dddb3893f366ffefa" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;ls=,,da&quot;</highlight><highlight class="normal">);}<sp/>&lt;--&gt;<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter.ueg++<sp/>&lt;--&gt;<sp/>{@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;ls=,,da&quot;</highlight><highlight class="normal">);}<sp/>&lt;--&gt;<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!isWireless)<sp/>{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter.ethg++<sp/>&lt;--&gt;<sp/>{@<ref refid="detcom_8ned_1a21fbd3253518b47dddb3893f366ffefa" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;ls=,,da&quot;</highlight><highlight class="normal">);}<sp/>&lt;--&gt;<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="AGV_8ned_1a8252aee91336a6e53e595ad496727a60" kindref="member">isWireless</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter.ethg++<sp/>&lt;--&gt;<sp/>{@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;ls=,,da&quot;</highlight><highlight class="normal">);}<sp/>&lt;--&gt;<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="37"><highlight class="normal">}</highlight></codeline>
     </programlisting>
