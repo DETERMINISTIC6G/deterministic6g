@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5526b90f1519cae65da4cbb4dedf7aaa" kind="dir">
+    <compoundname>src/distribution/histogram</compoundname>
+    <innerfile refid="Histogram_8cc">Histogram.cc</innerfile>
+    <innerfile refid="Histogram_8h">Histogram.h</innerfile>
+    <innerfile refid="Histogram_8ned">Histogram.ned</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/distribution/histogram/"/>
+  </compounddef>
+</doxygen>

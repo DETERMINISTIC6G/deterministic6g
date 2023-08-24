@@ -1,0 +1,60 @@
+\hypertarget{detcom_8ned}{}\doxysection{src/devices/sixg/detcom.ned File Reference}
+\label{detcom_8ned}\index{src/devices/sixg/detcom.ned@{src/devices/sixg/detcom.ned}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{detcom_8ned_a21fbd3253518b47dddb3893f366ffefa}{display}} (\char`\"{}i=device/antennatower\char`\"{})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices \mbox{\hyperlink{detcom_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}{sixg}}
+\item 
+import inet node tsn \mbox{\hyperlink{detcom_8ned_afcea3a174f8809f82673dfe4416486c4}{Tsn\+Switch}}
+\item 
+module Det\+Com extends \mbox{\hyperlink{detcom_8ned_a3323a4019629a746f9079c9ecd5eb69d}{Det\+Com\+Adapter}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{detcom_8ned_a21fbd3253518b47dddb3893f366ffefa}\label{detcom_8ned_a21fbd3253518b47dddb3893f366ffefa}} 
+\index{detcom.ned@{detcom.ned}!display@{display}}
+\index{display@{display}!detcom.ned@{detcom.ned}}
+\doxysubsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{detcom_8ned_a3323a4019629a746f9079c9ecd5eb69d}\label{detcom_8ned_a3323a4019629a746f9079c9ecd5eb69d}} 
+\index{detcom.ned@{detcom.ned}!DetComAdapter@{DetComAdapter}}
+\index{DetComAdapter@{DetComAdapter}!detcom.ned@{detcom.ned}}
+\doxysubsubsection{\texorpdfstring{DetComAdapter}{DetComAdapter}}
+{\footnotesize\ttfamily module Det\+Com extends Det\+Com\+Adapter}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        bridging.typename = \textcolor{keywordflow}{default}(\textcolor{stringliteral}{"{}BridgingLayerWithPairwiseDelay"{}})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{detcom_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}\label{detcom_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}} 
+\index{detcom.ned@{detcom.ned}!sixg@{sixg}}
+\index{sixg@{sixg}!detcom.ned@{detcom.ned}}
+\doxysubsubsection{\texorpdfstring{sixg}{sixg}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices sixg}
+
+\mbox{\Hypertarget{detcom_8ned_afcea3a174f8809f82673dfe4416486c4}\label{detcom_8ned_afcea3a174f8809f82673dfe4416486c4}} 
+\index{detcom.ned@{detcom.ned}!TsnSwitch@{TsnSwitch}}
+\index{TsnSwitch@{TsnSwitch}!detcom.ned@{detcom.ned}}
+\doxysubsubsection{\texorpdfstring{TsnSwitch}{TsnSwitch}}
+{\footnotesize\ttfamily module \mbox{\hyperlink{detcom_8ned_a3323a4019629a746f9079c9ecd5eb69d}{Det\+Com\+Adapter}} extends Tsn\+Switch}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        \textcolor{keywordtype}{int} numUeInterfaces = \textcolor{keywordflow}{default}(0)}
+
+\end{DoxyCode}

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_65fc97cdcd46e82a49b68d3fda328471" kind="dir">
+    <compoundname>src/pairwise</compoundname>
+    <innerfile refid="BridgingLayerWithPairwiseDelay_8ned">BridgingLayerWithPairwiseDelay.ned</innerfile>
+    <innerfile refid="PairwiseDelayer_8cc">PairwiseDelayer.cc</innerfile>
+    <innerfile refid="PairwiseDelayer_8h">PairwiseDelayer.h</innerfile>
+    <innerfile refid="PairwiseDelayer_8ned">PairwiseDelayer.ned</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/pairwise/"/>
+  </compounddef>
+</doxygen>

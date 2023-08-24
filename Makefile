@@ -23,3 +23,6 @@ checkmakefiles:
 	echo; \
 	exit 1; \
 	fi
+
+doc:
+	doxygen Doxyfile

@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="UE_8ned" kind="file" language="C++">
+    <compoundname>UE.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="UE_8ned_1a6c5c2270583a69fb2d099b863a9a5b2e" prot="public" static="no" mutable="no">
+        <type>package <ref refid="package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> devices</type>
+        <definition>package d6g devices sixg</definition>
+        <argsstring></argsstring>
+        <name>sixg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/devices/sixg/UE.ned" line="16" column="19" bodyfile="src/devices/sixg/UE.ned" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UE_8ned_1af3f21784fec982b2c1721b4d7eaae750" prot="public" static="no" mutable="no">
+        <type>import inet linklayer ethernet</type>
+        <definition>module UE extends LayeredEthernetInterface</definition>
+        <argsstring></argsstring>
+        <name>LayeredEthernetInterface</name>
+        <initializer>{
+    parameters:
+    	phyLayer.interFrameGapInserter.duration = default(0s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/devices/sixg/UE.ned" line="18" column="29" bodyfile="src/devices/sixg/UE.ned" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UE_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" prot="public" static="no" mutable="no">
+        <type>import inet node tsn</type>
+        <definition>import inet node tsn TsnSwitch</definition>
+        <argsstring></argsstring>
+        <name>TsnSwitch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/devices/sixg/UE.ned" line="19" column="19" bodyfile="src/devices/sixg/UE.ned" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UE_8ned_1aab73bceccdf9fd1b6c749cbb4bbf5473" prot="public" static="no" mutable="no">
+        <type>import inet linklayer contract</type>
+        <definition>import inet linklayer contract IEthernetInterface</definition>
+        <argsstring></argsstring>
+        <name>IEthernetInterface</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/devices/sixg/UE.ned" line="20" column="29" bodyfile="src/devices/sixg/UE.ned" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UE_8ned_1a9ba628ef53aa2760ee08afab49765d42" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>bitrate</definition>
+        <argsstring></argsstring>
+        <name>bitrate</name>
+        <initializer>= default(inf Mbps)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/devices/sixg/UE.ned" line="25" column="5" bodyfile="src/devices/sixg/UE.ned" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>is<sp/>free<sp/>software:<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>either<sp/>version<sp/>3<sp/>of<sp/>the<sp/>License,<sp/>or</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>along<sp/>with<sp/>this<sp/>program.<sp/><sp/>If<sp/>not,<sp/>see<sp/>http://www.gnu.org/licenses/.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.devices.sixg;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.linklayer.ethernet.LayeredEthernetInterface;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.linklayer.contract.IEthernetInterface;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">module<sp/>UE<sp/>extends<sp/><ref refid="UE_8ned_1af3f21784fec982b2c1721b4d7eaae750" kindref="member">LayeredEthernetInterface</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="DetComAdapter_8ned_1ae752e4d9d080cceda4e68184f11b0994" kindref="member">phyLayer</ref>.interFrameGapInserter.duration<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(0s);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="UE_8ned_1a9ba628ef53aa2760ee08afab49765d42" kindref="member">bitrate</ref><sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(inf<sp/>Mbps);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/devices/sixg/UE.ned"/>
+  </compounddef>
+</doxygen>

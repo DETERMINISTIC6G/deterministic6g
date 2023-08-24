@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classUdpEdgeCloudApp" kind="class" language="C++" prot="public">
+    <compoundname>UdpEdgeCloudApp</compoundname>
+    <briefdescription>
+<para>The <ref refid="classUdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref> module is designed to simulate a UDP-based application in edge cloud scenarios. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This module builds upon the UdpEchoApp, inheriting its functionalities and adding the capability to introduce specific delays. Such delays might be used to simulate various network conditions or service latencies in edge cloud settings. Users can specify destination addresses, destination ports, and custom delays to simulate application behavior in edge environments. </para>
+    </detaileddescription>
+    <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned" line="13" column="1"/>
+    <listofallmembers>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

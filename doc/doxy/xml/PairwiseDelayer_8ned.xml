@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="PairwiseDelayer_8ned" kind="file" language="C++">
+    <compoundname>PairwiseDelayer.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="PairwiseDelayer_8ned_1a775fdc1160ae7d29a36c8e5d38ba10b9" prot="public" static="no" mutable="no">
+        <type>simple <ref refid="classPairwiseDelayer" kindref="compound">PairwiseDelayer</ref> extends PacketDelayerBase like</type>
+        <definition>simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer</definition>
+        <argsstring></argsstring>
+        <name>IPacketDelayer</name>
+        <initializer>{
+    parameters:
+        xml delayConfig = default(xml(&quot;&lt;delays&gt;&lt;/delays&gt;&quot;))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.ned" line="21" column="55" bodyfile="src/pairwise/PairwiseDelayer.ned" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>(C)<sp/>2023<sp/>Deterministic<sp/>6G.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>LGPL-3.0-or-later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.pairwise;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.queueing.base.PacketDelayerBase;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.queueing.contract.IPacketDelayer;</highlight></codeline>
+<codeline lineno="13"></codeline>
+<codeline lineno="21"><highlight class="normal">simple<sp/><ref refid="classPairwiseDelayer" kindref="compound">PairwiseDelayer</ref><sp/>extends<sp/>PacketDelayerBase<sp/>like<sp/><ref refid="PairwiseDelayer_8ned_1a775fdc1160ae7d29a36c8e5d38ba10b9" kindref="member">IPacketDelayer</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>xml<sp/>delayConfig<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(xml(</highlight><highlight class="stringliteral">&quot;&lt;delays&gt;&lt;/delays&gt;&quot;</highlight><highlight class="normal">));<sp/><sp/></highlight><highlight class="comment">//<sp/>XML<sp/>configuration<sp/>definition</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">@class</highlight><highlight class="normal">(<ref refid="classPairwiseDelayer" kindref="compound">PairwiseDelayer</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/pairwise/PairwiseDelayer.ned"/>
+  </compounddef>
+</doxygen>
