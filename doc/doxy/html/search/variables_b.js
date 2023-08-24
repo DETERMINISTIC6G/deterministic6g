@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['phylayer_215',['phyLayer',['../DetComAdapter_8ned.html#ae752e4d9d080cceda4e68184f11b0994',1,'DetComAdapter.ned']]],
-  ['processingcell_216',['processingCell',['../CooperativeManufacturing_8ned.html#aa6c8b77d8a7c65eefd0cb27576ac56cd',1,'CooperativeManufacturing.ned']]]
+  ['phylayer_168',['phyLayer',['../DetComAdapter_8ned.html#ae752e4d9d080cceda4e68184f11b0994',1,'DetComAdapter.ned']]]
 ];

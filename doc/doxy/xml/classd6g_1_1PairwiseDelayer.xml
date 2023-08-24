@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classd6g_1_1PairwiseDelayer" kind="class" language="C++" prot="public">
+    <compoundname>d6g::PairwiseDelayer</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">PacketDelayerBase</basecompoundref>
+    <includes refid="PairwiseDelayer_8h" local="no">PairwiseDelayer.h</includes>
+    <innerclass refid="classd6g_1_1PairwiseDelayer_1_1DelayEntry" prot="private">d6g::PairwiseDelayer::DelayEntry</innerclass>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classd6g_1_1PairwiseDelayer_1acc264076912b1427ebb26478f0027918" prot="private" static="yes" mutable="no">
+        <type>const short</type>
+        <definition>const short d6g::PairwiseDelayer::PAIRWISE_ACTIVATE_KIND</definition>
+        <argsstring></argsstring>
+        <name>PAIRWISE_ACTIVATE_KIND</name>
+        <initializer>= 3495</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="20" column="24" bodyfile="src/pairwise/PairwiseDelayer.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classd6g_1_1PairwiseDelayer_1a095f34d12b565f0d94aed92a61314823" prot="private" static="no" mutable="no">
+        <type>std::map&lt; int, std::map&lt; int, DelayEntry * &gt; &gt;</type>
+        <definition>std::map&lt;int, std::map&lt;int, DelayEntry *&gt; &gt; d6g::PairwiseDelayer::delays</definition>
+        <argsstring></argsstring>
+        <name>delays</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="35" column="14" bodyfile="src/pairwise/PairwiseDelayer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classd6g_1_1PairwiseDelayer_1ac5ed80cd58545703a57c97847d5be8bc" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PairwiseDelayer::initialize</definition>
+        <argsstring>(int stage) override</argsstring>
+        <name>initialize</name>
+        <param>
+          <type>int</type>
+          <declname>stage</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="38" column="10" bodyfile="src/pairwise/PairwiseDelayer.cc" bodystart="21" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="classd6g_1_1PairwiseDelayer_1ac4766c1c621ada39c1ba675dc7ee0d60" prot="protected" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>clocktime_t</type>
+        <definition>clocktime_t PairwiseDelayer::computeDelay</definition>
+        <argsstring>(Packet *packet) const override</argsstring>
+        <name>computeDelay</name>
+        <param>
+          <type>Packet *</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="39" column="17" bodyfile="src/pairwise/PairwiseDelayer.cc" bodystart="62" bodyend="109"/>
+      </memberdef>
+      <memberdef kind="function" id="classd6g_1_1PairwiseDelayer_1a12455fa2607b4def79bbd9166cba0fd5" prot="protected" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void PairwiseDelayer::handleMessage</definition>
+        <argsstring>(cMessage *message) override</argsstring>
+        <name>handleMessage</name>
+        <param>
+          <type>cMessage *</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="40" column="18" bodyfile="src/pairwise/PairwiseDelayer.cc" bodystart="111" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classd6g_1_1PairwiseDelayer_1a0dc0b627ae0ebcb824c14be332fbe361" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PairwiseDelayer::activateEntry</definition>
+        <argsstring>(DelayEntry *delayEntry)</argsstring>
+        <name>activateEntry</name>
+        <param>
+          <type>DelayEntry *</type>
+          <declname>delayEntry</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.h" line="41" column="10" bodyfile="src/pairwise/PairwiseDelayer.cc" bodystart="48" bodyend="60"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>d6g::PairwiseDelayer</label>
+        <link refid="classd6g_1_1PairwiseDelayer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PacketDelayerBase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>d6g::PairwiseDelayer</label>
+        <link refid="classd6g_1_1PairwiseDelayer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>PacketDelayerBase</label>
+      </node>
+    </collaborationgraph>
+    <location file="src/pairwise/PairwiseDelayer.h" line="19" column="1" bodyfile="src/pairwise/PairwiseDelayer.h" bodystart="19" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classd6g_1_1PairwiseDelayer_1a0dc0b627ae0ebcb824c14be332fbe361" prot="protected" virt="non-virtual"><scope>d6g::PairwiseDelayer</scope><name>activateEntry</name></member>
+      <member refid="classd6g_1_1PairwiseDelayer_1ac4766c1c621ada39c1ba675dc7ee0d60" prot="protected" virt="non-virtual"><scope>d6g::PairwiseDelayer</scope><name>computeDelay</name></member>
+      <member refid="classd6g_1_1PairwiseDelayer_1a095f34d12b565f0d94aed92a61314823" prot="private" virt="non-virtual"><scope>d6g::PairwiseDelayer</scope><name>delays</name></member>
+      <member refid="classd6g_1_1PairwiseDelayer_1a12455fa2607b4def79bbd9166cba0fd5" prot="protected" virt="virtual"><scope>d6g::PairwiseDelayer</scope><name>handleMessage</name></member>
+      <member refid="classd6g_1_1PairwiseDelayer_1ac5ed80cd58545703a57c97847d5be8bc" prot="protected" virt="non-virtual"><scope>d6g::PairwiseDelayer</scope><name>initialize</name></member>
+      <member refid="classd6g_1_1PairwiseDelayer_1acc264076912b1427ebb26478f0027918" prot="private" virt="non-virtual"><scope>d6g::PairwiseDelayer</scope><name>PAIRWISE_ACTIVATE_KIND</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

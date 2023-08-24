@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_53adf0b982dc8545998aae3f283a5a58" kind="dir">
+    <compoundname>src/apps</compoundname>
+    <innerdir refid="dir_aeafcccafaeacfa6896c54f7661fce43">src/apps/edgecloud</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/apps/"/>
+  </compounddef>
+</doxygen>
