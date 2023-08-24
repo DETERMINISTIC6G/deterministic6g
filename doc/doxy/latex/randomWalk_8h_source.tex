@@ -1,0 +1,47 @@
+\hypertarget{randomWalk_8h_source}{}\doxysection{random\+Walk.\+h}
+\label{randomWalk_8h_source}\index{src/distribution/randomWalk.h@{src/distribution/randomWalk.h}}
+\mbox{\hyperlink{randomWalk_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{3 \textcolor{comment}{// it under the terms of the GNU Lesser General Public License as published by}}
+\DoxyCodeLine{4 \textcolor{comment}{// the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{5 \textcolor{comment}{// (at your option) any later version.}}
+\DoxyCodeLine{6 \textcolor{comment}{// }}
+\DoxyCodeLine{7 \textcolor{comment}{// This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{8 \textcolor{comment}{// but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{9 \textcolor{comment}{// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{10 \textcolor{comment}{// GNU Lesser General Public License for more details.}}
+\DoxyCodeLine{11 \textcolor{comment}{// }}
+\DoxyCodeLine{12 \textcolor{comment}{// You should have received a copy of the GNU Lesser General Public License}}
+\DoxyCodeLine{13 \textcolor{comment}{// along with this program.  If not, see http://www.gnu.org/licenses/.}}
+\DoxyCodeLine{14 \textcolor{comment}{// }}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DETERMINISTIC6G\_RANDOMWALK\_H\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DETERMINISTIC6G\_RANDOMWALK\_H\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}inet/queueing/base/PacketDelayerBase.h"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaced6g}{d6g}} \{}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }inet;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classd6g_1_1randomWalk}{randomWalk}} \{}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27 \textcolor{comment}{//    static double cur\_delay;}}
+\DoxyCodeLine{28 \textcolor{comment}{//    static int count;}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{static} std::map<std::string, cValue> \mbox{\hyperlink{classd6g_1_1randomWalk_aec72b9789a5cfb0eb6cd57b33897f836}{lastDelays}};  \textcolor{comment}{// key for different modules which call the randomWalk}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33 \textcolor{comment}{//    double return\_delay;}}
+\DoxyCodeLine{34 \textcolor{comment}{//    double cur\_delay;}}
+\DoxyCodeLine{35 \textcolor{comment}{//    int count = 0;}}
+\DoxyCodeLine{36     \textcolor{keyword}{static} cNEDValue \mbox{\hyperlink{classd6g_1_1randomWalk_ad099401aa93d644d6ba59eee7790f8b5}{ned\_randomWalk}}(cComponent *context, cNEDValue argv[], \textcolor{keywordtype}{int} argc);}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \} \textcolor{comment}{/* namespace d6g */}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
