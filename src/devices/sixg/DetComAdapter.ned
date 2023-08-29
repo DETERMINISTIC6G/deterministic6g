@@ -27,10 +27,10 @@ import inet.linklayer.contract.IEthernetInterface;
 module DetComAdapter extends TsnSwitch
 {
     parameters:
-        int numUeInterfaces = default(0);  // minimum number of ethernet interfaces
+        int numUeInterfaces = default(0);  /// minimum number of ethernet interfaces
         ue[*].macLayer.typename = default(hasFramePreemption ? "EthernetPreemptingMacLayer" : "EthernetMacLayer");
-        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); // use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
-        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); // use packet streaming when cut-through switching is enabled
+        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); /// use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
+        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); /// use packet streaming when cut-through switching is enabled
     gates:
         inout ueg[numUeInterfaces] @labels(EtherFrame-conn);
     submodules:

@@ -1,0 +1,48 @@
+\hypertarget{UdpEdgeCloudApp_8h_source}{}\doxysection{Udp\+Edge\+Cloud\+App.\+h}
+\label{UdpEdgeCloudApp_8h_source}\index{src/apps/edgecloud/UdpEdgeCloudApp.h@{src/apps/edgecloud/UdpEdgeCloudApp.h}}
+\mbox{\hyperlink{UdpEdgeCloudApp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{3 \textcolor{comment}{// it under the terms of the GNU Lesser General Public License as published by}}
+\DoxyCodeLine{4 \textcolor{comment}{// the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{5 \textcolor{comment}{// (at your option) any later version.}}
+\DoxyCodeLine{6 \textcolor{comment}{// }}
+\DoxyCodeLine{7 \textcolor{comment}{// This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{8 \textcolor{comment}{// but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{9 \textcolor{comment}{// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{10 \textcolor{comment}{// GNU Lesser General Public License for more details.}}
+\DoxyCodeLine{11 \textcolor{comment}{// }}
+\DoxyCodeLine{12 \textcolor{comment}{// You should have received a copy of the GNU Lesser General Public License}}
+\DoxyCodeLine{13 \textcolor{comment}{// along with this program.  If not, see http://www.gnu.org/licenses/.}}
+\DoxyCodeLine{14 \textcolor{comment}{// }}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DETERMINISTIC6G\_UDPEDGECLOUDAPP\_H\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DETERMINISTIC6G\_UDPEDGECLOUDAPP\_H\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <omnetpp.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}inet/applications/udpapp/UdpEchoApp.h"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{using namespace }omnetpp;}
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }inet;}
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaced6g}{d6g}} \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }INET\_API \mbox{\hyperlink{classd6g_1_1UdpEdgeCloudApp}{UdpEdgeCloudApp}} : \textcolor{keyword}{public} \mbox{\hyperlink{UdpEdgeCloudApp_8ned_a182bf102c6a55ae30459a6409c8e33aa}{UdpEchoApp}} \{}
+\DoxyCodeLine{28 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} \mbox{\hyperlink{classd6g_1_1UdpEdgeCloudApp_a9577c948ba3846f37802a29a2274321b}{socketDataArrived}}(UdpSocket *socket, Packet *packet) \textcolor{keyword}{override};}
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} handleStartOperation(LifecycleOperation *operation) \textcolor{keyword}{override};}
+\DoxyCodeLine{31     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} initialize(\textcolor{keywordtype}{int} stage) \textcolor{keyword}{override};}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} handleMessage(cMessage *msg) \textcolor{keyword}{override};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{35     L3Address \mbox{\hyperlink{classd6g_1_1UdpEdgeCloudApp_ad7d6aca70b7bab20f9556dd534fcfc30}{destAddress}};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} \mbox{\hyperlink{classd6g_1_1UdpEdgeCloudApp_af65a2881ae1973672b446b19172d3f5d}{destPort}};}
+\DoxyCodeLine{37     cPar *delayParameter = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \} \textcolor{comment}{//namespace}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

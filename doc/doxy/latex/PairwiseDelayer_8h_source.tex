@@ -1,0 +1,53 @@
+\hypertarget{PairwiseDelayer_8h_source}{}\doxysection{Pairwise\+Delayer.\+h}
+\label{PairwiseDelayer_8h_source}\index{src/pairwise/PairwiseDelayer.h@{src/pairwise/PairwiseDelayer.h}}
+\mbox{\hyperlink{PairwiseDelayer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*}}
+\DoxyCodeLine{2 \textcolor{comment}{ * PairwiseDelayer.h}}
+\DoxyCodeLine{3 \textcolor{comment}{ *}}
+\DoxyCodeLine{4 \textcolor{comment}{ *  Created on: Jun 22, 2023}}
+\DoxyCodeLine{5 \textcolor{comment}{ *      Author: dan}}
+\DoxyCodeLine{6 \textcolor{comment}{ */}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef DETERMINISTIC6G\_PAIRWISEDELAYER\_H\_}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define DETERMINISTIC6G\_PAIRWISEDELAYER\_H\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}inet/common/INETDefs.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}inet/queueing/base/PacketDelayerBase.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaced6g}{d6g}} \{}
+\DoxyCodeLine{15 \textcolor{keyword}{using namespace }inet;}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }queueing;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }INET\_API \mbox{\hyperlink{classd6g_1_1PairwiseDelayer}{PairwiseDelayer}} : \textcolor{keyword}{public} PacketDelayerBase \{}
+\DoxyCodeLine{20     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{short} PAIRWISE\_ACTIVATE\_KIND = 3495;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{class }INET\_API DelayEntry \{}
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         DelayEntry(cXMLElement *delayEntity, cModule *context);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26         \textcolor{keywordtype}{int} in = -\/1;}
+\DoxyCodeLine{27         \textcolor{keywordtype}{int} out = -\/1;}
+\DoxyCodeLine{28         simtime\_t activateAt = 0;}
+\DoxyCodeLine{29         cDynamicExpression delay;}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \string~DelayEntry() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{32     \};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
+\DoxyCodeLine{35     std::map<int, std::map<int, DelayEntry *>> delays;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} initialize(\textcolor{keywordtype}{int} stage) \textcolor{keyword}{override};}
+\DoxyCodeLine{39     clocktime\_t computeDelay(Packet *packet) \textcolor{keyword}{const override};}
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} handleMessage(cMessage *message) \textcolor{keyword}{override};}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} activateEntry(DelayEntry *delayEntry);}
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \} \textcolor{comment}{// PairwiseDelayer}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* PAIRWISEDELAYER\_H\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
