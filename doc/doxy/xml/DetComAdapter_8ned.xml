@@ -9,12 +9,13 @@
         <argsstring></argsstring>
         <name>sixg</name>
         <briefdescription>
+<para>cond </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="16" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="16" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="17" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1afcea3a174f8809f82673dfe4416486c4" prot="public" static="no" mutable="no">
         <type>import inet node tsn</type>
@@ -30,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="18" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="18" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="19" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1aab73bceccdf9fd1b6c749cbb4bbf5473" prot="public" static="no" mutable="no">
         <type>import inet linklayer contract</type>
@@ -43,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="19" column="29" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="19" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="20" column="29" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1af6395210b73ba3b79fcae96fe04b42b7" prot="public" static="no" mutable="no">
         <type>ue[ *]</type>
@@ -57,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="25" column="11" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="25" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="31" column="11" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1a2e8fbe29ffa39136db1a8949e4c58b76" prot="public" static="no" mutable="no">
         <type>ue[ *] <ref refid="DetComAdapter_8ned_1af6395210b73ba3b79fcae96fe04b42b7" kindref="member">macLayer</ref></type>
@@ -71,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="26" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="26" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="32" column="19" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1ae752e4d9d080cceda4e68184f11b0994" prot="public" static="no" mutable="no">
         <type>ue[ *]</type>
@@ -85,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="27" column="11" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="27" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="33" column="11" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1ad2afe71909c9fca207e348166e0fefd2" prot="public" static="no" mutable="no">
         <type>gates</type>
@@ -98,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="28" column="5" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="29" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="34" column="5" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1aead648f22d48cfbbb489cb56fb7fcdb2" prot="public" static="no" mutable="no">
         <type>submodules</type>
@@ -111,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="30" column="5" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="32" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="36" column="5" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="DetComAdapter_8ned_1a2a3b998a0a2fcf398f1347b2af72bc3a" prot="public" static="no" mutable="no">
         <type>submodules</type>
@@ -124,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/devices/sixg/DetComAdapter.ned" line="32" column="1" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="32" bodyend="-1"/>
+        <location file="src/devices/sixg/DetComAdapter.ned" line="38" column="1" bodyfile="src/devices/sixg/DetComAdapter.ned" bodystart="38" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -147,31 +148,31 @@
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment">//<sp/>along<sp/>with<sp/>this<sp/>program.<sp/><sp/>If<sp/>not,<sp/>see<sp/>http://www.gnu.org/licenses/.</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.devices.sixg;</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.linklayer.contract.IEthernetInterface;</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal">module<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/>extends<sp/><ref refid="DetComAdapter_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref></highlight></codeline>
-<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numUeInterfaces<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(0);<sp/><sp/></highlight><highlight class="comment">//<sp/>minimum<sp/>number<sp/>of<sp/>ethernet<sp/>interfaces</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].macLayer.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(hasFramePreemption<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetPreemptingMacLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;EthernetMacLayer&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].macLayer.queue.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(<ref refid="DetComNetworkBase_8ned_1a98d9224f9df877d2a16988d6215161a8" kindref="member">hasEgressTrafficShaping</ref><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Ieee8021qTimeAwareShaper&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;PacketQueue&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>use<sp/>compound<sp/>priority<sp/>queue<sp/>having<sp/>multiple<sp/>subqueues<sp/>controlled<sp/>by<sp/>separate<sp/>gates<sp/>when<sp/>egress<sp/>traffic<sp/>shaping<sp/>is<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].phyLayer.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(hasCutthroughSwitching<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetStreamThroughPhyLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/>(hasFramePreemption<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetPreemptingPhyLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;EthernetPhyLayer&quot;</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//<sp/>use<sp/>packet<sp/>streaming<sp/>when<sp/>cut-through<sp/>switching<sp/>is<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>gates:</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inout<sp/><ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>[numUeInterfaces]<sp/>@labels(EtherFrame-conn);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>)]:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;UE&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="DetComAdapter_8ned_1aab73bceccdf9fd1b6c749cbb4bbf5473" kindref="member">IEthernetInterface</ref><sp/>{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=325,900,row,150;q=txQueue&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="AGV_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i=0..sizeof(<ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>)-1<sp/>{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>li.out++<sp/>--&gt;<sp/>ue[i].upperLayerIn;</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>li.in++<sp/>&lt;--<sp/>ue[i].upperLayerOut;</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[i].phys<sp/>&lt;--&gt;<sp/>{<sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;m=s&quot;</highlight><highlight class="normal">);<sp/>}<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>[i];</highlight></codeline>
+<codeline lineno="17"><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.devices.sixg;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.linklayer.contract.IEthernetInterface;</highlight></codeline>
+<codeline lineno="22"></codeline>
+<codeline lineno="27"><highlight class="normal">module<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/>extends<sp/><ref refid="DetComAdapter_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>numUeInterfaces<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(0);<sp/><sp/></highlight><highlight class="comment">//<sp/>minimum<sp/>number<sp/>of<sp/>ethernet<sp/>interfaces</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].macLayer.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(hasFramePreemption<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetPreemptingMacLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;EthernetMacLayer&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].macLayer.queue.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(<ref refid="DetComNetworkBase_8ned_1a98d9224f9df877d2a16988d6215161a8" kindref="member">hasEgressTrafficShaping</ref><sp/>?<sp/></highlight><highlight class="stringliteral">&quot;Ieee8021qTimeAwareShaper&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;PacketQueue&quot;</highlight><highlight class="normal">);<sp/></highlight><highlight class="comment">//<sp/>use<sp/>compound<sp/>priority<sp/>queue<sp/>having<sp/>multiple<sp/>subqueues<sp/>controlled<sp/>by<sp/>separate<sp/>gates<sp/>when<sp/>egress<sp/>traffic<sp/>shaping<sp/>is<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[*].phyLayer.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(hasCutthroughSwitching<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetStreamThroughPhyLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/>(hasFramePreemption<sp/>?<sp/></highlight><highlight class="stringliteral">&quot;EthernetPreemptingPhyLayer&quot;</highlight><highlight class="normal"><sp/>:<sp/></highlight><highlight class="stringliteral">&quot;EthernetPhyLayer&quot;</highlight><highlight class="normal">));<sp/></highlight><highlight class="comment">//<sp/>use<sp/>packet<sp/>streaming<sp/>when<sp/>cut-through<sp/>switching<sp/>is<sp/>enabled</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>gates:</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inout<sp/><ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>[numUeInterfaces]<sp/>@labels(EtherFrame-conn);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[</highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>)]:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;UE&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="DetComAdapter_8ned_1aab73bceccdf9fd1b6c749cbb4bbf5473" kindref="member">IEthernetInterface</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=325,900,row,150;q=txQueue&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="AGV_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>i=0..sizeof(<ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>)-1<sp/>{</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>li.out++<sp/>--&gt;<sp/>ue[i].upperLayerIn;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>li.in++<sp/>&lt;--<sp/>ue[i].upperLayerOut;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ue[i].phys<sp/>&lt;--&gt;<sp/>{<sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;m=s&quot;</highlight><highlight class="normal">);<sp/>}<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1af9215492e17264f227b9ce1732205045" kindref="member">ueg</ref>[i];</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}</highlight></codeline>
     </programlisting>
     <location file="src/devices/sixg/DetComAdapter.ned"/>
   </compounddef>

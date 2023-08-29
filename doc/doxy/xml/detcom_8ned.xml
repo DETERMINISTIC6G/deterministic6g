@@ -85,7 +85,7 @@
 <codeline lineno="17"><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
 <codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal">module<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>extends<sp/><ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref></highlight></codeline>
+<codeline lineno="20"><highlight class="normal">module<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>extends<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref></highlight></codeline>
 <codeline lineno="21"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
 <codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridging.typename<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;BridgingLayerWithPairwiseDelay&quot;</highlight><highlight class="normal">);</highlight></codeline>

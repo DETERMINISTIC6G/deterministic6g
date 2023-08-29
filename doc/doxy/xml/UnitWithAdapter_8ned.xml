@@ -174,7 +174,7 @@
 <codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>gates:</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>inout<sp/><ref refid="UnitWithAdapter_8ned_1a6e750c36671b207121237ffd5535e973" kindref="member">adapterGate</ref>;</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>detComAdapter:<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/>{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="UnitWithAdapter_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>

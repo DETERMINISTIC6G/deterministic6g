@@ -13,15 +13,17 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-
+/// \cond
 package d6g.devices.sixg;
 
 import inet.node.tsn.TsnSwitch;
 import inet.linklayer.contract.IEthernetInterface;
+/// \endcond
 
-//The module DetComAdapter extends a TsnSwitch, presenting a configurable network scenario that models 
-//Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
-//egress traffic shaping, and cut-through switching.
+/// \class DetComAdapter
+/// The module DetComAdapter extends a TsnSwitch, presenting a configurable network scenario that models 
+/// Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
+/// egress traffic shaping, and cut-through switching.
 module DetComAdapter extends TsnSwitch
 {
     parameters:

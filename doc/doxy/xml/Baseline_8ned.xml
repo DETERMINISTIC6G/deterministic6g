@@ -114,13 +114,13 @@
         bridge1: <ref refid="UnitWithAdapter_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" kindref="member">TsnSwitch</ref> {
             @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350,300&quot;);
         }
-        bridge2: <ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref>  {
+        bridge2: <ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref>  {
             @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350,400&quot;);
         }
         detcom: <ref refid="CooperativeManufacturing_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref> {
             @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=450,400&quot;);
         }
-        bridge3: <ref refid="detcom_8ned_1a3323a4019629a746f9079c9ecd5eb69d" kindref="member">DetComAdapter</ref> {
+        bridge3: <ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref> {
             @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=550,400&quot;);
         }
         bridge4: <ref refid="UnitWithAdapter_8ned_1af3a02f988f0461ab857f92f46f2f8ec5" kindref="member">TsnSwitch</ref> {
@@ -242,13 +242,13 @@
 <codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge1:<sp/><ref refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref><sp/>{</highlight></codeline>
 <codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,300&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2:<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/><sp/>{</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>:<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>{</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=450,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3:<sp/><ref refid="Baseline_8ned_1a262eec529c119fc474cce0ac09cb8b75" kindref="member">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3:<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/>{</highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=550,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge4:<sp/><ref refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref><sp/>{</highlight></codeline>

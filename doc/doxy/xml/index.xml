@@ -18,6 +18,8 @@
     <member refid="classd6g_1_1PairwiseDelayer_1_1DelayEntry_1aff4b8f5f09e32166872b870098d21edb" kind="function"><name>DelayEntry</name></member>
     <member refid="classd6g_1_1PairwiseDelayer_1_1DelayEntry_1a4304e8e5e8786cff064b66bbf44ff5ce" kind="function"><name>~DelayEntry</name></member>
   </compound>
+  <compound refid="classDetComAdapter" kind="class"><name>DetComAdapter</name>
+  </compound>
   <compound refid="classDetComNetworkBase" kind="class"><name>DetComNetworkBase</name>
   </compound>
   <compound refid="classEdgeCloudNetwork" kind="class"><name>EdgeCloudNetwork</name>
