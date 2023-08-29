@@ -13,18 +13,24 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
+/// \cond
 package d6g.devices.sixg;
 
 import inet.node.tsn.TsnSwitch;
 import inet.linklayer.contract.IEthernetInterface;
+/// \endcond
 
+/// \class DetComAdapter
+/// The module DetComAdapter extends a TsnSwitch, presenting a configurable network scenario that models 
+/// Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
+/// egress traffic shaping, and cut-through switching.
 module DetComAdapter extends TsnSwitch
 {
     parameters:
-        int numUeInterfaces = default(0);  // minimum number of ethernet interfaces
+        int numUeInterfaces = default(0);  /// minimum number of ethernet interfaces
         ue[*].macLayer.typename = default(hasFramePreemption ? "EthernetPreemptingMacLayer" : "EthernetMacLayer");
-        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); // use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
-        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); // use packet streaming when cut-through switching is enabled
+        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); /// use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
+        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); /// use packet streaming when cut-through switching is enabled
     gates:
         inout ueg[numUeInterfaces] @labels(EtherFrame-conn);
     submodules:

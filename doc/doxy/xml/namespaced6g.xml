@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespaced6g" kind="namespace" language="C++">
+    <compoundname>d6g</compoundname>
+    <innerclass refid="classd6g_1_1UdpEdgeCloudApp" prot="public">d6g::UdpEdgeCloudApp</innerclass>
+    <innerclass refid="classd6g_1_1HistogramNed" prot="public">d6g::HistogramNed</innerclass>
+    <innerclass refid="classd6g_1_1IRandomNumberProvider" prot="public">d6g::IRandomNumberProvider</innerclass>
+    <innerclass refid="classd6g_1_1Histogram" prot="public">d6g::Histogram</innerclass>
+    <innerclass refid="classd6g_1_1randomWalk" prot="public">d6g::randomWalk</innerclass>
+    <innerclass refid="classd6g_1_1PairwiseDelayer" prot="public">d6g::PairwiseDelayer</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaced6g_1ad89efa9e2c48a0c6344d0d8792b2a2d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Define_Module</definition>
+        <argsstring>(UdpEdgeCloudApp) void UdpEdgeCloudApp</argsstring>
+        <name>Define_Module</name>
+        <param>
+          <type><ref refid="classd6g_1_1UdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/apps/edgecloud/UdpEdgeCloudApp.cc" line="23" column="1" bodyfile="src/apps/edgecloud/UdpEdgeCloudApp.cc" bodystart="23" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaced6g_1a2dd019b88fee39a0d56641bb3ad90ab1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Define_NED_Function</definition>
+        <argsstring>(HistogramNed::randomNumberProviderNED, &quot;quantity rngProvider(string histogramModule)&quot;)</argsstring>
+        <name>Define_NED_Function</name>
+        <param>
+          <type><ref refid="classd6g_1_1HistogramNed_1a169c1eb75cdf937aaed69c24b990b657" kindref="member">HistogramNed::randomNumberProviderNED</ref></type>
+        </param>
+        <param>
+          <type>&quot;quantity rngProvider(string histogramModule)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/contract/HistogramNed.cc" line="42" column="1" declfile="src/distribution/contract/HistogramNed.cc" declline="42" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaced6g_1a1dd7926436e682cc6ef690b0f7328a2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Define_Module</definition>
+        <argsstring>(Histogram)</argsstring>
+        <name>Define_Module</name>
+        <param>
+          <type><ref refid="classd6g_1_1Histogram" kindref="compound">Histogram</ref></type>
+        </param>
+        <briefdescription>
+<para>Test for D6G. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.cc" line="25" column="1" declfile="src/distribution/histogram/Histogram.cc" declline="25" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaced6g_1abe1bdf13f538486269c6e0c4ab2088a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Define_NED_Function</definition>
+        <argsstring>(randomWalk::ned_randomWalk, &quot;quantity randomWalk(quantity init, quantity randValue, string key?)&quot;)</argsstring>
+        <name>Define_NED_Function</name>
+        <param>
+          <type><ref refid="classd6g_1_1randomWalk_1ad099401aa93d644d6ba59eee7790f8b5" kindref="member">randomWalk::ned_randomWalk</ref></type>
+        </param>
+        <param>
+          <type>&quot;quantity <ref refid="classd6g_1_1randomWalk" kindref="compound">randomWalk</ref>(quantity init, quantity randValue, string key?)&quot;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/randomWalk.cc" line="51" column="1" declfile="src/distribution/randomWalk.cc" declline="51" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaced6g_1a07458efd4d5f7b61bf72e98c83065059" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Define_Module</definition>
+        <argsstring>(PairwiseDelayer)</argsstring>
+        <name>Define_Module</name>
+        <param>
+          <type><ref refid="classd6g_1_1PairwiseDelayer" kindref="compound">PairwiseDelayer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/pairwise/PairwiseDelayer.cc" line="19" column="1" declfile="src/pairwise/PairwiseDelayer.cc" declline="19" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/apps/edgecloud/UdpEdgeCloudApp.cc" line="20" column="1"/>
+  </compounddef>
+</doxygen>

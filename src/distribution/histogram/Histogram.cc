@@ -21,6 +21,7 @@ namespace d6g {
 
 using namespace inet::xmlutils;
 
+/// Test for D6G
 Define_Module(Histogram);
 
 void Histogram::initialize(int stage) {

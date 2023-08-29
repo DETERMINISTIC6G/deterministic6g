@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_d106d24215f838a7e5b0809ba64e4bd2" kind="dir">
+    <compoundname>src/devices/sixg</compoundname>
+    <innerfile refid="detcom_8ned">detcom.ned</innerfile>
+    <innerfile refid="DetComAdapter_8ned">DetComAdapter.ned</innerfile>
+    <innerfile refid="NNIChannel_8ned">NNIChannel.ned</innerfile>
+    <innerfile refid="UE_8ned">UE.ned</innerfile>
+    <innerfile refid="UnitWithAdapter_8ned">UnitWithAdapter.ned</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/devices/sixg/"/>
+  </compounddef>
+</doxygen>

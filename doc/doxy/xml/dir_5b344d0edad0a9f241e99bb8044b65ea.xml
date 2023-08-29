@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_5b344d0edad0a9f241e99bb8044b65ea" kind="dir">
+    <compoundname>simulations/edgecloud</compoundname>
+    <innerfile refid="edgecloud_8ned">edgecloud.ned</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="simulations/edgecloud/"/>
+  </compounddef>
+</doxygen>

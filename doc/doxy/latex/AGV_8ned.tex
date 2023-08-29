@@ -1,0 +1,103 @@
+\hypertarget{AGV_8ned}{}\doxysection{simulations/cooperativemanufacturing/\+AGV.ned File Reference}
+\label{AGV_8ned}\index{simulations/cooperativemanufacturing/AGV.ned@{simulations/cooperativemanufacturing/AGV.ned}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} \mbox{\hyperlink{simulations_2package_8ned_a0230f38f376249b9fab30725bfec14ef}{simulations}} \mbox{\hyperlink{AGV_8ned_a4d0691aa5c0d0ec33864330d7a27dec7}{cooperativemanufacturing}}
+\item 
+import inet networks base \mbox{\hyperlink{AGV_8ned_ab5b230321460f765a14bad82fdb5bf19}{Tsn\+Network\+Base}}
+\item 
+import inet node contract \mbox{\hyperlink{AGV_8ned_a05d5e777415aeee3addbbc2ec272199f}{IEthernet\+Network\+Node}}
+\item 
+import inet node ethernet \mbox{\hyperlink{AGV_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}{Ethernet\+Link}}
+\item 
+import \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices \mbox{\hyperlink{UnitWithAdapter_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}{sixg}} \mbox{\hyperlink{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}{Unit\+With\+Adapter}}
+\item 
+\mbox{\hyperlink{AGV_8ned_a8252aee91336a6e53e595ad496727a60}{is\+Wireless}} = true
+\item 
+$\ast$eth\mbox{[} $\ast$\mbox{]} \mbox{\hyperlink{AGV_8ned_a69d2809c81dcdc0ddd46a89ae72ae5d9}{bitrate}} = default(100\+Mbps)
+\item 
+submodules \mbox{\hyperlink{AGV_8ned_a39f05e98faf08dbd5c69aa2af1e6be62}{\+\_\+\+\_\+pad0\+\_\+\+\_\+}}
+\item 
+submodules \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}}
+\item 
+submodules \mbox{\hyperlink{AGV_8ned_ad554ae1d239cb2f8311e40d00819594e}{connections}}
+\item 
+det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{NNIChannel_8ned_a43df39bbd6ba641098ee3c6e87b5f9c8}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} \mbox{\hyperlink{AGV_8ned_a9cae140335d9c855f12526920efdde3d}{ethg}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{AGV_8ned_a39f05e98faf08dbd5c69aa2af1e6be62}\label{AGV_8ned_a39f05e98faf08dbd5c69aa2af1e6be62}} 
+\index{AGV.ned@{AGV.ned}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}}
+{\footnotesize\ttfamily submodules \+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+\mbox{\Hypertarget{AGV_8ned_a69d2809c81dcdc0ddd46a89ae72ae5d9}\label{AGV_8ned_a69d2809c81dcdc0ddd46a89ae72ae5d9}} 
+\index{AGV.ned@{AGV.ned}!bitrate@{bitrate}}
+\index{bitrate@{bitrate}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{bitrate}{bitrate}}
+{\footnotesize\ttfamily $\ast$ eth \mbox{[}$\ast$\mbox{]} bitrate = default(100\+Mbps)}
+
+\mbox{\Hypertarget{AGV_8ned_ad554ae1d239cb2f8311e40d00819594e}\label{AGV_8ned_ad554ae1d239cb2f8311e40d00819594e}} 
+\index{AGV.ned@{AGV.ned}!connections@{connections}}
+\index{connections@{connections}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{connections}{connections}}
+{\footnotesize\ttfamily submodules connections}
+
+\mbox{\Hypertarget{AGV_8ned_a4d0691aa5c0d0ec33864330d7a27dec7}\label{AGV_8ned_a4d0691aa5c0d0ec33864330d7a27dec7}} 
+\index{AGV.ned@{AGV.ned}!cooperativemanufacturing@{cooperativemanufacturing}}
+\index{cooperativemanufacturing@{cooperativemanufacturing}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{cooperativemanufacturing}{cooperativemanufacturing}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} \mbox{\hyperlink{simulations_2package_8ned_a0230f38f376249b9fab30725bfec14ef}{simulations}} cooperativemanufacturing}
+
+\mbox{\Hypertarget{AGV_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}\label{AGV_8ned_a1b8501e7ca48d484bdcbfbd36fe98bc9}} 
+\index{AGV.ned@{AGV.ned}!EthernetLink@{EthernetLink}}
+\index{EthernetLink@{EthernetLink}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{EthernetLink}{EthernetLink}}
+{\footnotesize\ttfamily import inet node ethernet Ethernet\+Link}
+
+\mbox{\Hypertarget{AGV_8ned_a9cae140335d9c855f12526920efdde3d}\label{AGV_8ned_a9cae140335d9c855f12526920efdde3d}} 
+\index{AGV.ned@{AGV.ned}!ethg@{ethg}}
+\index{ethg@{ethg}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{ethg}{ethg}}
+{\footnotesize\ttfamily det\+Com\+Adapter ethg$<$-\/-\/$>$ \mbox{\hyperlink{NNIChannel_8ned_a43df39bbd6ba641098ee3c6e87b5f9c8}{Ethernet\+Link}}$<$-\/-\/$>$ \mbox{\hyperlink{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}{inter\+To\+Cell}} ethg}
+
+\mbox{\Hypertarget{AGV_8ned_a05d5e777415aeee3addbbc2ec272199f}\label{AGV_8ned_a05d5e777415aeee3addbbc2ec272199f}} 
+\index{AGV.ned@{AGV.ned}!IEthernetNetworkNode@{IEthernetNetworkNode}}
+\index{IEthernetNetworkNode@{IEthernetNetworkNode}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{IEthernetNetworkNode}{IEthernetNetworkNode}}
+{\footnotesize\ttfamily import inet node contract IEthernet\+Network\+Node}
+
+\mbox{\Hypertarget{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}\label{AGV_8ned_a0d17af75d0dc28b853caef6afcfb1e46}} 
+\index{AGV.ned@{AGV.ned}!interToCell@{interToCell}}
+\index{interToCell@{interToCell}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{interToCell}{interToCell}}
+{\footnotesize\ttfamily submodules inter\+To\+Cell}
+
+\mbox{\Hypertarget{AGV_8ned_a8252aee91336a6e53e595ad496727a60}\label{AGV_8ned_a8252aee91336a6e53e595ad496727a60}} 
+\index{AGV.ned@{AGV.ned}!isWireless@{isWireless}}
+\index{isWireless@{isWireless}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{isWireless}{isWireless}}
+{\footnotesize\ttfamily is\+Wireless = true}
+
+\mbox{\Hypertarget{AGV_8ned_ab5b230321460f765a14bad82fdb5bf19}\label{AGV_8ned_ab5b230321460f765a14bad82fdb5bf19}} 
+\index{AGV.ned@{AGV.ned}!TsnNetworkBase@{TsnNetworkBase}}
+\index{TsnNetworkBase@{TsnNetworkBase}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{TsnNetworkBase}{TsnNetworkBase}}
+{\footnotesize\ttfamily import inet networks base Tsn\+Network\+Base}
+
+\mbox{\Hypertarget{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}\label{AGV_8ned_ab62860ba51665653b577fc936a2c00b8}} 
+\index{AGV.ned@{AGV.ned}!UnitWithAdapter@{UnitWithAdapter}}
+\index{UnitWithAdapter@{UnitWithAdapter}!AGV.ned@{AGV.ned}}
+\doxysubsubsection{\texorpdfstring{UnitWithAdapter}{UnitWithAdapter}}
+{\footnotesize\ttfamily module Processing\+Cell extends Unit\+With\+Adapter}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        @\mbox{\hyperlink{ProcessingCell_8ned_a904d3fcca29dcff126708ba597eacfee}{display}}(\textcolor{stringliteral}{"{}i=device/cellphone"{}})}
+
+\end{DoxyCode}

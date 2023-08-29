@@ -1,0 +1,55 @@
+\hypertarget{UE_8ned}{}\doxysection{src/devices/sixg/\+UE.ned File Reference}
+\label{UE_8ned}\index{src/devices/sixg/UE.ned@{src/devices/sixg/UE.ned}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices \mbox{\hyperlink{UE_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}{sixg}}
+\item 
+import inet linklayer ethernet \mbox{\hyperlink{UE_8ned_af3f21784fec982b2c1721b4d7eaae750}{Layered\+Ethernet\+Interface}}
+\item 
+import inet node tsn \mbox{\hyperlink{UE_8ned_af3a02f988f0461ab857f92f46f2f8ec5}{Tsn\+Switch}}
+\item 
+import inet linklayer contract \mbox{\hyperlink{UE_8ned_aab73bceccdf9fd1b6c749cbb4bbf5473}{IEthernet\+Interface}}
+\item 
+\mbox{\hyperlink{UE_8ned_a9ba628ef53aa2760ee08afab49765d42}{bitrate}} = default(inf Mbps)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{UE_8ned_a9ba628ef53aa2760ee08afab49765d42}\label{UE_8ned_a9ba628ef53aa2760ee08afab49765d42}} 
+\index{UE.ned@{UE.ned}!bitrate@{bitrate}}
+\index{bitrate@{bitrate}!UE.ned@{UE.ned}}
+\doxysubsubsection{\texorpdfstring{bitrate}{bitrate}}
+{\footnotesize\ttfamily bitrate = default(inf Mbps)}
+
+\mbox{\Hypertarget{UE_8ned_aab73bceccdf9fd1b6c749cbb4bbf5473}\label{UE_8ned_aab73bceccdf9fd1b6c749cbb4bbf5473}} 
+\index{UE.ned@{UE.ned}!IEthernetInterface@{IEthernetInterface}}
+\index{IEthernetInterface@{IEthernetInterface}!UE.ned@{UE.ned}}
+\doxysubsubsection{\texorpdfstring{IEthernetInterface}{IEthernetInterface}}
+{\footnotesize\ttfamily import inet linklayer contract IEthernet\+Interface}
+
+\mbox{\Hypertarget{UE_8ned_af3f21784fec982b2c1721b4d7eaae750}\label{UE_8ned_af3f21784fec982b2c1721b4d7eaae750}} 
+\index{UE.ned@{UE.ned}!LayeredEthernetInterface@{LayeredEthernetInterface}}
+\index{LayeredEthernetInterface@{LayeredEthernetInterface}!UE.ned@{UE.ned}}
+\doxysubsubsection{\texorpdfstring{LayeredEthernetInterface}{LayeredEthernetInterface}}
+{\footnotesize\ttfamily module UE extends Layered\+Ethernet\+Interface}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    parameters:}
+\DoxyCodeLine{        \mbox{\hyperlink{DetComAdapter_8ned_ae752e4d9d080cceda4e68184f11b0994}{phyLayer}}.interFrameGapInserter.duration = \textcolor{keywordflow}{default}(0s)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{UE_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}\label{UE_8ned_a6c5c2270583a69fb2d099b863a9a5b2e}} 
+\index{UE.ned@{UE.ned}!sixg@{sixg}}
+\index{sixg@{sixg}!UE.ned@{UE.ned}}
+\doxysubsubsection{\texorpdfstring{sixg}{sixg}}
+{\footnotesize\ttfamily package \mbox{\hyperlink{src_2package_8ned_a7fbc0743bde2934ecec2aac9b80cad11}{d6g}} devices sixg}
+
+\mbox{\Hypertarget{UE_8ned_af3a02f988f0461ab857f92f46f2f8ec5}\label{UE_8ned_af3a02f988f0461ab857f92f46f2f8ec5}} 
+\index{UE.ned@{UE.ned}!TsnSwitch@{TsnSwitch}}
+\index{TsnSwitch@{TsnSwitch}!UE.ned@{UE.ned}}
+\doxysubsubsection{\texorpdfstring{TsnSwitch}{TsnSwitch}}
+{\footnotesize\ttfamily import inet node tsn Tsn\+Switch}
+

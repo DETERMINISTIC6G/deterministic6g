@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="edgecloud_8ned" kind="file" language="C++">
+    <compoundname>edgecloud.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="edgecloud_8ned_1a1c5af8a7d4df7cd9cfb088b5a9ac23d1" prot="public" static="no" mutable="no">
+        <type>network <ref refid="classEdgeCloudNetwork" kindref="compound">EdgeCloudNetwork</ref> extends</type>
+        <definition>network EdgeCloudNetwork extends DetComNetworkBase</definition>
+        <argsstring></argsstring>
+        <name>DetComNetworkBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/edgecloud/edgecloud.ned" line="23" column="34" bodyfile="simulations/edgecloud/edgecloud.ned" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="edgecloud_8ned_1af9215492e17264f227b9ce1732205045" prot="public" static="no" mutable="no">
+        <type>bridge1 ueg&lt;--&gt; <ref refid="CooperativeManufacturing_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref>&lt;--&gt; <ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref></type>
+        <definition>detcom ueg&lt;--&gt; NNIChannel&lt;--&gt; bridge3 ueg</definition>
+        <argsstring></argsstring>
+        <name>ueg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/edgecloud/edgecloud.ned" line="55" column="39" bodyfile="simulations/edgecloud/edgecloud.ned" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="edgecloud_8ned_1a38ff22a1c61ae61506cdba4ed366b143" prot="public" static="no" mutable="no">
+        <type><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref> ethg&lt;--&gt; <ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref>&lt;--&gt; bridge2</type>
+        <definition>bridge3 ethg&lt;--&gt; EthernetLink&lt;--&gt; receiver ethg</definition>
+        <argsstring></argsstring>
+        <name>ethg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/edgecloud/edgecloud.ned" line="57" column="42" bodyfile="simulations/edgecloud/edgecloud.ned" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>LGPL-3.0-or-later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.simulations.edgecloud;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.networks.base.TsnNetworkBase;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.contract.IEthernetNetworkNode;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.ethernet.EthernetLink;</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.DetCom;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.DetComAdapter;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.devices.sixg.NNIChannel;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.networks.DetComNetworkBase;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnDevice;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.tsn.TsnSwitch;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>ned.DatarateChannel;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.distribution.histogram.<ref refid="classd6g_1_1Histogram" kindref="compound">Histogram</ref>;</highlight></codeline>
+<codeline lineno="20"></codeline>
+<codeline lineno="23"><highlight class="normal">network<sp/><ref refid="classEdgeCloudNetwork" kindref="compound">EdgeCloudNetwork</ref><sp/>extends<sp/><ref refid="classDetComNetworkBase" kindref="compound">DetComNetworkBase</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Histogram_8ned_1a8fa51d52e09c35ee2b2fa87c6230a974" kindref="member">histogram</ref>:<sp/><ref refid="simulations_2package_8ned_1a4f0ca6c429c3267a0e94c85eb51dbbd2" kindref="member">Histogram</ref><sp/>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=100,400;is=s&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>talker:<sp/><ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref><sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=250,200&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge1:<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>:<sp/><ref refid="Baseline_8ned_1ac7f6b393b6ac61d3b1c34c84b38ae528" kindref="member">DetCom</ref><sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=400,300&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2:<sp/><ref refid="Baseline_8ned_1afcea3a174f8809f82673dfe4416486c4" kindref="member">TsnSwitch</ref><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=500,300&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cloud:<sp/><ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref><sp/>{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=600,300&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3:<sp/><ref refid="classDetComAdapter" kindref="compound">DetComAdapter</ref><sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,400&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>receiver:<sp/><ref refid="Baseline_8ned_1ad3115cdd14e11831ca66b39b9d3641dc" kindref="member">TsnDevice</ref>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=250,400&quot;</highlight><highlight class="normal">);<sp/><sp/></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="AGV_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>talker.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge1.ethg++;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge1.ueg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref><sp/>&lt;--&gt;<sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>.ueg++;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>bridge2.ethg++;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge2.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>cloud.ethg++;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="CooperativeManufacturing_8ned_1afb3dab97e1d6de70c2c298a47a5e4e74" kindref="member">detcom</ref>.ueg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a8a43c42d8f14ad2de9055539cb015cb9" kindref="member">NNIChannel</ref><sp/>&lt;--&gt;<sp/>bridge3.ueg++;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bridge3.ethg++<sp/>&lt;--&gt;<sp/><ref refid="Baseline_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/>receiver.ethg++;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="simulations/edgecloud/edgecloud.ned"/>
+  </compounddef>
+</doxygen>

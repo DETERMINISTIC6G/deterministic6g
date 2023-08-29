@@ -1,0 +1,75 @@
+\hypertarget{Histogram_8h_source}{}\doxysection{Histogram.\+h}
+\label{Histogram_8h_source}\index{src/distribution/histogram/Histogram.h@{src/distribution/histogram/Histogram.h}}
+\mbox{\hyperlink{Histogram_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// This program is free software: you can redistribute it and/or modify}}
+\DoxyCodeLine{3 \textcolor{comment}{// it under the terms of the GNU Lesser General Public License as published by}}
+\DoxyCodeLine{4 \textcolor{comment}{// the Free Software Foundation, either version 3 of the License, or}}
+\DoxyCodeLine{5 \textcolor{comment}{// (at your option) any later version.}}
+\DoxyCodeLine{6 \textcolor{comment}{// }}
+\DoxyCodeLine{7 \textcolor{comment}{// This program is distributed in the hope that it will be useful,}}
+\DoxyCodeLine{8 \textcolor{comment}{// but WITHOUT ANY WARRANTY; without even the implied warranty of}}
+\DoxyCodeLine{9 \textcolor{comment}{// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}}
+\DoxyCodeLine{10 \textcolor{comment}{// GNU Lesser General Public License for more details.}}
+\DoxyCodeLine{11 \textcolor{comment}{// }}
+\DoxyCodeLine{12 \textcolor{comment}{// You should have received a copy of the GNU Lesser General Public License}}
+\DoxyCodeLine{13 \textcolor{comment}{// along with this program.  If not, see http://www.gnu.org/licenses/.}}
+\DoxyCodeLine{14 \textcolor{comment}{// }}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#ifndef DETERMINISTIC6G\_HISTOGRAM\_H\_}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DETERMINISTIC6G\_HISTOGRAM\_H\_}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <omnetpp.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}inet/common/INETDefs.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}../contract/IRandomNumberProvider.h"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{using namespace }omnetpp;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaced6g}{d6g}} \{}
+\DoxyCodeLine{26 \textcolor{keyword}{using namespace }inet;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }INET\_API \mbox{\hyperlink{classd6g_1_1Histogram}{Histogram}} : \textcolor{keyword}{public} cSimpleModule, \textcolor{keyword}{public} \mbox{\hyperlink{classd6g_1_1IRandomNumberProvider}{IRandomNumberProvider}} \{}
+\DoxyCodeLine{32     \textcolor{keyword}{class }INET\_API BinEntry \{}
+\DoxyCodeLine{33     \textcolor{keyword}{public}:}
+\DoxyCodeLine{34         \textcolor{keyword}{explicit} BinEntry(cXMLElement *binEntity, cModule *context = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36         cValue leftBoundary = -\/INFINITY;}
+\DoxyCodeLine{37         cValue rightBoundary = INFINITY;}
+\DoxyCodeLine{38         \textcolor{keywordtype}{int} count = 0;}
+\DoxyCodeLine{39         \textcolor{keywordtype}{int} accumulatedCount = 0;  \textcolor{comment}{// new member to hold the cumulative count}}
+\DoxyCodeLine{40         \string~BinEntry() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{41     \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{private}:}
+\DoxyCodeLine{44     \textcolor{comment}{// Vector to store the bins}}
+\DoxyCodeLine{45     std::vector<BinEntry *> bins;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} totalCount;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} initialize(\textcolor{keywordtype}{int} stage) \textcolor{keyword}{override};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} parseHistogramConfig(cXMLElement *histogramEntity);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{comment}{// Get Total count of elements in all bins}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} getTotalCount() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// Get Number of bins}}
+\DoxyCodeLine{59     \textcolor{keywordtype}{size\_t} getNumberBins() \textcolor{keyword}{const};}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Get a random bin with the probability corresponding to the count}}
+\DoxyCodeLine{62     BinEntry *randomBin() \textcolor{keyword}{const};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// Binary Search}}
+\DoxyCodeLine{65     BinEntry *\mbox{\hyperlink{classd6g_1_1Histogram_ad678c5722d5a203fc0b96750deb57f50}{BinarySearch}}(\textcolor{keywordtype}{int} target) \textcolor{keyword}{const};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     cValue getRand() \textcolor{keyword}{const override};}
+\DoxyCodeLine{68 \};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \} \textcolor{comment}{//namespace}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

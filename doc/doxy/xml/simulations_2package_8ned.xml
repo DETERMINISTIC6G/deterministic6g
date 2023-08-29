@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="simulations_2package_8ned" kind="file" language="C++">
+    <compoundname>package.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="simulations_2package_8ned_1a0230f38f376249b9fab30725bfec14ef" prot="public" static="no" mutable="no">
+        <type>package <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref></type>
+        <definition>package d6g simulations</definition>
+        <argsstring></argsstring>
+        <name>simulations</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="1" column="12" bodyfile="simulations/package.ned" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a6d6c69312c4c8df07fb76b19c79fbbc1" prot="public" static="no" mutable="no">
+        <type>import inet networks base</type>
+        <definition>network TsnTestNetwork extends TsnNetworkBase</definition>
+        <argsstring></argsstring>
+        <name>TsnNetworkBase</name>
+        <initializer>{
+    parameters:
+        *.eth[*].<ref refid="UE_8ned_1a9ba628ef53aa2760ee08afab49765d42" kindref="member">bitrate</ref> = default(100Mbps)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="5" column="24" bodyfile="simulations/package.ned" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a05d5e777415aeee3addbbc2ec272199f" prot="public" static="no" mutable="no">
+        <type>import inet node contract</type>
+        <definition>import inet node contract IEthernetNetworkNode</definition>
+        <argsstring></argsstring>
+        <name>IEthernetNetworkNode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="6" column="24" bodyfile="simulations/package.ned" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" prot="public" static="no" mutable="no">
+        <type>import inet node ethernet</type>
+        <definition>import inet node ethernet EthernetLink</definition>
+        <argsstring></argsstring>
+        <name>EthernetLink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="7" column="24" bodyfile="simulations/package.ned" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a4f0ca6c429c3267a0e94c85eb51dbbd2" prot="public" static="no" mutable="no">
+        <type>import <ref refid="src_2package_8ned_1a7fbc0743bde2934ecec2aac9b80cad11" kindref="member">d6g</ref> distribution <ref refid="Histogram_8ned_1a8fa51d52e09c35ee2b2fa87c6230a974" kindref="member">histogram</ref></type>
+        <definition>import d6g distribution histogram Histogram</definition>
+        <argsstring></argsstring>
+        <name>Histogram</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="9" column="32" bodyfile="simulations/package.ned" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a39f05e98faf08dbd5c69aa2af1e6be62" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules __pad0__</definition>
+        <argsstring></argsstring>
+        <name>__pad0__</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="15" column="5" bodyfile="simulations/package.ned" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a94a6a5576916faa8896ca1600c13e139" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules is</definition>
+        <argsstring></argsstring>
+        <name>is</name>
+        <initializer>=s&quot;);
+        }
+        client: &lt;default(&quot;TsnDevice&quot;)&gt; like <ref refid="UnitWithAdapter_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref> {
+            @<ref refid="BridgingLayerWithPairwiseDelay_8ned_1a7fc53ee8576221f7af0cf1a88f6c4c27" kindref="member">display</ref>(&quot;p=350</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="17" column="1" bodyfile="simulations/package.ned" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a9d6bd01239a00ad16730fb6a0e0a681b" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules switch</definition>
+        <argsstring></argsstring>
+        <name>switch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="22" column="9" bodyfile="simulations/package.ned" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1ad2c52bc8ad1bcad55f245842ed946482" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules server</definition>
+        <argsstring></argsstring>
+        <name>server</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="25" column="9" bodyfile="simulations/package.ned" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1ad554ae1d239cb2f8311e40d00819594e" prot="public" static="no" mutable="no">
+        <type>submodules</type>
+        <definition>submodules connections</definition>
+        <argsstring></argsstring>
+        <name>connections</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="28" column="5" bodyfile="simulations/package.ned" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="simulations_2package_8ned_1a750aa28dc710284909f849ee21fb2f47" prot="public" static="no" mutable="no">
+        <type><ref refid="simulations_2package_8ned_1a9d6bd01239a00ad16730fb6a0e0a681b" kindref="member">switch</ref> ethg&lt;--&gt; <ref refid="NNIChannel_8ned_1a43df39bbd6ba641098ee3c6e87b5f9c8" kindref="member">EthernetLink</ref>&lt;--&gt; <ref refid="simulations_2package_8ned_1ad2c52bc8ad1bcad55f245842ed946482" kindref="member">server</ref></type>
+        <definition>switch ethg&lt;--&gt; EthernetLink&lt;--&gt; server ethg</definition>
+        <argsstring></argsstring>
+        <name>ethg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="30" column="41" bodyfile="simulations/package.ned" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="simulations_2package_8ned_1ade7606b87c5055eac3db2895cef9b79e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>license</definition>
+        <argsstring>(LGPL)</argsstring>
+        <name>license</name>
+        <param>
+          <type>LGPL</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="simulations/package.ned" line="3" column="1" declfile="simulations/package.ned" declline="3" declcolumn="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.simulations;</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal">@<ref refid="simulations_2package_8ned_1ade7606b87c5055eac3db2895cef9b79e" kindref="member">license</ref>(LGPL);</highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.networks.base.TsnNetworkBase;</highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.contract.IEthernetNetworkNode;</highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.node.ethernet.EthernetLink;</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/><ref refid="namespaced6g" kindref="compound">d6g</ref>.distribution.histogram.<ref refid="classd6g_1_1Histogram" kindref="compound">Histogram</ref>;</highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal">network<sp/>TsnTestNetwork<sp/>extends<sp/><ref refid="simulations_2package_8ned_1a6d6c69312c4c8df07fb76b19c79fbbc1" kindref="member">TsnNetworkBase</ref></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*.eth[*].bitrate<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(100Mbps);</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>submodules:</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Histogram_8ned_1a8fa51d52e09c35ee2b2fa87c6230a974" kindref="member">histogram</ref>:<sp/><ref refid="simulations_2package_8ned_1a4f0ca6c429c3267a0e94c85eb51dbbd2" kindref="member">Histogram</ref><sp/>{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=100,400;is=s&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>client:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnDevice&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="simulations_2package_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=350,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnSwitch&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="simulations_2package_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=550,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="simulations_2package_8ned_1ad2c52bc8ad1bcad55f245842ed946482" kindref="member">server</ref>:<sp/>&lt;</highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;TsnDevice&quot;</highlight><highlight class="normal">)&gt;<sp/>like<sp/><ref refid="simulations_2package_8ned_1a05d5e777415aeee3addbbc2ec272199f" kindref="member">IEthernetNetworkNode</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>@<ref refid="ProcessingCell_8ned_1a904d3fcca29dcff126708ba597eacfee" kindref="member">display</ref>(</highlight><highlight class="stringliteral">&quot;p=750,200&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="simulations_2package_8ned_1ad554ae1d239cb2f8311e40d00819594e" kindref="member">connections</ref>:</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>client.ethg++<sp/>&lt;--&gt;<sp/><ref refid="simulations_2package_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">.ethg++;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal">.ethg++<sp/>&lt;--&gt;<sp/><ref refid="simulations_2package_8ned_1a1b8501e7ca48d484bdcbfbd36fe98bc9" kindref="member">EthernetLink</ref><sp/>&lt;--&gt;<sp/><ref refid="simulations_2package_8ned_1ad2c52bc8ad1bcad55f245842ed946482" kindref="member">server</ref>.ethg++;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="simulations/package.ned"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classd6g_1_1Histogram_1_1BinEntry" kind="class" language="C++" prot="private">
+    <compoundname>d6g::Histogram::BinEntry</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classd6g_1_1Histogram_1_1BinEntry_1aab26a7687716917dc8a8c0e6095d3843" prot="public" static="no" mutable="no">
+        <type>cValue</type>
+        <definition>cValue d6g::Histogram::BinEntry::leftBoundary</definition>
+        <argsstring></argsstring>
+        <name>leftBoundary</name>
+        <initializer>= -INFINITY</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="36" column="16" bodyfile="src/distribution/histogram/Histogram.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classd6g_1_1Histogram_1_1BinEntry_1ac6912475056232c8802cf619a8f743b2" prot="public" static="no" mutable="no">
+        <type>cValue</type>
+        <definition>cValue d6g::Histogram::BinEntry::rightBoundary</definition>
+        <argsstring></argsstring>
+        <name>rightBoundary</name>
+        <initializer>= INFINITY</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="37" column="16" bodyfile="src/distribution/histogram/Histogram.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classd6g_1_1Histogram_1_1BinEntry_1a9efa532bde82692c3004919609cd7d84" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int d6g::Histogram::BinEntry::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="38" column="13" bodyfile="src/distribution/histogram/Histogram.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classd6g_1_1Histogram_1_1BinEntry_1aceb1abbf085dce00fe2da80e176db065" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int d6g::Histogram::BinEntry::accumulatedCount</definition>
+        <argsstring></argsstring>
+        <name>accumulatedCount</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="39" column="13" bodyfile="src/distribution/histogram/Histogram.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classd6g_1_1Histogram_1_1BinEntry_1a9e821a4d69895b4d6ef985171defc8cd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Histogram::BinEntry::BinEntry</definition>
+        <argsstring>(cXMLElement *binEntity, cModule *context=nullptr)</argsstring>
+        <name>BinEntry</name>
+        <param>
+          <type>cXMLElement *</type>
+          <declname>binEntity</declname>
+        </param>
+        <param>
+          <type>cModule *</type>
+          <declname>context</declname>
+          <defval>nullptr</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="34" column="18" bodyfile="src/distribution/histogram/Histogram.cc" bodystart="110" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="classd6g_1_1Histogram_1_1BinEntry_1a8695a9904503cd3aa54434b20e5997d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>d6g::Histogram::BinEntry::~BinEntry</definition>
+        <argsstring>()=default</argsstring>
+        <name>~BinEntry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/distribution/histogram/Histogram.h" line="40" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/distribution/histogram/Histogram.h" line="32" column="5" bodyfile="src/distribution/histogram/Histogram.h" bodystart="32" bodyend="41"/>
+    <listofallmembers>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1aceb1abbf085dce00fe2da80e176db065" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>accumulatedCount</name></member>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1a9e821a4d69895b4d6ef985171defc8cd" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>BinEntry</name></member>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1a9efa532bde82692c3004919609cd7d84" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>count</name></member>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1aab26a7687716917dc8a8c0e6095d3843" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>leftBoundary</name></member>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1ac6912475056232c8802cf619a8f743b2" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>rightBoundary</name></member>
+      <member refid="classd6g_1_1Histogram_1_1BinEntry_1a8695a9904503cd3aa54434b20e5997d3" prot="public" virt="non-virtual"><scope>d6g::Histogram::BinEntry</scope><name>~BinEntry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

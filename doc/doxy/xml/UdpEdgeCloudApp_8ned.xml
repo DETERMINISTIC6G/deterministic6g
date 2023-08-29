@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="UdpEdgeCloudApp_8ned" kind="file" language="C++">
+    <compoundname>UdpEdgeCloudApp.ned</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="UdpEdgeCloudApp_8ned_1a182bf102c6a55ae30459a6409c8e33aa" prot="public" static="no" mutable="no">
+        <type>simple <ref refid="classUdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref> extends</type>
+        <definition>simple UdpEdgeCloudApp extends UdpEchoApp</definition>
+        <argsstring></argsstring>
+        <name>UdpEchoApp</name>
+        <initializer>{
+    parameters:
+        @class(<ref refid="classUdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned" line="19" column="32" bodyfile="src/apps/edgecloud/UdpEdgeCloudApp.ned" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UdpEdgeCloudApp_8ned_1a7d5a48e2a2d9c9eb8e52c44404e4cfcd" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string destAddress</definition>
+        <argsstring></argsstring>
+        <name>destAddress</name>
+        <initializer>= default(&quot;&quot;)</initializer>
+        <briefdescription>
+<para>destination IP address for the UDP packets </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned" line="24" column="16" bodyfile="src/apps/edgecloud/UdpEdgeCloudApp.ned" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="UdpEdgeCloudApp_8ned_1aff707d344d6f194910c65e4668858bbd" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int destPort</definition>
+        <argsstring></argsstring>
+        <name>destPort</name>
+        <briefdescription>
+<para>destination port number for the UDP packets </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned" line="27" column="13" bodyfile="src/apps/edgecloud/UdpEdgeCloudApp.ned" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="UdpEdgeCloudApp_8ned_1aae485166d641cd6764c6ae085ea41eef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double delay</type>
+        <definition>volatile double delay unit</definition>
+        <argsstring>(s)=default(0s)</argsstring>
+        <name>unit</name>
+        <param>
+          <type>s</type>
+        </param>
+        <briefdescription>
+<para>specifies delay per UDP packets </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned" line="30" column="31" declfile="src/apps/edgecloud/UdpEdgeCloudApp.ned" declline="30" declcolumn="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Copyright<sp/>(C)<sp/>2023<sp/>Deterministic<sp/>6G.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="comment">//<sp/>SPDX-License-Identifier:<sp/>LGPL-3.0-or-later</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="keyword">package<sp/></highlight><highlight class="normal">d6g.apps.edgecloud;</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">import</highlight><highlight class="normal"><sp/>inet.applications.udpapp.UdpEchoApp;</highlight></codeline>
+<codeline lineno="12"></codeline>
+<codeline lineno="19"><highlight class="normal">simple<sp/><ref refid="classUdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref><sp/>extends<sp/><ref refid="UdpEdgeCloudApp_8ned_1a182bf102c6a55ae30459a6409c8e33aa" kindref="member">UdpEchoApp</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>parameters:</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">@class</highlight><highlight class="normal">(<ref refid="classUdpEdgeCloudApp" kindref="compound">UdpEdgeCloudApp</ref>);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">string</highlight><highlight class="normal"><sp/><ref refid="UdpEdgeCloudApp_8ned_1a7d5a48e2a2d9c9eb8e52c44404e4cfcd" kindref="member">destAddress</ref><sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(</highlight><highlight class="stringliteral">&quot;&quot;</highlight><highlight class="normal">);<sp/></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="UdpEdgeCloudApp_8ned_1aff707d344d6f194910c65e4668858bbd" kindref="member">destPort</ref>;<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>delay<sp/>@<ref refid="UdpEdgeCloudApp_8ned_1aae485166d641cd6764c6ae085ea41eef" kindref="member">unit</ref>(s)<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">(0s);<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="src/apps/edgecloud/UdpEdgeCloudApp.ned"/>
+  </compounddef>
+</doxygen>
