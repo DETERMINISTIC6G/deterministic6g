@@ -38,4 +38,6 @@ build-doc:
   stage: build
   script:
     - ls
+    - make neddoc
+    - ls doc
 
