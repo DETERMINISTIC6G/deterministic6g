@@ -13,6 +13,9 @@ omnetpp-gui
 src/Makefile
 .settings/
 
+doc/src/_build
+doc/neddoc
+
 # ignore binary files
 out/
 *.so

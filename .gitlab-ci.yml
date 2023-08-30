@@ -21,7 +21,7 @@ stages:          # List of stages for jobs, and their order of execution
 
 build-docker:
   only:
-    - main
+    - ergerg
   image: docker:latest
   stage: build
   services:
@@ -32,3 +32,10 @@ build-docker:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
+
+build-doc:
+  image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
+  stage: build
+  script:
+    - ls
+

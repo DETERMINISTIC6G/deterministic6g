@@ -23,7 +23,7 @@ using namespace inet;
 Define_Module(UdpEdgeCloudApp)
 
 void UdpEdgeCloudApp::socketDataArrived(UdpSocket *socket, Packet *pk) {
-    // determine its source address/port
+    // determine its src address/port
     pk->clearTags();
     pk->trim();
 

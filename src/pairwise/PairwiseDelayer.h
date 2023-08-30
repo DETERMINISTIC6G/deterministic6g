@@ -8,7 +8,6 @@
 #ifndef DETERMINISTIC6G_PAIRWISEDELAYER_H_
 #define DETERMINISTIC6G_PAIRWISEDELAYER_H_
 
-#include "inet/common/INETDefs.h"
 #include "inet/queueing/base/PacketDelayerBase.h"
 
 namespace d6g {
