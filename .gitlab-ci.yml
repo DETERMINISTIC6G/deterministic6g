@@ -38,7 +38,7 @@ build-doc:
   stage: build
   script:
     - ls
-    - (cd ..; git clone --branch v4.5.0 https://github.com/inet-framework/inet.git;)
+    - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - ls ..
     - make neddoc
     - ls doc
