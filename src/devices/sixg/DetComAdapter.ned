@@ -13,24 +13,36 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-/// \cond
 package d6g.devices.sixg;
 
 import inet.node.tsn.TsnSwitch;
 import inet.linklayer.contract.IEthernetInterface;
-/// \endcond
 
-/// \class DetComAdapter
-/// The module DetComAdapter extends a TsnSwitch, presenting a configurable network scenario that models 
-/// Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
-/// egress traffic shaping, and cut-through switching.
+//
+// The module extends the TsnSwitch module to offer advanced Ethernet communication capabilities.
+// It provides a variety of configurable parameters to simulate different networking behaviors at both the MAC
+// and PHY layers. These parameters include options for frame preemption, egress traffic shaping, and 
+// cut-through switching, thus allowing a flexible setup to emulate real-world networking scenarios.
+//
 module DetComAdapter extends TsnSwitch
 {
     parameters:
-        int numUeInterfaces = default(0);  /// minimum number of ethernet interfaces
+        int numUeInterfaces = default(0); // Specifies the minimum number of user equipment (UE) Ethernet interfaces that the adapter supports.
+        
+        // Chooses the MAC layer type based on whether frame preemption is enabled.
+        // "EthernetPreemptingMacLayer" is used for preemptive frames, otherwise "EthernetMacLayer" is used.
         ue[*].macLayer.typename = default(hasFramePreemption ? "EthernetPreemptingMacLayer" : "EthernetMacLayer");
-        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); /// use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
-        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); /// use packet streaming when cut-through switching is enabled
+        
+        // Determines the type of queue to be used for egress traffic shaping.
+        // If egress traffic shaping is enabled, "Ieee8021qTimeAwareShaper" is used.
+        // Otherwise, a standard "PacketQueue" is used.
+        ue[*].macLayer.queue.typename = default(hasEgressTrafficShaping ? "Ieee8021qTimeAwareShaper" : "PacketQueue"); 
+        
+        // Chooses the appropriate PHY layer type.
+        // "EthernetStreamThroughPhyLayer" is used if cut-through switching is enabled.
+        // "EthernetPreemptingPhyLayer" is used if frame preemption is enabled but cut-through is not.
+        // "EthernetPhyLayer" is the default PHY layer type.
+        ue[*].phyLayer.typename = default(hasCutthroughSwitching ? "EthernetStreamThroughPhyLayer" : (hasFramePreemption ? "EthernetPreemptingPhyLayer" : "EthernetPhyLayer")); 
     gates:
         inout ueg[numUeInterfaces] @labels(EtherFrame-conn);
     submodules:

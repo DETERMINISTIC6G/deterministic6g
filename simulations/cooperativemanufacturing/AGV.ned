@@ -20,17 +20,25 @@ import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 import d6g.devices.sixg.UnitWithAdapter;
 
+//
+// The module extends UnitWithAdapter to represent an AGV in a cooperative manufacturing environment. 
+// It has the ability to communicate wirelessly and has two Ethernet submodules: one for communication 
+// between AGVs (interAgv) and another for communication to a processing cell (interToCell).
+//
 module AGV extends UnitWithAdapter
 {
     parameters:
     	@display("i=device/cellphone");
-    	isWireless = true;
-    	*.eth[*].bitrate = default(100Mbps);
+    	isWireless = true; // Indicates that the AGV can communicate wirelessly
+        *.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
     submodules:
+        // For communication between AGVs
         interAgv: <default("TsnDevice")> like IEthernetNetworkNode {
             @display("p=300,100");
         }
-        interToCell: <default("TsnDevice")> like IEthernetNetworkNode {
+        
+        // For communication to a processing cell
+        interToCell: <default("TsnDevice")> like IEthernetNetworkNode { 
             @display("p=400,100");
         }
     connections:

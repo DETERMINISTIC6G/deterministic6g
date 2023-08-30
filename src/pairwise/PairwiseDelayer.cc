@@ -16,6 +16,8 @@ using namespace inet;
 using namespace queueing;
 using namespace inet::xmlutils;
 
+
+/// This is for PairwiseDelayer
 Define_Module(PairwiseDelayer);
 
 void PairwiseDelayer::initialize(int stage) {

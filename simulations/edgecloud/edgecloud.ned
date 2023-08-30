@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 //
 
-/// \cond
 package d6g.simulations.edgecloud;
 
 import inet.networks.base.TsnNetworkBase;
@@ -16,10 +15,10 @@ import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 import ned.DatarateChannel;
 import d6g.distribution.histogram.Histogram;
-/// \endcond
 
-/// \class EdgeCloudNetwork
-/// Definition of the EdgeCloudNetwork network type which extends DetComNetworkBase.
+// 
+// The module extends from DetComNetworkBase. This network is meant to simulate deterministic communications in an edge cloud setting. 
+// 
 network EdgeCloudNetwork extends DetComNetworkBase
 {
     parameters:

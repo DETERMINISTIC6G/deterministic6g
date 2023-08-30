@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>BridgingLayerWithPairwiseDelay.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">BridgingLayerWithPairwiseDelay.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/pairwise/BridgingLayerWithPairwiseDelay.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.pairwise.BridgingLayerWithPairwiseDelay" href="d6g.pairwise.BridgingLayerWithPairwiseDelay.html">BridgingLayerWithPairwiseDelay</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides various layer 2 services such as packet forwarding,
+interface selection, virtual LAN handling, stream handling.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2023 Deterministic 6G.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #f7f7f7; ">
+</span><span style="color: #8b814c; font-weight: bold; ">package</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">d6g</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">pairwise</span><span style="color: #f7f7f7; ">;
+
+</span><span style="color: #8b814c; font-weight: bold; ">import</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">inet</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">protocolelement</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">contract</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; ">;
+</span><span style="color: #8b814c; font-weight: bold; ">import</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">inet</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">protocolelement</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">processing</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">IProcessingDelayLayer</span><span style="color: #f7f7f7; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This module provides various layer 2 services such as packet forwarding,
+// interface selection, virtual LAN handling, stream handling.
+//
+</span><span style="color: #8b814c; font-weight: bold; ">module</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">BridgingLayerWithPairwiseDelay</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; ">
+{
+    </span><span style="color: #8b814c; font-weight: bold; ">parameters</span><span style="color: #f7f7f7; ">:
+        </span><span style="color: #008080; font-weight: bold; ">string</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">macTableModule</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">); </span><span style="color: #808080; font-style: italic; ">// specifies the module handling the MAC address table.
+</span><span style="color: #f7f7f7; ">        
+        </span><span style="color: #008080; font-weight: bold; ">string</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">interfaceTableModule</span><span style="color: #f7f7f7; ">; </span><span style="color: #808080; font-style: italic; ">// relative module path of the interface table.
+</span><span style="color: #f7f7f7; ">        
+        *.</span><span style="color: #f7f7f7; ">macTableModule</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #f7f7f7; ">absPath</span><span style="color: #f7f7f7; ">(</span><span style="color: #8b814c; font-weight: bold; ">this</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">macTableModule</span><span style="color: #f7f7f7; ">));
+        *.</span><span style="color: #f7f7f7; ">interfaceTableModule</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #8b814c; font-weight: bold; ">this</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">interfaceTableModule</span><span style="color: #f7f7f7; ">); 
+        </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;i=block/layer&quot;</span><span style="color: #f7f7f7; ">);
+        
+    </span><span style="color: #8b814c; font-weight: bold; ">gates</span><span style="color: #f7f7f7; ">:
+        </span><span style="color: #008080; font-weight: bold; ">input</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">; </span><span style="color: #808080; font-style: italic; ">// Input gate for receiving packets from the upper layer (e.g., network layer).
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #008080; font-weight: bold; ">output</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; ">; </span><span style="color: #808080; font-style: italic; ">// Output gate for sending packets to the upper layer.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #008080; font-weight: bold; ">input</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">; </span><span style="color: #808080; font-style: italic; ">// Input gate for receiving packets from the lower layer (e.g., MAC layer).
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #008080; font-weight: bold; ">output</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; ">; </span><span style="color: #808080; font-style: italic; ">// Output gate for sending packets to the lower layer.
+</span><span style="color: #f7f7f7; ">    </span><span style="color: #8b814c; font-weight: bold; ">submodules</span><span style="color: #f7f7f7; ">:
+        </span><span style="color: #808080; font-style: italic; ">// Layer responsible for adding delays to packet processing.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">processingDelayLayer</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProcessingDelayLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,150&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Handles the direction reversal of packets.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">directionReverser</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;DirectionReverserLayer&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,300&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Manages stream identification operations.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">streamIdentifier</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,450&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Responsible for relay operations on the stream.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">streamRelay</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,600&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Applies filtering rules to the stream.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">streamFilter</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,750&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Encodes or transforms the stream.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">streamCoder</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,900&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Manages the relay operations at the interface level.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">interfaceRelay</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;InterfaceRelayLayer&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,1050&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Manages VLAN policies.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">vlanPolicy</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProtocolLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,1200&quot;</span><span style="color: #f7f7f7; ">);
+        }
+        
+        </span><span style="color: #808080; font-style: italic; ">// Adds delays to the packet on a pairwise basis, mainly for egress traffic.
+</span><span style="color: #f7f7f7; ">        </span><span style="color: #f7f7f7; ">pairwiseDelayLayer</span><span style="color: #f7f7f7; ">: &lt;</span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;ProcessingDelayLayer&quot;</span><span style="color: #f7f7f7; ">)&gt; </span><span style="color: #8b814c; font-weight: bold; ">like</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">IProcessingDelayLayer</span><span style="color: #f7f7f7; "> {
+            </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;p=300,1350&quot;</span><span style="color: #f7f7f7; ">);
+            </span><span style="color: #f7f7f7; ">ingress</span><span style="color: #f7f7f7; ">.</span><span style="color: #8b814c; font-weight: bold; ">typename</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&quot;</span><span style="color: #f7f7f7; ">);
+            </span><span style="color: #f7f7f7; ">egress</span><span style="color: #f7f7f7; ">.</span><span style="color: #8b814c; font-weight: bold; ">typename</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;PairwiseDelayer&quot;</span><span style="color: #f7f7f7; ">);
+        }
+    </span><span style="color: #8b814c; font-weight: bold; ">connections</span><span style="color: #f7f7f7; ">:
+        </span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">processingDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">processingDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">directionReverser</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">directionReverser</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamIdentifier</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamIdentifier</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamFilter</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamFilter</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamCoder</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamCoder</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">interfaceRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">interfaceRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">vlanPolicy</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">vlanPolicy</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">pairwiseDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">pairwiseDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">lowerLayerOut</span><span style="color: #f7f7f7; ">;
+
+		</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">pairwiseDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">pairwiseDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">vlanPolicy</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">vlanPolicy</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">interfaceRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">interfaceRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamCoder</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamCoder</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamFilter</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamFilter</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamRelay</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">streamIdentifier</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">streamIdentifier</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">directionReverser</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">directionReverser</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">processingDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">lowerLayerIn</span><span style="color: #f7f7f7; ">;
+        </span><span style="color: #f7f7f7; ">processingDelayLayer</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; "> </span><span style="color: #8b814c; font-weight: bold; ">--&gt;</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">upperLayerOut</span><span style="color: #f7f7f7; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

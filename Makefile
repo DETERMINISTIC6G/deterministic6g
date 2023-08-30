@@ -26,3 +26,8 @@ checkmakefiles:
 
 doc:
 	doxygen Doxyfile
+	
+ddoc:
+	@echo "Current directory: $$(pwd)"
+	@ls -al
+	@cd doc/source && ./docker-make html && echo "===> file:$$(pwd)/build/html/index.html"
