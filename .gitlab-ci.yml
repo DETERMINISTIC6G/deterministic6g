@@ -37,7 +37,9 @@ build-doc:
   image: ghcr.io/omnetpp/omnetpp-gui:u22.05-6.0.1
   stage: build
   script:
+    - ls
     - (cd ..; git clone --branch v4.5.0 https://github.com/inet-framework/inet.git;)
+    - ls ..
     - make neddoc
     - ls doc
 
