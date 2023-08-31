@@ -1,5 +1,11 @@
 var NAVTREEINDEX0 = {
-'../../../inet/doc/neddoc/index.html':[9],
+'../../../inet/doc/neddoc/index.html':[10],
+'../../doc/doxy/annotated.html':[9, 1],
+'../../doc/doxy/files.html':[9, 0],
+'../../doc/doxy/functions.html':[9, 3],
+'../../doc/doxy/hierarchy.html':[9, 2],
+'../../doc/doxy/namespacemembers.html':[9, 5],
+'../../doc/doxy/namespaces.html':[9, 4],
 'd6g.apps.edgecloud.UdpEdgeCloudApp.html':[1, 0, 0],
 'd6g.devices.sixg.DetCom.html':[1, 1, 0],
 'd6g.devices.sixg.DetComAdapter.html':[1, 1, 1],

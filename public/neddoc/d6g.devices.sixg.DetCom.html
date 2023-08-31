@@ -603,13 +603,15 @@ currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
 </table>
 <h3 class="subtitle">Source code</h3>
 <pre class="src">
-<span style="color: #808080; font-style: italic; ">//DetCom extends the DetComAdapter module.
-//This module depicts a simulated network device involved in communication.
-//It defines specific parameters which provide bridging mechanism.
+<span style="color: #808080; font-style: italic; ">//
+// DetCom extends the DetComAdapter module.
+// This module depicts a simulated network device involved in communication.
+// It defines specific parameters which provide bridging mechanism.
+//
 </span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetCom</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetComAdapter</span><span style="color: #232629; ">
 {
     </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
-        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;BridgingLayerWithPairwiseDelay&quot;</span><span style="color: #232629; ">);</span><span style="color: #808080; font-style: italic; ">/// type of bridging layer
+        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;BridgingLayerWithPairwiseDelay&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// type of bridging layer
 </span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/antennatower&quot;</span><span style="color: #232629; ">);
 }
 </span></pre>

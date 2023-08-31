@@ -14,7 +14,7 @@ src/Makefile
 .settings/
 
 doc/src/_build
-doc/neddoc
+doc/
 
 # ignore binary files
 out/

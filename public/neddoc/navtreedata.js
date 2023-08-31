@@ -101,6 +101,14 @@ var NAVTREE =
       [`src/pairwise/BridgingLayerWithPairwiseDelay.ned`, `src-pairwise-BridgingLayerWithPairwiseDelay.ned.html`, null],
       [`src/pairwise/PairwiseDelayer.ned`, `src-pairwise-PairwiseDelayer.ned.html`, null],
     ] ],
+    [`C++`, null, [
+      [`File List`, `../../doc/doxy/files.html`, null],
+      [`Class List`, `../../doc/doxy/annotated.html`, null],
+      [`Class Hierarchy`, `../../doc/doxy/hierarchy.html`, null],
+      [`Class Members`, `../../doc/doxy/functions.html`, null],
+      [`Namespace List`, `../../doc/doxy/namespaces.html`, null],
+      [`Namespace Members`, `../../doc/doxy/namespacemembers.html`, null],
+    ] ],
     [`Referenced Projects`, null, [
     [`inet`, `../../../inet/doc/neddoc/index.html`, null],
     ] ],

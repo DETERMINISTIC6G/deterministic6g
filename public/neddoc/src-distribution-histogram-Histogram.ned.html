@@ -97,14 +97,16 @@ generates random values within bins, and implements binary search for bin select
 </span><span style="color: #232629; ">
 </span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">d6g</span><span style="color: #232629; ">.</span><span style="color: #232629; ">distribution</span><span style="color: #232629; ">.</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">;
 
-</span><span style="color: #808080; font-style: italic; ">/// This module groups the delays based on the bins assigned as per histogram xml. 
-/// It reads histogram configuration, calculates accumulated bin counts,
-/// generates random values within bins, and implements binary search for bin selection. 
-///
+</span><span style="color: #808080; font-style: italic; ">//
+// This module groups the delays based on the bins assigned as per histogram xml. 
+// It reads histogram configuration, calculates accumulated bin counts,
+// generates random values within bins, and implements binary search for bin selection. 
+//
 </span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Histogram</span><span style="color: #232629; ">
 {
     </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
-        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">histogramConfig</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;bin&gt;&lt;/bin&gt;&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #808080; font-style: italic; ">// Specifies the histogram configuration in XML format. Each &lt;bin&gt; element within the XML defines a bin for the histogram.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">histogramConfig</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;bin&gt;&lt;/bin&gt;&quot;</span><span style="color: #232629; ">));
         </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Histogram</span><span style="color: #232629; ">);
         </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/delay&quot;</span><span style="color: #232629; ">);
 }
