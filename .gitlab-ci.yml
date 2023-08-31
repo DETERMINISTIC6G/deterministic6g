@@ -16,12 +16,11 @@ build-docker-omnetpp-gui-xvfb:
         - dockerfiles/omnetpp-gui-xvfb/*
         - .gitlab-ci.yml
   image: docker:latest
-  # Specify an additional image 'docker:dind' ("Docker-in-Docker") that
-  # will start up the Docker daemon when it is brought up by a runner.
   services:
     - docker:dind
   script:
-    - cd
+    - cd dockerfiles/omnetpp-gui-xvfb
+    - echo $CI_REGISTRY
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
