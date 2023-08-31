@@ -5,10 +5,6 @@ var NAVTREE =
 [
   [`deterministic6g`, `index.html`, [
     [`Overview`, `index.html`, null],
-    [`Selected Topics`, null, [
-      [`History`, `history.html`, null],
-      [`What's New`, `whatsnew.html`, null],
-    ] ],
     [`Packages`, `packages.html`, [
       [`d6g.apps.edgecloud`, `packages.html#d6g_apps_edgecloud`, [
         [`UdpEdgeCloudApp`, `d6g.apps.edgecloud.UdpEdgeCloudApp.html`, null],
