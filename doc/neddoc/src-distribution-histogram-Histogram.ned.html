@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Histogram.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Histogram.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/distribution/histogram/Histogram.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.distribution.histogram.Histogram" href="d6g.distribution.histogram.Histogram.html">Histogram</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module groups the delays based on the bins assigned as per histogram xml. 
+It reads histogram configuration, calculates accumulated bin counts,
+generates random values within bins, and implements binary search for bin selection. </p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+</span><span style="color: #f7f7f7; ">
+</span><span style="color: #8b814c; font-weight: bold; ">package</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">d6g</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">distribution</span><span style="color: #f7f7f7; ">.</span><span style="color: #f7f7f7; ">histogram</span><span style="color: #f7f7f7; ">;
+
+</span><span style="color: #808080; font-style: italic; ">/// This module groups the delays based on the bins assigned as per histogram xml. 
+/// It reads histogram configuration, calculates accumulated bin counts,
+/// generates random values within bins, and implements binary search for bin selection. 
+///
+</span><span style="color: #8b814c; font-weight: bold; ">simple</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">Histogram</span><span style="color: #f7f7f7; ">
+{
+    </span><span style="color: #8b814c; font-weight: bold; ">parameters</span><span style="color: #f7f7f7; ">:
+        </span><span style="color: #008080; font-weight: bold; ">xml</span><span style="color: #f7f7f7; "> </span><span style="color: #f7f7f7; ">histogramConfig</span><span style="color: #f7f7f7; "> = </span><span style="color: #8b814c; font-weight: bold; ">default</span><span style="color: #f7f7f7; ">(</span><span style="color: #008080; font-weight: bold; ">xml</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;&lt;bin&gt;&lt;/bin&gt;&quot;</span><span style="color: #f7f7f7; ">));
+        </span><span style="color: #cdc673; font-weight: bold; ">@class</span><span style="color: #f7f7f7; ">(</span><span style="color: #f7f7f7; ">Histogram</span><span style="color: #f7f7f7; ">);
+        </span><span style="color: #cdc673; font-weight: bold; ">@display</span><span style="color: #f7f7f7; ">(</span><span style="color: #7ccd7c; ">&quot;i=block/delay&quot;</span><span style="color: #f7f7f7; ">);
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

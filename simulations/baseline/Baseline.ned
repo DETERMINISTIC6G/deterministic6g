@@ -2,7 +2,6 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 //
 
-
 package d6g.simulations.baseline;
 
 import inet.networks.base.TsnNetworkBase;
@@ -16,30 +15,35 @@ import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 import ned.DatarateChannel;
 
+//
+// The network is to evaluate the data communication from a talker (sender) through multiple 
+// bridges and adapters to a listener (receiver). It Involves both Time-Sensitive Networking (TSN) and Deterministic 
+// Communication (DetCom) elements. 
+//
 network Baseline extends DetComNetworkBase
 {
     parameters:
         
     submodules:
-        talker: TsnDevice {
+        talker: TsnDevice { // A TSN device acting as a talker (data sender).
             @display("p=350,200");
         }
-        bridge1: TsnSwitch {
+        bridge1: TsnSwitch { // A TSN switch with a bridge function.
             @display("p=350,300");
         }
-        bridge2: DetComAdapter  {
+        bridge2: DetComAdapter  { // A DetCom Adapter.
             @display("p=350,400");
         }
-        detcom: DetCom {
+        detcom: DetCom { // DetCom module (deterministic communication).
             @display("p=450,400");
         }
-        bridge3: DetComAdapter {
+        bridge3: DetComAdapter { // A DetCom Adapter.
             @display("p=550,400");
         }
-        bridge4: TsnSwitch {
+        bridge4: TsnSwitch { // A TSN switch with a bridge function.
             @display("p=550,300");
         }
-        listener: TsnDevice {
+        listener: TsnDevice { // A TSN device acting as a talker (data sender).
             @display("p=550,200");
         }
     connections:

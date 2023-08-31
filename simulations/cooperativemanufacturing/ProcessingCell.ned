@@ -20,19 +20,29 @@ import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 import d6g.devices.sixg.UnitWithAdapter;
 
+//
+// The module is designed to simulate a processing unit in a cooperative manufacturing environment. 
+// It extends UnitWithAdapter, adding specific configurations like Ethernet bitrate and submodules 
+// for controlling swarm operations and status.
+//
 module ProcessingCell extends UnitWithAdapter
 {
     parameters:
-        isWireless = false;
+        isWireless = false; // Specifies that the module does not use wireless communication
     	@display("i=status/execute");
-        *.eth[*].bitrate = default(100Mbps);
+        *.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
     submodules:
+        // Bridge for Ethernet frames
         bridge: <default("TsnSwitch")> like IEthernetNetworkNode {
             @display("p=350,100");
         }
+        
+        // Device for monitoring the status of the swarm
         swarmStatus: <default("TsnDevice")> like IEthernetNetworkNode {
             @display("p=250,100");
         }
+        
+        // Device for controlling the swarm
         swarmControl: <default("TsnDevice")> like IEthernetNetworkNode {
             @display("p=250,200");
         }
