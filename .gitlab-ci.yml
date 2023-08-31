@@ -19,8 +19,7 @@ build-docker-omnetpp-gui-xvfb:
   # Specify an additional image 'docker:dind' ("Docker-in-Docker") that
   # will start up the Docker daemon when it is brought up by a runner.
   services:
-    - name: $CI_REGISTRY/group/project/docker:20.10.16-dind
-      alias: docker
+    - docker:dind
   script:
     - cd
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
