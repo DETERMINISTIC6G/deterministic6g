@@ -1,0 +1,626 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DetCom</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DetCom</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#d6g_devices_sixg">d6g.devices.sixg</a></p>
+<h2 class="comptitle" style="float: left;">DetCom</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p><a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a> extends the <a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a> module.
+This module depicts a simulated network device involved in communication.
+It defines specific parameters which provide bridging mechanism.</p>
+<img src="d6g.devices.sixg.DetCom-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.contract.IMacForwardingTable.html" title="IMacForwardingTable" alt="IMacForwardingTable" coords="58,128,147,184">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="37,228,168,284">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.configurator.L2NodeConfigurator.html" title="L2NodeConfigurator" alt="L2NodeConfigurator" coords="10,328,195,384">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="74,428,131,484">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.clock.contract.IClock.html" title="IClock" alt="IClock" coords="78,528,126,584">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="-60,628,265,684">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.IMeasurer.html" title="IMeasurer" alt="IMeasurer" coords="82,728,172,784">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html" title="ISpanningTree" alt="ISpanningTree" coords="482,95,526,167">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="681,95,726,167">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="833,95,972,167">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,188,1406,225">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.ieee8022.IIeee8022Llc.html" title="IIeee8022Llc" alt="IIeee8022Llc" coords="682,245,726,317">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,338,1406,375">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.protocolelement.contract.IProtocolLayer.html" title="IProtocolLayer" alt="IProtocolLayer" coords="763,395,841,467">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,488,1406,525">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="463,545,542,617">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.ieee8021q.IIeee8021qLayer.html" title="IIeee8021qLayer" alt="IIeee8021qLayer" coords="655,545,749,617">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.ieee8021r.IIeee8021rLayer.html" title="IIeee8021rLayer" alt="IIeee8021rLayer" coords="857,545,947,617">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,638,1406,675">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="176,770,328,842">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="258,920,396,992">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="d6g.devices.sixg.DetCom-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.baseline.Baseline" href="d6g.simulations.baseline.Baseline.html">Baseline</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The network is to evaluate the data communication from a talker (sender) through multiple 
+bridges and adapters to a listener (receiver). It Involves both Time-Sensitive Networking (TSN) and Deterministic 
+Communication (<a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a>) elements. </p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing" href="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing.html">CooperativeManufacturing</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This network focuses on a cooperative manufacturing environment.
+The network simulates communication between AGVs (Automated Guided Vehicles) and a processing cell
+via a <a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a> (Deterministic Communication) module to ensure reliable and timely data transmission.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.edgecloud.EdgeCloudNetwork" href="d6g.simulations.edgecloud.EdgeCloudNetwork.html">EdgeCloudNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The module extends from <a title="d6g.networks.DetComNetworkBase" href="d6g.networks.DetComNetworkBase.html">DetComNetworkBase</a>. This network is meant to simulate deterministic communications in an edge cloud setting. </p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>The module extends the TsnSwitch module to offer advanced Ethernet communication capabilities.
+It provides a variety of configurable parameters to simulate different networking behaviors at both the MAC
+and PHY layers. These parameters include options for frame preemption, egress traffic shaping, and 
+cut-through switching, thus allowing a flexible setup to emulate real-world networking scenarios.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>recordPcap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numPcapRecorders</td>
+      <td>int</td>
+      <td>recordPcap ? 1 : 0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numApps</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasStp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasGptp</td>
+      <td>bool</td>
+      <td>hasTimeSynchronization</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasCutthroughSwitching</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>spanningTreeProtocol</td>
+      <td>string</td>
+      <td>"Stp"</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numEthInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of ethernet interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasTimeSynchronization</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 AS time synchronization</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIngressTrafficFiltering</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 Qci ingress per-stream filtering</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasEgressTrafficShaping</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 egress traffic shaping (credit based shaping, time aware shaping, asynchronous shaping)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasStreamRedundancy</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 CB frame replication and elimination</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIncomingStreams</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 stream decoding</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasOutgoingStreams</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 stream identification and stream encoding</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>hasFramePreemption</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 Qbu frame preemption</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numUeInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>Specifies the minimum number of user equipment (<a title="d6g.devices.sixg.UE" href="d6g.devices.sixg.UE.html">UE</a>) Ethernet interfaces that the adapter supports.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/antennatower</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td>numEthInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>ueg [ ]</td>
+      <td>inout</td>
+      <td>numUeInterfaces</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IMacForwardingTable" href="../../../inet/doc/neddoc/inet.linklayer.contract.IMacForwardingTable.html">macTable</a>.agingTime</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IMacForwardingTable" href="../../../inet/doc/neddoc/inet.linklayer.contract.IMacForwardingTable.html">macTable</a>.forwardingTableFile</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="../../../inet/doc/neddoc/inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.L2NodeConfigurator" href="../../../inet/doc/neddoc/inet.linklayer.configurator.L2NodeConfigurator.html">l2NodeConfigurator</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.L2NodeConfigurator" href="../../../inet/doc/neddoc/inet.linklayer.configurator.L2NodeConfigurator.html">l2NodeConfigurator</a>.l2ConfiguratorModule</td>
+      <td>string</td>
+      <td>"l2NetworkConfigurator"</td>
+      <td>
+<p>the absolute path to the ~L2NetworkConfigurator; use "" if there is no configurator</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="../../../inet/doc/neddoc/inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+      <td>string</td>
+      <td>"wlan[*] eth[*] ppp[*]"</td>
+      <td>
+<p>space-separated list of sibling module names to listen on</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the Protocol class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable PcapRecorder::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.ISpanningTree" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html">stp</a>.helloTime</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.ISpanningTree" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html">stp</a>.forwardDelay</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.ISpanningTree" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html">stp</a>.maxAge</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.ISpanningTree" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html">stp</a>.bridgePriority</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.ISpanningTree" href="../../../inet/doc/neddoc/inet.linklayer.contract.ISpanningTree.html">stp</a>.visualize</td>
+      <td>bool</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">sc</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">sc</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">sc</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">cb</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">cb</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">cb</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">bl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">bl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">bl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">li</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">li</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="../../../inet/doc/neddoc/inet.common.MessageDispatcher.html">li</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="../../../inet/doc/neddoc/inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="../../../inet/doc/neddoc/inet.linklayer.contract.IEthernetInterface.html">ue</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//DetCom extends the DetComAdapter module.
+//This module depicts a simulated network device involved in communication.
+//It defines specific parameters which provide bridging mechanism.
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetCom</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetComAdapter</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;BridgingLayerWithPairwiseDelay&quot;</span><span style="color: #232629; ">);</span><span style="color: #808080; font-style: italic; ">/// type of bridging layer
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/antennatower&quot;</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-devices-sixg-detcom.ned.html">src/devices/sixg/detcom.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

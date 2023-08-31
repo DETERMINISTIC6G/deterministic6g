@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DetComNetworkBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DetComNetworkBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#d6g_networks">d6g.networks</a></p>
+<h2 class="comptitle" style="float: left;">DetComNetworkBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #2196f340;">
+    <span class="mdl-chip__text">network</span>
+</span><div style="clear: both;"/>
+
+<p>The network is a specialized network type designed for deterministic communications.
+It extends TsnNetworkBase, a network designed for Time-Sensitive Networking.</p>
+<img src="d6g.networks.DetComNetworkBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="-60,128,265,184">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.visualizer.contract.IIntegratedVisualizer.html" title="IIntegratedVisualizer" alt="IIntegratedVisualizer" coords="59,228,145,284">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.configurator.contract.IL3NetworkConfigurator.html" title="IL3NetworkConfigurator" alt="IL3NetworkConfigurator" coords="44,328,160,384">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.configurator.contract.INetworkConfigurator.html" title="INetworkConfigurator" alt="INetworkConfigurator" coords="-55,428,259,484">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.linklayer.configurator.gatescheduling.contract.IGateScheduleConfigurator.html" title="IGateScheduleConfigurator" alt="IGateScheduleConfigurator" coords="-20,528,224,584">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.configurator.contract.INetworkConfigurator.html" title="INetworkConfigurator" alt="INetworkConfigurator" coords="-47,628,252,684">
+<area shape="rect" href="../../../inet/doc/neddoc/inet.networklayer.configurator.contract.INetworkConfigurator.html" title="INetworkConfigurator" alt="INetworkConfigurator" coords="-35,728,239,784">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="d6g.networks.DetComNetworkBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.baseline.Baseline" href="d6g.simulations.baseline.Baseline.html">Baseline</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The network is to evaluate the data communication from a talker (sender) through multiple 
+bridges and adapters to a listener (receiver). It Involves both Time-Sensitive Networking (TSN) and Deterministic 
+Communication (<a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a>) elements. </p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing" href="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing.html">CooperativeManufacturing</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This network focuses on a cooperative manufacturing environment.
+The network simulates communication between AGVs (Automated Guided Vehicles) and a processing cell
+via a <a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a> (Deterministic Communication) module to ensure reliable and timely data transmission.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.edgecloud.EdgeCloudNetwork" href="d6g.simulations.edgecloud.EdgeCloudNetwork.html">EdgeCloudNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The module extends from <a title="d6g.networks.DetComNetworkBase" href="d6g.networks.DetComNetworkBase.html">DetComNetworkBase</a>. This network is meant to simulate deterministic communications in an edge cloud setting. </p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networks.base.TsnNetworkBase" href="../../../inet/doc/neddoc/inet.networks.base.TsnNetworkBase.html">TsnNetworkBase</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This module serves as a network base module for Time-Sensitive Networking (TSN).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>recordPcap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numPcapRecorders</td>
+      <td>int</td>
+      <td>recordPcap ? 1 : 0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasGlobalArp</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>isNetwork</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>NetworkBase</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the Protocol class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable PcapRecorder::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="../../../inet/doc/neddoc/inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// The network is a specialized network type designed for deterministic communications.
+// It extends TsnNetworkBase, a network designed for Time-Sensitive Networking.
+//
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetComNetworkBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TsnNetworkBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// Setting the bitrate of all Ethernet interfaces to a default value of 100Mbps.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// If not explicitly defined elsewhere, the default value will be used.
+</span><span style="color: #232629; ">        *.</span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">bitrate</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">100</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">);
+
+
+        **.</span><span style="color: #232629; ">hasEgressTrafficShaping</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Enabling egress traffic shaping for all nodes in the network.
+</span><span style="color: #232629; ">
+
+        **.</span><span style="color: #232629; ">hasIncomingStreams</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Specifying that all nodes in the network have incoming streams.
+</span><span style="color: #232629; ">
+
+        **.</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">directionReverser</span><span style="color: #232629; ">.</span><span style="color: #232629; ">reverser</span><span style="color: #232629; ">.</span><span style="color: #232629; ">excludeEncapsulationProtocols</span><span style="color: #232629; "> = [</span><span style="color: #008000; ">&quot;ieee8021qctag&quot;</span><span style="color: #232629; ">]; </span><span style="color: #808080; font-style: italic; ">// Defining protocols which should not be reversed by the bridging direction reverser.
+</span><span style="color: #232629; ">
+
+        **.</span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">macLayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">numTrafficClasses</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Specifying the number of traffic classes at the MAC layer for all Ethernet interfaces.
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// Defining a mapping between different traffic stream types and their respective PCP values.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// PCP: Priority Code Point (used in VLAN tags for traffic prioritization).
+</span><span style="color: #232629; ">        **.</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamCoder</span><span style="color: #232629; ">.*.</span><span style="color: #232629; ">mapping</span><span style="color: #232629; "> = [{</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;BK&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">0</span><span style="color: #232629; ">},
+									         {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;BE&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">1</span><span style="color: #232629; ">},
+							                 {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;EE&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">2</span><span style="color: #232629; ">},
+									         {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;CA&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">3</span><span style="color: #232629; ">},
+									         {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;VI&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">4</span><span style="color: #232629; ">},
+                                             {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;VO&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">5</span><span style="color: #232629; ">},
+                                             {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;IC&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">6</span><span style="color: #232629; ">},
+                                             {</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;NV&quot;</span><span style="color: #232629; ">, </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">: </span><span style="color: #008000; ">7</span><span style="color: #232629; ">}];
+}
+</span></pre>
+File: <a href="src-networks-DetComNetworkBase.ned.html">src/networks/DetComNetworkBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

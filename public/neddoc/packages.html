@@ -1,0 +1,335 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Packages</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Packages</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Packages</h2>
+<span id="d6g_apps_edgecloud"> </span>
+<h2 class="subtitle">d6g.apps.edgecloud</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.apps.edgecloud.UdpEdgeCloudApp" href="d6g.apps.edgecloud.UdpEdgeCloudApp.html">UdpEdgeCloudApp</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>The <a title="d6g.apps.edgecloud.UdpEdgeCloudApp" href="d6g.apps.edgecloud.UdpEdgeCloudApp.html">UdpEdgeCloudApp</a> module is designed to simulate a UDP-based application in edge cloud scenarios.
+This module builds upon the UdpEchoApp, inheriting its functionalities and adding the capability
+to introduce specific delays and instead of echoing a UDP Packet forwarding it to another host.
+Such delays might be used to simulate various network conditions or service latencies in edge cloud settings.
+Users can specify destination addresses, destination, ports, and custom delays to simulate application behavior in
+edge cloud environments.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_devices_sixg"> </span>
+<h2 class="subtitle">d6g.devices.sixg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p><a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a> extends the <a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a> module.
+This module depicts a simulated network device involved in communication.
+It defines specific parameters which provide bridging mechanism.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>The module extends the TsnSwitch module to offer advanced Ethernet communication capabilities.
+It provides a variety of configurable parameters to simulate different networking behaviors at both the MAC
+and PHY layers. These parameters include options for frame preemption, egress traffic shaping, and 
+cut-through switching, thus allowing a flexible setup to emulate real-world networking scenarios.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.NNIChannel" href="d6g.devices.sixg.NNIChannel.html">NNIChannel</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>This module represents a Ethernet communication channel with specific attributes such as channel length and data rate.
+Extending the capabilities of the 'EthernetLink' module from INET ,it provides a enhanced framework for network simulations </p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.UE" href="d6g.devices.sixg.UE.html">UE</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module reperesents a User Equipment(<a title="d6g.devices.sixg.UE" href="d6g.devices.sixg.UE.html">UE</a>) and extends the behavior of 'LayeredEthernetInterface' module of INET.
+The module configures parameters related to the physical layer's inter frame gap inserter duration 
+and the communication bitrate specific to <a title="d6g.devices.sixg.UE" href="d6g.devices.sixg.UE.html">UE</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.UnitWithAdapter" href="d6g.devices.sixg.UnitWithAdapter.html">UnitWithAdapter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a network communication scenarios based on whether the communication is wireless.
+It configures the necessary submodules ,connections,and gates to facilitate dynamic communication pattern.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_distribution_histogram"> </span>
+<h2 class="subtitle">d6g.distribution.histogram</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.distribution.histogram.Histogram" href="d6g.distribution.histogram.Histogram.html">Histogram</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module groups the delays based on the bins assigned as per histogram xml. 
+It reads histogram configuration, calculates accumulated bin counts,
+generates random values within bins, and implements binary search for bin selection. </p>
+</td>
+   </tr>
+</table>
+<span id="d6g_networks"> </span>
+<h2 class="subtitle">d6g.networks</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.networks.DetComNetworkBase" href="d6g.networks.DetComNetworkBase.html">DetComNetworkBase</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The network is a specialized network type designed for deterministic communications.
+It extends TsnNetworkBase, a network designed for Time-Sensitive Networking.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_pairwise"> </span>
+<h2 class="subtitle">d6g.pairwise</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.pairwise.BridgingLayerWithPairwiseDelay" href="d6g.pairwise.BridgingLayerWithPairwiseDelay.html">BridgingLayerWithPairwiseDelay</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides various layer 2 services such as packet forwarding,
+interface selection, virtual LAN handling, stream handling.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.pairwise.PairwiseDelayer" href="d6g.pairwise.PairwiseDelayer.html">PairwiseDelayer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>The module is designed to delay packets based on pairwise configurations. 
+This module works by accepting packets and applying a delay according to the specified 
+delayConfig. This can be particularly useful in scenarios where varying delays are required 
+for different packet pairs or flows. It's an extension of PacketDelayerBase and adheres to 
+the IPacketDelayer contract. Users can provide custom delay configurations using the 
+delayConfig XML parameter.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_simulations"> </span>
+<h2 class="subtitle">d6g.simulations</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.TsnTestNetwork" href="d6g.simulations.TsnTestNetwork.html">TsnTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>An extension of the TsnNetworkBase from the INET framework.
+The network consists of a client, a switch, and a server.
+A <a title="d6g.distribution.histogram.Histogram" href="d6g.distribution.histogram.Histogram.html">Histogram</a> submodule is also included for statistical analysis, with data sourced from example-hist.xml.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_simulations_baseline"> </span>
+<h2 class="subtitle">d6g.simulations.baseline</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.baseline.Baseline" href="d6g.simulations.baseline.Baseline.html">Baseline</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The network is to evaluate the data communication from a talker (sender) through multiple 
+bridges and adapters to a listener (receiver). It Involves both Time-Sensitive Networking (TSN) and Deterministic 
+Communication (<a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a>) elements. </p>
+</td>
+   </tr>
+</table>
+<span id="d6g_simulations_cooperativemanufacturing"> </span>
+<h2 class="subtitle">d6g.simulations.cooperativemanufacturing</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.cooperativemanufacturing.AGV" href="d6g.simulations.cooperativemanufacturing.AGV.html">AGV</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>The module extends <a title="d6g.devices.sixg.UnitWithAdapter" href="d6g.devices.sixg.UnitWithAdapter.html">UnitWithAdapter</a> to represent an <a title="d6g.simulations.cooperativemanufacturing.AGV" href="d6g.simulations.cooperativemanufacturing.AGV.html">AGV</a> in a cooperative manufacturing environment. 
+It has the ability to communicate wirelessly and has two Ethernet submodules: one for communication 
+between AGVs (interAgv) and another for communication to a processing cell (interToCell).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing" href="d6g.simulations.cooperativemanufacturing.CooperativeManufacturing.html">CooperativeManufacturing</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This network focuses on a cooperative manufacturing environment.
+The network simulates communication between AGVs (Automated Guided Vehicles) and a processing cell
+via a <a title="d6g.devices.sixg.DetCom" href="d6g.devices.sixg.DetCom.html">DetCom</a> (Deterministic Communication) module to ensure reliable and timely data transmission.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.cooperativemanufacturing.ProcessingCell" href="d6g.simulations.cooperativemanufacturing.ProcessingCell.html">ProcessingCell</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>The module is designed to simulate a processing unit in a cooperative manufacturing environment. 
+It extends <a title="d6g.devices.sixg.UnitWithAdapter" href="d6g.devices.sixg.UnitWithAdapter.html">UnitWithAdapter</a>, adding specific configurations like Ethernet bitrate and submodules 
+for controlling swarm operations and status.</p>
+</td>
+   </tr>
+</table>
+<span id="d6g_simulations_edgecloud"> </span>
+<h2 class="subtitle">d6g.simulations.edgecloud</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.simulations.edgecloud.EdgeCloudNetwork" href="d6g.simulations.edgecloud.EdgeCloudNetwork.html">EdgeCloudNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>The module extends from <a title="d6g.networks.DetComNetworkBase" href="d6g.networks.DetComNetworkBase.html">DetComNetworkBase</a>. This network is meant to simulate deterministic communications in an edge cloud setting. </p>
+</td>
+   </tr>
+</table>
+<span id="ned"> </span>
+<h2 class="subtitle">ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="ned.DatarateChannel" href="ned.DatarateChannel.html">DatarateChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="ned.DelayChannel" href="ned.DelayChannel.html">DelayChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="ned.IBidirectionalChannel" href="ned.IBidirectionalChannel.html">IBidirectionalChannel</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="ned.IdealChannel" href="ned.IdealChannel.html">IdealChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="ned.IUnidirectionalChannel" href="ned.IUnidirectionalChannel.html">IUnidirectionalChannel</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

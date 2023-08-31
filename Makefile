@@ -24,12 +24,6 @@ checkmakefiles:
 	exit 1; \
 	fi
 
-docold:
-	doxygen Doxyfile
-
-neddoc:
-	cd .. && opp_neddoc deterministic6g/ inet/ -o deterministic6g/public
-
 doc:
-	@cd doc/src && $(MAKE)
-	@doxygen doxy.cfg
+	cd .. && opp_neddoc --doxygen deterministic6g/ inet/
+	mv doc public
