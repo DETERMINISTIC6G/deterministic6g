@@ -10,6 +10,7 @@ variables:
   DOCKER_TLS_CERTDIR: "/certs"
 
 build-docker-omnetpp-gui-xvfb:
+  stage: docker-base
   rules:
     - changes:
         - dockerfiles/omnetpp-gui-xvfb/*
