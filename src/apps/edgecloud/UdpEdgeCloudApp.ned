@@ -8,12 +8,13 @@ package d6g.apps.edgecloud;
 
 import inet.applications.udpapp.UdpEchoApp;
 
-// The UdpEdgeCloudApp module is designed to simulate a UDP-based application in edge cloud scenarios.
+//
+// The module is designed to simulate a UDP-based application in edge cloud scenarios.
 // This module builds upon the UdpEchoApp, inheriting its functionalities and adding the capability
-// to introduce specific delays and instead of echoing a UDP Packet forwarding it to another host.
-// Such delays might be used to simulate various network conditions or service latencies in edge cloud settings.
-// Users can specify destination addresses, destination, ports, and custom delays to simulate application behavior in
-// edge cloud environments.
+// to introduce specific delays. Such delays might be used to simulate various network conditions
+// or service latencies in edge cloud settings. Users can specify destination addresses, destination 
+// ports, and custom delays to simulate application behavior in edge environments.
+//
 simple UdpEdgeCloudApp extends UdpEchoApp {
     parameters:
         @class(UdpEdgeCloudApp);

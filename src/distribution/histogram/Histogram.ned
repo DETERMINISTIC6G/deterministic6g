@@ -15,13 +15,15 @@
 
 package d6g.distribution.histogram;
 
-/// This module groups the delays based on the bins assigned as per histogram xml. 
-/// It reads histogram configuration, calculates accumulated bin counts,
-/// generates random values within bins, and implements binary search for bin selection. 
-///
+//
+// This module groups the delays based on the bins assigned as per histogram xml. 
+// It reads histogram configuration, calculates accumulated bin counts,
+// generates random values within bins, and implements binary search for bin selection. 
+//
 simple Histogram
 {
     parameters:
+        // Specifies the histogram configuration in XML format. Each <bin> element within the XML defines a bin for the histogram.
         xml histogramConfig = default(xml("<bin></bin>"));
         @class(Histogram);
         @display("i=block/delay");

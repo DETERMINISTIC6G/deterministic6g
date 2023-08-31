@@ -16,12 +16,15 @@
 package d6g.devices.sixg;
 
 import inet.node.tsn.TsnSwitch;
-//DetCom extends the DetComAdapter module.
-//This module depicts a simulated network device involved in communication.
-//It defines specific parameters which provide bridging mechanism.
+
+//
+// DetCom extends the DetComAdapter module.
+// This module depicts a simulated network device involved in communication.
+// It defines specific parameters which provide bridging mechanism.
+//
 module DetCom extends DetComAdapter
 {
     parameters:
-        bridging.typename = default("BridgingLayerWithPairwiseDelay");/// type of bridging layer
+        bridging.typename = default("BridgingLayerWithPairwiseDelay"); // type of bridging layer
         @display("i=device/antennatower");
 }
