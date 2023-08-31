@@ -1,0 +1,293 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MacProtocolBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MacProtocolBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_base">inet.linklayer.base</a></p>
+<h2 class="comptitle" style="float: left;">MacProtocolBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Module base for different MAC protocols.</p>
+<img src="inet.linklayer.base.MacProtocolBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.base.MacProtocolBase.html" title="MacProtocolBase" alt="MacProtocolBase" coords="0,42,206,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.base.MacProtocolBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.acking.AckingMac" href="inet.linklayer.acking.AckingMac.html">AckingMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a trivial MAC protocol for use in ~<a title="inet.linklayer.acking.AckingWirelessInterface" href="inet.linklayer.acking.AckingWirelessInterface.html">AckingWirelessInterface</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.bmac.BMac" href="inet.linklayer.bmac.BMac.html">BMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implementation of <a title="inet::B" href="inet-B.html">B</a>-MAC (called also Berkeley MAC, Low Power Listening or
+LPL).
+See <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ documentation for details.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.csmaca.CsmaCaMac" href="inet.linklayer.csmaca.CsmaCaMac.html">CsmaCaMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implements an imaginary CSMA/CA-based MAC protocol with optional
+acknowledgements and a retry mechanism. With the appropriate settings,
+it can approximate basic 802.11b ad-hoc mode operation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.Ieee80211Mac" href="inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implementation of the 802.11 MAC protocol. This module is intended
+to be used in combination with the ~<a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio.html">Ieee80211Radio</a> module as the physical
+layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee802154.Ieee802154Mac" href="inet.linklayer.ieee802154.Ieee802154Mac.html">Ieee802154Mac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Generic CSMA protocol supporting Mac-ACKs as well as
+constant, linear or exponential backoff times.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.lmac.LMac" href="inet.linklayer.lmac.LMac.html">LMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implementation of L-MAC (Lightweight Medium Access <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> for
+Wireless Sensor Networks).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.shortcut.ShortcutMac" href="inet.linklayer.shortcut.ShortcutMac.html">ShortcutMac</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements a simple shortcut to peer MAC protocol that completely
+bypasses the physical layer. Packets received from the upper layer protocols
+are never lost. The MAC protocol directly sends packets to the destination
+MAC protocol without any physical layer processing. Physical layer overhead
+is simply simulated by overhead bits, overhead transmission duration and
+a propagation delay.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.xmac.XMac" href="inet.linklayer.xmac.XMac.html">XMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implementation of X-MAC.
+See <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ documentation for details.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.LayeredProtocolBase" href="inet.common.LayeredProtocolBase.html">LayeredProtocolBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Module base for different layered protocols.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/rxtx</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>upperLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>upperLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Module base for different MAC protocols.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MacProtocolBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">LayeredProtocolBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/rxtx&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">INetworkHeader</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">INetworkHeader</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ILinkLayerFrame</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ILinkLayerFrame</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-linklayer-base-MacProtocolBase.ned.html">src/inet/linklayer/base/MacProtocolBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

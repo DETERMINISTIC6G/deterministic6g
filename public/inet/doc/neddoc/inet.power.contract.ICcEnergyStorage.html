@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ICcEnergyStorage</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ICcEnergyStorage</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_power_contract">inet.power.contract</a></p>
+<h2 class="comptitle" style="float: left;">ICcEnergyStorage</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This interface extends the corresponding energy model interface. It requires
+implementations to describe energy consumption and energy generation with
+current [A], and storage capacity with charge [<a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>] and output voltage [V].
+The Cc is an abbreviation that is used for charge and current based interfaces.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.power.contract.ICcEnergyConsumer" href="inet.power.contract.ICcEnergyConsumer.html">ICcEnergyConsumer</a>, ~<a title="inet.power.contract.ICcEnergySource" href="inet.power.contract.ICcEnergySource.html">ICcEnergySource</a>, ~<a title="inet.power.contract.ICcEnergyGenerator" href="inet.power.contract.ICcEnergyGenerator.html">ICcEnergyGenerator</a>, ~<a title="inet.power.contract.ICcEnergySink" href="inet.power.contract.ICcEnergySink.html">ICcEnergySink</a>, ~<a title="inet.power.contract.ICcEnergyManagement" href="inet.power.contract.ICcEnergyManagement.html">ICcEnergyManagement</a></p>
+<img src="inet.power.contract.ICcEnergyStorage-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.power.contract.ICcEnergyStorage.html" title="ICcEnergyStorage" alt="ICcEnergyStorage" coords="0,42,309,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.power.contract.ICcEnergyStorage-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.power.storage.CcBatteryPack" href="inet.power.storage.CcBatteryPack.html">CcBatteryPack</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.power.base.CcEnergyStorageBase" href="inet.power.base.CcEnergyStorageBase.html">CcEnergyStorageBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is an abstract base module for current based energy storage models.
+It defines shared signals and statistics.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.power.storage.SimpleCcBattery" href="inet.power.storage.SimpleCcBattery.html">SimpleCcBattery</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This battery model maintains a residual charge capacity by integrating the
+difference between the total consumed current and the total generated current
+over time. This model uses a charge independent ideal voltage source and an
+charge independent internal resistance. It initiates node crash when the
+residual charge capacity reaches zero. See the base module for signals and
+statistics.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.power.contract.ICcEnergySink" href="inet.power.contract.ICcEnergySink.html">ICcEnergySink</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This interface extends the corresponding energy model interface. It requires
+implementations to describe energy consumption and energy generation with
+current [A], and storage capacity with charge [<a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>] and output voltage [V].
+The Cc is an abbreviation that is used for charge and current based interfaces.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.power.contract.ICcEnergySource" href="inet.power.contract.ICcEnergySource.html">ICcEnergySource</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This interface extends the corresponding energy model interface. It requires
+implementations to describe energy consumption and energy generation with
+current [A], and storage capacity with charge [<a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>] and output voltage [V].
+The Cc is an abbreviation that is used for charge and current based interfaces.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.power.contract.IEnergyStorage" href="inet.power.contract.IEnergyStorage.html">IEnergyStorage</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>The energy storage models describe devices that absorb energy produced by
+generators, and provide energy for consumers. For example, an electrochemical
+battery in a mobile phone provides energy for its display, its CPU, and its
+wireless communication device. It can also absorb energy produced by a solar
+panel installed on its display, or by a portable charger plugged into a wall
+socket.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/plug</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>currentConsumptionChanged</td>
+      <td>double</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This interface extends the corresponding energy model interface. It requires
+// implementations to describe energy consumption and energy generation with
+// current [A], and storage capacity with charge [C] and output voltage [V].
+// The Cc is an abbreviation that is used for charge and current based interfaces.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~ICcEnergyConsumer, ~ICcEnergySource, ~ICcEnergyGenerator, ~ICcEnergySink, ~ICcEnergyManagement
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">ICcEnergyStorage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ICcEnergySource</span><span style="color: #232629; ">, </span><span style="color: #232629; ">ICcEnergySink</span><span style="color: #232629; ">, </span><span style="color: #232629; ">IEnergyStorage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/plug&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">residualChargeCapacityChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-power-contract-ICcEnergyStorage.ned.html">src/inet/power/contract/ICcEnergyStorage.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

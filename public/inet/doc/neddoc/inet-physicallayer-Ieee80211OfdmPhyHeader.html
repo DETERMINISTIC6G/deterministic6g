@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211OfdmPhyHeader</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211OfdmPhyHeader</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet::physicallayer</code></p>
+<h2 class="comptitle" style="float: left;">Ieee80211OfdmPhyHeader</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>The length field is a 12-bit integer indicates the number of
+octets in the PSDU that the MAC is currently requesting the PHY to
+transmit.</p>
+<p>The rate field (18.3.4.2 RATE field) is a 4-bit integer carries
+information about the modulation and coding.</p>
+<p>There are other fields which are not explicitly represented here,
+for e.g. Parity, Reserved, SERVICE, Pad Bits.</p>
+<p>The PSDU field must be contained as an encapsulated packet.</p>
+<p>This packet is intended to represent the whole PPDU frame in the
+IEEE 802.11 PHY. For detailed description, you may refer to 18.3.2 PLCP
+frame format, Figure 18-1&mdash;PPDU frame format in IEEE Std. 802.11-2012.</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>Ieee80211PhyHeader</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td>
+<p>The PLCP header is composed of RATE (4), Reserved (1), LENGTH (12), Parity (1),
+Tail (6) and SERVICE (16) fields.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>rate</td>
+      <td>uint8_t</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>reserved</td>
+      <td>bool</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>parity</td>
+      <td>bool</td>
+      <td>
+<p>TODO <a title="inet::B" href="inet-B.html">B</a> lengthField;</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>tail</td>
+      <td>uint8_t</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>service</td>
+      <td>uint16_t</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// The length field is a 12-bit integer indicates the number of
+// octets in the PSDU that the MAC is currently requesting the PHY to
+// transmit.
+//
+// The rate field (18.3.4.2 RATE field) is a 4-bit integer carries
+// information about the modulation and coding.
+//
+// There are other fields which are not explicitly represented here,
+// for e.g. Parity, Reserved, SERVICE, Pad Bits.
+//
+// The PSDU field must be contained as an encapsulated packet.
+//
+// This packet is intended to represent the whole PPDU frame in the
+// IEEE 802.11 PHY. For detailed description, you may refer to 18.3.2 PLCP
+// frame format, Figure 18-1&mdash;PPDU frame format in IEEE Std. 802.11-2012.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211OfdmPhyHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211PhyHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// The PLCP header is composed of RATE (4), Reserved (1), LENGTH (12), Parity (1),
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Tail (6) and SERVICE (16) fields.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rate</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// TODO B lengthField;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">parity</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tail</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">service</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="src-inet-physicallayer-wireless-ieee80211-packetlevel-Ieee80211PhyHeader.msg.html">src/inet/physicallayer/wireless/ieee80211/packetlevel/Ieee80211PhyHeader.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

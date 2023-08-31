@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Udp</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Udp</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_transportlayer_udp">inet.transportlayer.udp</a></p>
+<h2 class="comptitle" style="float: left;">Udp</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>UDP protocol implementation, for IPv4 (~<a title="inet.networklayer.ipv4.Ipv4" href="inet.networklayer.ipv4.Ipv4.html">Ipv4</a>) and IPv6 (~<a title="inet.networklayer.ipv6.Ipv6" href="inet.networklayer.ipv6.Ipv6.html">Ipv6</a>).</p>
+<p>The UDP protocol header is represented by the class ~<a title="inet::UdpHeader" href="inet-UdpHeader.html">UdpHeader</a>.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;Communication with clients (applications)&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt;</p>
+<p>The module can (should) be connected to several applications.
+For sending an UDP packet, the application should attach an ~<a title="inet::UdpControlInfo" href="inet-UdpControlInfo.html">UdpControlInfo</a>
+object to the payload, and send it to ~<a title="inet.transportlayer.udp.Udp" href="inet.transportlayer.udp.Udp.html">Udp</a>.
+~<a title="inet.transportlayer.udp.Udp" href="inet.transportlayer.udp.Udp.html">Udp</a> will also attach an ~<a title="inet::UdpControlInfo" href="inet-UdpControlInfo.html">UdpControlInfo</a> object to any payload
+message in sends up to the application.</p>
+<p>For receiving <a title="inet.transportlayer.udp.Udp" href="inet.transportlayer.udp.Udp.html">Udp</a> packets, the connected applications should first
+"bind" to the given UDP port. This can be done by sending an
+arbitrary message with message kind UDP_C_BIND and an ~<a title="inet::UdpControlInfo" href="inet-UdpControlInfo.html">UdpControlInfo</a>
+attached with srcPort filled in.</p>
+<p>When UDP receives an ICMP error (~<a title="inet::IcmpHeader" href="inet-IcmpHeader.html">IcmpHeader</a> or ~<a title="inet::Icmpv6Header" href="inet-Icmpv6Header.html">Icmpv6Header</a>)
+that refers to an UDP socket, it reports the error to the corresponding
+application by sending a message with kind UDP_I_ERROR.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;Communication with the IP (IPv4/IPv6) layer&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt;</p>
+<p>The ~<a title="inet.transportlayer.udp.Udp" href="inet.transportlayer.udp.Udp.html">Udp</a> model relies on sending and receiving ~<a title="inet::L3AddressReq" href="inet-L3AddressReq.html">L3AddressReq</a>/~<a title="inet::L3AddressInd" href="inet-L3AddressInd.html">L3AddressInd</a>
+tags attached to UDP packets.</p>
+<p>CRC operation modes for outgoing UDP packets (crcMode parameter in UDP module):</p>
+  <ul><li>"disabled" means the outgoing packet will have its CRC set to 0 (serializable)</li>
+  <li>"declared" means the outgoing packet will have the correct CRC declared
+    without actually computing it, the value is set to 0xC00D (not serializable)</li>
+  <li>"computed" means the outgoing packet will have the correctly computed CRC
+    as defined by the RFC (serializable)
+CRC operation modes for incoming UDP packets (crcMode field in ~<a title="inet::UdpHeader" href="inet-UdpHeader.html">UdpHeader</a> chunk):</li>
+  <li>CRC_DISABLED means the incoming packet must have its CRC set to 0 (serializable)</li>
+  <li>CRC_DECLARED_CORRECT means the incoming packet is assumed to have a
+   correct CRC without the actual value (not serializable)</li>
+  <li>CRC_DECLARED_INCORRECT means the incoming packet is assumed to have an
+   incorrect CRC without the actual value (not serializable)</li>
+  <li>CRC_COMPUTED means the incoming packet has a potentially incorrect CRC
+   that is to be verified as defined by the RFC (serializable)
+The incoming packet also fails the CRC verification if any relevant chunk is marked incorrect.</li></ul>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet::UdpHeader" href="inet-UdpHeader.html">UdpHeader</a>, ~<a title="inet::UdpControlInfo" href="inet-UdpControlInfo.html">UdpControlInfo</a>, ~<a title="inet::UdpCommandCode" href="inet-UdpCommandCode.html">UdpCommandCode</a></p>
+<img src="inet.transportlayer.udp.Udp-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.transportlayer.udp.Udp.html" title="Udp" alt="Udp" coords="0,42,83,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.transportlayer.udp.Udp-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>icmpModule</td>
+      <td>string</td>
+      <td>"^.ipv4.icmp"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>icmpv6Module</td>
+      <td>string</td>
+      <td>"^.ipv6.icmpv6"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>crcMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>defaultMulticastLoop</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/transport</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>selfMessageKinds</td>
+      <td></td>
+      <td>
+<p>kind not used in self messages or model doesn't use any self message</p>
+</td>
+   </tr>
+   <tr>
+      <td>directSendKinds</td>
+      <td></td>
+      <td>
+<p>kind not used in sendDirect() messages or model doesn't use any sendDirect()</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>appIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>ipIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>appOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>ipOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceived</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSent</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceived</td>
+      <td>packets received</td>
+      <td>packetReceived</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>passedUpPk</td>
+      <td>packets passed up</td>
+      <td>packetSentToUpper</td>
+      <td>count, vector(count)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetSent</td>
+      <td>packets sent</td>
+      <td>packetSent</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPkBadChecksum</td>
+      <td>packets dropped (checksum error)</td>
+      <td>packetDropReasonIsIncorrectlyReceived(packetDropped)</td>
+      <td>count, vector(count)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPkWrongPort</td>
+      <td>packets dropped (wrong port)</td>
+      <td>packetDropReasonIsNoPortFound(packetDropped)</td>
+      <td>count, vector(count)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// UDP protocol implementation, for IPv4 (~Ipv4) and IPv6 (~Ipv6).
+//
+// The UDP protocol header is represented by the class ~UdpHeader.
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Communication with clients (applications)</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// The module can (should) be connected to several applications.
+// For sending an UDP packet, the application should attach an ~UdpControlInfo
+// object to the payload, and send it to ~Udp.
+// ~Udp will also attach an ~UdpControlInfo object to any payload
+// message in sends up to the application.
+//
+// For receiving Udp packets, the connected applications should first
+// &quot;bind&quot; to the given UDP port. This can be done by sending an
+// arbitrary message with message kind UDP_C_BIND and an ~UdpControlInfo
+// attached with srcPort filled in.
+//
+// When UDP receives an ICMP error (~IcmpHeader or ~Icmpv6Header)
+// that refers to an UDP socket, it reports the error to the corresponding
+// application by sending a message with kind UDP_I_ERROR.
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Communication with the IP (IPv4/IPv6) layer</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// The ~Udp model relies on sending and receiving ~L3AddressReq/~L3AddressInd
+// tags attached to UDP packets.
+//
+// CRC operation modes for outgoing UDP packets (crcMode parameter in UDP module):
+//  - &quot;disabled&quot; means the outgoing packet will have its CRC set to 0 (serializable)
+//  - &quot;declared&quot; means the outgoing packet will have the correct CRC declared
+//     without actually computing it, the value is set to 0xC00D (not serializable)
+//  - &quot;computed&quot; means the outgoing packet will have the correctly computed CRC
+//     as defined by the RFC (serializable)
+// CRC operation modes for incoming UDP packets (crcMode field in ~UdpHeader chunk):
+//  - CRC_DISABLED means the incoming packet must have its CRC set to 0 (serializable)
+//  - CRC_DECLARED_CORRECT means the incoming packet is assumed to have a
+//    correct CRC without the actual value (not serializable)
+//  - CRC_DECLARED_INCORRECT means the incoming packet is assumed to have an
+//    incorrect CRC without the actual value (not serializable)
+//  - CRC_COMPUTED means the incoming packet has a potentially incorrect CRC
+//    that is to be verified as defined by the RFC (serializable)
+// The incoming packet also fails the CRC verification if any relevant chunk is marked incorrect.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~UdpHeader, ~UdpControlInfo, ~UdpCommandCode
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Udp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IUdp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">icmpModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.ipv4.icmp&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">icmpv6Module</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.ipv6.icmpv6&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">crcMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;disabled&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">defaultMulticastLoop</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/transport&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToUpper</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromUpper</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToLower</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromLower</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSent</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSent</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetSent</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">passedUpPk</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets passed up&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetSentToUpper</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(count)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPkWrongPort</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets dropped (wrong port)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsNoPortFound</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(count)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPkBadChecksum</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets dropped (checksum error)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsIncorrectlyReceived</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(count)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@selfMessageKinds</span><span style="color: #232629; ">();    </span><span style="color: #808080; font-style: italic; ">// kind not used in self messages or model doesn't use any self message
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@directSendKinds</span><span style="color: #232629; ">();     </span><span style="color: #808080; font-style: italic; ">// kind not used in sendDirect() messages or model doesn't use any sendDirect()
+</span><span style="color: #232629; ">
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">appIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">) </span><span style="color: #232629; font-weight: bold; ">@messageKinds</span><span style="color: #232629; ">(</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">UdpCommandCode</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpHeader</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv6ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">appOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">) </span><span style="color: #232629; font-weight: bold; ">@messageKinds</span><span style="color: #232629; ">(</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">UdpStatusInd</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpHeader</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv6ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-transportlayer-udp-Udp.ned.html">src/inet/transportlayer/udp/Udp.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

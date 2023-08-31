@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211AddbaRequest</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211AddbaRequest</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet::ieee80211</code></p>
+<h2 class="comptitle" style="float: left;">Ieee80211AddbaRequest</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>8.5.5.2 ADDBA <a title="inet::Request" href="inet-Request.html">Request</a> frame format</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>Ieee80211ActionFrame</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>category</td>
+      <td></td>
+      <td>
+<p>category field set to 3 (representing Block Ack). (1 byte)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>blockAckAction</td>
+      <td></td>
+      <td>
+<p>Block Ack Action field is set to 0 (representing ADDBA request). (1 byte)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dialogToken</td>
+      <td>uint8_t</td>
+      <td>
+<p>Dialog Token field is set to a nonzero value chosen by the STA. (1 byte)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>aMsduSupported</td>
+      <td>bool</td>
+      <td>
+<p>Block Ack Parameter Set field (2 bytes)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>blockAckPolicy</td>
+      <td>bool</td>
+      <td>
+<p>The Block Ack Policy subfield is set to 1 for immediate Block Ack and 0 for delayed Block Ack. (1 bit)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>tid</td>
+      <td>uint8_t</td>
+      <td>
+<p>The TID subfield contains the value of the TC or TS for which the BlockAck is being requested. (4 bits)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bufferSize</td>
+      <td>uint16_t</td>
+      <td>
+<p>The Buffer Size subfield indicates the number of buffers available for this particular TID. (10 bits)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>blockAckTimeoutValue</td>
+      <td>simtime_t</td>
+      <td>
+<p>Block Ack Timeout Value field (2 bytes)
+The Block Ack Timeout Value field contains the duration, in TUs, after which the Block Ack setup is
+terminated, if there are no frame exchanges (see 10.5.4) within this duration using this Block Ack
+agreement. A value of 0 disables the timeout.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>_fragmentNumber</td>
+      <td>uint8_t</td>
+      <td>
+<p>Block Ack Starting Sequence Control (2 bytes)
+The Starting Sequence Number subfield of the Block Ack Starting Sequence Control subfield contains the sequence number of the first MSDU for which this Basic
+BlockAckReq frame is sent. The Fragment Number subfield is set to 0.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>startingSequenceNumber</td>
+      <td>SequenceNumberCyclic</td>
+      <td>
+<p>the sequence number of the first MSDU (12 bits)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// 8.5.5.2 ADDBA Request frame format
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211AddbaRequest</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211ActionFrame</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_ADDBAREQ</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">category</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// category field set to 3 (representing Block Ack). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">blockAckAction</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Block Ack Action field is set to 0 (representing ADDBA request). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dialogToken</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Dialog Token field is set to a nonzero value chosen by the STA. (1 byte)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Parameter Set field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">aMsduSupported</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The A-MSDU Supported subfield determines whether an A-MSDU may be carried in a QoS data MPDU sent under this Block Ack agreement. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckPolicy</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Block Ack Policy subfield is set to 1 for immediate Block Ack and 0 for delayed Block Ack. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The TID subfield contains the value of the TC or TS for which the BlockAck is being requested. (4 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bufferSize</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Buffer Size subfield indicates the number of buffers available for this particular TID. (10 bits)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Timeout Value field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The Block Ack Timeout Value field contains the duration, in TUs, after which the Block Ack setup is
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// terminated, if there are no frame exchanges (see 10.5.4) within this duration using this Block Ack
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// agreement. A value of 0 disables the timeout.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckTimeoutValue</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Starting Sequence Control (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The Starting Sequence Number subfield of the Block Ack Starting Sequence Control subfield contains the sequence number of the first MSDU for which this Basic
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// BlockAckReq frame is sent. The Fragment Number subfield is set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">_fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// FIXME DataOrMgmtFreme has a fragmentNumber (4 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// the sequence number of the first MSDU (12 bits)
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee80211-mac-Ieee80211Frame.msg.html">src/inet/linklayer/ieee80211/mac/Ieee80211Frame.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

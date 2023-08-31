@@ -1,0 +1,258 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PacketPushToSend</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PacketPushToSend</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_common">inet.queueing.common</a></p>
+<h2 class="comptitle" style="float: left;">PacketPushToSend</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.queueing.common.PacketPushToSend-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.common.PacketPushToSend.html" title="PacketPushToSend" alt="PacketPushToSend" coords="0,42,220,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.common.PacketPushToSend-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PassivePacketSinkBase" href="inet.queueing.base.PassivePacketSinkBase.html">PassivePacketSinkBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various active packet sink modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"received %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>PacketPushToSend</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetPushed</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetDelayVariation</td>
+      <td>packet delay variation</td>
+      <td>stddev(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPushed))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDelayDifferenceToMean</td>
+      <td>packet delay difference to mean</td>
+      <td>differenceToMean(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPushed))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>meanBitLifeTimePerPacket</td>
+      <td>mean bit life time per packet</td>
+      <td>weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPushed)))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetLengths</td>
+      <td>packet lengths</td>
+      <td>packetLength(packetPushed)</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>dataRate</td>
+      <td>data rate</td>
+      <td>throughput(packetPushed)</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>packetJitter</td>
+      <td>packet jitter</td>
+      <td>jitter(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPushed))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>bitLifeTime</td>
+      <td>bit life time</td>
+      <td>weightTimes(lengthWeightedValuePerRegion(lifeTimePerRegion(packetPushed)))</td>
+      <td>histogram?</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td>packets</td>
+      <td>packetPushed</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketPushToSend</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PassivePacketSinkBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPassivePacketSink</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketPushToSend</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">push</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">push</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-common-PacketPushToSend.ned.html">src/inet/queueing/common/PacketPushToSend.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

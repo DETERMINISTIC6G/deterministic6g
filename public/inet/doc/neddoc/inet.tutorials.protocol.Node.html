@@ -1,0 +1,567 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Node</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Node</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tutorials_protocol">inet.tutorials.protocol</a></p>
+<h2 class="comptitle" style="float: left;">Node</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.tutorials.protocol.Node-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="87,120,218,192">
+<area shape="rect" href="inet.tutorials.protocol.IApp.html" title="IApp" alt="IApp" coords="432,120,476,192">
+<area shape="rect" href="inet.tutorials.protocol.ForwardingService.html" title="ForwardingService" alt="ForwardingService" coords="368,220,537,292">
+<area shape="rect" href="inet.tutorials.protocol.DataService.html" title="DataService" alt="DataService" coords="399,320,506,392">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="402,438,506,475">
+<area shape="rect" href="inet.tutorials.protocol.Interface.html" title="Interface" alt="Interface" coords="365,520,539,592">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tutorials.protocol.Node-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tutorials.protocol.Node-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Host" href="inet.tutorials.protocol.Host.html">Host</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">Router</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>numInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>g [ ]</td>
+      <td>inout</td>
+      <td>numInterfaces</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">forwardingService</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">forwardingService</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">forwardingService</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">forwardingService</a>.<a title="inet.protocolelement.forwarding.Forwarding" href="inet.protocolelement.forwarding.Forwarding.html">forwarding</a>.address</td>
+      <td>string</td>
+      <td>""</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">forwardingService</a>.<a title="inet.protocolelement.forwarding.SendWithHopLimit" href="inet.protocolelement.forwarding.SendWithHopLimit.html">sendWithHopLimit</a>.hopLimit</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.deleteSelf</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.headerPosition</td>
+      <td>string</td>
+      <td>"front"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.ordering.SequenceNumbering" href="inet.protocolelement.ordering.SequenceNumbering.html">sequenceNumbering</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.aggregation.SubpacketLengthHeaderBasedDeaggregator" href="inet.protocolelement.aggregation.SubpacketLengthHeaderBasedDeaggregator.html">deaggregator</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.aggregation.SubpacketLengthHeaderBasedDeaggregator" href="inet.protocolelement.aggregation.SubpacketLengthHeaderBasedDeaggregator.html">deaggregator</a>.deleteSelf</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">defragmenter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">defragmenter</a>.deleteSelf</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">defragmenter</a>.headerPosition</td>
+      <td>string</td>
+      <td>"front"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">dataService</a>.<a title="inet.protocolelement.ordering.Reordering" href="inet.protocolelement.ordering.Reordering.html">reordering</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.selectivity.SendToMacAddress" href="inet.protocolelement.selectivity.SendToMacAddress.html">sendToMacAddress</a>.address</td>
+      <td>string</td>
+      <td>""</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.acknowledgement.Resending" href="inet.protocolelement.acknowledgement.Resending.html">resending</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.acknowledgement.Resending" href="inet.protocolelement.acknowledgement.Resending.html">resending</a>.numRetries</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.acknowledgement.SendWithAcknowledge" href="inet.protocolelement.acknowledgement.SendWithAcknowledge.html">sendWithAcknowledge</a>.acknowledgeTimeout</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">m1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"passed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">m1</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">m1</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.headerPosition</td>
+      <td>string</td>
+      <td>"back"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.transceiver.PacketTransmitter" href="inet.protocolelement.transceiver.PacketTransmitter.html">transmitter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.transceiver.PacketTransmitter" href="inet.protocolelement.transceiver.PacketTransmitter.html">transmitter</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.transceiver.PacketTransmitter" href="inet.protocolelement.transceiver.PacketTransmitter.html">transmitter</a>.datarate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.selectivity.ReceiveAtMacAddress" href="inet.protocolelement.selectivity.ReceiveAtMacAddress.html">receiveAtMacAddress</a>.address</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">d1</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderChecker" href="inet.protocolelement.checksum.FcsHeaderChecker.html">fcsChecker</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"dropped %d/%p pk (%k/%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderChecker" href="inet.protocolelement.checksum.FcsHeaderChecker.html">fcsChecker</a>.backpressure</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">interface</a>.<a title="inet.protocolelement.checksum.FcsHeaderChecker" href="inet.protocolelement.checksum.FcsHeaderChecker.html">fcsChecker</a>.headerPosition</td>
+      <td>string</td>
+      <td>"back"</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">Node</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numInterfaces</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">interface</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.interfaceTable&quot;</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">g</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numInterfaces</span><span style="color: #232629; ">];
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">app</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IApp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">forwardingService</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ForwardingService</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">dataService</span><span style="color: #232629; ">: </span><span style="color: #232629; ">DataService</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">d1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">interface</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">g</span><span style="color: #232629; ">)]: </span><span style="color: #232629; ">Interface</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,500,row,150&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">app</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardingService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">app</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">forwardingService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">app</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">app</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">forwardingService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">dataService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">d1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">d1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">dataService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardingService</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">interface</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">interface</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">d1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">d1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">interface</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">g</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">interface</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; ">;
+        }
+}
+
+</span></pre>
+File: <a href="tutorials-protocol-Network91.ned.html">tutorials/protocol/Network91.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

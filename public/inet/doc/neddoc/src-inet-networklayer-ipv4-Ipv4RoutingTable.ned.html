@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ipv4RoutingTable.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ipv4RoutingTable.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/networklayer/ipv4/Ipv4RoutingTable.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Stores the routing table. (Per-interface configuration is stored in
+~<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a>.)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2004 OpenSim Ltd.
+// Copyright (C) 2000 Institut fuer Telematik, Universitaet Karlsruhe
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IRoutingTable</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Stores the routing table. (Per-interface configuration is stored in
+// ~InterfaceTable.)
+//
+// For hosts, the routerId module parameter should be empty (&quot;&quot;),
+// in which case the loopback IPv4 address will be set to 127.0.0.1/8.
+// For routers which have a routerId set, the loopback address will be set to
+// routerId. (See also RFC 2072 &quot;Router Renumbering Guide&quot;.)
+//
+// RouterId may also be set to the string </span><span style="color: #800000; ">&lt;tt&gt;</span><span style="color: #808080; font-style: italic; ">&quot;auto&quot;</span><span style="color: #800000; ">&lt;/tt&gt;</span><span style="color: #808080; font-style: italic; ">, in which case the
+// highest interface address will be chosen as routerId; the loopback address
+// will remain 127.0.0.1/8.
+//
+// The routing table is read from a file (parameter routingFile);
+// the file can also fill in or overwrite interface settings.
+// The file format is documented </span><span style="color: #800000; ">&lt;a href=&quot;irt.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">here</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//
+// Note that many protocols don't require routerId to be routable, but some
+// others do -- so it is probably a good idea to set up routable routerIds.
+//
+// This module has no gates; all functionality can be accessed via member
+// functions of the C++ module class. For detailed info, please see the C++
+// documentation of the class (Doxygen).
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~InterfaceTable
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; ">: Jochen Reber
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv4RoutingTable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IRoutingTable</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerId</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// for routers, the router id using IPv4 address dotted
+</span><span style="color: #232629; ">                          </span><span style="color: #808080; font-style: italic; ">// notation; specify &quot;auto&quot; to select the highest
+</span><span style="color: #232629; ">                          </span><span style="color: #808080; font-style: italic; ">// interface address; should be left empty (&quot;&quot;) for hosts
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">netmaskRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;*&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maintain netmask routes for interfaces
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// turns IP forwarding on/off
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// turns multicast forwarding on/off
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">useAdminDist</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// Use Cisco like administrative distances
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">routingFile</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// routing table file name
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/table&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">routeAdded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4Route</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">routeDeleted</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4Route</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">routeChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4Route</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">mrouteAdded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4MulticastRoute</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">mrouteDeleted</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4MulticastRoute</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">mrouteChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ipv4MulticastRoute</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

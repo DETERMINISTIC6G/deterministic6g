@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>BpduCfg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">BpduCfg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">BpduCfg</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>BpduBase</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>protocolIdentifier</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>protocolVersionIdentifier</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>bpduType</td>
+      <td></td>
+      <td>
+<p>flags: 1 byte</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>tcaFlag</td>
+      <td>bool</td>
+      <td>
+<p>Topology Change Acknowledgment flag</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>reserved</td>
+      <td>uint8_t</td>
+      <td>
+<p>unused 6 bits of Flags</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>tcFlag</td>
+      <td>bool</td>
+      <td>
+<p>Topology Change flag</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>rootPriority</td>
+      <td>uint16_t</td>
+      <td>
+<p>2 bytes, priority of the tree root (part of Root Identifier)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>rootAddress</td>
+      <td>MacAddress</td>
+      <td>
+<p>6 bytes, address of the tree root (part of Root Identifier)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>rootPathCost</td>
+      <td>uint32_t</td>
+      <td>
+<p>4 bytes, cost to the root</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bridgePriority</td>
+      <td>uint16_t</td>
+      <td>
+<p>2 bytes, priority of sender bridge (part of Bridge Identifier)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bridgeAddress</td>
+      <td>MacAddress</td>
+      <td>
+<p>6 bytes, address of sender bridge (part of Bridge Identifier)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>portPriority</td>
+      <td>unsigned int</td>
+      <td>
+<p>1 byte, priority of sender port (part of Port Identifier)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>portNum</td>
+      <td>unsigned int</td>
+      <td>
+<p>1 byte, port number (ethg[] gate index) of sender port (part of Port Identifier)
+(or 4 bit priority (shifted with 4 bit) and 12 bit portnum (in 802.1D-2004))</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>messageAge</td>
+      <td>simtime_t</td>
+      <td>
+<p>2 bytes, <a title="inet::Message" href="inet-Message.html">Message</a> Age (in 256ths of a second)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>maxAge</td>
+      <td>simtime_t</td>
+      <td>
+<p>2 bytes, maximum lifetime of the BPDU (in 256ths of a second)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>helloTime</td>
+      <td>simtime_t</td>
+      <td>
+<p>2 bytes, Hello Time of the sender bridge (in 256ths of a second)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>forwardDelay</td>
+      <td>simtime_t</td>
+      <td>
+<p>2 bytes, Forward Delay timer of the sender bridge (in 256ths of a second)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BpduCfg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BpduBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">35</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">protocolIdentifier</span><span style="color: #232629; "> = </span><span style="color: #232629; ">SPANNING_TREE_PROTOCOL</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">protocolVersionIdentifier</span><span style="color: #232629; "> = </span><span style="color: #232629; ">SPANNING_TREE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">bpduType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BPDU_CFG</span><span style="color: #232629; ">;
+                                              </span><span style="color: #808080; font-style: italic; ">// flags: 1 byte
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcaFlag</span><span style="color: #232629; ">;                             </span><span style="color: #808080; font-style: italic; ">//   Topology Change Acknowledgment flag
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;                     </span><span style="color: #808080; font-style: italic; ">//   unused 6 bits of Flags
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcFlag</span><span style="color: #232629; ">;                              </span><span style="color: #808080; font-style: italic; ">//   Topology Change flag
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rootPriority</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// 2 bytes, priority of the tree root (part of Root Identifier)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">rootAddress</span><span style="color: #232629; ">;                   </span><span style="color: #808080; font-style: italic; ">// 6 bytes, address of the tree root (part of Root Identifier)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rootPathCost</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// 4 bytes, cost to the root
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bridgePriority</span><span style="color: #232629; ">;                  </span><span style="color: #808080; font-style: italic; ">// 2 bytes, priority of sender bridge (part of Bridge Identifier)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">bridgeAddress</span><span style="color: #232629; ">;                 </span><span style="color: #808080; font-style: italic; ">// 6 bytes, address of sender bridge (part of Bridge Identifier)
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">portPriority</span><span style="color: #232629; ">;                </span><span style="color: #808080; font-style: italic; ">// 1 byte, priority of sender port (part of Port Identifier)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">portNum</span><span style="color: #232629; ">;                     </span><span style="color: #808080; font-style: italic; ">// 1 byte, port number (ethg[] gate index) of sender port (part of Port Identifier)
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// (or 4 bit priority (shifted with 4 bit) and 12 bit portnum (in 802.1D-2004))
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageAge</span><span style="color: #232629; ">;                     </span><span style="color: #808080; font-style: italic; ">// 2 bytes, Message Age (in 256ths of a second)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxAge</span><span style="color: #232629; ">;                         </span><span style="color: #808080; font-style: italic; ">// 2 bytes, maximum lifetime of the BPDU (in 256ths of a second)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">helloTime</span><span style="color: #232629; ">;                      </span><span style="color: #808080; font-style: italic; ">// 2 bytes, Hello Time of the sender bridge (in 256ths of a second)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardDelay</span><span style="color: #232629; ">;                   </span><span style="color: #808080; font-style: italic; ">// 2 bytes, Forward Delay timer of the sender bridge (in 256ths of a second)
+</span><span style="color: #232629; ">}
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021d-common-Ieee8021dBpdu.msg.html">src/inet/linklayer/ieee8021d/common/Ieee8021dBpdu.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>SctpCommandCode</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">SctpCommandCode</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">SctpCommandCode</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">enum</span>
+</span><div style="clear: both;"/>
+
+<p>SCTP command codes, sent by the application to SCTP. These constants
+should be set as message kind on a message sent to the SCTP entity.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; SctpCommand, SctpOpenCommand, <a title="inet.transportlayer.sctp.Sctp" href="inet.transportlayer.sctp.Sctp.html">Sctp</a></p>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// SCTP command codes, sent by the application to SCTP. These constants
+// should be set as message kind on a message sent to the SCTP entity.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> SctpCommand, SctpOpenCommand, Sctp
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandCode</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">SCTP_C_ASSOCIATE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// active open (must carry SctpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_OPEN_PASSIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// passive open (must carry SctpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_CLOSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// shutdown the association
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_ABORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// abort connection
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_STATUS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// request status info (SCTP_I_STATUS) from Sctp
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_RECEIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// data receive request
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND_ORDERED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data ordered
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND_UNORDERED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data unordered
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_PRIMARY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set primary path
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_QUEUE_BYTES_LIMIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set send queue limit (in bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_QUEUE_MSGS_LIMIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">13</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set send queue limit (in messages)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SHUTDOWN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">14</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_NO_OUTSTANDING</span><span style="color: #232629; "> = </span><span style="color: #008000; ">15</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_STREAM_RESET</span><span style="color: #232629; "> = </span><span style="color: #008000; ">16</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send StreamResetChunk
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_RESET_ASSOC</span><span style="color: #232629; "> = </span><span style="color: #008000; ">17</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ADD_STREAMS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">18</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_NAT_INFO</span><span style="color: #232629; "> = </span><span style="color: #008000; ">19</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SEND_ASCONF</span><span style="color: #232629; "> = </span><span style="color: #008000; ">20</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SET_STREAM_PRIO</span><span style="color: #232629; "> = </span><span style="color: #008000; ">21</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_GETSOCKETOPTIONS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">22</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ACCEPT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">23</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SET_RTO_INFO</span><span style="color: #232629; "> = </span><span style="color: #008000; ">24</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ACCEPT_SOCKET_ID</span><span style="color: #232629; "> = </span><span style="color: #008000; ">25</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_DESTROY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">26</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// destroy socket
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-transportlayer-contract-sctp-SctpCommand.msg.html">src/inet/transportlayer/contract/sctp/SctpCommand.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

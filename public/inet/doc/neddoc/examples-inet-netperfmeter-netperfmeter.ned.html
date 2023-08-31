@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>netperfmeter.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">netperfmeter.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/inet/netperfmeter/netperfmeter.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.REDQueue" href="inet.examples.inet.netperfmeter.REDQueue.html">REDQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.coreChannel" href="inet.examples.inet.netperfmeter.coreChannel.html">coreChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.accessChannel" href="inet.examples.inet.netperfmeter.accessChannel.html">accessChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.testNetwork" href="inet.examples.inet.netperfmeter.testNetwork.html">testNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// * --------------------------------------------------------------------------
+// *
+// *     //====//  //===== &lt;===//===&gt;  //====//
+// *    //        //          //      //    //    SCTP Optimization Project
+// *   //=====   //          //      //====//   ==============================
+// *        //  //          //      //           University of Duisburg-Essen
+// *  =====//  //=====     //      //
+// *
+// * --------------------------------------------------------------------------
+// *
+// *   Copyright (C) 2009-2015 by Thomas Dreibholz
+// *
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+// *
+// *   Contact: dreibh@iem.uni-due.de
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">netperfmeter</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Router</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">filter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">RedDropper</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">CompoundPacketQueueBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">ned</span><span style="color: #232629; ">.</span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">REDQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">CompoundPacketQueueBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">red</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RedDropper</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">wq</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">002</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">minth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">30</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">maxth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">90</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">maxp</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">10</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">pkrate</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8333</span><span style="color: #232629; ">.</span><span style="color: #008000; ">333</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">fifo</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">red</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">red</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">fifo</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">fifo</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; ">;
+}
+
+
+</span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">coreChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; "> </span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">ms</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ber</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">per</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=black,3&quot;</span><span style="color: #232629; ">);
+}
+
+</span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">accessChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; "> </span><span style="color: #232629; ">Gbps</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">1</span><span style="color: #232629; ">ms</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ber</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">per</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=blue,5&quot;</span><span style="color: #232629; ">);
+}
+
+
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">testNetwork</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// ====== System Parameters =============================================
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">systems</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;bgi=maps/world,s&quot;</span><span style="color: #232629; ">);
+
+    </span><span style="color: #808080; font-style: italic; ">// ====== Network Components ============================================
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// ------ Routing Auto-Configuration --------------------------------
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=850,75;i=abstract/penguin_l,gold&quot;</span><span style="color: #232629; ">);
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">// ------ Routers -----------------------------------------------------
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">westernBorderRouter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Router</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=500,150,c,150;i=abstract/router_l,gold&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; "> + </span><span style="color: #232629; ">parent</span><span style="color: #232629; ">.</span><span style="color: #232629; ">systems</span><span style="color: #232629; ">];
+        }
+        </span><span style="color: #232629; ">westernCoreRouter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Router</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,150,c,150;i=abstract/router_l,gold&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">2</span><span style="color: #232629; ">];
+        }
+        </span><span style="color: #232629; ">easternCoreRouter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Router</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1000,150,c,150;i=abstract/router_l,gold&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">2</span><span style="color: #232629; ">];
+        }
+        </span><span style="color: #232629; ">easternBorderRouter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Router</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1200,150,c,150;i=abstract/router_l,gold&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; "> + </span><span style="color: #232629; ">parent</span><span style="color: #232629; ">.</span><span style="color: #232629; ">systems</span><span style="color: #232629; ">];
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">// ------ Systems -----------------------------------------------------
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">clientMain</span><span style="color: #232629; ">[</span><span style="color: #232629; ">systems</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=50,50,c,200;i=device/laptop_l,green&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">];
+        }
+        </span><span style="color: #232629; ">serverMain</span><span style="color: #232629; ">[</span><span style="color: #232629; ">systems</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1650,50,c,200;i=device/server_l,green&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">];
+        }
+
+    </span><span style="color: #808080; font-style: italic; ">// ====== Connections ====================================================
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">westernCoreRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">coreChannel</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=blue,3&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">easternCoreRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">];
+
+        </span><span style="color: #232629; ">westernBorderRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">accessChannel</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=blue,5&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">westernCoreRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">];
+        </span><span style="color: #232629; ">easternBorderRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">accessChannel</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=blue,5&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">easternCoreRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">];
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">systems</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">clientMain</span><span style="color: #232629; ">[</span><span style="color: #232629; ">s</span><span style="color: #232629; ">].</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">accessChannel</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=green,5&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">westernBorderRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; "> + </span><span style="color: #232629; ">s</span><span style="color: #232629; ">];
+            </span><span style="color: #232629; ">serverMain</span><span style="color: #232629; ">[</span><span style="color: #232629; ">s</span><span style="color: #232629; ">].</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">accessChannel</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=green,5&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">easternBorderRouter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; "> + </span><span style="color: #232629; ">s</span><span style="color: #232629; ">];
+        }
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

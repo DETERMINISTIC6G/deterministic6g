@@ -1,0 +1,580 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Eth100M</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Eth100M</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_ethernet">inet.node.ethernet</a></p>
+<h2 class="comptitle" style="float: left;">Eth100M</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ffca0080;">
+    <span class="mdl-chip__text">channel</span>
+</span><div style="clear: both;"/>
+
+<p>100 megabit/sec Ethernet link</p>
+<img src="inet.node.ethernet.Eth100M-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.node.ethernet.Eth100M.html" title="Eth100M" alt="Eth100M" coords="0,114,126,130">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.ethernet.Eth100M-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.asynchronousshaper.core4inet.AsynchronousShaperValidation" href="inet.validation.tsn.trafficshaping.asynchronousshaper.core4inet.AsynchronousShaperValidation.html">AsynchronousShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.asynchronousshaper.icct.AsynchronousShaperValidation" href="inet.validation.tsn.trafficshaping.asynchronousshaper.icct.AsynchronousShaperValidation.html">AsynchronousShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.cloudandrouters.CloudAndRouters" href="inet.examples.internetcloud.cloudandrouters.CloudAndRouters.html">CloudAndRouters</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.Complexer" href="inet.showcases.visualizer.canvas.transportconnection.Complexer.html">Complexer</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorA" href="inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.creditbasedshaper.CreditBasedShaperValidation" href="inet.validation.tsn.trafficshaping.creditbasedshaper.CreditBasedShaperValidation.html">CreditBasedShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWiredShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWiredShowcase.html">DataLinkVisualizerEnablingWiredShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerFilteringShowcase.html">DataLinkVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.basic.EigrpTestNetwork" href="inet.examples.eigrp.basic.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.snake.EigrpTestNetwork" href="inet.examples.eigrp.snake.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.square_stub.EigrpTestNetwork" href="inet.examples.eigrp.square_stub.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.square_stub_mesh.EigrpTestNetwork" href="inet.examples.eigrp.square_stub_mesh.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario6.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario6.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario_ds.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario_ds.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.two_node.EigrpTestNetwork" href="inet.examples.eigrp.two_node.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.two_node6.EigrpTestNetwork" href="inet.examples.eigrp.two_node6.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.endtoenddelay.EndToEndDelayMeasurementShowcase" href="inet.showcases.measurement.endtoenddelay.EndToEndDelayMeasurementShowcase.html">EndToEndDelayMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.flow.FlowMeasurementShowcase" href="inet.showcases.measurement.flow.FlowMeasurementShowcase.html">FlowMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.framepreemption.FramePreemptionShowcase" href="inet.showcases.tsn.framepreemption.FramePreemptionShowcase.html">FramePreemptionShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase.html">InterfaceTableVisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationEnablingVisualizationShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationEnablingVisualizationShowcase.html">InterfaceTableVisualizationEnablingVisualizationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.combiningfeatures.invehicle.InVehicleNetworkShowcase" href="inet.showcases.tsn.combiningfeatures.invehicle.InVehicleNetworkShowcase.html">InVehicleNetworkShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.jitter.JitterMeasurementShowcase" href="inet.showcases.measurement.jitter.JitterMeasurementShowcase.html">JitterMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.ManetSensorNetwork" href="inet.showcases.wireless.sensornetwork.ManetSensorNetwork.html">ManetSensorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.relationships.MeasurementRelationshipsShowcase" href="inet.showcases.measurement.relationships.MeasurementRelationshipsShowcase.html">MeasurementRelationshipsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.MixedLAN" href="inet.examples.ethernet.lans.MixedLAN.html">MixedLAN</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Sample Ethernet LAN containing eight hosts, a switch and a bus.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>A generated network with grid topology.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathComplexShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathComplexShowcase.html">NetworkPathComplexShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase.html">NetworkPathRIPShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathSimpleShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathSimpleShowcase.html">NetworkPathSimpleShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropInterfaceNotConnectedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropInterfaceNotConnectedShowcase.html">PacketDropInterfaceNotConnectedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropNoRouteToDestinationShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropNoRouteToDestinationShowcase.html">PacketDropNoRouteToDestinationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase.html">PacketDropQueueOverflowShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.pcaprecording.PcapRecordingShowcase" href="inet.showcases.general.pcaprecording.PcapRecordingShowcase.html">PcapRecordingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.sm.basic.PIM_SM_Network" href="inet.examples.pim.sm.basic.PIM_SM_Network.html">PIM_SM_Network</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.dm.basic.pimDMFinal" href="inet.examples.pim.dm.basic.pimDMFinal.html">pimDMFinal</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.propagationtime.PropagationTimeMeasurementShowcase" href="inet.showcases.measurement.propagationtime.PropagationTimeMeasurementShowcase.html">PropagationTimeMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.queueingtime.QueueingTimeMeasurementShowcase" href="inet.showcases.measurement.queueingtime.QueueingTimeMeasurementShowcase.html">QueueingTimeMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.fingerprint.RegressionTestingTutorialWired" href="inet.tutorials.fingerprint.RegressionTestingTutorialWired.html">RegressionTestingTutorialWired</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.residencetime.ResidenceTimeMeasurementShowcase" href="inet.showcases.measurement.residencetime.ResidenceTimeMeasurementShowcase.html">ResidenceTimeMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDisplayingAllShowcase" href="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDisplayingAllShowcase.html">RoutingTableVisualizationDisplayingAllShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationFilteringShowcase" href="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationFilteringShowcase.html">RoutingTableVisualizationFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseA" href="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseA.html">SensorNetworkShowcaseA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseB" href="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseB.html">SensorNetworkShowcaseB</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.earthcloud.SimpleContinentCloud" href="inet.examples.internetcloud.earthcloud.SimpleContinentCloud.html">SimpleContinentCloud</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.timing.TimingExample" href="inet.examples.timing.TimingExample.html">TimingExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.transmissiontime.TransmissionTimeMeasurementShowcase" href="inet.showcases.measurement.transmissiontime.TransmissionTimeMeasurementShowcase.html">TransmissionTimeMeasurementShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationEnablingShowcase" href="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationEnablingShowcase.html">TransportConnectionVisualizationEnablingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationMultipleConnectionsShowcase" href="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationMultipleConnectionsShowcase.html">TransportConnectionVisualizationMultipleConnectionsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerFilteringShowcase.html">TransportPathVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWiredShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWiredShowcase.html">TransportPathVisualizerSimpleWiredShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.vlan.VlanExample" href="inet.examples.ethernet.vlan.VlanExample.html">VlanExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP" href="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP.html">WiredAndWirelessHostsWithAP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWith2DHCP" href="inet.examples.dhcp.WirelessNetWith2DHCP.html">WirelessNetWith2DHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWithDHCP" href="inet.examples.dhcp.WirelessNetWithDHCP.html">WirelessNetWithDHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.Eth100MLong" href="inet.tutorials.configurator.Eth100MLong.html">Eth100MLong</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetLink" href="inet.node.ethernet.EthernetLink.html">EthernetLink</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>Base for Ethernet link types. Propagation delay can be specified with the
+length of the cable(<a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">1</a>,<a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">2</a>), i.e. in meters instead of nanoseconds or microseconds.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>disabled</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>delay</td>
+      <td>double</td>
+      <td>replaceUnit(length / 2e8, "s")</td>
+      <td>
+<p>propagation delay</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>datarate</td>
+      <td>double</td>
+      <td>100Mbps</td>
+      <td>
+<p>bits per second; 0=infinite</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>ber</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>bit error rate (BER)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>per</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>packet error rate (PER)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>length</td>
+      <td>double</td>
+      <td>10m</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>cDatarateChannel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>channelBusy</td>
+      <td>long</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>messageSent</td>
+      <td>omnetpp::cMessage</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>messageDiscarded</td>
+      <td>omnetpp::cMessage</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetsDiscarded</td>
+      <td></td>
+      <td>constant1(messageDiscarded)</td>
+      <td>count?</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>busy</td>
+      <td></td>
+      <td>channelBusy</td>
+      <td>vector?</td>
+      <td></td>
+      <td>sample-hold</td>
+   </tr>
+   <tr class="local">
+      <td>utilization</td>
+      <td></td>
+      <td>timeavg(channelBusy)</td>
+      <td>last?</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetBytes</td>
+      <td></td>
+      <td>packetBytes(messageSent)</td>
+      <td>sum?</td>
+      <td>B</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>throughput</td>
+      <td></td>
+      <td>sumPerDuration(packetBits(messageSent))</td>
+      <td>last?</td>
+      <td>bps</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td></td>
+      <td>constant1(messageSent)</td>
+      <td>count?</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// 100 megabit/sec Ethernet link
+//
+</span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">EthernetLink</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">100</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="src-inet-node-ethernet-EthernetLink.ned.html">src/inet/node/ethernet/EthernetLink.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

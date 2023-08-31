@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MediumCanvasVisualizer.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MediumCanvasVisualizer.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/visualizer/canvas/physicallayer/MediumCanvasVisualizer.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer" href="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer.html">MediumCanvasVisualizer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module visualizes a medium on a 2D canvas. It displays communication
+ranges and interference ranges as circles around network nodes. It displays
+an image at network nodes which are currently transmitting, and a different
+image at other network nodes whcih are currently receiving. It also displays
+radio signals as a 2D ring or a 3D sphere as they propagate through the
+medium.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">visualizer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">canvas</span><span style="color: #232629; ">.</span><span style="color: #232629; ">physicallayer</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">visualizer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">base</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MediumVisualizerBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">visualizer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IMediumVisualizer</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This module visualizes a medium on a 2D canvas. It displays communication
+// ranges and interference ranges as circles around network nodes. It displays
+// an image at network nodes which are currently transmitting, and a different
+// image at other network nodes whcih are currently receiving. It also displays
+// radio signals as a 2D ring or a 3D sphere as they propagate through the
+// medium.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~MediumCanvasVisualizer, ~MediumVisualizer, ~MediumVisualizerBase, ~IMediumVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumCanvasVisualizer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMediumVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">zIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the drawing order of figures relative to other visualizers
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalShape</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ring&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;sphere&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ring&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// shape for displaying signals
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalOpacity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// signal opacity, value must be in the range [0, 1]
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalRingCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of stationary rings around the transmitter, value must be in the range [0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalRingSize</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// width of stationary rings, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalFadingDistance</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// distance parameter for exponential opacity decreasing, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalFadingFactor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">.</span><span style="color: #008000; ">2</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// factor parameter for exponential opacity decreasing, value must be in the range (1, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of moving circles representing waves around the transmitter, value must be in the range [0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// distance between moving circles representing waves, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveWidth</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// width of moving circles representing waves, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveFadingAnimationSpeedFactor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// value must be in the range [0, 1]
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayCommunicationHeat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// when enabled the radio medium displays recent successful receptions as a heat map overlay
+</span><span style="color: #232629; ">
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">MediumCanvasVisualizer</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

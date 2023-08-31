@@ -1,0 +1,311 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>RtpInterfacePacket.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">RtpInterfacePacket.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/rtp/RtpInterfacePacket.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpIfpType" href="inet-rtp-RtpIfpType.html">RtpIfpType</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>An enumeration to distinguish the different functions of the
+RtpInterfacePacket.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpControlMsg" href="inet-rtp-RtpControlMsg.html">RtpControlMsg</a></td>
+      <td><i>message</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpControlInfo" href="inet-rtp-RtpControlInfo.html">RtpControlInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>base class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpSessionControlInfo" href="inet-rtp-RtpSessionControlInfo.html">RtpSessionControlInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>base class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiEnterSession" href="inet-rtp-RtpCiEnterSession.html">RtpCiEnterSession</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>App to ~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSessionEntered" href="inet-rtp-RtpCiSessionEntered.html">RtpCiSessionEntered</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> to App</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSenderControl" href="inet-rtp-RtpCiSenderControl.html">RtpCiSenderControl</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>App to ~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSenderStatus" href="inet-rtp-RtpCiSenderStatus.html">RtpCiSenderStatus</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> to App</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiLeaveSession" href="inet-rtp-RtpCiLeaveSession.html">RtpCiLeaveSession</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>App to ~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSessionLeft" href="inet-rtp-RtpCiSessionLeft.html">RtpCiSessionLeft</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> to App</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiCreateSenderModule" href="inet-rtp-RtpCiCreateSenderModule.html">RtpCiCreateSenderModule</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>App to ~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSenderModuleCreated" href="inet-rtp-RtpCiSenderModuleCreated.html">RtpCiSenderModuleCreated</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> to App</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiDeleteSenderModule" href="inet-rtp-RtpCiDeleteSenderModule.html">RtpCiDeleteSenderModule</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>App to ~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtpCiSenderModuleDeleted" href="inet-rtp-RtpCiSenderModuleDeleted.html">RtpCiSenderModuleDeleted</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>~<a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> to App</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2008 OpenSim Ltd.
+// Copyright (C) 2001 Matthias Oppitz &lt;Matthias.Oppitz@gmx.de&gt;
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">RtpSenderControlMessage</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">RtpSenderStatusMessage</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// An enumeration to distinguish the different functions of the
+// RtpInterfacePacket.
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpIfpType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">RTP_IFP_ENTER_SESSION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SESSION_ENTERED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_CREATE_SENDER_MODULE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SENDER_MODULE_CREATED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_DELETE_SENDER_MODULE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SENDER_MODULE_DELETED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SENDER_CONTROL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SENDER_STATUS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_LEAVE_SESSION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RTP_IFP_SESSION_LEFT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">//
+// The next classes are used for communication between an ~RtpApplication
+// and an RTPLayer module. Its offers functionality for starting and stopping of an
+// rtp session, transmission of files and feedback about the success of the
+// operations.
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlMsg</span><span style="color: #232629; ">
+{
+};
+
+</span><span style="color: #808080; font-style: italic; ">// base class
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">RtpIfpType</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// base class
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ssrc</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// App to ~Rtp
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiEnterSession</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_ENTER_SESSION</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">commonName</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">profileName</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bandwidth</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">destinationAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">port</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// ~Rtp to App
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSessionEntered</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SESSION_ENTERED</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// App to ~Rtp
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSenderControl</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SENDER_CONTROL</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// from ~RtpSenderControlMessage:
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RtpSenderControlMessageCommands</span><span style="color: #232629; "> </span><span style="color: #232629; ">command</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">float</span><span style="color: #232629; "> </span><span style="color: #232629; ">commandParameter1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">float</span><span style="color: #232629; "> </span><span style="color: #232629; ">commandParameter2</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// ~Rtp to App
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSenderStatus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SENDER_STATUS</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// from ~RtpSenderStatusMessage:
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RtpSenderStatus</span><span style="color: #232629; "> </span><span style="color: #232629; ">status</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">timeStamp</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// App to ~Rtp
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiLeaveSession</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_LEAVE_SESSION</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// TODO do I need any sesson identifier?
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #808080; font-style: italic; ">// ~Rtp to App
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSessionLeft</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SESSION_LEFT</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// TODO do I need any sesson identifier?
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #808080; font-style: italic; ">// App to ~Rtp
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiCreateSenderModule</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_CREATE_SENDER_MODULE</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">payloadType</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fileName</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// ~Rtp to App
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSenderModuleCreated</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SENDER_MODULE_CREATED</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// App to ~Rtp
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiDeleteSenderModule</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_DELETE_SENDER_MODULE</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">// ~Rtp to App
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpCiSenderModuleDeleted</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpSessionControlInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTP_IFP_SENDER_MODULE_DELETED</span><span style="color: #232629; ">;
+};
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

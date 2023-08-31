@@ -1,0 +1,230 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee8021qProtocol</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee8021qProtocol</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_ieee8021q">inet.linklayer.ieee8021q</a></p>
+<h2 class="comptitle" style="float: left;">Ieee8021qProtocol</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>This module implements the IEEE 802.1Q protocol encapsulation/decapsulation.
+It also provides socket support so applications can use the protocol directly.</p>
+<img src="inet.linklayer.ieee8021q.Ieee8021qProtocol-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.ieee8021q.Ieee8021qSocketTable.html" title="Ieee8021qSocketTable" alt="Ieee8021qSocketTable" coords="47,120,157,192">
+<area shape="rect" href="inet.queueing.contract.IPacketFlow.html" title="IPacketFlow" alt="IPacketFlow" coords="176,120,428,192">
+<area shape="rect" href="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderInserter.html" title="IIeee8021qTagEpdHeaderInserter" alt="IIeee8021qTagEpdHeaderInserter" coords="209,220,396,292">
+<area shape="rect" href="inet.queueing.contract.IPacketFlow.html" title="IPacketFlow" alt="IPacketFlow" coords="494,120,710,192">
+<area shape="rect" href="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderChecker.html" title="IIeee8021qTagEpdHeaderChecker" alt="IIeee8021qTagEpdHeaderChecker" coords="508,220,697,292">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee8021q.Ieee8021qProtocol-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee8021q.Ieee8021qProtocol-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>vlanTagType</td>
+      <td>string</td>
+      <td>"c"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>hasSocketSupport</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/layer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>upperLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>upperLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderInserter" href="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderInserter.html">qTagHeaderInserter</a>.vlanTagType</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderChecker" href="inet.linklayer.ieee8021q.IIeee8021qTagEpdHeaderChecker.html">qTagHeaderChecker</a>.vlanTagType</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module implements the IEEE 802.1Q protocol encapsulation/decapsulation.
+// It also provides socket support so applications can use the protocol directly.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee8021qProtocol</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIeee8021qLayer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">vlanTagType</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;c&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasSocketSupport</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">vlanTagType</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">vlanTagType</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">socketTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.socketTable&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/layer&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">socketTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ieee8021qSocketTable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasSocketSupport</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">socketCommandProcessor</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasSocketSupport</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021qSocketCommandProcessor&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketFlow</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">qTagHeaderInserter</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee8021qTagEpdHeaderInserter&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIeee8021qTagEpdHeaderInserter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">socketPacketProcessor</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasSocketSupport</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021qSocketPacketProcessor&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketFlow</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=600,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">qTagHeaderChecker</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee8021qTagEpdHeaderChecker&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIeee8021qTagEpdHeaderChecker</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=600,200&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=n&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketCommandProcessor</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">socketCommandProcessor</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">qTagHeaderInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">qTagHeaderInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">qTagHeaderChecker</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">qTagHeaderChecker</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketPacketProcessor</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">socketPacketProcessor</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=n&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+}
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021q-Ieee8021qProtocol.ned.html">src/inet/linklayer/ieee8021q/Ieee8021qProtocol.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

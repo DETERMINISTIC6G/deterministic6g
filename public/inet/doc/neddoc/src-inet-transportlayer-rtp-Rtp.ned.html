@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Rtp.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Rtp.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/transportlayer/rtp/Rtp.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>The <a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> module is the center of the <a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> layer of an endsystem.
+It communicates with the application, and sends and receives <a title="inet.transportlayer.rtp.Rtp" href="inet.transportlayer.rtp.Rtp.html">Rtp</a> data
+packets.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// The Rtp module is the center of the Rtp layer of an endsystem.
+// It communicates with the application, and sends and receives Rtp data
+// packets.
+//
+// Much of the work is done by dynamically created Profile, and Payload
+// Sender and Receiver modules (the latter two are created by Profile).
+//
+// See ~RtpProfile, ~RtpAvProfile
+//
+</span><span style="color: #cccccc; font-style: italic; ">//# </span><span style="color: #000080; ">TODO</span><span style="color: #cccccc; font-style: italic; "> Translate:
+//# Az ~Rtp az appIn gate-en a k&ouml;vetkező &uuml;zeneteket fogadja az application-t&oacute;l:
+//# olyan msg-t, ami ~RtpControlInfo lesz&aacute;rmazott controlinfo-t tartalmaz.
+//#   - ~RtpCiEnterSession: Enter new session
+//#         Create and initialize an ~RtpProfile module for the session.
+//#         params: profileName, commonName, bandwidth, destinationAddress, port
+//#   - ~RtpCiCreateSenderModule:
+//#         K&uuml;ld a profile-nak egy msg-t, hogy hozzon l&eacute;tre &uacute;j modult a fileName f&aacute;jl k&uuml;ld&eacute;s&eacute;re.
+//#         params: ssrc, payloadType, fileName
+//#   - ~RtpCiDeleteSenderModule:
+//#         K&uuml;ld a profile-nak egy msg-t, hogy t&ouml;r&ouml;lje a k&uuml;ldő modult.
+//#         params: ssrc
+//#   - ~RtpCiSenderControl:
+//#         K&uuml;ld a profile-nak egy msg-t, hogy a modul hajtsa v&eacute;gre a &lt;command&gt; parancsot.
+//#         params: ssrc, command (see ~RtpSenderControlMessageCommands), parameter1, parameter2
+//#   - ~RtpCiLeaveSession: Leave session
+//#         Delete ~RtpProfile module.
+//#         params: ---
+//#   -
+//# Az ~Rtp az appOut gate-en a k&ouml;vetkező &uuml;zeneteket k&uuml;ldi az application-nek:
+//# Olyan ~RtpControlMsg msg-t, ami ~RtpControlInfo lesz&aacute;rmazottat tartalmaz:
+//#   - ~RtpCiSenderModuleCreated:
+//#         Elk&uuml;ldi az App r&eacute;sz&eacute;re a l&eacute;trehozott modulhoz tartoz&oacute; ssrc-t
+//#         params: ssrc
+//#   - ~RtpCiSenderModuleDeleted:
+//#         &Eacute;rtes&iacute;ti az App-ot, hogy a modul t&ouml;r&ouml;lve lett.
+//#         params: ssrc
+//#   - ~RtpCiSenderStatus:
+//#         Elk&uuml;ldi az App r&eacute;sz&eacute;re a modul &aacute;llapot&aacute;t. (PLAYING, FINISHED, STOPPED, PAUSED)
+//#         params: ssrc, status (see ~RtpSenderStatus), timeStamp
+//#   - ~RtpCiSessionEntered:
+//#         &Eacute;rtes&iacute;ti az App-ot, hogy l&eacute;trehozott egy &uacute;j session-t (~RtpProfile-t).
+//#         params: ssrc
+//#   - ~RtpCiSessionLeft:
+//#         &Eacute;rtes&iacute;ti az App-ot, hogy v&eacute;get lett a session-nek &eacute;s t&ouml;r&ouml;lte az ~RtpProfile-t.
+//#         params: ---
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Rtp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">routingTableModule</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/buffer&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">endToEndDelay</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;end-to-end delay&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dataAge(packetReceived)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">s</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">appIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInterfacePacket</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">profileIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInnerPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtcpIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInnerPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">udpIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">appOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInterfacePacket</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">profileOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInnerPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtcpOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtpInnerPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">udpOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IPacketQueue</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IPacketQueue</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_contract">inet.queueing.contract</a></p>
+<h2 class="comptitle" style="float: left;">IPacketQueue</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This module interface is implemented by packet queue modules. A packet queue
+is a passive module which has one passive input and one passive output.
+Packets pushed into the passive input are either stored or dropped. Packets
+pulled from the passive output are provided from the stored packets.</p>
+<img src="inet.queueing.contract.IPacketQueue-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.contract.IPacketQueue.html" title="IPacketQueue" alt="IPacketQueue" coords="0,42,274,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.contract.IPacketQueue-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.CompoundPacketQueueBase" href="inet.queueing.queue.CompoundPacketQueueBase.html">CompoundPacketQueueBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This compound module serves as a base module for complex packet queues formed
+by combining several queueing components.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.queue.CompoundPendingQueue" href="inet.linklayer.ieee80211.mac.queue.CompoundPendingQueue.html">CompoundPendingQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.DiffservQueue" href="inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This is an example queue, that can be used in
+interfaces of DS core and edge nodes to support
+the AFxy (RFC 2597) and EF (RFC 3246) PHBs.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropHeadQueue" href="inet.queueing.queue.DropHeadQueue.html">DropHeadQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a limited packet queue which drops packets at the head of the queue.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">DropTailQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module is a limited packet queue which drops packets at the tail of the queue.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DSQueue1" href="inet.examples.diffserv.onedomain.DSQueue1.html">DSQueue1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Diffserv Queue used in Experiment 1.1 - 1.6 and 5.1.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DSQueue2" href="inet.examples.diffserv.onedomain.DSQueue2.html">DSQueue2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Diffserv Queue used in Experiment 2.1 - 2.4.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.shaper.EligibilityTimeQueue" href="inet.protocolelement.shaper.EligibilityTimeQueue.html">EligibilityTimeQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module is a packet queue that keeps the packets in ascending order based
+on the eligibility time in the attached ~<a title="inet::EligibilityTimeTag" href="inet-EligibilityTimeTag.html">EligibilityTimeTag</a> of the packets.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetGatingQueue" href="inet.linklayer.ethernet.modular.EthernetGatingQueue.html">EthernetGatingQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetPriorityQueue" href="inet.linklayer.ethernet.modular.EthernetPriorityQueue.html">EthernetPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosQueue" href="inet.linklayer.ethernet.common.EthernetQosQueue.html">EthernetQosQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosRedQueue" href="inet.linklayer.ethernet.common.EthernetQosRedQueue.html">EthernetQosRedQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and using Random Early Detection algorithm on data frames,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQueue" href="inet.linklayer.ethernet.common.EthernetQueue.html">EthernetQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleCompoundPriorityQueue" href="inet.tutorials.queueing.ExampleCompoundPriorityQueue.html">ExampleCompoundPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.GatingPriorityQueue" href="inet.queueing.queue.GatingPriorityQueue.html">GatingPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues each having
+its own periodic gate for packet selection and an optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper" href="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q time aware shaper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">InProgressQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.OmittedPacketQueue" href="inet.queueing.queue.OmittedPacketQueue.html">OmittedPacketQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">PacketQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements a widely configurable packet queue, which is suitable
+among others, to be used in MAC protocols, traffic conditioning, and quality
+of services. This module can be used on its own, but it's also often supplemented
+by additional queueing components such as servers, classifiers, schedulers,
+multiplexers, etc. This kind of composition allows to form a larger module
+which can act as a packet queue with more complex behavior.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.queue.PendingQueue" href="inet.linklayer.ieee80211.mac.queue.PendingQueue.html">PendingQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PriorityQueue" href="inet.queueing.queue.PriorityQueue.html">PriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues and an
+optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.PriorityShaper" href="inet.queueing.shaper.PriorityShaper.html">PriorityShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a classifier, a scheduler and several traffic shapers
+into a single packet shaper. Packets are classified into one of the traffic
+shapers and the scheduler prioritizes among them.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.RedDropperQueue" href="inet.queueing.queue.RedDropperQueue.html">RedDropperQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Combines a packet queue with random early detection (RED) dropper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.REDQueue" href="inet.examples.inet.netperfmeter.REDQueue.html">REDQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.acking.AckingWirelessInterface" href="inet.linklayer.acking.AckingWirelessInterface.html">AckingWirelessInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a highly abstracted wireless network interface (NIC)
+that uses a trivial MAC protocol. It offers simplicity for scenarios where
+Layer 1 and 2 effects can be completely ignored, for example testing the
+basic functionality of a wireless ad-hoc routing protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.DataService" href="inet.protocolelement.service.DataService.html">DataService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">DataService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.channelaccess.Dcaf" href="inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html">Dcaf</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implements the DCAF (Distributed Channel Access Function) for IEEE 802.11.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.channelaccess.Edcaf" href="inet.linklayer.ieee80211.mac.channelaccess.Edcaf.html">Edcaf</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implements EDCAF (Enhanced Distributed Channel Access Function) for IEEE 802.11.
+EDCAF represents one access category within EDCA.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer" href="inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer.html">EthernetFragmentingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.EthernetInterface" href="inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module represents an Ethernet network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetMacLayer" href="inet.linklayer.ethernet.modular.EthernetMacLayer.html">EthernetMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer" href="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosQueue" href="inet.linklayer.ethernet.common.EthernetQosQueue.html">EthernetQosQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosRedQueue" href="inet.linklayer.ethernet.common.EthernetQosRedQueue.html">EthernetQosRedQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and using Random Early Detection algorithm on data frames,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetStreamingMacLayer" href="inet.linklayer.ethernet.modular.EthernetStreamingMacLayer.html">EthernetStreamingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.GatingPriorityQueue" href="inet.queueing.queue.GatingPriorityQueue.html">GatingPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues each having
+its own periodic gate for packet selection and an optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee802154.Ieee802154NarrowbandInterface" href="inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.15.4 narrowband network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee802154.Ieee802154UwbIrInterface" href="inet.linklayer.ieee802154.Ieee802154UwbIrInterface.html">Ieee802154UwbIrInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.15.4 UWB-IR network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper" href="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q time aware shaper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.LeakyBucket" href="inet.queueing.shaper.LeakyBucket.html">LeakyBucket</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a parameterizable leaky bucket algorithm.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketHistory" href="inet.queueing.common.PacketHistory.html">PacketHistory</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module connects one packet producer to one packet consumer. It can be
+pushed with packets from the connected packet producer. It keeps a copy of
+the last N packets pushed into its input. The packets are available in the
+runtime user interface (Qtenv) for inspection.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.PacketShaper" href="inet.queueing.shaper.PacketShaper.html">PacketShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a packet queue and a packet gate into a packet shaper
+module. The queue stores the packets sorted according to its ordering and
+the gate decides when the first packet can be pulled from the queue.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ppp.PppInterface" href="inet.linklayer.ppp.PppInterface.html">PppInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a PPP network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PriorityQueue" href="inet.queueing.queue.PriorityQueue.html">PriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues and an
+optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.QueueingPacketDelayer" href="inet.queueing.common.QueueingPacketDelayer.html">QueueingPacketDelayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.RedDropperQueue" href="inet.queueing.queue.RedDropperQueue.html">RedDropperQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Combines a packet queue with random early detection (RED) dropper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.RequestConsumer" href="inet.queueing.sink.RequestConsumer.html">RequestConsumer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module processes incoming packets one by one in the order they arrive.
+First it classifies a packet according to the configured classifier function,
+then it generates tokens for the selected category in the configured response
+producer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.TokenBucket" href="inet.queueing.shaper.TokenBucket.html">TokenBucket</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a parameterizable token bucket algorithm.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.common.WirelessInterface" href="inet.linklayer.common.WirelessInterface.html">WirelessInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a generic wireless network interface.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.contract.IPassivePacketSink" href="inet.queueing.contract.IPassivePacketSink.html">IPassivePacketSink</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This module interface must be implemented by passive packet sink modules.
+A passive packet sink, also called a consumer, has one input that must be
+connected to an active packet source module. The connected active packet
+source is expected to push packets into the passive packet sink over time.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.contract.IPassivePacketSource" href="inet.queueing.contract.IPassivePacketSource.html">IPassivePacketSource</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This module interface must be implemented by passive packet source modules.
+A passive packet source, also called a provider, has one output that must be
+connected to an active packet sink module. The connected active packet sink
+is expected to pull packets from the passive packet source over time.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/source</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>omittedTypename</td>
+      <td>OmittedPacketQueue</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module interface is implemented by packet queue modules. A packet queue
+// is a passive module which has one passive input and one passive output.
+// Packets pushed into the passive input are either stored or dropped. Packets
+// pulled from the passive output are provided from the stored packets.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPassivePacketSink</span><span style="color: #232629; ">, </span><span style="color: #232629; ">IPassivePacketSource</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@omittedTypename</span><span style="color: #232629; ">(</span><span style="color: #232629; ">OmittedPacketQueue</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/queue&quot;</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-contract-IPacketQueue.ned.html">src/inet/queueing/contract/IPacketQueue.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

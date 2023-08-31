@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MobilityHeader.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MobilityHeader.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/networklayer/xmipv6/MobilityHeader.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::MobilityHeaderType" href="inet-MobilityHeaderType.html">MobilityHeaderType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::MobilityHeader" href="inet-MobilityHeader.html">MobilityHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>extends <a title="inet::Ipv6ExtensionHeader" href="inet-Ipv6ExtensionHeader.html">Ipv6ExtensionHeader</a> // TODO check how to define <a title="inet::MobilityHeader" href="inet-MobilityHeader.html">MobilityHeader</a> as subclass of <a title="inet::Ipv6ExtensionHeader" href="inet-Ipv6ExtensionHeader.html">Ipv6ExtensionHeader</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::BindingUpdate" href="inet-BindingUpdate.html">BindingUpdate</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::BaStatus" href="inet-BaStatus.html">BaStatus</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Defining the status fields for the Binding Acknowledgement <a title="inet::Message" href="inet-Message.html">Message</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::BindingAcknowledgement" href="inet-BindingAcknowledgement.html">BindingAcknowledgement</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>==================Defining Binding Acknowledgement <a title="inet::Message" href="inet-Message.html">Message</a>===================</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::BeStatus" href="inet-BeStatus.html">BeStatus</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>==================Defining Binding Error Status====================</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::BindingError" href="inet-BindingError.html">BindingError</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>==================Defining Binding Error <a title="inet::Message" href="inet-Message.html">Message</a>===================</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::HomeTestInit" href="inet-HomeTestInit.html">HomeTestInit</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>=============<a title="inet::Message" href="inet-Message.html">Message</a> definition of Home Test Init <a title="inet::Message" href="inet-Message.html">Message</a> ==========</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::HomeTest" href="inet-HomeTest.html">HomeTest</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>=============<a title="inet::Message" href="inet-Message.html">Message</a> definition of Home Test <a title="inet::Message" href="inet-Message.html">Message</a> ==========</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::CareOfTestInit" href="inet-CareOfTestInit.html">CareOfTestInit</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>=============<a title="inet::Message" href="inet-Message.html">Message</a> definition of Care-of Test Init <a title="inet::Message" href="inet-Message.html">Message</a> ==========</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::CareOfTest" href="inet-CareOfTest.html">CareOfTest</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>=============<a title="inet::Message" href="inet-Message.html">Message</a> definition of Care-of Test <a title="inet::Message" href="inet-Message.html">Message</a> ==========</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::BindingRefreshRequest" href="inet-BindingRefreshRequest.html">BindingRefreshRequest</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>18.09.07 - CB</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::HomeAddressOption" href="inet-HomeAddressOption.html">HomeAddressOption</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>17.10.07 - CB</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2007
+// Faqir Zarrar Yousaf
+// Communication Networks Institute, Dortmund University of Technology (TU Dortmund), Germany.
+// Christian Bauer
+// Institute of Communications and Navigation, German Aerospace Center (DLR)
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6Header</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6ExtensionHeaders</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeaderType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">BINDING_REFRESH_REQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">HOME_TEST_INIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">CARE_OF_TEST_INIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">HOME_TEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">CARE_OF_TEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BINDING_UPDATE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BINDING_ACKNOWLEDGEMENT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BINDING_ERROR</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">  </span><span style="color: #808080; font-style: italic; ">// extends Ipv6ExtensionHeader // TODO check how to define MobilityHeader as subclass of Ipv6ExtensionHeader
+</span><span style="color: #232629; ">{
+    </span><span style="color: #232629; ">MobilityHeaderType</span><span style="color: #232629; "> </span><span style="color: #232629; ">mobilityHeaderType</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BindingUpdate</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">lifetime</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequence</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackFlag</span><span style="color: #232629; ">;                </span><span style="color: #808080; font-style: italic; ">//A-Flag (Acknowledge Flag)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeRegistrationFlag</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//H-Flag (Home Registration Flag)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkLocalAddressCompatibilityFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//L-Flag (Link Local Address Compatibility Flag)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">keyManagementFlag</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//K-Flag (Key Management Flag)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//Mobility Options not defined
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAddressMN</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//As BU is supposed to be sent with Home Address Option, therefore i make this part of BU Msg.
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// for CN communication; value different from 0 shows that it is used
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bindingAuthorizationData</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 28.08.07 - CB
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//Defining the status fields for the Binding Acknowledgement Message
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">BaStatus</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">BINDING_UPDATE_ACCEPTED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BU_ACCEPT_BUT_DISCOVER_PREFIX</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">REASON_UNSPECIFIED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">128</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ADMINISTRATIVELY_PROHIBITED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">129</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">INSUFFICIENT_RESOURCES</span><span style="color: #232629; "> = </span><span style="color: #008000; ">130</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">HOME_REGISTRATION_NOT_SUPPORTED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">131</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NOT_HOME_SUBNET</span><span style="color: #232629; "> = </span><span style="color: #008000; ">132</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NOT_HA_FOR_THIS_MN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">133</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">DAD_FAILED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">134</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SEQUENCE_NUMBER_OUT_OF_WINDOW</span><span style="color: #232629; "> = </span><span style="color: #008000; ">135</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">EXPIRED_HOME_NONCE_INDEX</span><span style="color: #232629; "> = </span><span style="color: #008000; ">136</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">EXPIRED_CARE_OF_NONCE_INDEX</span><span style="color: #232629; "> = </span><span style="color: #008000; ">137</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">EXPIRED_NONCES</span><span style="color: #232629; "> = </span><span style="color: #008000; ">138</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">REGISTRATION_TYPE_CHANGE_DISALLOWED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">139</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//==================Defining Binding Acknowledgement Message===================
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BindingAcknowledgement</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">BaStatus</span><span style="color: #232629; "> </span><span style="color: #232629; ">status</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceNumber</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">lifetime</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">keyManagementFlag</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;</span><span style="color: #808080; font-style: italic; ">//K-Flag (Key Management Flag)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//Mobility Options not defined
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// for CN communication; value different from 0 shows that it is used
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bindingAuthorizationData</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 28.08.07 - CB
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//==================Defining Binding Error Status====================
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">BeStatus</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">UNKNOWN_BINDING_FOR_HOME_ADDRESS_DEST_OPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">UNKNOWN_MH_TYPE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//Unrecognised MH Type
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//==================Defining Binding Error Message===================
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BindingError</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">BeStatus</span><span style="color: #232629; "> </span><span style="color: #232629; ">status</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Mobility Options not defined
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//=============Message definition of Home Test Init Message ==========
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">HomeTestInit</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeInitCookie</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//=============Message definition of Home Test Message ==========
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">HomeTest</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeInitCookie</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeKeyGenToken</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// home nonce index not modelled
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//=============Message definition of Care-of Test Init Message ==========
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">CareOfTestInit</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">careOfInitCookie</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//=============Message definition of Care-of Test Message ==========
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">CareOfTest</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">careOfInitCookie</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">careOfKeyGenToken</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// care-of nonce index not modelled
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">///////////////////////////////////////////
+// 18.09.07 - CB
+///////////////////////////////////////////
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BindingRefreshRequest</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityHeader</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">///////////////////////////////////////////
+// 17.10.07 - CB
+///////////////////////////////////////////
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">HomeAddressOption</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6DestinationOptionsHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAddress</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

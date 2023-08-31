@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ipv6NdMessage.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ipv6NdMessage.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/networklayer/icmpv6/Ipv6NdMessage.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdOptionTypes" href="inet-Ipv6NdOptionTypes.html">Ipv6NdOptionTypes</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>TLB options (type, length, bytes), length must be divisible by eight, max value is 8*255
+Type codes:          // RFC 2461</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdOption" href="inet-Ipv6NdOption.html">Ipv6NdOption</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdSourceTargetLinkLayerAddress" href="inet-Ipv6NdSourceTargetLinkLayerAddress.html">Ipv6NdSourceTargetLinkLayerAddress</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdSourceLinkLayerAddress" href="inet-Ipv6NdSourceLinkLayerAddress.html">Ipv6NdSourceLinkLayerAddress</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdTargetLinkLayerAddress" href="inet-Ipv6NdTargetLinkLayerAddress.html">Ipv6NdTargetLinkLayerAddress</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdPrefixInformation" href="inet-Ipv6NdPrefixInformation.html">Ipv6NdPrefixInformation</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>IPv6ND Prefix Information
+RFC 2461 / RFC 4861 Section 4.6.2
+RFC 3775 Section 7.2 (routerAddressFlag)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdMtu" href="inet-Ipv6NdMtu.html">Ipv6NdMtu</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Mipv6NdAdvertisementInterval" href="inet-Mipv6NdAdvertisementInterval.html">Mipv6NdAdvertisementInterval</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>MIPv6 New Advertisement Interval Option
+RFC 3775 Section 7.3</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Mipv6HaInformation" href="inet-Mipv6HaInformation.html">Mipv6HaInformation</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>MIPv6 Home Agent Information Option
+RFC 3775 Section 7.4</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdOptions" href="inet-Ipv6NdOptions.html">Ipv6NdOptions</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdMessage" href="inet-Ipv6NdMessage.html">Ipv6NdMessage</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Neighbour Discovery for <a title="inet.networklayer.ipv6.Ipv6" href="inet.networklayer.ipv6.Ipv6.html">Ipv6</a>.
+RFC 2461</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6RouterSolicitation" href="inet-Ipv6RouterSolicitation.html">Ipv6RouterSolicitation</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>) Solicitation <a title="inet::Message" href="inet-Message.html">Message</a> Format
+RFC 4861 Section 4.1</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6RouterAdvertisement" href="inet-Ipv6RouterAdvertisement.html">Ipv6RouterAdvertisement</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>) Advertisement <a title="inet::Message" href="inet-Message.html">Message</a> Format
+RFC 2461 Section 4.2
+RFC 3775 Section 7.1, RFC 5175 Section 3. (homeAgentFlag)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NeighbourSolicitation" href="inet-Ipv6NeighbourSolicitation.html">Ipv6NeighbourSolicitation</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Neighbour Solicitation <a title="inet::Message" href="inet-Message.html">Message</a> Format
+RFC 4861 Section 4.3</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NeighbourAdvertisement" href="inet-Ipv6NeighbourAdvertisement.html">Ipv6NeighbourAdvertisement</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Neighbour Advertisement <a title="inet::Message" href="inet-Message.html">Message</a> Format
+RFC 2461 Section 4.4</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6Redirect" href="inet-Ipv6Redirect.html">Ipv6Redirect</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Redirect <a title="inet::Message" href="inet-Message.html">Message</a> Format
+RFC 2461 Section 4.5</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Ipv6NdControlInfo" href="inet-Ipv6NdControlInfo.html">Ipv6NdControlInfo</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2005 Wei Yang, Ng
+// Copyright (C) 2005 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">// TLB options (type, length, bytes), length must be divisible by eight, max value is 8*255
+// Length in bytes:
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPv6ND_LINK_LAYER_ADDRESS_OPTION_LENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// RFC 2461, Section 4.6.1. Source/Target Link-layer Address
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPv6ND_PREFIX_INFORMATION_OPTION_LENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">);   </span><span style="color: #808080; font-style: italic; ">// RFC 2461, Section 4.6.2. Prefix Information
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPv6ND_REDIRECTED_HEADER_OPTION_LENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// 8 + redirected packet, RFC 2461, Section 4.6.3. Redirected Header.
+</span><span style="color: #232629; ">                                                           </span><span style="color: #808080; font-style: italic; ">// The original packet truncated to ensure that the size of the redirect message does not exceed 1280 octets.
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPv6ND_MTU_OPTION_LENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);                   </span><span style="color: #808080; font-style: italic; ">// RFC 2461, Section 4.6.4. MTU
+</span><span style="color: #232629; ">}}
+
+</span><span style="color: #808080; font-style: italic; ">// TLB options (type, length, bytes), length must be divisible by eight, max value is 8*255
+// Type codes:          // RFC 2461
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOptionTypes</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">IPv6ND_SOURCE_LINK_LAYER_ADDR_OPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">IPv6ND_TARGET_LINK_LAYER_ADDR_OPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">IPv6ND_PREFIX_INFORMATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">IPv6ND_REDIRECTED_HEADER</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">IPv6ND_MTU</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">IPv6ND_ADVERTISEMENT_INTERVAL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RFC 3775 Section 7.3
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">IPv6ND_HOME_AGENT_INFORMATION_OPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RFC 3775 Section 7.4
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6NdOptionTypes</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">static_cast</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">Ipv6NdOptionTypes</span><span style="color: #232629; ">&gt;(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// 1 byte, 0 is invalid
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// The length of the option in units of 8 octets, 0 is invalid.    // 1 byte
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">char</span><span style="color: #232629; "> </span><span style="color: #232629; ">paddingBytes</span><span style="color: #232629; ">[];    </span><span style="color: #808080; font-style: italic; ">// padding bytes on end of option
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdSourceTargetLinkLayerAddress</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 8 byte ( when using MacAddress)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkLayerAddress</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdSourceLinkLayerAddress</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdSourceTargetLinkLayerAddress</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_SOURCE_LINK_LAYER_ADDR_OPTION</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdTargetLinkLayerAddress</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdSourceTargetLinkLayerAddress</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_TARGET_LINK_LAYER_ADDR_OPTION</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// IPv6ND Prefix Information
+// RFC 2461 / RFC 4861 Section 4.6.2
+// RFC 3775 Section 7.2 (routerAddressFlag)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdPrefixInformation</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_PREFIX_INFORMATION</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixLength</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 0..128
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">onlinkFlag</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//L-bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">autoAddressConfFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//A-bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerAddressFlag</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//R-bit: used in case of MIPv6 when the H-bit is set
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">validLifetime</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// seconds
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">preferredLifetime</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// seconds
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved2</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefix</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMtu</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_MTU</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">mtu</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// MIPv6 New Advertisement Interval Option
+// RFC 3775 Section 7.3
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Mipv6NdAdvertisementInterval</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_ADVERTISEMENT_INTERVAL</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">advertisementInterval</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// milliseconds
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//MIPv6 Home Agent Information Option
+//RFC 3775 Section 7.4
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Mipv6HaInformation</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">IPv6ND_HOME_AGENT_INFORMATION_OPTION</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAgentPreference</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAgentLifetime</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// seconds
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// TLV Options:
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> *</span><span style="color: #232629; ">option</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@owned</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// on end of message
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; ">) {{
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> *</span><span style="color: #232629; ">findOption</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv6NdOptionTypes</span><span style="color: #232629; "> </span><span style="color: #232629; ">t</span><span style="color: #232629; ">) </span><span style="color: #232629; ">const</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> *</span><span style="color: #232629; ">findOptionForUpdate</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv6NdOptionTypes</span><span style="color: #232629; "> </span><span style="color: #232629; ">t</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">insertUniqueOption</span><span style="color: #232629; ">(</span><span style="color: #232629; ">size_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">k</span><span style="color: #232629; ">, </span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> * </span><span style="color: #232629; ">option</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">insertUniqueOption</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv6NdOption</span><span style="color: #232629; "> * </span><span style="color: #232629; ">option</span><span style="color: #232629; ">) { </span><span style="color: #232629; ">insertUniqueOption</span><span style="color: #232629; ">(</span><span style="color: #232629; ">option_arraysize</span><span style="color: #232629; ">, </span><span style="color: #232629; ">option</span><span style="color: #232629; ">); }
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Neighbour Discovery for Ipv6.
+// RFC 2461
+//
+// ICMP fields inherited from ~Icmpv6Header:
+//    - Type
+//
+// ICMP fields not implemented:
+//    - Checksum
+//    - Reserved
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Router Solicitation Message Format
+// RFC 4861 Section 4.1
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6RouterSolicitation</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// without options
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_ROUTER_SOL</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Additional ICMP fields
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Router Advertisement Message Format
+// RFC 2461 Section 4.2
+// RFC 3775 Section 7.1, RFC 5175 Section 3. (homeAgentFlag)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6RouterAdvertisement</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// without options
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_ROUTER_AD</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Additional ICMP fields
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">curHopLimit</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">managedAddrConfFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//M-bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">otherStatefulConfFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//O-bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">homeAgentFlag</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">//H-bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerLifetime</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// [s] 0 indicates router is not a default router
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">reachableTime</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// [ms]
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">retransTimer</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// [ms]
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Neighbour Solicitation Message Format
+// RFC 4861 Section 4.3
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NeighbourSolicitation</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// without options
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_NEIGHBOUR_SOL</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Additional ICMP fields
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">targetAddress</span><span style="color: #232629; ">;</span><span style="color: #808080; font-style: italic; ">// MUST NOT be a multicast address.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Neighbour Advertisement Message Format
+// RFC 2461 Section 4.4
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NeighbourAdvertisement</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// without options
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_NEIGHBOUR_AD</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Additional ICMP fields
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//R-flag
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">solicitedFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//S-flag
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">overrideFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">//O-flag
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">targetAddress</span><span style="color: #232629; ">;</span><span style="color: #808080; font-style: italic; ">// MUST NOT be a multicast address.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Redirect Message Format
+// RFC 2461 Section 4.5
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6Redirect</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdMessage</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">40</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// without options
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_REDIRECT</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Additional ICMP fields
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">targetAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">destinationAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv6NdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NdControlInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">nextHop</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// next hop address
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceId</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// interface on which the datagram should be sent
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fromHL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// packet came from higher layer
+</span><span style="color: #232629; ">}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

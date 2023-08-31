@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>CsmaCaMac</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">CsmaCaMac</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_csmaca">inet.linklayer.csmaca</a></p>
+<h2 class="comptitle" style="float: left;">CsmaCaMac</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>Implements an imaginary CSMA/CA-based MAC protocol with optional
+acknowledgements and a retry mechanism. With the appropriate settings,
+it can approximate basic 802.11b ad-hoc mode operation.</p>
+<p>Parameters include:</p>
+  <ul><li>acknowledgements on/off</li>
+  <li>bit rate (this is used for both data and ACK frames)</li>
+  <li>protocol overhead: MAC header length, ACK frame length</li>
+  <li>backoff parameters: minimum/maximum contention window (in slots),
+  slot time, maximum retry count</li>
+  <li>timing: interval to wait before transmitting ACK frame (SIFS) and
+  before data frames in addition to the backoff slots (DIFS)</li></ul>
+<p>When acknowledgements are turned off, the MAC assumes that its transmissions
+are successful, so no frame is ever retransmitted.</p>
+<p>When acknowledgements are turned on, the operation is as follows.
+On the receiver side, the change is quite simple: when the MAC correctly
+receives a data frame addressed to it, it responds with an ACK frame after
+a fixed-length gap (SIFS). If the originator of the data frame does not
+receive the ACK correctly within due time, it will initiate a
+retransmission. The contention window (from which the random backoff period is
+drawn) will be doubled for each retransmission until it reaches the maximum
+(and then it will stay constant for further retransmissions). After a given
+number of unsuccessful retries, the MAC will give up and discard the data
+frame, and will take the next data frame from the queue. The next frame
+will start with a clean slate (i.e. the contention window and the retry
+count will be reset). Giving up a frame will cause a link break signal
+to be emitted.</p>
+<p>Note: This module does not contain a duplicate detection algorithm in order
+to keep its code simple and accessible, so lost ACKs will cause duplicates
+in the stream of packets sent up to higher layers.</p>
+<img src="inet.linklayer.csmaca.CsmaCaMac-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.csmaca.CsmaCaMac-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.base.MacProtocolBase" href="inet.linklayer.base.MacProtocolBase.html">MacProtocolBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Module base for different MAC protocols.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>radioModule</td>
+      <td>string</td>
+      <td>"^.radio"</td>
+      <td>
+<p>The path to the <a title="inet.physicallayer.wireless.common.radio.packetlevel.Radio" href="inet.physicallayer.wireless.common.radio.packetlevel.Radio.html">Radio</a> module  //FIXME remove default value</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>address</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>MAC address as hex string (12 hex digits), or
+"auto". "auto" values will be replaced by
+a generated MAC address in init stage 0.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>useAck</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>headerLength</td>
+      <td>int</td>
+      <td>17B</td>
+      <td>
+<p>maximum 255 byte, minimum 17B for serializing, see <a title="inet::CsmaCaMacDataHeader" href="inet-CsmaCaMacDataHeader.html">CsmaCaMacDataHeader</a></p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ackLength</td>
+      <td>int</td>
+      <td>14B</td>
+      <td>
+<p>maximum 255 byte, minimum 14B for serializing, see <a title="inet::CsmaCaMacAckHeader" href="inet-CsmaCaMacAckHeader.html">CsmaCaMacAckHeader</a></p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sifsTime</td>
+      <td>double</td>
+      <td>10us</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>slotTime</td>
+      <td>double</td>
+      <td>20us</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>difsTime</td>
+      <td>double</td>
+      <td>sifsTime + 2 * slotTime</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>ackTimeout</td>
+      <td>double</td>
+      <td>dropUnit(ackLength * 8) / dropUnit(bitrate) * 1s + sifsTime + slotTime</td>
+      <td>
+<p>measured from the end of data transmission; includes sifs, preamble, physical header, mac ack duration, 2x propagation time, by default assumes slot time &gt; preamble + physical header + 2x propagation time</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mtu</td>
+      <td>int</td>
+      <td>1500</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>cwMin</td>
+      <td>int</td>
+      <td>31</td>
+      <td>
+<p>minimum contention window</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>cwMax</td>
+      <td>int</td>
+      <td>1023</td>
+      <td>
+<p>maximum contention window</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>cwMulticast</td>
+      <td>int</td>
+      <td>cwMin</td>
+      <td>
+<p>multicast contention window</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>retryLimit</td>
+      <td>int</td>
+      <td>7</td>
+      <td>
+<p>maximum number of retries</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/rxtx</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>CsmaCaMac</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>upperLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>upperLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>lowerLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>lowerLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>linkBroken</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetDropNotAddressedToUs</td>
+      <td>packet drop: not addressed to us</td>
+      <td>packetDropReasonIsNotAddressedToUs(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropQueueOverflow</td>
+      <td>packet drop: queue overflow</td>
+      <td>packetDropReasonIsQueueOverflow(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropRetryLimitReached</td>
+      <td>packet drop: retry limit reached</td>
+      <td>packetDropReasonIsRetryLimitReached(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>linkBroken</td>
+      <td>link break</td>
+      <td>linkBroken</td>
+      <td>count</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropIncorrectlyReceived</td>
+      <td>packet drop: incorrectly received</td>
+      <td>packetDropReasonIsIncorrectlyReceived(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Implements an imaginary CSMA/CA-based MAC protocol with optional
+// acknowledgements and a retry mechanism. With the appropriate settings,
+// it can approximate basic 802.11b ad-hoc mode operation.
+//
+// Parameters include:
+// - acknowledgements on/off
+// - bit rate (this is used for both data and ACK frames)
+// - protocol overhead: MAC header length, ACK frame length
+// - backoff parameters: minimum/maximum contention window (in slots),
+//   slot time, maximum retry count
+// - timing: interval to wait before transmitting ACK frame (SIFS) and
+//   before data frames in addition to the backoff slots (DIFS)
+//
+// When acknowledgements are turned off, the MAC assumes that its transmissions
+// are successful, so no frame is ever retransmitted.
+//
+// When acknowledgements are turned on, the operation is as follows.
+// On the receiver side, the change is quite simple: when the MAC correctly
+// receives a data frame addressed to it, it responds with an ACK frame after
+// a fixed-length gap (SIFS). If the originator of the data frame does not
+// receive the ACK correctly within due time, it will initiate a
+// retransmission. The contention window (from which the random backoff period is
+// drawn) will be doubled for each retransmission until it reaches the maximum
+// (and then it will stay constant for further retransmissions). After a given
+// number of unsuccessful retries, the MAC will give up and discard the data
+// frame, and will take the next data frame from the queue. The next frame
+// will start with a clean slate (i.e. the contention window and the retry
+// count will be reset). Giving up a frame will cause a link break signal
+// to be emitted.
+//
+// Note: This module does not contain a duplicate detection algorithm in order
+// to keep its code simple and accessible, so lost ACKs will cause duplicates
+// in the stream of packets sent up to higher layers.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">CsmaCaMac</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MacProtocolBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMacProtocol</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.radio&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The path to the Radio module  //FIXME remove default value
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">address</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// MAC address as hex string (12 hex digits), or
+</span><span style="color: #232629; ">                                                   </span><span style="color: #808080; font-style: italic; ">// &quot;auto&quot;. &quot;auto&quot; values will be replaced by
+</span><span style="color: #232629; ">                                                   </span><span style="color: #808080; font-style: italic; ">// a generated MAC address in init stage 0.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">useAck</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">bitrate</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">headerLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">17</span><span style="color: #232629; ">B</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum 255 byte, minimum 17B for serializing, see CsmaCaMacDataHeader
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">14</span><span style="color: #232629; ">B</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum 255 byte, minimum 14B for serializing, see CsmaCaMacAckHeader
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sifsTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">us</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">slotTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">us</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">difsTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">sifsTime</span><span style="color: #232629; "> + </span><span style="color: #008000; ">2</span><span style="color: #232629; "> * </span><span style="color: #232629; ">slotTime</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackTimeout</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ackLength</span><span style="color: #232629; "> * </span><span style="color: #008000; ">8</span><span style="color: #232629; ">) / </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bitrate</span><span style="color: #232629; ">) * </span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; "> + </span><span style="color: #232629; ">sifsTime</span><span style="color: #232629; "> + </span><span style="color: #232629; ">slotTime</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// measured from the end of data transmission; includes sifs, preamble, physical header, mac ack duration, 2x propagation time, by default assumes slot time &gt; preamble + physical header + 2x propagation time
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">mtu</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1500</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cwMin</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">31</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum contention window
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cwMax</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1023</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum contention window
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cwMulticast</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">cwMin</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// multicast contention window
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">retryLimit</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">7</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum number of retries
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">CsmaCaMac</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">linkBroken</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">linkBroken</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;link break&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linkBroken</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropIncorrectlyReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drop: incorrectly received&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsIncorrectlyReceived</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropNotAddressedToUs</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drop: not addressed to us&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsNotAddressedToUs</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropQueueOverflow</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drop: queue overflow&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsQueueOverflow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropRetryLimitReached</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drop: retry limit reached&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsRetryLimitReached</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-linklayer-csmaca-CsmaCaMac.ned.html">src/inet/linklayer/csmaca/CsmaCaMac.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

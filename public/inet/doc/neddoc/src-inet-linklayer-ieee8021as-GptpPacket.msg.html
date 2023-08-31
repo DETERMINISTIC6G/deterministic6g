@@ -1,0 +1,433 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>GptpPacket.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">GptpPacket.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/linklayer/ieee8021as/GptpPacket.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpNodeType" href="inet-GptpNodeType.html">GptpNodeType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpPortType" href="inet-GptpPortType.html">GptpPortType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpMessageType" href="inet-GptpMessageType.html">GptpMessageType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpSelfMsgKind" href="inet-GptpSelfMsgKind.html">GptpSelfMsgKind</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpFlags" href="inet-GptpFlags.html">GptpFlags</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>ieee802.1AS-2020 10.6.2.2.8: flags (Octet2)
+Table 10-9&mdash;Values of flag bits</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpTlvType" href="inet-GptpTlvType.html">GptpTlvType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::PortIdentity" href="inet-PortIdentity.html">PortIdentity</a></td>
+      <td><i>struct</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpReqAnswerEvent" href="inet-GptpReqAnswerEvent.html">GptpReqAnswerEvent</a></td>
+      <td><i>message</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpBase" href="inet-GptpBase.html">GptpBase</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>ieee802.1AS-2020 10.6.2.1, 11.4.2</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpTlv" href="inet-GptpTlv.html">GptpTlv</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpFollowUpInformationTlv" href="inet-GptpFollowUpInformationTlv.html">GptpFollowUpInformationTlv</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>The fields of the Follow_Up information TLV shall be as specified in Table 11-11 and in 11.4.4.3.2 through
+11.4.4.3.9. This TLV is a standard organization extension TLV for the Follow_Up message, as specified in
+14.3 of IEEE Std 1588-2019.
+NOTE&mdash;The Follow_Up information TLV is different from the CUMULATIVE_RATE_RATIO TLV of IEEE Std 1588-
+2019 (see 16.10 and Table 52 of IEEE Std 1588-2019). While both TLVs carry cumulative rate offset information, the
+Follow_Up information TLV also carries information on the Grandmaster Clock time base, most recent phase change,
+and most recent frequency change. The CUMULATIVE_RATE_RATIO TLV is not used by gPTP.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpSync" href="inet-GptpSync.html">GptpSync</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpFollowUp" href="inet-GptpFollowUp.html">GptpFollowUp</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpPdelayReq" href="inet-GptpPdelayReq.html">GptpPdelayReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpPdelayResp" href="inet-GptpPdelayResp.html">GptpPdelayResp</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpPdelayRespFollowUp" href="inet-GptpPdelayRespFollowUp.html">GptpPdelayRespFollowUp</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::GptpIngressTimeInd" href="inet-GptpIngressTimeInd.html">GptpIngressTimeInd</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// @authors: Enkhtuvshin Janchivnyambuu
+//           Henning Puttnies
+//           Peter Danielis
+//           University of Rostock, Germany
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">clock</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ClockEvent</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">clock</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ClockTime</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/common/Units.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/clock/common/ClockEvent.h&quot;</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; "> {
+
+</span><span style="color: #232629; ">using</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">units</span><span style="color: #232629; ">::</span><span style="color: #232629; ">values</span><span style="color: #232629; ">;
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">34</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_TLV_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV_BODYSIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">28</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_SYNC_1STEP_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">) + </span><span style="color: #232629; ">GPTP_TLV_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV_BODYSIZE</span><span style="color: #232629; ">;
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_SYNC_2STEP_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">) + </span><span style="color: #232629; ">GPTP_TLV_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV_BODYSIZE</span><span style="color: #232629; ">;
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_PDELAY_REQ_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_PDELAY_RESP_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">GPTP_PDELAY_RESP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_HEADER_SIZE</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">);
+}
+
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #232629; font-weight: bold; ">@property</span><span style="color: #232629; ">[</span><span style="color: #232629; ">bit</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">; </span><span style="color: #232629; ">usage</span><span style="color: #232629; ">=</span><span style="color: #232629; ">field</span><span style="color: #232629; ">; </span><span style="color: #232629; ">desc</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;define stored size in bits&quot;</span><span style="color: #232629; ">);
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpNodeType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">MASTER_NODE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BRIDGE_NODE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SLAVE_NODE</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">13</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpPortType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">MASTER_PORT</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SLAVE_PORT</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">PASSIVE_PORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpMessageType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">GPTPTYPE_SYNC</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTPTYPE_FOLLOW_UP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTPTYPE_PDELAY_REQ</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTPTYPE_PDELAY_RESP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTPTYPE_PDELAY_RESP_FOLLOW_UP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">xA</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpSelfMsgKind</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">GPTP_SELF_REQ_ANSWER_KIND</span><span style="color: #232629; "> = </span><span style="color: #008000; ">101</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTP_SELF_MSG_SYNC</span><span style="color: #232629; "> = </span><span style="color: #008000; ">103</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTP_REQUEST_TO_SEND_SYNC</span><span style="color: #232629; "> = </span><span style="color: #008000; ">104</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GPTP_SELF_MSG_PDELAY_REQ</span><span style="color: #232629; "> = </span><span style="color: #008000; ">105</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// ieee802.1AS-2020 10.6.2.2.8: flags (Octet2)
+// Table 10-9&mdash;Values of flag bits
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpFlags</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">alternateMasterFlag</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Not used in this standard; transmitted as FALSE and ignored on reception
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">twoStepFlag</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// For Sync messages:
+</span><span style="color: #232629; ">                     </span><span style="color: #808080; font-style: italic; ">//   a) For a one-step transmitting PTP Port (see 11.1.3 and 11.2.13.9), the value is FALSE.
+</span><span style="color: #232629; ">                     </span><span style="color: #808080; font-style: italic; ">//   b) For a two-step transmitting PTP Port, the value is TRUE.
+</span><span style="color: #232629; ">                     </span><span style="color: #808080; font-style: italic; ">// For Pdelay_Resp messages: The value is transmitted as TRUE and ignored on reception
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// TODO add more flags
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpTlvType</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x03</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//struct Timestamp
+//{
+//    UInteger48 seconds;
+//    UInteger32 nanoseconds;
+//};
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//struct ExtendedTimestamp
+//{
+//    UInteger48 seconds;
+//    UInteger48 fractionalNanoseconds;
+//};
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//typedef Octet8 ClockIdentity;
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">clockIdentity</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">portNumber</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">//struct ClockQuality
+//{
+//    UInteger8 clockClass;
+//    Enumeration8 clockAccuracy;
+//    UInteger16 offsetScaledLogVariance;
+//};
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpReqAnswerEvent</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ClockEvent</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">portId</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ingressTimestamp</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; ">sourcePortIdentity</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceId</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// ieee802.1AS-2020 10.6.2.1, 11.4.2
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">majorSdoId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// 11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// received for which the value is not one of the values specified in those subclauses shall be ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">GptpMessageType</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">minorVersionPTP</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// For transmitted messages, the value shall be 1 (see 7.5.4 and 13.3.2.5 of IEEE Std 1588-2019).
+</span><span style="color: #232629; ">                                     </span><span style="color: #808080; font-style: italic; ">// For received messages, the value is ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">versionPTP</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// For transmitted messages, the value shall be 2 (see 7.5.4 and 13.3.2.4 of IEEE Std 1588-2019). For received
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// messages, if the value is not 2, the entire message shall be ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is the total number of octets that form the PTP message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">domainNumber</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The domainNumber for Pdelay_Req, Pdelay_Resp, and Pdelay_Resp_Follow_Up messages shall be 0.
+</span><span style="color: #232629; ">                                  </span><span style="color: #808080; font-style: italic; ">// The domainNumber for all other PTP messages is as specified in 10.6.2.2.6.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">minorSdoId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// 11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// received for which the value is not one of the values specified in those subclauses shall be ignored.
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// Currently unused in INET
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">flags</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// 10.6.2.2.8 flags (Octet2)
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// The value of the bits of the array are defined in Table 10-9. For message types where the bit is not defined in
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// Table 10-9, the value of the bit is set to FALSE.
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// Use ~GptpFlags enums.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">correctionField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">64</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The correctionField is the value of the correction as specified in Table 11-6, measured in nanoseconds and
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// multiplied by 2^16. For example, 2.5 ns is represented as 0x0000000000028000.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageTypeSpecific</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of the messageTypeSpecific field varies, based on the value of the messageType field, as described in Table 10-10.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; ">sourcePortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">80</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is the PTP Port identity attribute (see 8.5.2) of the PTP Port that transmits the PTP message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The sequenceId field is assigned as specified in 10.5.7.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">controlField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The value is 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">logMessageInterval</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// For Sync and Follow_Up messages, the value is the value of currentLogSyncInterval (see 10.2.5.4 and
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// 10.7.2.3). For Pdelay_Req messages, the value is the value of currentLogPdelayReqInterval. For
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// Pdelay_Resp and Pdelay_Resp_Follow_Up messages, the value is transmitted as 0x7F and ignored on
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// reception.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpTlv</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">GptpTlvType</span><span style="color: #232629; "> </span><span style="color: #232629; ">tlvType</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lengthField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">);
+}
+
+</span><span style="color: #808080; font-style: italic; ">// The fields of the Follow_Up information TLV shall be as specified in Table 11-11 and in 11.4.4.3.2 through
+// 11.4.4.3.9. This TLV is a standard organization extension TLV for the Follow_Up message, as specified in
+// 14.3 of IEEE Std 1588-2019.
+// NOTE&mdash;The Follow_Up information TLV is different from the CUMULATIVE_RATE_RATIO TLV of IEEE Std 1588-
+// 2019 (see 16.10 and Table 52 of IEEE Std 1588-2019). While both TLVs carry cumulative rate offset information, the
+// Follow_Up information TLV also carries information on the Grandmaster Clock time base, most recent phase change,
+// and most recent frequency change. The CUMULATIVE_RATE_RATIO TLV is not used by gPTP.
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpFollowUpInformationTlv</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpTlv</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">tlvType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lengthField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">) = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV_BODYSIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">organizationId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0080C2</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">organizationSubType</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">rateRatio</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// 11.4.4.3.6 The value of cumulativeScaledRateOffset is equal to (rateRatio &ndash; 1.0) / (2^41), truncated to the next smaller
+</span><span style="color: #232629; ">                               </span><span style="color: #808080; font-style: italic; ">// signed integer, where rateRatio is the ratio of the frequency of the Grandmaster Clock to the frequency of the
+</span><span style="color: #232629; ">                               </span><span style="color: #808080; font-style: italic; ">// LocalClock entity in the PTP Instance that sends the message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">gmTimeBaseIndicator</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of gmTimeBaseIndicator is the timeBaseIndicator of the ClockSource entity for the current
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// Grandmaster PTP Instance (see 9.2.2.3).
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lastGmPhaseChange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">96</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of lastGmPhaseChange is the time of the current Grandmaster Clock minus the time of the
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became the
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// Grandmaster PTP Instance. The value is copied from the lastGmPhaseChange member of the MDSyncSend
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// structure whose receipt causes the MD entity to send the Follow_Up message (see 11.2.11).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">scaledLastGmFreqChange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of scaledLastGmFreqChange is the fractional frequency offset of the current Grandmaster Clock
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// relative to the previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// the Grandmaster PTP Instance, or relative to itself prior to the last change in gmTimeBaseIndicator,
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// multiplied by 241 and truncated to the next smaller signed integer. The value is obtained by multiplying the
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// lastGmFreqChange member of MDSyncSend whose receipt causes the MD entity to send the Follow_Up
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// message (see 11.2.11) by 241, and truncating to the next smaller signed integer.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GptpFollowUpInformationTlv</span><span style="color: #232629; ">) {{
+    </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">setCumulativeScaledRateOffset</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">int32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">x</span><span style="color: #232629; ">) { </span><span style="color: #232629; ">setRateRatio</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; "> + (</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">)(</span><span style="color: #232629; ">x</span><span style="color: #232629; ">) / (</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">)((</span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; ">)</span><span style="color: #008000; ">1</span><span style="color: #232629; ">&lt;&lt;</span><span style="color: #008000; ">41</span><span style="color: #232629; ">)); }
+    </span><span style="color: #000080; font-weight: bold; ">int32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">getCumulativeScaledRateOffset</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> (</span><span style="color: #000080; font-weight: bold; ">int32_t</span><span style="color: #232629; ">)</span><span style="color: #232629; ">ceil</span><span style="color: #232629; ">((</span><span style="color: #232629; ">getRateRatio</span><span style="color: #232629; ">() - </span><span style="color: #008000; ">1</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">) * (</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">)((</span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; ">)</span><span style="color: #008000; ">1</span><span style="color: #232629; ">&lt;&lt;</span><span style="color: #008000; ">41</span><span style="color: #232629; ">)); }
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpSync</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTPTYPE_SYNC</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">flags</span><span style="color: #232629; "> = </span><span style="color: #232629; ">twoStepFlag</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_SYNC_2STEP_PACKET_SIZE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_SYNC_2STEP_PACKET_SIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #808080; font-style: italic; ">// clocktime_t originTimestamp; // filled when twoStep flag is FALSE
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// followUpInformationTLV; // filled when twoStep flag is FALSE
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpFollowUp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTPTYPE_FOLLOW_UP</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">preciseOriginTimestamp</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// 11.4.4.2.1
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">GptpFollowUpInformationTlv</span><span style="color: #232629; "> </span><span style="color: #232629; ">followUpInformationTLV</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpPdelayReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTPTYPE_PDELAY_REQ</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_PDELAY_REQ_PACKET_SIZE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_PDELAY_REQ_PACKET_SIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved2</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpPdelayResp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTPTYPE_PDELAY_RESP</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_PDELAY_RESP_PACKET_SIZE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_PDELAY_RESP_PACKET_SIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">requestReceiptTimestamp</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; ">requestingPortIdentity</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpPdelayRespFollowUp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTPTYPE_PDELAY_RESP_FOLLOW_UP</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_PDELAY_RESP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_PDELAY_RESP_FOLLOW_UP_PACKET_SIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">responseOriginTimestamp</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; ">requestingPortIdentity</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpIngressTimeInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">arrivalClockTime</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

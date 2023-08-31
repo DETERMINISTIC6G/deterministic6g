@@ -1,0 +1,778 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DSQueue2</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DSQueue2</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_examples_diffserv_onedomain">inet.examples.diffserv.onedomain</a></p>
+<h2 class="comptitle" style="float: left;">DSQueue2</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>Diffserv Queue used in Experiment 2.1 - 2.4.</p>
+<img src="inet.examples.diffserv.onedomain.DSQueue2-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.diffserv.BehaviorAggregateClassifier.html" title="BehaviorAggregateClassifier" alt="BehaviorAggregateClassifier" coords="61,220,143,292">
+<area shape="rect" href="inet.queueing.filter.RedDropper.html" title="RedDropper" alt="RedDropper" coords="181,120,226,192">
+<area shape="rect" href="inet.queueing.filter.RedDropper.html" title="RedDropper" alt="RedDropper" coords="181,220,226,292">
+<area shape="rect" href="inet.queueing.filter.RedDropper.html" title="RedDropper" alt="RedDropper" coords="181,320,226,392">
+<area shape="rect" href="inet.queueing.common.PacketMultiplexer.html" title="PacketMultiplexer" alt="PacketMultiplexer" coords="281,235,323,277">
+<area shape="rect" href="inet.queueing.queue.PacketQueue.html" title="PacketQueue" alt="PacketQueue" coords="362,220,442,292">
+<area shape="rect" href="inet.queueing.queue.DropTailQueue.html" title="DropTailQueue" alt="DropTailQueue" coords="160,420,245,492">
+<area shape="rect" href="inet.queueing.scheduler.WrrScheduler.html" title="WrrScheduler" alt="WrrScheduler" coords="482,320,526,392">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.examples.diffserv.onedomain.DSQueue2-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.examples.diffserv.onedomain.DSQueue2-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.CompoundPacketQueueBase" href="inet.queueing.queue.CompoundPacketQueueBase.html">CompoundPacketQueueBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This compound module serves as a base module for complex packet queues formed
+by combining several queueing components.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u created %c\n pulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/queue</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>CompoundPacketQueueBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>defaultStatistic</td>
+      <td>queueLength:vector</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>in</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetRemoved</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPushStarted</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPushEnded</td>
+      <td>inet::Packet?</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPulled</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>queueBitLength</td>
+      <td>queue bit length</td>
+      <td>warmup(atomic(constant0(localSignal(packetPushEnded)) + sum(packetLength(localSignal(packetPushStarted))) - sum(packetLength(localSignal(packetPulled))) - sum(packetLength(localSignal(packetRemoved))) - sum(packetLength(localSignal(packetDropped)))))</td>
+      <td>last, max, timeavg, vector</td>
+      <td>b</td>
+      <td>sample-hold</td>
+   </tr>
+   <tr class="local">
+      <td>queueLength</td>
+      <td>queue length</td>
+      <td>warmup(atomic(constant0(localSignal(packetPushEnded)) + count(localSignal(packetPushStarted)) - count(localSignal(packetPulled)) - count(localSignal(packetRemoved)) - count(localSignal(packetDropped))))</td>
+      <td>last, max, timeavg, vector</td>
+      <td>pk</td>
+      <td>sample-hold</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPacketsQueueOverflow</td>
+      <td>dropped packets: queue overflow</td>
+      <td>packetDropReasonIsQueueOverflow(localSignal(packetDropped))</td>
+      <td>count</td>
+      <td>pk</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>queueingTime</td>
+      <td>queueing times</td>
+      <td>queueingTime(localSignal(packetPulled))</td>
+      <td>histogram, vector</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>incomingDataRate</td>
+      <td>incoming datarate</td>
+      <td>throughput(localSignal(packetPushStarted))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>flowQueueingTime</td>
+      <td>flow queueing times</td>
+      <td>queueingTime(demuxFlow(localSignal(packetPulled)))</td>
+      <td>histogram, vector</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>incomingPacketLengths</td>
+      <td>incoming packet lengths</td>
+      <td>packetLength(localSignal(packetPushStarted))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>flowIncomingDataRate</td>
+      <td>flow specific incoming data rate</td>
+      <td>throughput(flowPacketLength(demuxFlow(localSignal(packetPushStarted))))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>outgoingDataRate</td>
+      <td>outgoing datarate</td>
+      <td>throughput(localSignal(packetPulled))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>outgoingPacketLengths</td>
+      <td>outgoing packet lengths</td>
+      <td>packetLength(localSignal(packetPulled))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPacketLengthsQueueOverflow</td>
+      <td>dropped packet lengths: queue overflow</td>
+      <td>packetLength(packetDropReasonIsQueueOverflow(localSignal(packetDropped)))</td>
+      <td>sum, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>flowOutgoingDataRate</td>
+      <td>flow specific outgoing data rate</td>
+      <td>throughput(flowPacketLength(demuxFlow(localSignal(packetPulled))))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>incomingPackets</td>
+      <td>incoming packets</td>
+      <td>localSignal(packetPushStarted)</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>outgoingPackets</td>
+      <td>outgoing packets</td>
+      <td>localSignal(packetPulled)</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.BehaviorAggregateClassifier" href="inet.networklayer.diffserv.BehaviorAggregateClassifier.html">classifier</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"classified %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.BehaviorAggregateClassifier" href="inet.networklayer.diffserv.BehaviorAggregateClassifier.html">classifier</a>.reverseOrder</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"dropped %d/%p pk (%k/%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.backpressure</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.wq</td>
+      <td>double</td>
+      <td>0.002</td>
+      <td>
+<p>weight of the current queue length in the averaged queue length, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.minth</td>
+      <td>double</td>
+      <td>5</td>
+      <td>
+<p>minimum threshold for avg queue length</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.maxth</td>
+      <td>double</td>
+      <td>50</td>
+      <td>
+<p>maximum threshold for avg queue length (=buffer capacity), in range (minth,packetCapacity]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.maxp</td>
+      <td>double</td>
+      <td>0.02</td>
+      <td>
+<p>maximum value for pbs, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.pkrate</td>
+      <td>double</td>
+      <td>150</td>
+      <td>
+<p>average packet rate for calculations when queue is empty</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.useEcn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>if enabled, packets are marked with ECN if applicable</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red1</a>.packetCapacity</td>
+      <td>int</td>
+      <td>int(maxth)</td>
+      <td>
+<p>packets are dropped if queue length is greater</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"dropped %d/%p pk (%k/%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.backpressure</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.wq</td>
+      <td>double</td>
+      <td>0.002</td>
+      <td>
+<p>weight of the current queue length in the averaged queue length, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.minth</td>
+      <td>double</td>
+      <td>5</td>
+      <td>
+<p>minimum threshold for avg queue length</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.maxth</td>
+      <td>double</td>
+      <td>50</td>
+      <td>
+<p>maximum threshold for avg queue length (=buffer capacity), in range (minth,packetCapacity]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.maxp</td>
+      <td>double</td>
+      <td>0.02</td>
+      <td>
+<p>maximum value for pbs, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.pkrate</td>
+      <td>double</td>
+      <td>150</td>
+      <td>
+<p>average packet rate for calculations when queue is empty</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.useEcn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>if enabled, packets are marked with ECN if applicable</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red2</a>.packetCapacity</td>
+      <td>int</td>
+      <td>int(maxth)</td>
+      <td>
+<p>packets are dropped if queue length is greater</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"dropped %d/%p pk (%k/%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.backpressure</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.wq</td>
+      <td>double</td>
+      <td>0.002</td>
+      <td>
+<p>weight of the current queue length in the averaged queue length, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.minth</td>
+      <td>double</td>
+      <td>5</td>
+      <td>
+<p>minimum threshold for avg queue length</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.maxth</td>
+      <td>double</td>
+      <td>50</td>
+      <td>
+<p>maximum threshold for avg queue length (=buffer capacity), in range (minth,packetCapacity]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.maxp</td>
+      <td>double</td>
+      <td>0.02</td>
+      <td>
+<p>maximum value for pbs, in range [0.0, 1.0]</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.pkrate</td>
+      <td>double</td>
+      <td>150</td>
+      <td>
+<p>average packet rate for calculations when queue is empty</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.useEcn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>if enabled, packets are marked with ECN if applicable</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">red3</a>.packetCapacity</td>
+      <td>int</td>
+      <td>int(maxth)</td>
+      <td>
+<p>packets are dropped if queue length is greater</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">mux</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"passed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">mux</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">mux</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">afQueue</a>.bufferModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative module path to the <a title="inet.queueing.contract.IPacketBuffer" href="inet.queueing.contract.IPacketBuffer.html">IPacketBuffer</a> module used by this queue, implicit buffer by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.packetCapacity</td>
+      <td>int</td>
+      <td>100</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.dropperClass</td>
+      <td>string</td>
+      <td>"inet::queueing::PacketAtCollectionEndDropper"</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.DropTailQueue" href="inet.queueing.queue.DropTailQueue.html">beQueue</a>.bufferModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative module path to the <a title="inet.queueing.contract.IPacketBuffer" href="inet.queueing.contract.IPacketBuffer.html">IPacketBuffer</a> module used by this queue, implicit buffer by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.WrrScheduler" href="inet.queueing.scheduler.WrrScheduler.html">wrr</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"scheduled %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.WrrScheduler" href="inet.queueing.scheduler.WrrScheduler.html">wrr</a>.reverseOrder</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.WrrScheduler" href="inet.queueing.scheduler.WrrScheduler.html">wrr</a>.weights</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Diffserv Queue used in Experiment 2.1 - 2.4.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">DSQueue2</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">CompoundPacketQueueBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">: </span><span style="color: #232629; ">BehaviorAggregateClassifier</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">dscps</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;AF11 AF12 AF13&quot;</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">red1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RedDropper</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">collectionModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.afQueue&quot;</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">red2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RedDropper</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">collectionModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.afQueue&quot;</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">red3</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RedDropper</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">collectionModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.afQueue&quot;</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mux</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketMultiplexer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">afQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">DropTailQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">: </span><span style="color: #232629; ">WrrScheduler</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=500,300&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">red1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">red2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">red3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">defaultOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">red1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mux</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">red2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mux</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">red3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mux</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">mux</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">afQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">afQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="examples-diffserv-onedomain-DSQueue2.ned.html">examples/diffserv/onedomain/DSQueue2.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

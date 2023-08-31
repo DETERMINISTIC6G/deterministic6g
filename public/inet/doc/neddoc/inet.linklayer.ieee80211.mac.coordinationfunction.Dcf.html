@@ -1,0 +1,609 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Dcf</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Dcf</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_ieee80211_mac_coordinationfunction">inet.linklayer.ieee80211.mac.coordinationfunction</a></p>
+<h2 class="comptitle" style="float: left;">Dcf</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>Implements the DCF (Distributed Coordination Function) for IEEE 802.11.</p>
+<img src="inet.linklayer.ieee80211.mac.coordinationfunction.Dcf-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html" title="Dcaf" alt="Dcaf" coords="84,120,221,192">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.originator.OriginatorMacDataService.html" title="OriginatorMacDataService" alt="OriginatorMacDataService" coords="32,220,273,292">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.recipient.RecipientMacDataService.html" title="RecipientMacDataService" alt="RecipientMacDataService" coords="37,320,267,392">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html" title="RateSelection" alt="RateSelection" coords="292,120,413,192">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.contract.IRateControl.html" title="IRateControl" alt="IRateControl" coords="299,220,405,292">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure.html" title="NonQosRecoveryProcedure" alt="NonQosRecoveryProcedure" coords="264,320,440,392">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism.html" title="OriginatorProtectionMechanism" alt="OriginatorProtectionMechanism" coords="4,420,300,492">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.originator.AckHandler.html" title="AckHandler" alt="AckHandler" coords="299,420,405,492">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.contract.IOriginatorAckPolicy.html" title="IOriginatorAckPolicy" alt="IOriginatorAckPolicy" coords="462,120,642,192">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.contract.IRecipientAckPolicy.html" title="IRecipientAckPolicy" alt="IRecipientAckPolicy" coords="468,220,637,292">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.contract.IRtsPolicy.html" title="IRtsPolicy" alt="IRtsPolicy" coords="513,320,592,392">
+<area shape="rect" href="inet.linklayer.ieee80211.mac.contract.ICtsPolicy.html" title="ICtsPolicy" alt="ICtsPolicy" coords="512,420,593,492">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee80211.mac.coordinationfunction.Dcf-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee80211.mac.coordinationfunction.Dcf-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>rxModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>txModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>Dcf</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/layer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceStarted</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>datarateSelected</td>
+      <td>double</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeer</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeer</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>linkBroken</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceFinished</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeerMulticast</td>
+      <td>packets received: multicast</td>
+      <td>ieee80211Multicast(packetReceivedFromPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropNotAddressedToUs</td>
+      <td>packet drops: not addressed to us</td>
+      <td>packetDropReasonIsNotAddressedToUs(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropQueueOverflow</td>
+      <td>packet drops: queue overflow</td>
+      <td>packetDropReasonIsQueueOverflow(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDropRetryLimitReached</td>
+      <td>packet drops: retry limit reached</td>
+      <td>packetDropReasonIsRetryLimitReached(packetDropped)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>datarateSelected</td>
+      <td>datarates selected</td>
+      <td></td>
+      <td>vector</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeerWithoutRetry</td>
+      <td>packets sent: without retry</td>
+      <td>ieee80211NotRetry(packetSentToPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeer</td>
+      <td>packets sent</td>
+      <td></td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>linkBroken</td>
+      <td>link breaks</td>
+      <td></td>
+      <td>count, vector?</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetDrop</td>
+      <td>packet drops</td>
+      <td>packetDropped</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceFinished</td>
+      <td>finished frame sequences</td>
+      <td></td>
+      <td>count</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeerUnicast</td>
+      <td>packets sent: unicast</td>
+      <td>ieee80211Unicast(packetSentToPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeerUnicast</td>
+      <td>packets received: unicast</td>
+      <td>ieee80211Unicast(packetReceivedFromPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeerWithRetry</td>
+      <td>packets sent: with retry</td>
+      <td>ieee80211Retry(packetSentToPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceNumPackets</td>
+      <td>frame sequences: number of packets</td>
+      <td>frameSequenceNumPackets(frameSequenceFinished)</td>
+      <td>histogram, vector?</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeerBroadcast</td>
+      <td>packets sent: broadcast </td>
+      <td>ieee80211Broadcast(packetSentToPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeerWithRetry</td>
+      <td>packets received: with retry</td>
+      <td>ieee80211Retry(packetReceivedFromPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceActive</td>
+      <td>frame sequence active</td>
+      <td>warmup(count(frameSequenceStarted)-count(frameSequenceFinished))</td>
+      <td>vector</td>
+      <td></td>
+      <td>sample-hold</td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeer</td>
+      <td>packets received</td>
+      <td></td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>frameSequenceDuration</td>
+      <td>frame sequence durations</td>
+      <td>frameSequenceDuration(frameSequenceFinished)</td>
+      <td>histogram, vector?</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeerWithoutRetry</td>
+      <td>packets received: without retry</td>
+      <td>ieee80211NotRetry(packetReceivedFromPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToPeerMulticast</td>
+      <td>packets sent: multicast</td>
+      <td>ieee80211Multicast(packetSentToPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromPeerBroadcast</td>
+      <td>packets received: broadcast</td>
+      <td>ieee80211Broadcast(packetReceivedFromPeer)</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.channelaccess.Dcaf" href="inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html">channelAccess</a>.<a title="inet.linklayer.ieee80211.mac.queue.InProgressFrames" href="inet.linklayer.ieee80211.mac.queue.InProgressFrames.html">inProgressFrames</a>.pendingQueueModule</td>
+      <td>string</td>
+      <td>"^.pendingQueue"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.channelaccess.Dcaf" href="inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html">channelAccess</a>.<a title="inet.linklayer.ieee80211.mac.queue.InProgressFrames" href="inet.linklayer.ieee80211.mac.queue.InProgressFrames.html">inProgressFrames</a>.originatorMacDataServiceModule</td>
+      <td>string</td>
+      <td>"^.^.originatorMacDataService"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.channelaccess.Dcaf" href="inet.linklayer.ieee80211.mac.channelaccess.Dcaf.html">channelAccess</a>.<a title="inet.linklayer.ieee80211.mac.queue.InProgressFrames" href="inet.linklayer.ieee80211.mac.queue.InProgressFrames.html">inProgressFrames</a>.ackHandlerModule</td>
+      <td>string</td>
+      <td>"^.^.ackHandler"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.multicastFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.responseAckFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.responseCtsFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.dataFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td>
+<p>fastest</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.dataFrameBandwidth</td>
+      <td>double</td>
+      <td>nan Hz</td>
+      <td>
+<p>unspecified by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.dataFrameNumSpatialStreams</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>unspecified by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.mgmtFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td>
+<p>fastest</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.rateselection.RateSelection" href="inet.linklayer.ieee80211.mac.rateselection.RateSelection.html">rateSelection</a>.controlFrameBitrate</td>
+      <td>double</td>
+      <td>-1bps</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure" href="inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure.html">recoveryProcedure</a>.shortRetryLimit</td>
+      <td>int</td>
+      <td>7</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure" href="inet.linklayer.ieee80211.mac.originator.NonQosRecoveryProcedure.html">recoveryProcedure</a>.longRetryLimit</td>
+      <td>int</td>
+      <td>4</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism" href="inet.linklayer.ieee80211.mac.protectionmechanism.OriginatorProtectionMechanism.html">originatorProtectionMechanism</a>.rateSelectionModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.contract.IOriginatorAckPolicy" href="inet.linklayer.ieee80211.mac.contract.IOriginatorAckPolicy.html">originatorAckPolicy</a>.rateSelectionModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.contract.IRecipientAckPolicy" href="inet.linklayer.ieee80211.mac.contract.IRecipientAckPolicy.html">recipientAckPolicy</a>.rateSelectionModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.contract.IRtsPolicy" href="inet.linklayer.ieee80211.mac.contract.IRtsPolicy.html">rtsPolicy</a>.rateSelectionModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.contract.ICtsPolicy" href="inet.linklayer.ieee80211.mac.contract.ICtsPolicy.html">ctsPolicy</a>.rxModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.contract.ICtsPolicy" href="inet.linklayer.ieee80211.mac.contract.ICtsPolicy.html">ctsPolicy</a>.rateSelectionModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Implements the DCF (Distributed Coordination Function) for IEEE 802.11.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">Dcf</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IDcf</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">rxModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">txModule</span><span style="color: #232629; ">;
+
+        *.</span><span style="color: #232629; ">rateSelectionModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.rateSelection&quot;</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">rxModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.&quot;</span><span style="color: #232629; "> + </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">rxModule</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Dcf</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/layer&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">linkBroken</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceStarted</span><span style="color: #232629; ">];
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceFinished</span><span style="color: #232629; ">];
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">datarateSelected</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeerUnicast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent: unicast&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Unicast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeerMulticast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent: multicast&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Multicast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeerBroadcast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent: broadcast &quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Broadcast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeerWithRetry</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent: with retry&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Retry</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetSentToPeerWithoutRetry</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets sent: without retry&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211NotRetry</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetSentToPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeerUnicast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received: unicast&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Unicast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeerMulticast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received: multicast&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Multicast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeerBroadcast</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received: broadcast&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Broadcast</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeerWithRetry</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received: with retry&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211Retry</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceivedFromPeerWithoutRetry</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets received: without retry&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">ieee80211NotRetry</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetReceivedFromPeer</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">linkBroken</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;link breaks&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDrop</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drops&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropNotAddressedToUs</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drops: not addressed to us&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsNotAddressedToUs</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropQueueOverflow</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drops: queue overflow&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsQueueOverflow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropRetryLimitReached</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet drops: retry limit reached&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsRetryLimitReached</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">),</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">); </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceFinished</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;finished frame sequences&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceDuration</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;frame sequence durations&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">frameSequenceDuration</span><span style="color: #232629; ">(</span><span style="color: #232629; ">frameSequenceFinished</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">?);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceNumPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;frame sequences: number of packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">frameSequenceNumPackets</span><span style="color: #232629; ">(</span><span style="color: #232629; ">frameSequenceFinished</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">?);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">frameSequenceActive</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;frame sequence active&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">warmup</span><span style="color: #232629; ">(</span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">frameSequenceStarted</span><span style="color: #232629; ">)-</span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">frameSequenceFinished</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sample</span><span style="color: #232629; ">-</span><span style="color: #232629; ">hold</span><span style="color: #232629; ">; </span><span style="color: #232629; ">autoWarmupFilter</span><span style="color: #232629; ">=</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">datarateSelected</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;datarates selected&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// TODO consider merging Dcaf into Dcf, because its not like the relationship between Hcf and Edcaf or
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// TODO maybe move PendingQueue and InProgressFrames in Edcaf?
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">channelAccess</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Dcaf</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">originatorMacDataService</span><span style="color: #232629; ">: </span><span style="color: #232629; ">OriginatorMacDataService</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">recipientMacDataService</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RecipientMacDataService</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">rateSelection</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RateSelection</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">rateControlModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.rateControl&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=350,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">rateControl</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IRateControl</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=350,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">recoveryProcedure</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NonQosRecoveryProcedure</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">cwCalculatorModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.channelAccess&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">rtsPolicyModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.rtsPolicy&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=350,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">originatorProtectionMechanism</span><span style="color: #232629; ">: </span><span style="color: #232629; ">OriginatorProtectionMechanism</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ackHandler</span><span style="color: #232629; ">: </span><span style="color: #232629; ">AckHandler</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=350,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">originatorAckPolicy</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;OriginatorAckPolicy&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IOriginatorAckPolicy</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">recipientAckPolicy</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;RecipientAckPolicy&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IRecipientAckPolicy</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">rtsPolicy</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;RtsPolicy&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IRtsPolicy</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ctsPolicy</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;CtsPolicy&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">ICtsPolicy</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,400&quot;</span><span style="color: #232629; ">);
+        }
+}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee80211-mac-coordinationfunction-Dcf.ned.html">src/inet/linklayer/ieee80211/mac/coordinationfunction/Dcf.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,492 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>AccessPoint</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">AccessPoint</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_wireless">inet.node.wireless</a></p>
+<h2 class="comptitle" style="float: left;">AccessPoint</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>A generic access point supporting multiple wireless radios, and
+multiple ethernet ports. The type of the ethernet MAC, relay unit
+and wireless card can be specified as parameters.</p>
+<p>By default, the access point is stationary (~<a title="inet.mobility.static.StationaryMobility" href="inet.mobility.static.StationaryMobility.html">StationaryMobility</a>),
+but that can also be configured by a parameter.</p>
+<p>The wlan[*].mgmt.typename can be configured for different management types
+currently it can be: ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtApSimplified" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtApSimplified.html">Ieee80211MgmtApSimplified</a> and ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html">Ieee80211MgmtAp</a>.
+By default it is ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html">Ieee80211MgmtAp</a>. The Simplified version does not
+support channel scanning, authentication and association .
+In this case, nodes must explicitly specify the hardware address
+of the wlan card they want to be associated with.</p>
+<img src="inet.node.wireless.AccessPoint-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="74,128,131,184">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="37,228,168,284">
+<area shape="rect" href="inet.linklayer.contract.IMacForwardingTable.html" title="IMacForwardingTable" alt="IMacForwardingTable" coords="58,328,147,384">
+<area shape="rect" href="inet.mobility.contract.IMobility.html" title="IMobility" alt="IMobility" coords="65,428,140,484">
+<area shape="rect" href="inet.linklayer.contract.IMacRelayUnit.html" title="IMacRelayUnit" alt="IMacRelayUnit" coords="763,120,841,192">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,238,1406,275">
+<area shape="rect" href="inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="663,320,742,392">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="302,438,1306,475">
+<area shape="rect" href="inet.linklayer.contract.IWirelessInterface.html" title="IWirelessInterface" alt="IWirelessInterface" coords="131,520,373,592">
+<area shape="rect" href="inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="776,520,928,592">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.wireless.AccessPoint-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.styling.AnnotationShowcase" href="inet.showcases.visualizer.canvas.styling.AnnotationShowcase.html">AnnotationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorC" href="inet.tutorials.configurator.ConfiguratorC.html">ConfiguratorC</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorE" href="inet.tutorials.configurator.ConfiguratorE.html">ConfiguratorE</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.handover.HandoverNetwork" href="inet.examples.wireless.handover.HandoverNetwork.html">HandoverNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.handover.HandoverShowcase" href="inet.showcases.wireless.handover.HandoverShowcase.html">HandoverShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationAdvancedFeaturesShowcase.html">Ieee80211VisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationDisplayingAssociationsShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationDisplayingAssociationsShowcase.html">Ieee80211VisualizationDisplayingAssociationsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase.html">Ieee80211VisualizationSignalLevelsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationVisualizingHandoverShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationVisualizingHandoverShowcase.html">Ieee80211VisualizationVisualizingHandoverShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase.html">InterfaceTableVisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211.Lan80211" href="inet.examples.wireless.lan80211.Lan80211.html">Lan80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211ac.Lan80211ac" href="inet.examples.wireless.lan80211ac.Lan80211ac.html">Lan80211ac</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mobileipv6.mIPv6Network" href="inet.examples.mobileipv6.mIPv6Network.html">mIPv6Network</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.multiradio.MultiRadio" href="inet.examples.wireless.multiradio.MultiRadio.html">MultiRadio</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.multiradio.MultiRadioShowcase" href="inet.showcases.wireless.multiradio.MultiRadioShowcase.html">MultiRadioShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase.html">NetworkPathRIPShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase.html">PacketDropQueueOverflowShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerFilteringShowcase.html">PhysicalLinkVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.qos.QosShowcase" href="inet.showcases.wireless.qos.QosShowcase.html">QosShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.qos.QosThroughput" href="inet.examples.wireless.qos.QosThroughput.html">QosThroughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hosttohost.Throughput" href="inet.examples.wireless.hosttohost.Throughput.html">Throughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP" href="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP.html">WiredAndWirelessHostsWithAP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWith2DHCP" href="inet.examples.dhcp.WirelessNetWith2DHCP.html">WirelessNetWith2DHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWithDHCP" href="inet.examples.dhcp.WirelessNetWithDHCP.html">WirelessNetWithDHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>numWlanInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>the number of radios in the access point</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/accesspoint</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>radioIn [ ]</td>
+      <td>input</td>
+      <td>numWlanInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IMacForwardingTable" href="inet.linklayer.contract.IMacForwardingTable.html">macTable</a>.agingTime</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IMacForwardingTable" href="inet.linklayer.contract.IMacForwardingTable.html">macTable</a>.forwardingTableFile</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// A generic access point supporting multiple wireless radios, and
+// multiple ethernet ports. The type of the ethernet MAC, relay unit
+// and wireless card can be specified as parameters.
+//
+// By default, the access point is stationary (~StationaryMobility),
+// but that can also be configured by a parameter.
+//
+// The wlan[*].mgmt.typename can be configured for different management types
+// currently it can be: ~Ieee80211MgmtApSimplified and ~Ieee80211MgmtAp.
+// By default it is ~Ieee80211MgmtAp. The Simplified version does not
+// support channel scanning, authentication and association .
+// In this case, nodes must explicitly specify the hardware address
+// of the wlan card they want to be associated with.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">AccessPoint</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">wireless</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/accesspoint&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">);               </span><span style="color: #808080; font-style: italic; ">// the number of radios in the access point
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasStatus</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">protocol</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ethernetmac&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">mgmt</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee80211MgmtAp&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee80211Portal&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">agent</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">radio</span><span style="color: #232629; ">.</span><span style="color: #232629; ">antenna</span><span style="color: #232629; ">.</span><span style="color: #232629; ">mobilityModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.^.^.mobility&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">encap</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">macTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.macTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">hasStp</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">registerProtocol</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; ">] </span><span style="color: #232629; font-weight: bold; ">@directIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">status</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NodeStatus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasStatus</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">macTable</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;MacForwardingTable&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMacForwardingTable</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,300;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mobility</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;StationaryMobility&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMobility</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,400;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #800080; ">firstAvailable</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee8021dRelay&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;MacRelayUnit&quot;</span><span style="color: #232629; ">))&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMacRelayUnit</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=800,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">) {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=800,200;b=1200,5,,,,1&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetEncapsulation&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetLayer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">) {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=800,400;b=1000,5,,,,1&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; ">]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee80211Interface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IWirelessInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,500,row,150;q=queue&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">mac</span><span style="color: #232629; ">.</span><span style="color: #232629; ">promiscuous</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=850,500,row;q=txQueue&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">);
+
+        </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bl</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bl</span><span style="color: #232629; ">);
+
+        </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// connections to network outside
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// wireless interfaces MUST be connected first (i.e. ports 0..numWlanInterfaces-1)
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// because broadcasts must be handled differently for wireless IFs by the bridging
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">radioIn</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">1</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #808080; font-style: italic; ">// ethernet must be connected only AFTER wireless ports
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">];
+            </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; ">&gt;</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)+</span><span style="color: #232629; ">numWlanInterfaces</span><span style="color: #232629; ">&gt;</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+        }
+}
+
+</span></pre>
+File: <a href="src-inet-node-wireless-AccessPoint.ned.html">src/inet/node/wireless/AccessPoint.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

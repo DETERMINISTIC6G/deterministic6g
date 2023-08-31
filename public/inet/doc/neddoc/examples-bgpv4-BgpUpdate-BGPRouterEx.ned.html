@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>BGPRouterEx.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">BGPRouterEx.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/bgpv4/BgpUpdate/BGPRouterEx.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpUpdate.BGPRouterEx" href="inet.examples.bgpv4.BgpUpdate.BGPRouterEx.html">BGPRouterEx</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example IP router with BGPv4 and OSPFv4 support.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2010 Helene Lageber
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bgpv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">BgpUpdate</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">misc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MessageChecker</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IPppInterface</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IEthernetLayer</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4NetworkLayer</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bgpv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Bgp</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ospfv2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ospfv2</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ITcp</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Example IP router with BGPv4 and OSPFv4 support.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">BGPRouterEx</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=abstract/router&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">registerProtocol</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">forwarding</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">routingTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.ipv4.routingTable&quot;</span><span style="color: #232629; ">));
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PppFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;i=block/table_s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ospfv2</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,240,row;i=block/network2&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">bgp</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Bgp</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">ospfRoutingModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.ospf&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,80;i=block/network&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">snifferIn</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageChecker</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/uparrow_s;p=175,160&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">snifferOut</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageChecker</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/downarrow_s;p=325,160&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #800080; ">firstAvailable</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Tcp&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;TcpLwip&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;TcpNsc&quot;</span><span style="color: #232629; ">))&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">ITcp</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,240;i=block/transport&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;b=400,5,,,,1;p=325,320&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkLayer</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">routingTable</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routerId</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,400;i=block/layer;q=queue&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;b=400,5,,,,1;p=325,480&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetEncapsulation&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetLayer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,560&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;b=400,5,,,,1;p=325,640&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">)]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;PppInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPppInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,720,row,110;q=l2queue;i=block/ifcard&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,720,row,110;q=l2queue;i=block/ifcard&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">bgp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">socketOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">snifferOut</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">bgp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">socketIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">snifferIn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">snifferOut</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">appIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">snifferIn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">appOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ifOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ifIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nl</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">exists</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// connections to network outside
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+        }
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+        }
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

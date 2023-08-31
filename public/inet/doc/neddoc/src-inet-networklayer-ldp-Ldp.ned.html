@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ldp.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ldp.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/networklayer/ldp/Ldp.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ldp.Ldp" href="inet.networklayer.ldp.Ldp.html">Ldp</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Handles and processes LDP messages.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2005 Vojta Janota
+// Copyright (C) 2004 Andras Varga
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ldp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">applications</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IApp</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Handles and processes LDP messages.
+//
+// The LDP protocol is used by one LSR (Label Switched Router) to inform
+// another LSR of the label bindings it has made. The LSR uses this protocol
+// to establish label switched paths through a network by mapping network layer
+// routing information directly to data-link layer switched paths.
+//
+// Operations
+//
+// All LDP message types are subclassed from ~LdpPacket, and include
+// ~LdpHello, ~LdpNotify, ~LdpLabelRequest, ~LdpIni and ~LdpAddress.
+//
+// Message processing in the ~Ldp module is explained in
+// </span><span style="color: #800000; ">&lt;a href=&quot;ldp-processing.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">LDP Message Processing</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; "> Vojta Janota
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ldp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IApp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">routingTableModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">libTableModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">tedModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">holdTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">15</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">helloInterval</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/control&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@lifecycleSupport</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">stopOperationExtraTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// extra time after lifecycle stop operation finished
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">stopOperationTimeout</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// timeout value for lifecycle stop operation
+</span><span style="color: #232629; ">
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">,</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">,</span><span style="color: #232629; ">UdpControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

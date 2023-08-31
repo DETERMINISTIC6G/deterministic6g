@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MobilityCanvasVisualizer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MobilityCanvasVisualizer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_canvas_mobility">inet.visualizer.canvas.mobility</a></p>
+<h2 class="comptitle" style="float: left;">MobilityCanvasVisualizer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module visualizes multiple mobilities on a 2D canvas. It moves visual
+representations according to their mobility model. It also displays recent
+movement as a polyline, current velocity vector and current orientation.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~MobilityOsgVisualizer, ~<a title="inet.visualizer.common.MobilityVisualizer" href="inet.visualizer.common.MobilityVisualizer.html">MobilityVisualizer</a>, ~<a title="inet.visualizer.base.MobilityVisualizerBase" href="inet.visualizer.base.MobilityVisualizerBase.html">MobilityVisualizerBase</a>, ~<a title="inet.visualizer.common.MobilityVisualizer" href="inet.visualizer.common.MobilityVisualizer.html">MobilityVisualizer</a></p>
+<img src="inet.visualizer.canvas.mobility.MobilityCanvasVisualizer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.canvas.mobility.MobilityCanvasVisualizer.html" title="MobilityCanvasVisualizer" alt="MobilityCanvasVisualizer" coords="0,42,273,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.canvas.mobility.MobilityCanvasVisualizer-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.MobilityVisualizerBase" href="inet.visualizer.base.MobilityVisualizerBase.html">MobilityVisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for mobility visualizer simple modules. It subscribes
+for the mobilityStateChanged signal at the module determined by the
+visualizationSubjectModule parameter. The actual visualization of mobility is done in
+derived modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>networkNodeVisualizerModule</td>
+      <td>string</td>
+      <td>"^.networkNodeVisualizer"</td>
+      <td>
+<p>the network node visualizer module, refers to a sibling submodule by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayMobility</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>display mobility, enabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>animationSpeed</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>animation speed while objects are moving around, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>moduleFilter</td>
+      <td>string</td>
+      <td>"**.mobility"</td>
+      <td>
+<p>which mobilities are considered, matches all mobilities by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayPositions</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display a circle indicating the current position, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>positionCircleRadius</td>
+      <td>double</td>
+      <td>4</td>
+      <td>
+<p>radius of the circle</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>positionCircleLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>line width of the circle</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>positionCircleLineColor</td>
+      <td>string</td>
+      <td>"dark"</td>
+      <td>
+<p>position circle line color is a list of colors, a set of dark colors by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>positionCircleFillColor</td>
+      <td>string</td>
+      <td>"dark"</td>
+      <td>
+<p>position circle fill color is a list of colors, a set of dark colors by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayOrientations</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display a pie indicating the current orientation, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationPieRadius</td>
+      <td>double</td>
+      <td>32</td>
+      <td>
+<p>radius of the pie</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationPieSize</td>
+      <td>double</td>
+      <td>0.2</td>
+      <td>
+<p>relative size of the pie compared to the full circle</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationPieOpacity</td>
+      <td>double</td>
+      <td>0.25</td>
+      <td>
+<p>opacity of the pie</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationLineColor</td>
+      <td>string</td>
+      <td>"black"</td>
+      <td>
+<p>orientation line color, black by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>orientation line style (solid, dashed, dotted)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>orientation line width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>orientationFillColor</td>
+      <td>string</td>
+      <td>"blue"</td>
+      <td>
+<p>orientation fill color, blue by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayVelocities</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display an arrow indicating the current velocity, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>velocityArrowScale</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>velocity scaling factor to pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>velocityLineColor</td>
+      <td>string</td>
+      <td>"black"</td>
+      <td>
+<p>velocity line color, black by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>velocityLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>velocity line style (solid, dashed, dotted)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>velocityLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>velocity line width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayMovementTrails</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display a line along the recent path of mobilities, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>movementTrailLineColor</td>
+      <td>string</td>
+      <td>"dark"</td>
+      <td>
+<p>movement trail line color is a list of colors, a set of dark colors by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>movementTrailLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>movement trail line style (solid, dashed, dotted)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>movementTrailLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>movement trail line width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>trailLength</td>
+      <td>int</td>
+      <td>100</td>
+      <td>
+<p>number of sections in the trail</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>zIndex</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>determines the drawing order of figures relative to other visualizers</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>MobilityCanvasVisualizer</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module visualizes multiple mobilities on a 2D canvas. It moves visual
+// representations according to their mobility model. It also displays recent
+// movement as a polyline, current velocity vector and current orientation.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~MobilityOsgVisualizer, ~MobilityVisualizer, ~MobilityVisualizerBase, ~MobilityVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityCanvasVisualizer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMobilityVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">zIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the drawing order of figures relative to other visualizers
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">MobilityCanvasVisualizer</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-canvas-mobility-MobilityCanvasVisualizer.ned.html">src/inet/visualizer/canvas/mobility/MobilityCanvasVisualizer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

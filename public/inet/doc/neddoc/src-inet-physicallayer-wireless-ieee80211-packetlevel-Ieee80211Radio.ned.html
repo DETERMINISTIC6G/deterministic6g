@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211Radio.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211Radio.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/physicallayer/wireless/ieee80211/packetlevel/Ieee80211Radio.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio.html">Ieee80211Radio</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This radio model is part of the IEEE 802.11 physical layer model. It supports
+multiple channels, different operation modes, and preamble modes. It must be
+used in conjunction with the ~<a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211RadioMedium" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211RadioMedium.html">Ieee80211RadioMedium</a> model or other derived
+models.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">physicallayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">wireless</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ieee80211</span><span style="color: #232629; ">.</span><span style="color: #232629; ">packetlevel</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">physicallayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">wireless</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">base</span><span style="color: #232629; ">.</span><span style="color: #232629; ">packetlevel</span><span style="color: #232629; ">.</span><span style="color: #232629; ">FlatRadioBase</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This radio model is part of the IEEE 802.11 physical layer model. It supports
+// multiple channels, different operation modes, and preamble modes. It must be
+// used in conjunction with the ~Ieee80211RadioMedium model or other derived
+// models.
+//
+// This model provides sensible default values for the radio parameters to be
+// used in IEEE 802.11 simulations. It also supports switching channels via
+// ~ConfigureRadioCommand, or with direct C++ function calls.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~Ieee80211ScalarRadio, ~Ieee80211DimensionalRadio.
+//
+</span><span style="color: #cccccc; font-style: italic; ">//# </span><span style="color: #000080; ">TODO</span><span style="color: #cccccc; font-style: italic; "> check this Table 18-14&mdash;Receiver performance requirements
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211Radio</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FlatRadioBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalAnalogRepresentation</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;scalar&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;dimensional&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;scalar&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">opMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;a&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;b&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;g(erp)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;g(mixed)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;n(mixed-2.4Ghz)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;p&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;ac&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;g(mixed)&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// operation mode
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">bandName</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;2.4 GHz&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5 GHz&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5 GHz (20 MHz)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5 GHz (40 MHz)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5 GHz (80 MHz)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5 GHz (160 MHz)&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;5.9 GHz&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;2.4 GHz&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// band name
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">channelNumber</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);                                 </span><span style="color: #808080; font-style: italic; ">// initial channel number within the band (TODO this is offset by 1)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">crcMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">signalAnalogRepresentation</span><span style="color: #232629; "> == </span><span style="color: #008000; ">&quot;scalar&quot;</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee80211ScalarTransmitter&quot;</span><span style="color: #232629; "> : </span><span style="color: #232629; ">signalAnalogRepresentation</span><span style="color: #232629; "> == </span><span style="color: #008000; ">&quot;dimensional&quot;</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee80211DimensionalTransmitter&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">receiver</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">signalAnalogRepresentation</span><span style="color: #232629; "> == </span><span style="color: #008000; ">&quot;scalar&quot;</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee80211ScalarReceiver&quot;</span><span style="color: #232629; "> : </span><span style="color: #232629; ">signalAnalogRepresentation</span><span style="color: #232629; "> == </span><span style="color: #008000; ">&quot;dimensional&quot;</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee80211DimensionalReceiver&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">centerFrequency</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; ">.</span><span style="color: #008000; ">412</span><span style="color: #232629; ">GHz</span><span style="color: #232629; ">);                 </span><span style="color: #808080; font-style: italic; ">// the center frequency of the band is automatically set by the radio
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bandwidth</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">MHz</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">preambleDuration</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bitrate</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">11</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">headerLength</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">192</span><span style="color: #232629; ">b</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">power</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">mW</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">receiver</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bandwidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">22</span><span style="color: #232629; "> </span><span style="color: #232629; ">MHz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the highest value
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">receiver</span><span style="color: #232629; ">.</span><span style="color: #232629; ">sensitivity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">85</span><span style="color: #232629; ">dBm</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">receiver</span><span style="color: #232629; ">.</span><span style="color: #232629; ">energyDetection</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">85</span><span style="color: #232629; ">dBm</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">receiver</span><span style="color: #232629; ">.</span><span style="color: #232629; ">snirThreshold</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">dB</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">opMode</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">opMode</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">bandName</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bandName</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">channelNumber</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">channelNumber</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ieee80211Radio</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">radioChannelChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">long</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">radioChannel</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;Radio channel&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">radioChannelChanged</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sample</span><span style="color: #232629; ">-</span><span style="color: #232629; ">hold</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

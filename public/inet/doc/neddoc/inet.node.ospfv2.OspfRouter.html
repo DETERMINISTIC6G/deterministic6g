@@ -1,0 +1,778 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>OspfRouter</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">OspfRouter</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_ospfv2">inet.node.ospfv2</a></p>
+<h2 class="comptitle" style="float: left;">OspfRouter</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>An OSPFv2 router.</p>
+<img src="inet.node.ospfv2.OspfRouter-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="29,63,86,119">
+<area shape="rect" href="inet.clock.contract.IClock.html" title="IClock" alt="IClock" coords="33,169,81,225">
+<area shape="rect" href="inet.power.contract.IEnergyStorage.html" title="IEnergyStorage" alt="IEnergyStorage" coords="-11,205,125,261">
+<area shape="rect" href="inet.power.contract.IEnergyManagement.html" title="IEnergyManagement" alt="IEnergyManagement" coords="-37,240,151,296">
+<area shape="rect" href="inet.power.contract.IEnergyGenerator.html" title="IEnergyGenerator" alt="IEnergyGenerator" coords="-22,276,137,332">
+<area shape="rect" href="inet.mobility.contract.IMobility.html" title="IMobility" alt="IMobility" coords="20,98,95,154">
+<area shape="rect" href="inet.common.IMeasurer.html" title="IMeasurer" alt="IMeasurer" coords="12,320,102,376">
+<area shape="rect" href="inet.common.packet.recorder.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="-105,311,220,367">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="-8,134,123,190">
+<area shape="rect" href="inet.linklayer.ieee8022.IIeee8022Llc.html" title="IIeee8022Llc" alt="IIeee8022Llc" coords="148,252,192,324">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,304,559,338">
+<area shape="rect" href="inet.protocolelement.contract.IProtocolLayer.html" title="IProtocolLayer" alt="IProtocolLayer" coords="295,318,373,390">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,371,559,405">
+<area shape="rect" href="inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="129,385,208,457">
+<area shape="rect" href="inet.linklayer.ieee8021q.IIeee8021qLayer.html" title="IIeee8021qLayer" alt="IIeee8021qLayer" coords="187,385,281,457">
+<area shape="rect" href="inet.linklayer.ieee8021r.IIeee8021rLayer.html" title="IIeee8021rLayer" alt="IIeee8021rLayer" coords="255,385,345,457">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,437,559,471">
+<area shape="rect" href="inet.linklayer.contract.ILoopbackInterface.html" title="ILoopbackInterface" alt="ILoopbackInterface" coords="239,451,429,523">
+<area shape="rect" href="inet.linklayer.contract.IWirelessInterface.html" title="IWirelessInterface" alt="IWirelessInterface" coords="47,462,289,534">
+<area shape="rect" href="inet.linklayer.contract.IPppInterface.html" title="IPppInterface" alt="IPppInterface" coords="52,451,216,523">
+<area shape="rect" href="inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="324,451,476,523">
+<area shape="rect" href="inet.linklayer.contract.ITunnelInterface.html" title="ITunnelInterface" alt="ITunnelInterface" coords="325,462,541,534">
+<area shape="rect" href="inet.linklayer.contract.IVirtualInterface.html" title="IVirtualInterface" alt="IVirtualInterface" coords="327,462,540,534">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="148,186,201,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="214,186,267,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="266,186,335,258">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,238,559,272">
+<area shape="rect" href="inet.transportlayer.contract.IUdp.html" title="IUdp" alt="IUdp" coords="148,119,192,191">
+<area shape="rect" href="inet.transportlayer.contract.ITcp.html" title="ITcp" alt="ITcp" coords="214,119,258,191">
+<area shape="rect" href="inet.transportlayer.contract.ISctp.html" title="ISctp" alt="ISctp" coords="280,119,324,191">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,171,559,205">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="99,53,238,125">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,105,559,139">
+<area shape="rect" href="inet.routing.contract.IOspf.html" title="IOspf" alt="IOspf" coords="413,120,457,192">
+<area shape="rect" href="inet.routing.contract.IBgp.html" title="IBgp" alt="IBgp" coords="347,53,391,125">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="413,53,457,125">
+<area shape="rect" href="inet.routing.contract.IPim.html" title="IPim" alt="IPim" coords="347,120,391,192">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="477,53,524,125">
+<area shape="rect" href="inet.routing.contract.IEigrp.html" title="IEigrp" alt="IEigrp" coords="470,119,518,191">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.ospfv2.OspfRouter-inheritance.svg"></object>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areas.OneNetArea" href="inet.examples.ospfv2.areas.OneNetArea.html">OneNetArea</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area1" href="inet.examples.ospfv2.fulltest.OSPF_Area1.html">OSPF_Area1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area2" href="inet.examples.ospfv2.fulltest.OSPF_Area2.html">OSPF_Area2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area3" href="inet.examples.ospfv2.fulltest.OSPF_Area3.html">OSPF_Area3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.TestArea" href="inet.examples.ospfv2.areatests.TestArea.html">TestArea</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areas.TwoNetsArea" href="inet.examples.ospfv2.areas.TwoNetsArea.html">TwoNetsArea</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.backbone.Backbone" href="inet.examples.ospfv2.backbone.Backbone.html">Backbone</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.Bgp2RoutersInAS.BgpNetwork" href="inet.examples.bgpv4.Bgp2RoutersInAS.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.Bgp3Routers.BgpNetwork" href="inet.examples.bgpv4.Bgp3Routers.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpAndOspf.BgpNetwork" href="inet.examples.bgpv4.BgpAndOspf.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpAndOspfSimple.BgpNetwork" href="inet.examples.bgpv4.BgpAndOspfSimple.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpCompleteTest.BgpNetwork" href="inet.examples.bgpv4.BgpCompleteTest.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.dynamictest.DynamicTest" href="inet.examples.ospfv2.dynamictest.DynamicTest.html">DynamicTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest" href="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest.html">OSPF_BackboneAndTwoStubsTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_mininet" href="inet.examples.ospfv2.areatests.OSPF_mininet.html">OSPF_mininet</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_RFC2328_Fig6" href="inet.examples.ospfv2.fulltest.OSPF_RFC2328_Fig6.html">OSPF_RFC2328_Fig6</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.simpletest.SimpleTest" href="inet.examples.ospfv2.simpletest.SimpleTest.html">SimpleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.Router" href="inet.node.inet.Router.html">Router</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>IPv4 router that supports wireless, Ethernet, PPP and external interfaces.
+By default, no wireless and external interfaces are added; the number of
+Ethernet and PPP ports depends on the external connections.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModel</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>3D model for OSG visualization, no 3D model by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModelColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImage</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>image for canvas visualization, no image by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImageColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>recordPcap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numPcapRecorders</td>
+      <td>int</td>
+      <td>recordPcap ? 1 : 0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numLoInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numWlanInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numEthInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of ethernet interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numPppInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of PPP interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numTunInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numVirtInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv4</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv6</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasGn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>forwarding</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>multicastForwarding</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasUdp</td>
+      <td>bool</td>
+      <td>hasRip || hasDhcp</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasTcp</td>
+      <td>bool</td>
+      <td>hasBgp</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasSctp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numApps</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasEigrp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasOspf</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasRip</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasBgp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasPim</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasDhcp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>NodeBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=abstract/router</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>radioIn [ ]</td>
+      <td>input</td>
+      <td>numWlanInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>pppg [ ]</td>
+      <td>inout</td>
+      <td>numPppInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td>numEthInterfaces</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+      <td>string</td>
+      <td>"wlan[*] eth[*] ppp[*]"</td>
+      <td>
+<p>space-separated list of sibling module names to listen on</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.contract.IBgp" href="inet.routing.contract.IBgp.html">bgp</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.contract.IBgp" href="inet.routing.contract.IBgp.html">bgp</a>.routingTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.contract.IBgp" href="inet.routing.contract.IBgp.html">bgp</a>.ospfRoutingModule</td>
+      <td>string</td>
+      <td>parent.hasOspf ? "^.ospf" : ""</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// An OSPFv2 router.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">OspfRouter</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Router</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">hasOspf</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="src-inet-node-ospfv2-OspfRouter.ned.html">src/inet/node/ospfv2/OspfRouter.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>StatisticCanvasVisualizer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">StatisticCanvasVisualizer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_canvas_common">inet.visualizer.canvas.common</a></p>
+<h2 class="comptitle" style="float: left;">StatisticCanvasVisualizer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module visualizes statistics on a 2D canvas. See the base module for
+how to configure which statistic is displayed. If configured properly, then
+it displays the last value of the statistic to the right of the visualization
+of the corresponding network node. The value and the unit is wrapped in a
+filled white rectangle.</p>
+<p>The statistic value is display with a label by default. Alternatively, any
+indicator figure can be used by configuring the property parameters and
+providing a figure template along the module path of the statistic visualizer.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~StatisticOsgVisualizer, ~<a title="inet.visualizer.common.StatisticVisualizer" href="inet.visualizer.common.StatisticVisualizer.html">StatisticVisualizer</a>, ~<a title="inet.visualizer.base.StatisticVisualizerBase" href="inet.visualizer.base.StatisticVisualizerBase.html">StatisticVisualizerBase</a>, ~<a title="inet.visualizer.contract.IStatisticVisualizer" href="inet.visualizer.contract.IStatisticVisualizer.html">IStatisticVisualizer</a></p>
+<img src="inet.visualizer.canvas.common.StatisticCanvasVisualizer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.canvas.common.StatisticCanvasVisualizer.html" title="StatisticCanvasVisualizer" alt="StatisticCanvasVisualizer" coords="0,42,272,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.canvas.common.StatisticCanvasVisualizer-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.StatisticVisualizerBase" href="inet.visualizer.base.StatisticVisualizerBase.html">StatisticVisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for statistic visualizer simple modules. It keeps track
+of the last value of a statistic for multiple network nodes. The actual
+visualization of statistic values is done in derived modules. It subscribes
+for the signal determined by the signalName parameter at the module specified
+by the visualizationSubjectModule parameter. If the visualizer receives such a signal
+it checks if the source matches the sourceFilter parameter. If the signal
+passes the check it determines the last value of the statistic specified by
+the statisticName parameter.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>networkNodeVisualizerModule</td>
+      <td>string</td>
+      <td>"^.networkNodeVisualizer"</td>
+      <td>
+<p>the network node visualizer module, refers to a sibling submodule by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayStatistics</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>signal name to subscribe, no signal name by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>statisticName</td>
+      <td>string</td>
+      <td>signalName</td>
+      <td>
+<p>statistic name to get the value, signal name by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>statisticUnit</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>statistic unit, undefined by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>statisticExpression</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>statistic expression, received value by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>sourceFilter</td>
+      <td>string</td>
+      <td>"**"</td>
+      <td>
+<p>pattern that must match the signal source, no source filter by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>format</td>
+      <td>string</td>
+      <td>"%n: %v %u"</td>
+      <td>
+<p>determines what is displayed, info by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>unit</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>display the value in one of the specified units, statistic unit by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>font</td>
+      <td>string</td>
+      <td>"<default>"</td>
+      <td>
+<p>statistic value font, automatic by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>textColor</td>
+      <td>string</td>
+      <td>"black"</td>
+      <td>
+<p>statistic value font color, black by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>backgroundColor</td>
+      <td>string</td>
+      <td>"white"</td>
+      <td>
+<p>statistic value background color, white by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>opacity</td>
+      <td>double</td>
+      <td>1.0</td>
+      <td>
+<p>opacity of the visualization</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>placementHint</td>
+      <td>string</td>
+      <td>"top"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>placementPriority</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>zIndex</td>
+      <td>double</td>
+      <td>10</td>
+      <td>
+<p>determines the drawing order of figures relative to other visualizers</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>propertyName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>optional property name of a figure template along the module path of the visualizer</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>propertyIndex</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>optional property index of a figure template along the module path of the visualizer</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>StatisticCanvasVisualizer</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module visualizes statistics on a 2D canvas. See the base module for
+// how to configure which statistic is displayed. If configured properly, then
+// it displays the last value of the statistic to the right of the visualization
+// of the corresponding network node. The value and the unit is wrapped in a
+// filled white rectangle.
+//
+// The statistic value is display with a label by default. Alternatively, any
+// indicator figure can be used by configuring the property parameters and
+// providing a figure template along the module path of the statistic visualizer.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~StatisticOsgVisualizer, ~StatisticVisualizer, ~StatisticVisualizerBase, ~IStatisticVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">StatisticCanvasVisualizer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">StatisticVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IStatisticVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">zIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the drawing order of figures relative to other visualizers
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">propertyName</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// optional property name of a figure template along the module path of the visualizer
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">propertyIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// optional property index of a figure template along the module path of the visualizer
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">StatisticCanvasVisualizer</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-canvas-common-StatisticCanvasVisualizer.ned.html">src/inet/visualizer/canvas/common/StatisticCanvasVisualizer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

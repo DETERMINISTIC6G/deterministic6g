@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IIgmp</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IIgmp</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_networklayer_ipv4">inet.networklayer.ipv4</a></p>
+<h2 class="comptitle" style="float: left;">IIgmp</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>Module interface for IGMP modules.</p>
+<p>An IGMP module sends notifications about multicast group memberships in hosts,
+and processes these notifications in multicast routers.</p>
+<p>Currently there are 3 versions specified in RFC 1112 (IGMPv1), RFC 2236 (IGMPv2),
+and RFC 3376 (IGMPv3).</p>
+<p>IGMP packets are transported by the IP layer connected to the ipIn/ipOut
+gates. Some multicast routing protocols (e.g. DVMRP) also communitacate with
+IGMP messages. They must be connected to the routerIn/routerOut gates,
+the IGMP module will pass up the unrecognized IGMP packets.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.networklayer.ipv4.Igmpv2" href="inet.networklayer.ipv4.Igmpv2.html">Igmpv2</a></p>
+<img src="inet.networklayer.ipv4.IIgmp-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.ipv4.IIgmp.html" title="IIgmp" alt="IIgmp" coords="0,42,200,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.networklayer.ipv4.IIgmp-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Igmpv2" href="inet.networklayer.ipv4.Igmpv2.html">Igmpv2</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Imlementation of IGMPv2 protocol. Multicast routers use IGMP
+to learn which groups have members on each of their attached
+physical networks.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Igmpv3" href="inet.networklayer.ipv4.Igmpv3.html">Igmpv3</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Network(<a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">1</a>,<a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">2</a>,<a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">3</a>) layer of an IPv4 node.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Module interface for IGMP modules.
+//
+// An IGMP module sends notifications about multicast group memberships in hosts,
+// and processes these notifications in multicast routers.
+//
+// Currently there are 3 versions specified in RFC 1112 (IGMPv1), RFC 2236 (IGMPv2),
+// and RFC 3376 (IGMPv3).
+//
+// IGMP packets are transported by the IP layer connected to the ipIn/ipOut
+// gates. Some multicast routing protocols (e.g. DVMRP) also communitacate with
+// IGMP messages. They must be connected to the routerIn/routerOut gates,
+// the IGMP module will pass up the unrecognized IGMP packets.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~Igmpv2
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIgmp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-networklayer-ipv4-IIgmp.ned.html">src/inet/networklayer/ipv4/IIgmp.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

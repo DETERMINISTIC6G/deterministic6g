@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>EigrpMsgReq</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">EigrpMsgReq</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">EigrpMsgReq</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">message</span>
+</span><div style="clear: both;"/>
+
+<p><a title="inet::Message" href="inet-Message.html">Message</a> request</p>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>opcode</td>
+      <td>int8_t</td>
+      <td>
+<p>Type of message</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>goodbyeMsg</td>
+      <td>bool</td>
+      <td>
+<p><a title="inet::Message" href="inet-Message.html">Message</a> is Hello goodbye</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>init</td>
+      <td>bool</td>
+      <td>
+<p>flags</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>cr</td>
+      <td>bool</td>
+      <td>
+<p>Conditionally Received</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>rs</td>
+      <td>bool</td>
+      <td>
+<p>Reset</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>eot</td>
+      <td>bool</td>
+      <td>
+<p>End of table</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>destNeighbor</td>
+      <td>int</td>
+      <td>
+<p>ID of neighbor that is destination of message</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>destInterface</td>
+      <td>int</td>
+      <td>
+<p>ID of destination interface</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>seqNumber</td>
+      <td>uint32_t</td>
+      <td>
+<p>Sequence number for reliable transmission</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ackNumber</td>
+      <td>uint32_t</td>
+      <td>
+<p>Ack number for reliable transmission</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>numOfAck</td>
+      <td>int</td>
+      <td>
+<p>Number of acknowledges</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>routes</td>
+      <td>EigrpMsgRoute[]</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// Message request
+</span><span style="color: #800000; font-weight: bold; ">message</span><span style="color: #232629; "> </span><span style="color: #232629; ">EigrpMsgReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@customize</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">int8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">opcode</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// Type of message
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">goodbyeMsg</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Message is Hello goodbye
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// flags
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">init</span><span style="color: #232629; ">;                  </span><span style="color: #808080; font-style: italic; ">// Initialization - establishment of neighborship
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">cr</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// Conditionally Received
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rs</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// Reset
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">eot</span><span style="color: #232629; ">;                   </span><span style="color: #808080; font-style: italic; ">// End of table
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">destNeighbor</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// ID of neighbor that is destination of message
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">destInterface</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// ID of destination interface
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">seqNumber</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// Sequence number for reliable transmission
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackNumber</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// Ack number for reliable transmission
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numOfAck</span><span style="color: #232629; ">;               </span><span style="color: #808080; font-style: italic; ">// Number of acknowledges
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">EigrpMsgRoute</span><span style="color: #232629; "> </span><span style="color: #232629; ">routes</span><span style="color: #232629; ">[];
+}
+</span></pre>
+File: <a href="src-inet-routing-eigrp-messages-EigrpMessage.msg.html">src/inet/routing/eigrp/messages/EigrpMessage.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TimeTag.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TimeTag.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/common/TimeTag.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::CreationTimeTag" href="inet-CreationTimeTag.html">CreationTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the creation time. It can be attached to a specific
+region of a packet in order to store the time when that region was created.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ResidenceTimeTag" href="inet-ResidenceTimeTag.html">ResidenceTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the network node residence start and end times. It can be
+attached to a specific region of a packet in order to store when that region
+entered and left the network node.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TimeTagBase" href="inet-TimeTagBase.html">TimeTagBase</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This is a base class for various time measurement tags.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ElapsedTimeTag" href="inet-ElapsedTimeTag.html">ElapsedTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the elapsed time. It can be attached to a specific
+region of a packet in order to measure the elapsed time.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::DelayingTimeTag" href="inet-DelayingTimeTag.html">DelayingTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the delaying time. It can be attached to a specific
+region of a packet in order to sum up the delaying time spent in each
+packet delayer module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::QueueingTimeTag" href="inet-QueueingTimeTag.html">QueueingTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the queueing time. It can be attached to a specific
+region of a packet in order to sum up the queueing time spent in each
+queueing module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ProcessingTimeTag" href="inet-ProcessingTimeTag.html">ProcessingTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the processing time. It can be attached to a specific
+region of a packet in order to sum up the processing time spent in each
+packet processor module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TransmissionTimeTag" href="inet-TransmissionTimeTag.html">TransmissionTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the transmission time. It can be attached to a specific
+region of a packet in order to sum up the transmission time spent in each
+transmitter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::PropagationTimeTag" href="inet-PropagationTimeTag.html">PropagationTimeTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the propagation time. It can be attached to a specific
+region of a packet in order to sum up the propagation time spent in each
+transmission channel.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the creation time. It can be attached to a specific
+// region of a packet in order to store the time when that region was created.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">CreationTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">creationTime</span><span style="color: #232629; "> = </span><span style="color: #232629; ">simTime</span><span style="color: #232629; ">();
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the network node residence start and end times. It can be
+// attached to a specific region of a packet in order to store when that region
+// entered and left the network node.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ResidenceTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">startTime</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">endTime</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This is a base class for various time measurement tags.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">flowNames</span><span style="color: #232629; ">[]; </span><span style="color: #808080; font-style: italic; ">// flow names for which the times belong
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bitTotalTimes</span><span style="color: #232629; ">[]; </span><span style="color: #808080; font-style: italic; ">// total bit time summed up for the relevant modules
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">packetTotalTimes</span><span style="color: #232629; ">[]; </span><span style="color: #808080; font-style: italic; ">// total packet time summed up for the relevant modules
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the elapsed time. It can be attached to a specific
+// region of a packet in order to measure the elapsed time.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ElapsedTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the delaying time. It can be attached to a specific
+// region of a packet in order to sum up the delaying time spent in each
+// packet delayer module.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">DelayingTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the queueing time. It can be attached to a specific
+// region of a packet in order to sum up the queueing time spent in each
+// queueing module.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">QueueingTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the processing time. It can be attached to a specific
+// region of a packet in order to sum up the processing time spent in each
+// packet processor module.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProcessingTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the transmission time. It can be attached to a specific
+// region of a packet in order to sum up the transmission time spent in each
+// transmitter.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TransmissionTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the propagation time. It can be attached to a specific
+// region of a packet in order to sum up the propagation time spent in each
+// transmission channel.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">PropagationTimeTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TimeTagBase</span><span style="color: #232629; ">
+{
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>NetPerfMeter.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">NetPerfMeter.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/applications/netperfmeter/NetPerfMeter.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.netperfmeter.NetPerfMeter" href="inet.applications.netperfmeter.NetPerfMeter.html">NetPerfMeter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Application model for comparing the performance of various transport
+protocols.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// * --------------------------------------------------------------------------
+// *
+// *     //====//  //===== &lt;===//===&gt;  //====//
+// *    //        //          //      //    //    SCTP Optimization Project
+// *   //=====   //          //      //====//   ==============================
+// *        //  //          //      //           University of Duisburg-Essen
+// *  =====//  //=====     //      //
+// *
+// * --------------------------------------------------------------------------
+// *
+//
+// Copyright (C) 2009-2015 by Thomas Dreibholz &lt;dreibh@iem.uni-due.de&gt;
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">applications</span><span style="color: #232629; ">.</span><span style="color: #232629; ">netperfmeter</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">applications</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IApp</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Application model for comparing the performance of various transport
+// protocols.
+//
+// The NetPerfMeter model simultaneously transmits bidirectional flows to an
+// endpoint, and measures the resulting flow bandwidths and QoS. Since the
+// application behaviour is the same for all underlying transport layer
+// protocols, it allows for comparing the performance of various transport
+// protocols, e.g. TCP vs. SCTP.
+//
+// The model closely mimics the operation of the real-world NetPerfMeter
+// application (https://www.uni-due.de/~~be0001/netperfmeter/), a tool for
+// measuring UDP, TCP, MPTCP, SCTP and DCCP performance over IPv4 and IPv6.
+// Since the parametrisation and features are similar to the real-world
+// application, the model also makes comparisons of simulation results and
+// real-world measurements easy.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">NetPerfMeter</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IApp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; ">            </span><span style="color: #232629; ">activeMode</span><span style="color: #232629; ">               = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);      </span><span style="color: #808080; font-style: italic; ">// Server (false) or client (true)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">localAddress</span><span style="color: #232629; ">             = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// may be left empty (&quot;&quot;)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">localPort</span><span style="color: #232629; ">                = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">9000</span><span style="color: #232629; ">);      </span><span style="color: #808080; font-style: italic; ">// port number to listen on
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">remoteAddress</span><span style="color: #232629; ">            = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// server address (may be symbolic)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; ">               = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">9000</span><span style="color: #232629; ">);      </span><span style="color: #808080; font-style: italic; ">// port number to connect to
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">connectTime</span><span style="color: #232629; ">     </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Absolute time to establish connection
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">startTime</span><span style="color: #232629; ">       </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Transmission start, relative to &quot;connectTime&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">resetTime</span><span style="color: #232629; ">       </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Statistics reset, relative to &quot;connectTime&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">stopTime</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">30</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);       </span><span style="color: #808080; font-style: italic; ">// Transmission stop, relative to &quot;resetTime&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">queueSize</span><span style="color: #232629; ">       </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1000000</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// Size of the transmission queue (SCTP/TCP only)
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">onTime</span><span style="color: #232629; ">          </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);       </span><span style="color: #808080; font-style: italic; ">// Online time; disconnect when timer expires
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">offTime</span><span style="color: #232629; ">         </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);       </span><span style="color: #808080; font-style: italic; ">// Offline time; reconnect when timer expires
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">maxOnOffCycles</span><span style="color: #232629; ">           = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);         </span><span style="color: #808080; font-style: italic; ">// Maximum number of on-off cycles (-1 for unlimited)
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">outboundStreams</span><span style="color: #232629; ">          = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">);         </span><span style="color: #808080; font-style: italic; ">// Number of outbound streams (SCTP only)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">maxInboundStreams</span><span style="color: #232629; ">        = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Maximum number of inbound streams (SCTP only)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">protocol</span><span style="color: #232629; ">                 = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;SCTP&quot;</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// Transport protocol to use
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">primaryPath</span><span style="color: #232629; ">              = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// primary path (may be symbolic; SCTP only)
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">frameRate</span><span style="color: #232629; ">      </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; "> </span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">);      </span><span style="color: #808080; font-style: italic; ">// Outgoing frame rate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">    </span><span style="color: #232629; ">frameSize</span><span style="color: #232629; ">      </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">)  = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1452</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// Outgoing frame size
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">frameRateString</span><span style="color: #232629; ">          = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Outgoing frame rate per stream, separated by &quot;;&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">frameSizeString</span><span style="color: #232629; ">          = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Outgoing frame size per stream, separated by &quot;;&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; ">          </span><span style="color: #232629; ">traceFile</span><span style="color: #232629; ">                = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);        </span><span style="color: #808080; font-style: italic; ">// Use trace file instead of frame rate/frame size
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">             </span><span style="color: #232629; ">maxMsgSize</span><span style="color: #232629; ">     </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">)  = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1000</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// Maximum message size
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">unordered</span><span style="color: #232629; ">                = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);       </span><span style="color: #808080; font-style: italic; ">// Fraction of unordered messages (SCTP only)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">          </span><span style="color: #232629; ">unreliable</span><span style="color: #232629; ">               = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);       </span><span style="color: #808080; font-style: italic; ">// Fraction of unreliable messages (SCTP only)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; ">            </span><span style="color: #232629; ">decoupleSaturatedStreams</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);      </span><span style="color: #808080; font-style: italic; ">// Apply buffer splitting when using multiple streams
+</span><span style="color: #232629; ">
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketOut</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>INetworkConfigurator</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">INetworkConfigurator</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_networklayer_configurator_contract">inet.networklayer.configurator.contract</a></p>
+<h2 class="comptitle" style="float: left;">INetworkConfigurator</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This module interface is implemented by all network wide configurator modules.</p>
+<img src="inet.networklayer.configurator.contract.INetworkConfigurator-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.configurator.contract.INetworkConfigurator.html" title="INetworkConfigurator" alt="INetworkConfigurator" coords="0,42,349,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.networklayer.configurator.contract.INetworkConfigurator-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.gatescheduling.common.AlwaysOpenGateScheduleConfigurator" href="inet.linklayer.configurator.gatescheduling.common.AlwaysOpenGateScheduleConfigurator.html">AlwaysOpenGateScheduleConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides a trivial gate scheduling algorithm that makes all gates
+in the network to be open all the time.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.gatescheduling.common.EagerGateScheduleConfigurator" href="inet.linklayer.configurator.gatescheduling.common.EagerGateScheduleConfigurator.html">EagerGateScheduleConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides a gate scheduling algorithm that eagerly reserves time
+slots for the configured streams in the order of their priority (0 being the
+lowest). The allocation makes sure that only one gate (traffic category) is
+open in all network interfaces at any given moment of time. This strategy
+may result in wasting to much time of the gate cycle and thus end up failing.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.FailureProtectionConfigurator" href="inet.linklayer.configurator.FailureProtectionConfigurator.html">FailureProtectionConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides Time-Sensitive Networking (TSN) configuration using other
+configurators. One is used to provie the stream redundancy (stream splitting
+and stream merging) configuration, the other one ise used to provide the gate
+scheduling configuration.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4FlatNetworkConfigurator.html">Ipv4FlatNetworkConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Configures IPv4 addresses and routing tables for a "flat" network,
+"flat" meaning that all hosts and routers will have the same
+network address and will only differ in the host part.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module assigns IPv4 addresses and sets up static routing for an IPv4 network.
+It assigns per-interface IP addresses, strives to take subnets into account,
+and can also optimize the generated routing tables by merging routing entries.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.ipv6.Ipv6FlatNetworkConfigurator" href="inet.networklayer.configurator.ipv6.Ipv6FlatNetworkConfigurator.html">Ipv6FlatNetworkConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Configures <a title="inet.networklayer.ipv6.Ipv6" href="inet.networklayer.ipv6.Ipv6.html">Ipv6</a> addresses and routing tables for a "flat" network,
+"flat" meaning that all hosts and routers will have the same
+network address and will only differ in the host part.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.base.L3NetworkConfiguratorBase" href="inet.networklayer.configurator.base.L3NetworkConfiguratorBase.html">L3NetworkConfiguratorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module serves as a base module for layer 3 network configurators.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.MacForwardingTableConfigurator" href="inet.linklayer.configurator.MacForwardingTableConfigurator.html">MacForwardingTableConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module configures the forwarding database (MAC address table) of all
+network nodes in the network based on the automatically discovered network
+topology. The configurator uses the shortest path algorithm to determine the
+outgoing network interface for all network nodes and all destination network
+interfaces. The effect of this configuration is that the network can use the
+~<a title="inet.networklayer.arp.ipv4.GlobalArp" href="inet.networklayer.arp.ipv4.GlobalArp.html">GlobalArp</a> module and completely eliminate the ARP protocol messages.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.nexthop.NextHopNetworkConfigurator" href="inet.networklayer.configurator.nexthop.NextHopNetworkConfigurator.html">NextHopNetworkConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Adds routes to a ~<a title="inet.networklayer.nexthop.NextHopRoutingTable" href="inet.networklayer.nexthop.NextHopRoutingTable.html">NextHopRoutingTable</a> similarly how ~<a title="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> adds
+static routes to ~<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.StreamRedundancyConfigurator" href="inet.linklayer.configurator.StreamRedundancyConfigurator.html">StreamRedundancyConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides Time-Sensitive Networking (TSN) static stream redundancy
+configuration. The module automatically configures all the necessary modules
+related to stream splitting, stream merging and stream filtering in all network
+nodes. The configuration parameter specifies the streams with a set of path
+fragments.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.gatescheduling.common.TSNschedGateScheduleConfigurator" href="inet.linklayer.configurator.gatescheduling.common.TSNschedGateScheduleConfigurator.html">TSNschedGateScheduleConfigurator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides a gate scheduling configurator that uses the TSNsched
+tool that is available at <a href="https://github.com/ACassimiro/TSNsched" target="_blank">https://github.com/ACassimiro/TSNsched</a>
+Tested revision: 3f3bf663d196ec6c03e81a1e1392d4aefd158e3e</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networks.base.TsnNetworkBase" href="inet.networks.base.TsnNetworkBase.html">TsnNetworkBase</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This module serves as a network base module for Time-Sensitive Networking (TSN).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networks.base.WiredNetworkBase" href="inet.networks.base.WiredNetworkBase.html">WiredNetworkBase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.configurator.gatescheduling.contract.IGateScheduleConfigurator" href="inet.linklayer.configurator.gatescheduling.contract.IGateScheduleConfigurator.html">IGateScheduleConfigurator</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This module interface is implemented by gate scheduling configurator modules.
+A gate scheduling configurator is responsible for configuring all ~<a title="inet.queueing.gate.PeriodicGate" href="inet.queueing.gate.PeriodicGate.html">PeriodicGate</a>
+modules of all traffic categories in all network interfaces in the network.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.contract.IL3NetworkConfigurator" href="inet.networklayer.configurator.contract.IL3NetworkConfigurator.html">IL3NetworkConfigurator</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>This module interface is implemented by all layer 3 network configurators.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module interface is implemented by all network wide configurator modules.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">INetworkConfigurator</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-networklayer-configurator-contract-INetworkConfigurator.ned.html">src/inet/networklayer/configurator/contract/INetworkConfigurator.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

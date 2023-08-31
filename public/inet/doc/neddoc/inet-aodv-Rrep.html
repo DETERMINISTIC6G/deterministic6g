@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Rrep</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Rrep</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet::aodv</code></p>
+<h2 class="comptitle" style="float: left;">Rrep</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>Represents an AODV Route Reply</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>AodvControlPacket</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>repairFlag</td>
+      <td>bool</td>
+      <td>
+<p>chunkLength = <a title="inet::B" href="inet-B.html">B</a>(20) or <a title="inet::B" href="inet-B.html">B</a>(44)
+packetType = RREP or RREP_IPv6</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ackRequiredFlag</td>
+      <td>bool</td>
+      <td>
+<p>Acknowledgment required.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>reserved</td>
+      <td>uint16_t</td>
+      <td>
+<p>Sent as 0; ignored on reception.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>prefixSize</td>
+      <td>unsigned int</td>
+      <td>
+<p>If nonzero, the 5-bit Prefix Size specifies that the indicated next hop may be used for any nodes with the same routing prefix (as defined by the Prefix Size) as the requested destination.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hopCount</td>
+      <td>unsigned int</td>
+      <td>
+<p>The number of hops from the Originator IP Address to the Destination IP Address.  For multicast route requests this indicates the number of hops to the multicast tree member sending the RREP.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>destAddr</td>
+      <td>L3Address</td>
+      <td>
+<p>The IP address of the destination for which a route is supplied.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>destSeqNum</td>
+      <td>uint32_t</td>
+      <td>
+<p>The destination sequence number associated to the route.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>originatorAddr</td>
+      <td>L3Address</td>
+      <td>
+<p>The IP address of the node which originated the RREQ for which the route is supplied.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>lifeTime</td>
+      <td>simtime_t</td>
+      <td>
+<p>The time in milliseconds for which nodes receiving the RREP consider the route to be valid.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Represents an AODV Route Reply
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Rrep</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">AodvControlPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// chunkLength = B(20) or B(44)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// packetType = RREP or RREP_IPv6
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">repairFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Repair flag; used for multicast.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackRequiredFlag</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Acknowledgment required.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Sent as 0; ignored on reception.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixSize</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// If nonzero, the 5-bit Prefix Size specifies that the indicated next hop may be used for any nodes with the same routing prefix (as defined by the Prefix Size) as the requested destination.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">hopCount</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// The number of hops from the Originator IP Address to the Destination IP Address.  For multicast route requests this indicates the number of hops to the multicast tree member sending the RREP.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">destAddr</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// The IP address of the destination for which a route is supplied.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">destSeqNum</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// The destination sequence number associated to the route.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">originatorAddr</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// The IP address of the node which originated the RREQ for which the route is supplied.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lifeTime</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// The time in milliseconds for which nodes receiving the RREP consider the route to be valid.
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-routing-aodv-AodvControlPackets.msg.html">src/inet/routing/aodv/AodvControlPackets.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

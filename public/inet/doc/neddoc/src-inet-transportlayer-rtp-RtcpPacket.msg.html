@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>RtcpPacket.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">RtcpPacket.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/rtp/RtcpPacket.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpPacketType" href="inet-rtp-RtcpPacketType.html">RtcpPacketType</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpPacket" href="inet-rtp-RtcpPacket.html">RtcpPacket</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpReceiverReportPacket" href="inet-rtp-RtcpReceiverReportPacket.html">RtcpReceiverReportPacket</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpSdesPacket" href="inet-rtp-RtcpSdesPacket.html">RtcpSdesPacket</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpByePacket" href="inet-rtp-RtcpByePacket.html">RtcpByePacket</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::rtp::RtcpSenderReportPacket" href="inet-rtp-RtcpSenderReportPacket.html">RtcpSenderReportPacket</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Reports</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">{{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/rtp/Sdes.h&quot;</span><span style="color: #232629; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">rtp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacketType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">RTCP_PT_UNDEF</span><span style="color: #232629; "> =   </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// default value undefined
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RTCP_PT_SR</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">200</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// sender report
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RTCP_PT_RR</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">201</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// receiver report
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RTCP_PT_SDES</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">202</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// source description
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RTCP_PT_BYE</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">203</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// bye
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">int8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">version</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">padding</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// (1 bits) Used to indicate if there are extra padding bytes at the end of the RTP packet. A padding might be used to fill up a block of certain size, for example as required by an encryption algorithm. The last byte of the padding contains the number of padding bytes that were added (including itself).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">count</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RC (Reception report count ): (5 bits) The number of reception report blocks contained in this packet. A value of zero is valid.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">RtcpPacketType</span><span style="color: #232629; "> </span><span style="color: #232629; ">packetType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTCP_PT_UNDEF</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// (8 bits) Contains a constant to identify RTCP packet type.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtcpLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// (16 bits) Indicates The length of this RTCP packet in 32-bit words minus one, including the header and any padding.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; ">) {{
+  </span><span style="color: #232629; ">public</span><span style="color: #232629; ">:
+    /** </span><span style="color: #232629; ">padding</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; "> </span><span style="color: #232629; ">to</span><span style="color: #232629; "> </span><span style="color: #008000; ">32</span><span style="color: #232629; "> </span><span style="color: #232629; ">bit</span><span style="color: #232629; "> </span><span style="color: #232629; ">words</span><span style="color: #232629; "> </span><span style="color: #232629; ">and</span><span style="color: #232629; "> </span><span style="color: #232629; ">set</span><span style="color: #232629; "> </span><span style="color: #232629; ">the</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtcpLength</span><span style="color: #232629; "> </span><span style="color: #232629; ">field</span><span style="color: #232629; "> (</span><span style="color: #232629; ">based</span><span style="color: #232629; "> </span><span style="color: #232629; ">on</span><span style="color: #232629; "> </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> </span><span style="color: #232629; ">field</span><span style="color: #232629; ">) **/
+    </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">paddingAndSetLength</span><span style="color: #232629; ">();
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpReceiverReportPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">packetType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTCP_PT_RR</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">getChunkLength</span><span style="color: #232629; ">() + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ssrc</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">cArray</span><span style="color: #232629; "> </span><span style="color: #232629; ">receptionReports</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtcpReceiverReportPacket</span><span style="color: #232629; ">) {{
+  </span><span style="color: #232629; ">public</span><span style="color: #232629; ">:
+    /** </span><span style="color: #232629; ">Adds</span><span style="color: #232629; "> </span><span style="color: #232629; ">a</span><span style="color: #232629; "> </span><span style="color: #232629; ">receiver</span><span style="color: #232629; "> </span><span style="color: #232629; ">report</span><span style="color: #232629; "> </span><span style="color: #232629; ">to</span><span style="color: #232629; "> </span><span style="color: #232629; ">this</span><span style="color: #232629; "> </span><span style="color: #232629; ">receiver</span><span style="color: #232629; "> </span><span style="color: #232629; ">report</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">. */
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">addReceptionReport</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ReceptionReport</span><span style="color: #232629; "> *</span><span style="color: #232629; ">report</span><span style="color: #232629; ">);
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpSdesPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">packetType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTCP_PT_SDES</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">cArray</span><span style="color: #232629; "> </span><span style="color: #232629; ">sdesChunks</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">RtcpSdesPacket</span><span style="color: #232629; ">) {{
+  </span><span style="color: #232629; ">public</span><span style="color: #232629; ">:
+    </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">addSDESChunk</span><span style="color: #232629; ">(</span><span style="color: #232629; ">SdesChunk</span><span style="color: #232629; "> *</span><span style="color: #232629; ">sdesChunk</span><span style="color: #232629; ">);
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpByePacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">packetType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTCP_PT_BYE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">getChunkLength</span><span style="color: #232629; ">() + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">count</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ssrc</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpSenderReportPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtcpReceiverReportPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">packetType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">RTCP_PT_SR</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">getChunkLength</span><span style="color: #232629; ">() + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">SenderReport</span><span style="color: #232629; "> </span><span style="color: #232629; ">senderReport</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

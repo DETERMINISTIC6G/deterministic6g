@@ -1,0 +1,389 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IMobility</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IMobility</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_mobility_contract">inet.mobility.contract</a></p>
+<h2 class="comptitle" style="float: left;">IMobility</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>The module interface for mobility models.</p>
+<img src="inet.mobility.contract.IMobility-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.mobility.contract.IMobility.html" title="IMobility" alt="IMobility" coords="0,42,224,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.mobility.contract.IMobility-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.AnsimMobility" href="inet.mobility.single.AnsimMobility.html">AnsimMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Uses the &lt;position_change&gt; elements of the ANSim tool's
+trace file.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.AttachedMobility" href="inet.mobility.single.AttachedMobility.html">AttachedMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides a mobility that is attached to another mobility at a
+given offset. The position, velocity and acceleration are all affectred by
+the respective quantites and the orientation of the mobility where this one
+is attached.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.BonnMotionMobility" href="inet.mobility.single.BonnMotionMobility.html">BonnMotionMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Uses the native file format of BonnMotion.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.ChiangMobility" href="inet.mobility.single.ChiangMobility.html">ChiangMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Uses a probabilistic transition matrix to change the state of motion.
+In this model, the state of the mobile node in each direction (x and y) can be:</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">CircleMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Moves the node around a circle.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.FacingMobility" href="inet.mobility.single.FacingMobility.html">FacingMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides orientation towards the target mobility model as seen
+from the source mobility model.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.GaussMarkovMobility" href="inet.mobility.single.GaussMarkovMobility.html">GaussMarkovMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Uses a Gauss-Markov model to control the randomness in the movement.
+Totally random walk (Brownian motion) is obtained by setting alpha=0,
+while alpha=1 results a linear motion.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.LinearMobility" href="inet.mobility.single.LinearMobility.html">LinearMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a linear mobility model with speed, angle and acceleration parameters.
+Angle only changes when the mobile node hits a wall: then it reflects
+off the wall at the same angle.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.MassMobility" href="inet.mobility.single.MassMobility.html">MassMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a random mobility model for a mobile host with a mass. It is the
+one used in "Optimized Smooth Handoffs in Mobile IP" by Perkins &amp;Wang.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.group.MoBanCoordinator" href="inet.mobility.group.MoBanCoordinator.html">MoBanCoordinator</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is the coordinator module of the MoBAN mobility model. It should be instantiated in the top level simulation network in MiXiM, once per WBAN.
+The coordinator module is the main module that provides the group mobility and correlation between nodes in a WBAN.
+In the initialization phase, it reads three user defined input files which are the postures specification file, a configuration file which includes all
+required parameter for specific distributions, and the previously logged mobility pattern, if it is requested to use a logged pattern.
+Note that all WBAN instances may use the same input files if they are exactly in the same situation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.group.MoBanLocal" href="inet.mobility.group.MoBanLocal.html">MoBanLocal</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is the local mobility module of MoBAN. It should be instantiated in each node that belongs to a WBAN. The NED parameter "coordinatorIndex"
+determine to which WBAN (<a title="inet.mobility.group.MoBanCoordinator" href="inet.mobility.group.MoBanCoordinator.html">MoBanCoordinator</a>) it belongs.
+The current implementation uses the Random Walk Mobility Model (RWMM) for individual (local) movement with a sphere around the node, with given speed
+and sphere radius of the current posture. The reference point of the node it the current posture, the sphere radius, and the speed is given by the
+corresponding coordinator. RWMM determines the location of node at ant time relative to the given reference point.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.base.MobilityBase" href="inet.mobility.base.MobilityBase.html">MobilityBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Abstract base module for mobility models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.base.MovingMobilityBase" href="inet.mobility.base.MovingMobilityBase.html">MovingMobilityBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Abstract base module for mobility models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.Ns2MotionMobility" href="inet.mobility.single.Ns2MotionMobility.html">Ns2MotionMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RandomWaypointMobility" href="inet.mobility.single.RandomWaypointMobility.html">RandomWaypointMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Implements the Random Waypoint mobility model.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">RectangleMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Moves the node around a rectangle.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StaticConcentricMobility" href="inet.mobility.static.StaticConcentricMobility.html">StaticConcentricMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Places all hosts on concentric circles</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StaticGridMobility" href="inet.mobility.static.StaticGridMobility.html">StaticGridMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Places all hosts in a rectangular grid.
+The usable area (constraint area minus margins on each side) is split into smaller cells
+(with separationX,separationY size). Hosts are placed in the middle of each cell.
+By default, the number of columns and rows follow the aspect ratio of the usable area.
+By default stepX and stepY are calculated based on the number of columns and rows.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StaticLinearMobility" href="inet.mobility.static.StaticLinearMobility.html">StaticLinearMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Mobility model which places all hosts at constant distances
+in a line with an orientation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StationaryMobility" href="inet.mobility.static.StationaryMobility.html">StationaryMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This mobility module does nothing; it can be used for stationary nodes.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.SuperpositioningMobility" href="inet.mobility.single.SuperpositioningMobility.html">SuperpositioningMobility</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This mobility module combines the trajectory of several other mobility modules
+using superposition. In other words, the position, velocity and acceleration
+is the sum of the respective quantities of all submodules.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.TractorMobility" href="inet.mobility.single.TractorMobility.html">TractorMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Moves a tractor through a field with a certain amount of rows.
+Since the tractor also moves around the field, the tractor travels
+the number of rows PLUS one rows. Consider the following piece of
+ascii-art for rows=2.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.TurtleMobility" href="inet.mobility.single.TurtleMobility.html">TurtleMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>A LOGO-style movement model, with the script coming from XML. It can be
+useful for describing random as well as deterministic scenarios.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.VehicleMobility" href="inet.mobility.single.VehicleMobility.html">VehicleMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.wireless.AccessPoint" href="inet.node.wireless.AccessPoint.html">AccessPoint</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A generic access point supporting multiple wireless radios, and
+multiple ethernet ports. The type of the ethernet MAC, relay unit
+and wireless card can be specified as parameters.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.common.base.packetlevel.AntennaBase" href="inet.physicallayer.wireless.common.base.packetlevel.AntennaBase.html">AntennaBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module servces as the base module for antenna models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mobility.MobileHost" href="inet.examples.mobility.MobileHost.html">MobileHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A host for demonstrating mobility models only -- it contains
+no protocol layers at all.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.NodeBase" href="inet.node.base.NodeBase.html">NodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module contains the most basic infrastructure for network nodes that is
+not strictly communication protocol related.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.noise.NoiseSource" href="inet.physicallayer.wireless.noise.NoiseSource.html">NoiseSource</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.wireless.Probe" href="inet.node.wireless.Probe.html">Probe</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.SuperpositioningMobility" href="inet.mobility.single.SuperpositioningMobility.html">SuperpositioningMobility</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This mobility module combines the trajectory of several other mobility modules
+using superposition. In other words, the position, velocity and acceleration
+is the sum of the respective quantities of all submodules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>mobilityStateChanged</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// The module interface for mobility models.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMobility</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">mobilityStateChanged</span><span style="color: #232629; ">];
+}
+
+</span></pre>
+File: <a href="src-inet-mobility-contract-IMobility.ned.html">src/inet/mobility/contract/IMobility.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

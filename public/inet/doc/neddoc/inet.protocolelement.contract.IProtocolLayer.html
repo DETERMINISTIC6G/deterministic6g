@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IProtocolLayer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IProtocolLayer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_protocolelement_contract">inet.protocolelement.contract</a></p>
+<h2 class="comptitle" style="float: left;">IProtocolLayer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This module interface is implemented by all protocol layer modules that
+connect to a higher and to a lower protocol layer, both of which is optional.</p>
+<img src="inet.protocolelement.contract.IProtocolLayer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.protocolelement.contract.IProtocolLayer.html" title="IProtocolLayer" alt="IProtocolLayer" coords="0,42,278,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.protocolelement.contract.IProtocolLayer-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.BridgingLayer" href="inet.linklayer.ethernet.common.BridgingLayer.html">BridgingLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides various layer 2 services such as packet forwarding,
+interface selection, virtual LAN handling, stream handling.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.DirectionReverserLayer" href="inet.linklayer.ethernet.common.DirectionReverserLayer.html">DirectionReverserLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a layer that combines the decision for local delivery
+with the service of reversing the direction of an incoming packet to outgoing
+for packet forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021d.relay.Ieee8021dRelay" href="inet.linklayer.ieee8021d.relay.Ieee8021dRelay.html">Ieee8021dRelay</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This modul forwards frames (~EtherFrame) based on their destination MAC addresses to appropriate ports.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qLayer" href="inet.linklayer.ieee8021q.Ieee8021qLayer.html">Ieee8021qLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qProtocol" href="inet.linklayer.ieee8021q.Ieee8021qProtocol.html">Ieee8021qProtocol</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q protocol encapsulation/decapsulation.
+It also provides socket support so applications can use the protocol directly.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rLayer" href="inet.linklayer.ieee8021r.Ieee8021rLayer.html">Ieee8021rLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rProtocol" href="inet.linklayer.ieee8021r.Ieee8021rProtocol.html">Ieee8021rProtocol</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1r protocol encapsulation/decapsulation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.InterfaceRelayLayer" href="inet.linklayer.ethernet.common.InterfaceRelayLayer.html">InterfaceRelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines the interface MAC address learning from incoming packets
+with the outgoing interface selection for outgoing packets into a single layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.MacRelayUnit" href="inet.linklayer.ethernet.common.MacRelayUnit.html">MacRelayUnit</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.mpls.Mpls" href="inet.networklayer.mpls.Mpls.html">Mpls</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Implements the MPLS protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.OmittedProtocolLayer" href="inet.protocolelement.common.OmittedProtocolLayer.html">OmittedProtocolLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamCoderLayer" href="inet.protocolelement.redundancy.StreamCoderLayer.html">StreamCoderLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a stream decoder and a stream encoder into a layer. For
+incoming packets the stream decoder determines the stream of the packet. For
+outgoing packets the stream encoder determines the VLAN id, etc. of the packet.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.StreamFilterLayer" href="inet.linklayer.ieee8021q.StreamFilterLayer.html">StreamFilterLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines two packet filters into a protocol layer so that it can
+be used in a layered compound module. There are separate submodules for ingress
+and egress traffic, but in most cases only the ingress filter is used.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamIdentifierLayer" href="inet.protocolelement.redundancy.StreamIdentifierLayer.html">StreamIdentifierLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module wraps a stream identifier into a protocol layer so that it can
+be used in a layered compound module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.StreamPolicyLayer" href="inet.linklayer.ieee8021q.StreamPolicyLayer.html">StreamPolicyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamRelayLayer" href="inet.protocolelement.redundancy.StreamRelayLayer.html">StreamRelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a stream merger and a stream splitter module into a
+stream relay layer. For incoming packets the identified streams are merged
+by the stream merger. For outgoing packets the requested streams are split
+by the stream splitter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.vlan.VlanPolicyLayer" href="inet.linklayer.vlan.VlanPolicyLayer.html">VlanPolicyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.BridgingLayer" href="inet.linklayer.ethernet.common.BridgingLayer.html">BridgingLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides various layer 2 services such as packet forwarding,
+interface selection, virtual LAN handling, stream handling.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetSwitch" href="inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Model of an Ethernet switch.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qLayer" href="inet.linklayer.ieee8021q.Ieee8021qLayer.html">Ieee8021qLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rLayer" href="inet.linklayer.ieee8021r.Ieee8021rLayer.html">Ieee8021rLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.LinkLayerNodeBase" href="inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.StreamPolicyLayer" href="inet.linklayer.ieee8021q.StreamPolicyLayer.html">StreamPolicyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.IIeee8021qLayer" href="inet.linklayer.ieee8021q.IIeee8021qLayer.html">IIeee8021qLayer</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.IIeee8021rLayer" href="inet.linklayer.ieee8021r.IIeee8021rLayer.html">IIeee8021rLayer</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IMacRelayUnit" href="inet.linklayer.contract.IMacRelayUnit.html">IMacRelayUnit</a></td>
+      <td><i>module&nbsp;interface</i></td>
+      <td>
+<p>Module interface for modules providing Ethernet switch functionality.
+These modules handle the mapping between ports and MAC addresses,
+and forward frames to appropriate ports.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>omittedTypename</td>
+      <td>OmittedProtocolLayer</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/layer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module interface is implemented by all protocol layer modules that
+// connect to a higher and to a lower protocol layer, both of which is optional.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IProtocolLayer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@omittedTypename</span><span style="color: #232629; ">(</span><span style="color: #232629; ">OmittedProtocolLayer</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/layer&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; ">;
+}
+</span></pre>
+File: <a href="src-inet-protocolelement-contract-IProtocolLayer.ned.html">src/inet/protocolelement/contract/IProtocolLayer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

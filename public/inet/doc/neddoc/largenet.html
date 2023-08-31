@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>LargeNet model description</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">LargeNet model description</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="">LargeNet model description</h2>
+
+<p>The ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>) model demonstrates how one can put together models of large
+LANs with little effort.</p>
+<p>~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>) models a large Ethernet campus backbone. As configured in the
+default omnetpp.ini, it contains altogether about 8000 computers
+and 900 switches and hubs. This results in about 165MB process size
+on my (32-bit) linux box when I run the simulation.
+The model mixes all kinds of Ethernet technology: Gigabit Ethernet,
+100Mb full-duplex, 100Mb half-duplex, 10Mb UTP, 10Mb bus ("thin Ethernet"),
+switched hubs, repeating hubs.</p>
+<p>The topology is in LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).ned, and it looks like this: there's chain
+of n=15 large "backbone" switches (switchBB[]) as well as four more
+large switches (switchA, switchB, switchC, switchD) connected to
+somewhere the middle of the backbone (switchBB[4]). These 15+4 switches
+make up the backbone; the n=15 number is configurable in omnetpp.ini.</p>
+<p>Then there're several smaller LANs hanging off each backbone switch.
+There're three types of LANs: <a title="inet.examples.ospfv3.small.small" href="inet.examples.ospfv3.small.small.html">small</a>, medium and large (represented by
+compound module types ~<a title="inet.examples.ethernet.lans.SmallLAN" href="inet.examples.ethernet.lans.SmallLAN.html">SmallLAN</a>, ~<a title="inet.examples.ethernet.lans.MediumLAN" href="inet.examples.ethernet.lans.MediumLAN.html">MediumLAN</a>, ~<a title="inet.examples.ethernet.lans.LargeLAN" href="inet.examples.ethernet.lans.LargeLAN.html">LargeLAN</a>). A <a title="inet.examples.ospfv3.small.small" href="inet.examples.ospfv3.small.small.html">small</a> LAN
+consists of a few computers on a hub (100Mb half-duplex); a medium
+LAN consists of a smaller switch with a hub on one of its port
+(and computers on both); the large one also has a switch and a hub,
+plus an Ethernet bus hanging of one port of the hub (there's still hubs
+around with one BNC connector besides the UTP ones).
+By default there're 5..15 LANs of each type hanging off each backbone
+switch. (These numbers are also omnetpp.ini parameters like the length
+of the backbone.)</p>
+<p>The application model which generates load on the simulated LAN is
+simple yet powerful. It can be used as a rough model for any
+request-response based protocol such as SMB/CIFS (the Windows file
+sharing protocol), HTTP, or a database client-server protocol.</p>
+<p>Every computer runs a client application (~<a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">EtherAppClient</a>) which connects
+to one of the servers. There's one server attached to switches A, <a title="inet::B" href="inet-B.html">B</a>,
+<a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a> and D each: serverA, serverB, serverC and serverD -- server selection
+is configured in omnetpp.ini). The servers run ~<a title="inet.applications.ethernet.EtherAppServer" href="inet.applications.ethernet.EtherAppServer.html">EtherAppServer</a>.
+Clients periodically send a request to the server, and the request
+packet contains how many bytes the client wants the server to send back
+(this can mean one or more Ethernet frames, depending on the byte count).
+ Currently the request and reply lengths are configured in omnetpp.ini
+as intuniform(50,1400) and truncnormal(5000,5000).</p>
+<p>The volume of the traffic can most easily be controlled with the
+time period between sending requests; this is currently
+set in omnetpp.ini to exponential(0.50) (that is, average 2
+requests per second). This already causes frames to be dropped
+in some of the backbone switches, so the network is a bit
+overloaded with the current settings.</p>
+<p>The model generates extensive statistics. All MACs (and most other
+modules too) write statistics into omnetpp.sca at the end
+of the simulation: number of frames sent, received, dropped, etc.
+These are only basic statistics, however it still makes the
+scalar file to be several ten megabytes in size. You can use
+the analysis tools provided with OMNeT++ to visualized the data
+in this file. (If the file size is too big, writing statistics
+can be disabled, by putting **.scalar-recording=false in the ini file.)
+The model can also record output vectors, but this is currently
+disabled in omnetpp.ini because the generated file can easily reach
+gigabyte sizes.</p>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

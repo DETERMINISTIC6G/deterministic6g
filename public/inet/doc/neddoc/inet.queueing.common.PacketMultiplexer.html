@@ -1,0 +1,464 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PacketMultiplexer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PacketMultiplexer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_common">inet.queueing.common</a></p>
+<h2 class="comptitle" style="float: left;">PacketMultiplexer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module connects multiple packet producers to one packet consumer. When
+a packet is pushed by one of the connected packet producers, then the multiplexer
+simply pushes the packet to the connected packet consumer.</p>
+<img src="inet.queueing.common.PacketMultiplexer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.common.PacketMultiplexer.html" title="PacketMultiplexer" alt="PacketMultiplexer" coords="0,42,210,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.common.PacketMultiplexer-inheritance.svg"></object>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.AFxyQueue" href="inet.networklayer.diffserv.AFxyQueue.html">AFxyQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This is an example queue, that implements
+one class of the Assured <a title="inet.protocolelement.forwarding.Forwarding" href="inet.protocolelement.forwarding.Forwarding.html">Forwarding</a> PHB group (RFC 2597).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.diffserv.DiffservTrafficConditioner" href="inet.showcases.general.diffserv.DiffservTrafficConditioner.html">DiffservTrafficConditioner</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.DirectionReverserLayer" href="inet.linklayer.ethernet.common.DirectionReverserLayer.html">DirectionReverserLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a layer that combines the decision for local delivery
+with the service of reversing the direction of an incoming packet to outgoing
+for packet forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DSQueue2" href="inet.examples.diffserv.onedomain.DSQueue2.html">DSQueue2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Diffserv Queue used in Experiment 2.1 - 2.4.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.DualIeee8021qFilter" href="inet.linklayer.ieee8021q.DualIeee8021qFilter.html">DualIeee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines two meters and their corresponding filters per path. This
+is primarily useful for combining a token bucket based metering with an
+asynchronous packet shaper. Note that the asynchronous packet shaper also has
+parts in the network interface queue module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DynamicDefragmenter" href="inet.tutorials.protocol.DynamicDefragmenter.html">DynamicDefragmenter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer" href="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer" href="inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer.html">EthernetPreemptingPhyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qFilter" href="inet.linklayer.ieee8021q.Ieee8021qFilter.html">Ieee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q per-stream filtering and policing.
+The relationship between streams, gates and meters is not one-to-one. The
+number of streams, gates and meters can be different and the module will take
+care about the connections between the submodules based on the streamFilterTable
+parameter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.Ieee8022LlcLayer" href="inet.linklayer.ieee8022.Ieee8022LlcLayer.html">Ieee8022LlcLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">Interface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.InterfaceService" href="inet.protocolelement.service.InterfaceService.html">InterfaceService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.MacService" href="inet.protocolelement.service.MacService.html">MacService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021as.MultiDomainGptp" href="inet.linklayer.ieee8021as.MultiDomainGptp.html">MultiDomainGptp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple ~<a title="inet.linklayer.ieee8021as.Gptp" href="inet.linklayer.ieee8021as.Gptp.html">Gptp</a> modules, one per time domain into a <a title="inet.examples.sctp.multihomed.multi" href="inet.examples.sctp.multihomed.multi.html">multi</a>
+time domain time synchronization module. Each gPTP time domain is automatically
+configured to use the corresponding subclock of the clock passed in to this
+module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.policing.MultiPacketPolicing" href="inet.queueing.policing.MultiPacketPolicing.html">MultiPacketPolicing</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple packet policing modules into one.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.PeerService" href="inet.protocolelement.service.PeerService.html">PeerService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ResponseProducer" href="inet.queueing.source.ResponseProducer.html">ResponseProducer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is capable of generating several different streams of packets,
+one after the other. For each traffic category, the packets are produced by
+a separate token based server. The traffic stream can be started by adding
+tokens the corresponding server module. The packet data, packet length, and
+timing distributions can be configured in the corresponding packet provider.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.SenderHost" href="inet.tutorials.protocol.SenderHost.html">SenderHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.SimpleIeee8021qFilter" href="inet.linklayer.ieee8021q.SimpleIeee8021qFilter.html">SimpleIeee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a simplified version of the IEEE 802.1Q per-stream
+filtering and policing. Each filtered stream has its own path where metering
+and filtering happens independently of any other stream.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.TC2" href="inet.examples.diffserv.onedomain.TC2.html">TC2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Traffic conditioner used in Experiment 3.1.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.TC3" href="inet.examples.diffserv.onedomain.TC3.html">TC3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Traffic conditioner used in Experiment 3.2.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TelnetServerConnection" href="inet.applications.tcpapp.TelnetServerConnection.html">TelnetServerConnection</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module contains a configurable pre-composed telnet traffic source and
+traffic sink as part of a telnet server application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TelnetServerTraffic" href="inet.tutorials.queueing.TelnetServerTraffic.html">TelnetServerTraffic</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.simple_.TrafficConditioner" href="inet.examples.diffserv.simple_.TrafficConditioner.html">TrafficConditioner</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.InputQueueSwitching" href="inet.tutorials.queueing.InputQueueSwitching.html">InputQueueSwitching</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MultiplexerTutorialStep" href="inet.tutorials.queueing.MultiplexerTutorialStep.html">MultiplexerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.OutputQueueSwitching" href="inet.tutorials.queueing.OutputQueueSwitching.html">OutputQueueSwitching</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.streamfiltering.underthehood.PeekingUnderTheHoodShowcase" href="inet.showcases.tsn.streamfiltering.underthehood.PeekingUnderTheHoodShowcase.html">PeekingUnderTheHoodShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.trafficshaping.underthehood.PeekingUnderTheHoodShowcase" href="inet.showcases.tsn.trafficshaping.underthehood.PeekingUnderTheHoodShowcase.html">PeekingUnderTheHoodShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PacketProcessorBase" href="inet.queueing.base.PacketProcessorBase.html">PacketProcessorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various packet processing modules which maintains
+a few statistics.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"passed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=-;b=10,10,oval,grey,,1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>PacketMultiplexer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in [ ]</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetPushed</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPulled</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetLengths</td>
+      <td>packet lengths</td>
+      <td>packetLength(merge(packetPushed, packetPulled))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>dataRate</td>
+      <td>data rate</td>
+      <td>throughput(merge(packetPushed, packetPulled))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td>packets</td>
+      <td>merge(packetPushed, packetPulled)</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module connects multiple packet producers to one packet consumer. When
+// a packet is pushed by one of the connected packet producers, then the multiplexer
+// simply pushes the packet to the connected packet consumer.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketMultiplexer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketProcessorBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IActivePacketSource</span><span style="color: #232629; "> </span><span style="color: #808080; font-style: italic; ">// TODO IPassivePacketSink // in gate is vector
+</span><span style="color: #232629; ">{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardServiceRegistration</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardProtocolRegistration</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;passed %p pk (%l)&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// %p number of packet, %l total length
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketMultiplexer</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=-;b=10,10,oval,grey,,1&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPushed</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the multiplexed packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushed</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the multiplexed packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushed</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the multiplexed packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">dataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushed</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">push</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">push</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-common-PacketMultiplexer.ned.html">src/inet/queueing/common/PacketMultiplexer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

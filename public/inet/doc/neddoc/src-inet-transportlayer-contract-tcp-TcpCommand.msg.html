@@ -1,0 +1,403 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TcpCommand.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TcpCommand.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/contract/tcp/TcpCommand.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpCommandCode" href="inet-TcpCommandCode.html">TcpCommandCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>TCP command codes, sent by the application to TCP. These constants
+should be set as message kind on a message sent to the TCP entity.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpStatusInd" href="inet-TcpStatusInd.html">TcpStatusInd</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>TCP indications, sent by TCP to the application. TCP will set these
+constants as message kind on messages it sends to the application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpErrorCode" href="inet-TcpErrorCode.html">TcpErrorCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Currently not in use.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpCommand" href="inet-TcpCommand.html">TcpCommand</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Control info for TCP connections. This class is to be set as control info
+(see cMessage::setControlInfo()) on all messages exchanged between TCP and
+application, in both directions. Some commands and indications
+(TCP_C_OPEN_xxx, TCP_I_STATUS) use subclasses.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpErrorInfo" href="inet-TcpErrorInfo.html">TcpErrorInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Currently not in use.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpOpenCommand" href="inet-TcpOpenCommand.html">TcpOpenCommand</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Control info to be used for active or passive TCP open.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpAcceptCommand" href="inet-TcpAcceptCommand.html">TcpAcceptCommand</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Control info to be used to accept an available connection.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpSetOptionCommand" href="inet-TcpSetOptionCommand.html">TcpSetOptionCommand</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Base class for TCP socket option control info classes.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpSetTimeToLiveCommand" href="inet-TcpSetTimeToLiveCommand.html">TcpSetTimeToLiveCommand</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpSetDscpCommand" href="inet-TcpSetDscpCommand.html">TcpSetDscpCommand</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpSetTosCommand" href="inet-TcpSetTosCommand.html">TcpSetTosCommand</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpAvailableInfo" href="inet-TcpAvailableInfo.html">TcpAvailableInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Sent with message kind TCP_I_AVAILABLE, to let the app know
+about the local and remote IP address and port.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpConnectInfo" href="inet-TcpConnectInfo.html">TcpConnectInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Sent with message kind TCP_I_ESTABLISHED, to let the app know
+about the local and remote IP address and port.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TcpStatusInfo" href="inet-TcpStatusInfo.html">TcpStatusInfo</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Sent with message kind TCP_I_STATUS, in response to command TCP_C_STATUS.
+For explanation of variables, see RFC 793 or <a title="inet::tcp::TcpStateVariables" href="inet-tcp-TcpStateVariables.html">TcpStateVariables</a> in
+TcpConnection(<a title="inet::tcp::TcpConnection" href="inet-tcp-TcpConnection.html">1</a>,<a title="inet.transportlayer.tcp.TcpConnection" href="inet.transportlayer.tcp.TcpConnection.html">2</a>).h.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2004 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IpProtocolId</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">L3Address</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// TCP command codes, sent by the application to TCP. These constants
+// should be set as message kind on a message sent to the TCP entity.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommand, ~TcpOpenCommand, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommandCode</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">TCP_C_OPEN_ACTIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// active open (must carry ~TcpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_OPEN_PASSIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// passive open (must carry ~TcpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_ACCEPT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// accept connection
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_SEND</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// send data (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_CLOSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// &quot;I have no more data to send&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_ABORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// abort connection
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_STATUS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// request status info (TCP_I_STATUS) from TCP
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_QUEUE_BYTES_LIMIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set send queue limit (in bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_READ</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// send request to TCP to deliver data
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_DESTROY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// send request to TCP to destroy the socket descriptor
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_C_SETOPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// setting TCP socket options
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// TCP indications, sent by TCP to the application. TCP will set these
+// constants as message kind on messages it sends to the application.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommand, ~TcpStatusInfo, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpStatusInd</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">TCP_I_DATA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// data packet (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_URGENT_DATA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// urgent data (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_AVAILABLE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// conncetion available
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_ESTABLISHED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// connection established
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_PEER_CLOSED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// FIN received from remote TCP
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_CLOSED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;            </span><span style="color: #808080; font-style: italic; ">// connection closed normally (via FIN exchange)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_CONNECTION_REFUSED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// connection refused
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_CONNECTION_RESET</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// connection reset
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_TIMED_OUT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// conn-estab timer went off, or max retransm. count reached
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_STATUS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// status info (will carry ~TcpStatusInfo)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_SEND_MSG</span><span style="color: #232629; "> = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// send queue abated, send more messages
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_I_DATA_NOTIFICATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// notify the upper layer that data has arrived
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Currently not in use.
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpErrorCode</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Control info for TCP connections. This class is to be set as control info
+// (see cMessage::setControlInfo()) on all messages exchanged between TCP and
+// application, in both directions. Some commands and indications
+// (TCP_C_OPEN_xxx, TCP_I_STATUS) use subclasses.
+//
+// connId identifies the connection locally within the application (internally,
+// TCP uses the (app gate index, connId) pair to identify the socket).
+// connId is to be chosen by the application in the open command.
+//
+</span><span style="color: #cccccc; font-style: italic; ">//# </span><span style="color: #000080; ">TODO</span><span style="color: #cccccc; font-style: italic; "> explain userId
+</span><span style="color: #808080; font-style: italic; ">//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommandCode, ~TcpStatusInd, ~TcpOpenCommand, ~TcpStatusInfo, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">userId</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// id than can be freely used by the app
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Currently not in use.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpErrorInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">TcpErrorCode</span><span style="color: #232629; "> </span><span style="color: #232629; ">errorCode</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageText</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Control info to be used for active or passive TCP open.
+//
+// localAddr, remoteAddr, localPort, remotePort should be self-explanatory.
+// localAddr is optional because TCP can learn it from IP when a packet
+// is received from the peer; localPort is optional because TCP supports
+// ephemeral ports.
+//
+// The fork parameter is used with passive open, and controls what happens
+// when an incoming connection is received. With fork=true, it emulates
+// the Unix accept(2) syscall semantics: a new connection structure
+// is created for the connection (with a new connId, see in ~TcpCommand),
+// and the connection structure with the old connId remains listening.
+// With fork=false, all the above does not happen: the first connection
+// is accepted (with the original connId), and further incoming connections
+// will be refused by TCP by sending an RST segment.
+//
+// The tcpAlgorithmClass field allows per-connection TCP configuration.
+// The tcpAlgorithmClass field may contain name of class subclassed from
+// TcpAlgorithm, respectively.
+// If not set, module parameters with similar names are used.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommandCode, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpOpenCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// may be left empty
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;</span><span style="color: #808080; font-style: italic; ">// required for active open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// required for passive open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// required for active open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fork</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// used only for passive open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcpAlgorithmClass</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// TCP congestion control algorithm; leave empty for default
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Control info to be used to accept an available connection.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpAcceptCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Base class for TCP socket option control info classes.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetOptionCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetTimeToLiveCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetOptionCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">ttl</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetDscpCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetOptionCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">dscp</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// dscp for Ipv4/Ipv6
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetTosCommand</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSetOptionCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">tos</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// type of service for Ipv4 / traffic class for Ipv6
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Sent with message kind TCP_I_AVAILABLE, to let the app know
+// about the local and remote IP address and port.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommandCode, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpAvailableInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">newSocketId</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Sent with message kind TCP_I_ESTABLISHED, to let the app know
+// about the local and remote IP address and port.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpCommandCode, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpConnectInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Sent with message kind TCP_I_STATUS, in response to command TCP_C_STATUS.
+// For explanation of variables, see RFC 793 or TcpStateVariables in
+// TcpConnection.h.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~TcpStatusInd, ~TcpCommandCode, ~ITcp
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpStatusInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">state</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">stateName</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_mss</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_una</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_nxt</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_max</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wnd</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_up</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wl1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wl2</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">iss</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_nxt</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_wnd</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_up</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">irs</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fin_ack_rcvd</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

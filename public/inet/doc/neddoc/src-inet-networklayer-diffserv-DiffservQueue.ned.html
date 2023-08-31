@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DiffservQueue.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DiffservQueue.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/networklayer/diffserv/DiffservQueue.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.DiffservQueue" href="inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This is an example queue, that can be used in
+interfaces of DS core and edge nodes to support
+the AFxy (RFC 2597) and EF (RFC 3246) PHBs.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2012 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">diffserv</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">CompoundPacketQueueBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">DropTailQueue</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">scheduler</span><span style="color: #232629; ">.</span><span style="color: #232629; ">PriorityScheduler</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">scheduler</span><span style="color: #232629; ">.</span><span style="color: #232629; ">WrrScheduler</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">sink</span><span style="color: #232629; ">.</span><span style="color: #232629; ">PassivePacketSink</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This is an example queue, that can be used in
+// interfaces of DS core and edge nodes to support
+// the AFxy (RFC 2597) and EF (RFC 3246) PHBs.
+//
+// The incoming packets are first classified according to
+// their DSCP field. DSCPs other than AFxy and EF are handled
+// as BE (best effort).
+//
+// EF packets are stored in a dedicated queue, and served first
+// when a packet is requested. Because they can preempt the other
+// queues, the rate of the EF packets should be limited to a fraction
+// of the bandwith of the link. This is achieved by metering the EF
+// traffic with a token bucket meter and dropping packets that
+// does not conform to the traffic profile.
+//
+// There are other queues for AFx classes and BE. The AFx queues
+// use RED to implement 3 different drop priorities within the class.
+// BE packets are stored in a drop tail queue.
+// Packets from AFxy and BE queues are sheduled by a WRR scheduler,
+// which ensures that the remaining bandwith is allocated among the classes
+// according to the specified weights.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~AFxyQueue
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">DiffservQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">CompoundPacketQueueBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">));
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">: </span><span style="color: #232629; ">BehaviorAggregateClassifier</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">dscps</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;EF AF11 AF12 AF13 AF21 AF22 AF23 AF31 AF32 AF33 AF41 AF42 AF43&quot;</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,330&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">efMeter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">TokenBucketMeter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">cir</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;10%&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// reserved EF bandwith as percentage of datarate of the interface
+</span><span style="color: #232629; ">            </span><span style="color: #232629; ">cbs</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5000</span><span style="color: #232629; ">B</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// 5 1000B packets
+</span><span style="color: #232629; ">            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,130&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">sink</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PassivePacketSink</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">efQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">DropTailQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">packetCapacity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// keep low, for low delay and jitter
+</span><span style="color: #232629; ">            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,180&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">af1xQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">AFxyQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,230&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">af2xQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">AFxyQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,330&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">af3xQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">AFxyQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,430&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">af4xQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">AFxyQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,530&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">DropTailQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,630&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">: </span><span style="color: #232629; ">WrrScheduler</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">weights</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;1 1 1 1 1&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,330&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">priority</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PriorityScheduler</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,330&quot;</span><span style="color: #232629; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">efMeter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af1xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx1In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af1xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx2In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af1xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx3In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af2xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx1In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af2xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx2In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af2xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx3In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af3xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx1In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af3xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx2In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af3xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx3In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af4xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx1In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af4xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx2In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">af4xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">afx3In</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">defaultOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">efMeter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">greenOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=green&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">efQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">efMeter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">redOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ls=red&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">sink</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">af1xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">af2xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">af3xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">af4xQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">beQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">efQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">priority</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">wrr</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">priority</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">priority</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

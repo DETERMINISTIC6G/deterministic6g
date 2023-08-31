@@ -1,0 +1,406 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>SctpCommand.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">SctpCommand.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/contract/sctp/SctpCommand.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::AddressVector" href="inet-AddressVector.html">AddressVector</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpErrorCode" href="inet-SctpErrorCode.html">SctpErrorCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Currently not in use.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpCommandCode" href="inet-SctpCommandCode.html">SctpCommandCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>SCTP command codes, sent by the application to SCTP. These constants
+should be set as message kind on a message sent to the SCTP entity.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpStatusInd" href="inet-SctpStatusInd.html">SctpStatusInd</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>SCTP indications, sent by SCTP to the application. SCTP will set these
+constants as message kind on messages it sends to the application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpFlags" href="inet-SctpFlags.html">SctpFlags</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpSimpleMessage" href="inet-SctpSimpleMessage.html">SctpSimpleMessage</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpCommandReq" href="inet-SctpCommandReq.html">SctpCommandReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpSendReq" href="inet-SctpSendReq.html">SctpSendReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpOpenReq" href="inet-SctpOpenReq.html">SctpOpenReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpAvailableReq" href="inet-SctpAvailableReq.html">SctpAvailableReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpConnectReq" href="inet-SctpConnectReq.html">SctpConnectReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpRcvReq" href="inet-SctpRcvReq.html">SctpRcvReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpStatusReq" href="inet-SctpStatusReq.html">SctpStatusReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpResetReq" href="inet-SctpResetReq.html">SctpResetReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpInfoReq" href="inet-SctpInfoReq.html">SctpInfoReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpPathInfoReq" href="inet-SctpPathInfoReq.html">SctpPathInfoReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpRtoReq" href="inet-SctpRtoReq.html">SctpRtoReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpSendQueueAbatedReq" href="inet-SctpSendQueueAbatedReq.html">SctpSendQueueAbatedReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::SctpPathInfo" href="inet-SctpPathInfo.html">SctpPathInfo</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2008 Irene Ruengeler
+// Copyright (C) 2015 Thomas Dreibholz
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IpProtocolId</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">L3Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> &lt;</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">&gt;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">typedef</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">L3Address</span><span style="color: #232629; ">&gt; </span><span style="color: #232629; ">AddressVector</span><span style="color: #232629; ">;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">AddressVector</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">; }
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Currently not in use.
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpErrorCode</span><span style="color: #232629; ">
+{
+
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// SCTP command codes, sent by the application to SCTP. These constants
+// should be set as message kind on a message sent to the SCTP entity.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> SctpCommand, SctpOpenCommand, Sctp
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandCode</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">SCTP_C_ASSOCIATE</span><span style="color: #232629; ">         = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// active open (must carry SctpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_OPEN_PASSIVE</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// passive open (must carry SctpOpenCommand)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND</span><span style="color: #232629; ">              = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_CLOSE</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// shutdown the association
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_ABORT</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// abort connection
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_STATUS</span><span style="color: #232629; ">            = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// request status info (SCTP_I_STATUS) from Sctp
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_RECEIVE</span><span style="color: #232629; ">           = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// data receive request
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND_ORDERED</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data ordered
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SEND_UNORDERED</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send data unordered
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_PRIMARY</span><span style="color: #232629; ">           = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set primary path
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_QUEUE_BYTES_LIMIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set send queue limit (in bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_QUEUE_MSGS_LIMIT</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">13</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set send queue limit (in messages)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_SHUTDOWN</span><span style="color: #232629; ">          = </span><span style="color: #008000; ">14</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_NO_OUTSTANDING</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">15</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_STREAM_RESET</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">16</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// send StreamResetChunk
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_C_RESET_ASSOC</span><span style="color: #232629; ">       = </span><span style="color: #008000; ">17</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ADD_STREAMS</span><span style="color: #232629; ">       = </span><span style="color: #008000; ">18</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_NAT_INFO</span><span style="color: #232629; ">          = </span><span style="color: #008000; ">19</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SEND_ASCONF</span><span style="color: #232629; ">       = </span><span style="color: #008000; ">20</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SET_STREAM_PRIO</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">21</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_GETSOCKETOPTIONS</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">22</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ACCEPT</span><span style="color: #232629; ">            = </span><span style="color: #008000; ">23</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_SET_RTO_INFO</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">24</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_ACCEPT_SOCKET_ID</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">25</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_C_DESTROY</span><span style="color: #232629; ">           = </span><span style="color: #008000; ">26</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// destroy socket
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #808080; font-style: italic; ">//
+// SCTP indications, sent by SCTP to the application. SCTP will set these
+// constants as message kind on messages it sends to the application.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> SctpCommand, SctpStatusInfo, Sctp
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpStatusInd</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">SCTP_I_DATA</span><span style="color: #232629; ">                  = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// data packet (set on data packet)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_DATA_NOTIFICATION</span><span style="color: #232629; ">     = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// data arrived notification
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_ESTABLISHED</span><span style="color: #232629; ">           = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// connection established
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_PEER_CLOSED</span><span style="color: #232629; ">           = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// FIN received from remote SCTP
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_CLOSED</span><span style="color: #232629; ">                = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// connection closed normally (via FIN exchange)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_CONNECTION_REFUSED</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// connection refused
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_CONNECTION_RESET</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// connection reset
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_TIMED_OUT</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// conn-estab timer went off, or max retransm. count reached
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_STATUS</span><span style="color: #232629; ">                = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// status info (will carry SctpStatusInfo)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_ABORT</span><span style="color: #232629; ">                 = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// association was aborted by the peer
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_CONN_LOST</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// association had too many retransmissions FIXME
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_SEND_MSG</span><span style="color: #232629; ">              = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_SHUTDOWN_RECEIVED</span><span style="color: #232629; ">     = </span><span style="color: #008000; ">13</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_SENDQUEUE_FULL</span><span style="color: #232629; ">        = </span><span style="color: #008000; ">14</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_SENDQUEUE_ABATED</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">15</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_ABANDONED</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">16</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_SEND_STREAMS_RESETTED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">17</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_RCV_STREAMS_RESETTED</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">18</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_RESET_REQUEST_FAILED</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">19</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_ADDRESS_ADDED</span><span style="color: #232629; ">         = </span><span style="color: #008000; ">20</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// used for AddIP and multihomed NAT
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SCTP_I_SENDSOCKETOPTIONS</span><span style="color: #232629; ">     = </span><span style="color: #008000; ">21</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SCTP_I_AVAILABLE</span><span style="color: #232629; ">             = </span><span style="color: #008000; ">22</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpFlags</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">COMPLETE_MESG_UNORDERED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">COMPLETE_MESG_ORDERED</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpSimpleMessage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataLen</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">//TODO remove it, use set/getDataArraySize() functions only
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">data</span><span style="color: #232629; ">[];
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">creationTime</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">encaps</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketId</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// identifies the socket within the application
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">sid</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numMsgs</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">ssn</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">sendUnordered</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">prValue</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">gate</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fd</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpSendReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">prMethod</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">last</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">ppid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">primary</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sackNow</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpOpenReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">AddressVector</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddresses</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">AddressVector</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddresses</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fork</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;               </span><span style="color: #808080; font-style: italic; ">// used only for passive open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">queueClass</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;SctpQueue&quot;</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// may be left empty
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">sctpAlgorithmClass</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// may be left empty
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">inboundStreams</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">outboundStreams</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">streamReset</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">appLimited</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">prMethod</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">numRequests</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messagesToPush</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpAvailableReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">newSocketId</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpConnectReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">AddressVector</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddresses</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">status</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">inboundStreams</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">outboundStreams</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpRcvReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ppid</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tsn</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">cumTsn</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpStatusReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">state</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">stateName</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">pathId</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">active</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpResetReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">requestType</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">instreams</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">outstreams</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">streams</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpInfoReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">text</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpPathInfoReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddress</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpRtoReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtoInitial</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtoMin</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtoMax</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpSendQueueAbatedReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpCommandReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bytesAvailable</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bytesQueued</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bytesLimit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint64_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">queuedForStream</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SctpPathInfo</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cNamedObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddress</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

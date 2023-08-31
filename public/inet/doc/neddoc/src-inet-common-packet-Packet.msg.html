@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Packet.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Packet.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/common/packet/Packet.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::Packet" href="inet-Packet.html">Packet</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Units</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/common/packet/Packet.h&quot;</span><span style="color: #232629; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Packet</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataLength</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">totalLength</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ChunkTemporarySharedPtr</span><span style="color: #232629; "> *</span><span style="color: #232629; ">data</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getData</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ChunkTemporarySharedPtr</span><span style="color: #232629; "> *</span><span style="color: #232629; ">dissection</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getDissection</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">Chunk</span><span style="color: #232629; "> *</span><span style="color: #232629; ">content</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getContent</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">cObject</span><span style="color: #232629; "> *</span><span style="color: #232629; ">tags</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">_getTag</span><span style="color: #232629; ">) </span><span style="color: #232629; font-weight: bold; ">@sizeGetter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getNumTags</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">SharingRegionTagSet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">TagBaseRegionTag</span><span style="color: #232629; "> </span><span style="color: #232629; ">regionTags</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">_getRegionTag</span><span style="color: #232629; ">) </span><span style="color: #232629; font-weight: bold; ">@sizeGetter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getNumRegionTags</span><span style="color: #232629; ">);
+
+    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">frontOffset</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">backOffset</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ChunkTemporarySharedPtr</span><span style="color: #232629; "> *</span><span style="color: #232629; ">front</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getFront</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ChunkTemporarySharedPtr</span><span style="color: #232629; "> *</span><span style="color: #232629; ">back</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">getBack</span><span style="color: #232629; ">);
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DetComAdapter.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DetComAdapter.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/devices/sixg/DetComAdapter.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>class <a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a>
+The module <a title="d6g.devices.sixg.DetComAdapter" href="d6g.devices.sixg.DetComAdapter.html">DetComAdapter</a> extends a TsnSwitch, presenting a configurable network scenario that models 
+Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
+egress traffic shaping, and cut-through switching.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">/// \cond
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">d6g</span><span style="color: #232629; ">.</span><span style="color: #232629; ">devices</span><span style="color: #232629; ">.</span><span style="color: #232629; ">sixg</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">tsn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TsnSwitch</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; ">;
+</span><span style="color: #808080; font-style: italic; ">/// \endcond
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">/// \class DetComAdapter
+/// The module DetComAdapter extends a TsnSwitch, presenting a configurable network scenario that models 
+/// Ethernet communication with varying MAC and PHY layer behaviors, influenced by parameters such as frame preemption,
+/// egress traffic shaping, and cut-through switching.
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">DetComAdapter</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TsnSwitch</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numUeInterfaces</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">/// minimum number of ethernet interfaces
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">macLayer</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetPreemptingMacLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;EthernetMacLayer&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">macLayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasEgressTrafficShaping</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021qTimeAwareShaper&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;PacketQueue&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">/// use compound priority queue having multiple subqueues controlled by separate gates when egress traffic shaping is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">phyLayer</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasCutthroughSwitching</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetStreamThroughPhyLayer&quot;</span><span style="color: #232629; "> : (</span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetPreemptingPhyLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;EthernetPhyLayer&quot;</span><span style="color: #232629; ">)); </span><span style="color: #808080; font-style: italic; ">/// use packet streaming when cut-through switching is enabled
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ueg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numUeInterfaces</span><span style="color: #232629; ">] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ueg</span><span style="color: #232629; ">)]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;UE&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=325,900,row,150;q=txQueue&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ueg</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">li</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">ue</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ueg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">];
+        }
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

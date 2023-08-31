@@ -1,0 +1,493 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>LargeNet.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">LargeNet.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/ethernet/lans/LargeNet.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">cable</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>A 100Mb/s Ethernet cable(<a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">1</a>,<a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">2</a>). Part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.SmallLAN" href="inet.examples.ethernet.lans.SmallLAN.html">SmallLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts on an Ethernet hub; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.MediumLAN" href="inet.examples.ethernet.lans.MediumLAN.html">MediumLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.LargeLAN" href="inet.examples.ethernet.lans.LargeLAN.html">LargeLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch. One port of the hub
+connect to a 10Base2 segment. Part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">LargeNet</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>A large Ethernet LAN -- see model description
+<a href="largenet.html">here</a>.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2003 CTIE, Monash University
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lans</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">EthernetHub</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">physicallayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">wired</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">ned</span><span style="color: #232629; ">.</span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// A 100Mb/s Ethernet cable. Part of ~LargeNet.
+//
+</span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">1</span><span style="color: #232629; ">us</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">100</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">;
+}
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Several hosts on an Ethernet hub; part of ~LargeNet.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">h</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the hub
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=old/cloud&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">numEthInterfaces</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">].</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=625,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHub</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">h</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200,row,150&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">];
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">h</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Several hosts and an Ethernet hub on a switch; part of ~LargeNet.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">n</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the switch
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">h</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the hub
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=old/cloud&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">numEthInterfaces</span><span style="color: #232629; "> = </span><span style="color: #232629; ">parent</span><span style="color: #232629; ">.</span><span style="color: #232629; ">n</span><span style="color: #232629; ">+</span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">].</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=625,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200,row,150&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHub</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=625,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">h</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=325,400,row,150&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// half-duplex:
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">h</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">// full-duplex:
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">1</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">+</span><span style="color: #008000; ">2</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+}
+
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Several hosts and an Ethernet hub on a switch. One port of the hub
+// connect to a 10Base2 segment. Part of ~LargeNet.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">n</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the switch
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">h</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the hub
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of hosts on the bus
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=old/cloud&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">types</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+        {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">;
+        }
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">].</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200,row,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHub</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=900,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">h</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1050,100,col,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tap</span><span style="color: #232629; ">[</span><span style="color: #232629; ">b</span><span style="color: #232629; ">+</span><span style="color: #008000; ">1</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=,,r,50&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">bhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">b</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,400,row,100&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">host</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+
+        </span><span style="color: #232629; ">switch</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">h</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">b</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">tap</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">bhost</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">tap</span><span style="color: #232629; ">[</span><span style="color: #232629; ">b</span><span style="color: #232629; ">].</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hub</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">b</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">tap</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletobus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tap</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">+</span><span style="color: #008000; ">1</span><span style="color: #232629; ">].</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++;
+        }
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// A large Ethernet LAN -- see model description
+// </span><span style="color: #800000; ">&lt;a href=&quot;largenet.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">here</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+//
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">LargeNet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">n</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// length of the &quot;backbone&quot; (n&gt;5!)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bbs</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of small LANs on &quot;backbone&quot; switches
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bbm</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of medium LANs on &quot;backbone&quot; switches
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bbl</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// number of large LANs on &quot;backbone&quot; switches
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">as</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of small LANs on switch A
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">am</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of medium LANs on switch A
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">al</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of large LANs on switch A
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bs</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of small LANs on switch B
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bm</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of medium LANs on switch B
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bl</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of large LANs on switch B
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cs</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of small LANs on switch C
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cm</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of medium LANs on switch C
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">cl</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of large LANs on switch C
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">ds</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of small LANs on switch D
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">dm</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of medium LANs on switch D
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">dl</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// number of large LANs on switch D
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">types</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletoserver</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+        {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">Gbps</span><span style="color: #232629; ">;
+        }
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,180,row,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">slanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbs</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,130,row,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mlanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbm</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,80,row,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">n</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbl</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,280,row,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">serverA</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">slanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">as</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mlanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">am</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=325,680&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">al</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=475,680&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">serverB</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=850,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">slanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">bs</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mlanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">bm</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=625,480&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">bl</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=775,480&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1000,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">serverC</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1150,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">slanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">cs</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=850,580&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mlanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">cm</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=925,680&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">cl</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1075,680&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetSwitch</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1300,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">serverD</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1450,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">slanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">ds</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">SmallLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1150,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mlanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">dm</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">MediumLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1225,480&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">dl</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">LargeLAN</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=1375,480&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// &quot;backbone&quot; switches
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">k</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">, </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bbs</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">slanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbs</span><span style="color: #232629; ">+</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">k</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">, </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bbm</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mlanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbm</span><span style="color: #232629; ">+</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">k</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">, </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bbl</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llanBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">*</span><span style="color: #232629; ">bbl</span><span style="color: #232629; ">+</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">k</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">n</span><span style="color: #232629; ">-</span><span style="color: #008000; ">2</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">k</span><span style="color: #232629; ">+</span><span style="color: #008000; ">1</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        }
+
+        </span><span style="color: #808080; font-style: italic; ">// switch A
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">as</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">slanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">am</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mlanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">al</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llanA</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletoserver</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">serverA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// switch B
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bs</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">slanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bm</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mlanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">bl</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llanB</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletoserver</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">serverB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// switch C
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">cs</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">slanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">cm</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mlanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">cl</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llanC</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletoserver</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">serverC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// switch D
+</span><span style="color: #232629; ">        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">ds</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">slanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">dm</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mlanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">dl</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llanD</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cabletoserver</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">serverD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// connect switches
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">switchA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">switchC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switchD</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">switchB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">cable</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">switchBB</span><span style="color: #232629; ">[</span><span style="color: #008000; ">4</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

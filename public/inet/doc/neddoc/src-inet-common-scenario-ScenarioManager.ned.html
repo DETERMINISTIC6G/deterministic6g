@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ScenarioManager.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ScenarioManager.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/common/scenario/ScenarioManager.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.scenario.ScenarioManager" href="inet.common.scenario.ScenarioManager.html">ScenarioManager</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>~<a title="inet.common.scenario.ScenarioManager" href="inet.common.scenario.ScenarioManager.html">ScenarioManager</a> is for setting up and controlling simulation experiments.
+You can schedule certain events to take place at specified times,
+like changing a parameter value, changing the bit error rate of
+a connection, removing or adding connections, removing or
+adding routes in a routing table, etc, so that you can observe the
+transient behaviour.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2005 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">scenario</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// ~ScenarioManager is for setting up and controlling simulation experiments.
+// You can schedule certain events to take place at specified times,
+// like changing a parameter value, changing the bit error rate of
+// a connection, removing or adding connections, removing or
+// adding routes in a routing table, etc, so that you can observe the
+// transient behaviour.
+//
+// ~ScenarioManager executes a script specified in XML. It has a few
+// built-in commands, while other commands are dispatched to be carried out
+// by given simple modules. (The C++ class of these simple modules' needs
+// to implement the ~IScriptable interface, and the processCommand() method
+// must be redefined accordingly).
+//
+// An example script:
+//
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+// &lt;scenario&gt;
+//     &lt;set-param t=&quot;10&quot; module=&quot;host[1].mobility&quot; par=&quot;speed&quot; value=&quot;5&quot;/&gt;
+//     &lt;set-param t=&quot;20&quot; module=&quot;host[1].mobility&quot; par=&quot;speed&quot; expr=&quot;20+10&quot;/&gt;
+//     &lt;set-param t=&quot;30&quot; module=&quot;host[1].mobility&quot; par=&quot;displayStringTextFormat&quot; value='p: %p\nv: %v'/&gt;
+//     &lt;set-param t=&quot;30&quot; module=&quot;host[1].mobility&quot; par=&quot;displayStringTextFormat&quot; expr='&quot;p: %p\nv: %v&quot;'/&gt;
+//     &lt;at t=&quot;50&quot;&gt;
+//         &lt;set-param module=&quot;host[2].mobility&quot; par=&quot;speed&quot; value=&quot;10&quot;/&gt;
+//         &lt;set-param module=&quot;host[3].mobility&quot; par=&quot;speed&quot; value=&quot;10&quot;/&gt;
+//         &lt;connect src-module=&quot;host[2]&quot; src-gate=&quot;ppp[0]&quot;
+//                  dest-module=&quot;host[1]&quot; dest-gate=&quot;ppp[0]&quot;
+//                  channel-type=&quot;ned.DatarateChannel&quot;&gt;
+//             &lt;param name=&quot;datarate&quot; value=&quot;10Mbps&quot; /&gt;
+//             &lt;param name=&quot;delay&quot; value=&quot;0.1us&quot; /&gt;
+//         &lt;/connect&gt;
+//     &lt;/at&gt;
+//     &lt;at t=&quot;60&quot;&gt;
+//         &lt;disconnect src-module=&quot;host[2]&quot; src-gate=&quot;ppp[0]&quot; /&gt;
+//     &lt;/at&gt;
+//     &lt;at t=&quot;2s&quot;&gt;
+//         &lt;initiate module=&quot;Router2&quot; operation=&quot;shutdown&quot;/&gt;
+//         &lt;shutdown module=&quot;Router2&quot;/&gt;
+//         &lt;start module=&quot;Router2&quot;/&gt;
+//         &lt;crash module=&quot;Router2&quot;/&gt;
+//     &lt;/at&gt;
+// &lt;/scenario&gt;
+// </span><span style="color: #800000; ">&lt;/pre&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// Built-in commands: &lt;at&gt;, &lt;set-param&gt;, &lt;set-channel-param&gt;,
+// &lt;create-module&gt;, &lt;delete-module&gt;, &lt;connect&gt;, &lt;disconnect&gt;,
+// &lt;initiate&gt;, &lt;startup&gt;, &lt;shutdown&gt;, &lt;crash&gt;
+//
+// All commands have a t attribute which carries the simulation time
+// at which the command has to be carried out. You can group several commands
+// to be carried out at the same simulation time using &lt;at&gt;, and
+// then only the &lt;at&gt; command is needed to have a t attribute.
+//
+// Supported attributes:
+// - &lt;set-param&gt;: module, par, value|expr.
+//       module: path to module (required)
+//       par: name of settable parameter of module (required)
+//       value: new value for parameter
+//       expr: expression for calculate new value of parameter
+//       Note: value and expr are exclusive, required one
+// - &lt;set-channel-param&gt;: src-module, src-gate|dest-module, par, value|expr.
+//       src-module: path to source module (required)
+//       src-gate: name of source gate
+//       dest-module: path to destination module
+//       par: name of settable parameter of module (required)
+//       value: new value for parameter
+//       expr: expression for calculate new value of parameter
+//       Note: src-gate and dest-module are exclusive, required one;
+//             value and expr are exclusive, required one;
+//             if dest-module is present, there must be exactly one connection
+//             between src-module and dest-module (which may be bidirectional);
+//             if src-gate references an inout gate, the parameter will be set
+//             on the channel of both directions.
+// - &lt;connect&gt;: src-module, src-gate, dest-module, dest-gate, channel-type
+//       src-module: path to source module (required)
+//       src-gate: name of source gate (required)
+//       dest-module: path to destination module (required)
+//       dest-gate: name of destination gate (required)
+//       channel-type: full qualified ned type of connection channel (required), e.g. &quot;ned.DatarateChannel&quot;
+//     - &lt;param&gt;: name, value|expr
+//       name: name of settable parameter of channel (required)
+//       value: new value for parameter
+//       expr: expression for calculate new value of parameter
+//       Note: value and expr are exclusive, required one
+// - &lt;disconnect&gt;: src-module, src-gate|dest-module
+//       src-module: path to source module (required)
+//       src-gate: name of source gate
+//       dest-module: path to destination module
+//       Note: src-gate and dest-module are exclusive, required one;
+//       if dest-module is present, there must be exactly one connection
+//       between src-module and dest-module (which may be bidirectional);
+//       if src-gate references an inout gate, both directions will be disconnected.
+// - &lt;create-module&gt;: parent, submodule, type, vector
+//       parent: parent module path (required)
+//       submodule: name of created module (required)
+//       type: NED type of created module (required), e.g. &quot;inet.applications.pingapp.PingApp&quot;
+//       vector: boolean, if true, the module created as vector element with next index,
+//               if false, the module created as a single module,
+//               if missing, detects existing vector by submodule name
+// - &lt;delete-module&gt;: module
+//       module: path to module (required)
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">ScenarioManager</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">script</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;script&gt;&lt;/script&gt;&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/control&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

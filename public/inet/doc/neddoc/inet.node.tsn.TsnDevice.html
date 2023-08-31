@@ -1,0 +1,816 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TsnDevice</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TsnDevice</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_tsn">inet.node.tsn</a></p>
+<h2 class="comptitle" style="float: left;">TsnDevice</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>This module represents a Time-Sensitive Networking (TSN) hardware end device
+that supports time synchronization, per-stream filtering and policing, scheduling
+and traffic shaping, frame replication and elimination, frame preemption for
+Ethernet networks. All TSN features are optional and they can be combined with
+other Ethernet features.</p>
+<img src="inet.node.tsn.TsnDevice-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="29,63,86,119">
+<area shape="rect" href="inet.clock.contract.IClock.html" title="IClock" alt="IClock" coords="33,169,81,225">
+<area shape="rect" href="inet.power.contract.IEnergyStorage.html" title="IEnergyStorage" alt="IEnergyStorage" coords="-11,205,125,261">
+<area shape="rect" href="inet.power.contract.IEnergyManagement.html" title="IEnergyManagement" alt="IEnergyManagement" coords="-37,240,151,296">
+<area shape="rect" href="inet.power.contract.IEnergyGenerator.html" title="IEnergyGenerator" alt="IEnergyGenerator" coords="-22,276,137,332">
+<area shape="rect" href="inet.mobility.contract.IMobility.html" title="IMobility" alt="IMobility" coords="20,98,95,154">
+<area shape="rect" href="inet.common.IMeasurer.html" title="IMeasurer" alt="IMeasurer" coords="12,320,102,376">
+<area shape="rect" href="inet.common.packet.recorder.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="-105,311,220,367">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="-8,134,123,190">
+<area shape="rect" href="inet.linklayer.ieee8022.IIeee8022Llc.html" title="IIeee8022Llc" alt="IIeee8022Llc" coords="148,252,192,324">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,304,559,338">
+<area shape="rect" href="inet.protocolelement.contract.IProtocolLayer.html" title="IProtocolLayer" alt="IProtocolLayer" coords="295,318,373,390">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,371,559,405">
+<area shape="rect" href="inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="129,385,208,457">
+<area shape="rect" href="inet.linklayer.ieee8021q.IIeee8021qLayer.html" title="IIeee8021qLayer" alt="IIeee8021qLayer" coords="187,385,281,457">
+<area shape="rect" href="inet.linklayer.ieee8021r.IIeee8021rLayer.html" title="IIeee8021rLayer" alt="IIeee8021rLayer" coords="255,385,345,457">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,437,559,471">
+<area shape="rect" href="inet.linklayer.contract.ILoopbackInterface.html" title="ILoopbackInterface" alt="ILoopbackInterface" coords="239,451,429,523">
+<area shape="rect" href="inet.linklayer.contract.IWirelessInterface.html" title="IWirelessInterface" alt="IWirelessInterface" coords="47,462,289,534">
+<area shape="rect" href="inet.linklayer.contract.IPppInterface.html" title="IPppInterface" alt="IPppInterface" coords="52,451,216,523">
+<area shape="rect" href="inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="324,451,476,523">
+<area shape="rect" href="inet.linklayer.contract.ITunnelInterface.html" title="ITunnelInterface" alt="ITunnelInterface" coords="325,462,541,534">
+<area shape="rect" href="inet.linklayer.contract.IVirtualInterface.html" title="IVirtualInterface" alt="IVirtualInterface" coords="327,462,540,534">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="148,186,201,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="214,186,267,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="266,186,335,258">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,238,559,272">
+<area shape="rect" href="inet.transportlayer.contract.IUdp.html" title="IUdp" alt="IUdp" coords="148,119,192,191">
+<area shape="rect" href="inet.transportlayer.contract.ITcp.html" title="ITcp" alt="ITcp" coords="214,119,258,191">
+<area shape="rect" href="inet.transportlayer.contract.ISctp.html" title="ISctp" alt="ISctp" coords="280,119,324,191">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,171,559,205">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="99,53,238,125">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,105,559,139">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="291,53,336,125">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.tsn.TsnDevice-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.tsn.TsnDevice-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.asynchronousshaper.core4inet.AsynchronousShaperValidation" href="inet.validation.tsn.trafficshaping.asynchronousshaper.core4inet.AsynchronousShaperValidation.html">AsynchronousShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.asynchronousshaper.icct.AsynchronousShaperValidation" href="inet.validation.tsn.trafficshaping.asynchronousshaper.icct.AsynchronousShaperValidation.html">AsynchronousShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.combiningfeatures.frerandcs.AutomaticFailureProtectionShowcase" href="inet.showcases.tsn.combiningfeatures.frerandcs.AutomaticFailureProtectionShowcase.html">AutomaticFailureProtectionShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.framereplication.automaticfailureprotection.AutomaticFailureProtectionShowcase" href="inet.showcases.tsn.framereplication.automaticfailureprotection.AutomaticFailureProtectionShowcase.html">AutomaticFailureProtectionShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.framereplication.automaticmultipathconfiguration.AutomaticMultipathConfigurationShowcase" href="inet.showcases.tsn.framereplication.automaticmultipathconfiguration.AutomaticMultipathConfigurationShowcase.html">AutomaticMultipathConfigurationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.trafficshaping.creditbasedshaper.CreditBasedShaperValidation" href="inet.validation.tsn.trafficshaping.creditbasedshaper.CreditBasedShaperValidation.html">CreditBasedShaperValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.cutthroughswitching.CutthroughSwitchingShowcase" href="inet.showcases.tsn.cutthroughswitching.CutthroughSwitchingShowcase.html">CutthroughSwitchingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.validation.tsn.framereplication.FrameReplicationValidation" href="inet.validation.tsn.framereplication.FrameReplicationValidation.html">FrameReplicationValidation</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.combiningfeatures.frerandtas.FrerAndTasShowcase" href="inet.showcases.tsn.combiningfeatures.frerandtas.FrerAndTasShowcase.html">FrerAndTasShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.combiningfeatures.gptpandtas.GptpAndTasShowcase" href="inet.showcases.tsn.combiningfeatures.gptpandtas.GptpAndTasShowcase.html">GptpAndTasShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.framereplication.manualconfiguration.ManualConfigurationShowcase" href="inet.showcases.tsn.framereplication.manualconfiguration.ManualConfigurationShowcase.html">ManualConfigurationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.timesynchronization.gptp.OneMasterClockGptpShowcase" href="inet.showcases.tsn.timesynchronization.gptp.OneMasterClockGptpShowcase.html">OneMasterClockGptpShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.timesynchronization.gptp.TwoMasterClocksRingGptpShowcase" href="inet.showcases.tsn.timesynchronization.gptp.TwoMasterClocksRingGptpShowcase.html">TwoMasterClocksRingGptpShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.timesynchronization.gptp.TwoMasterClocksTreeGptpShowcase" href="inet.showcases.tsn.timesynchronization.gptp.TwoMasterClocksTreeGptpShowcase.html">TwoMasterClocksTreeGptpShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.StandardHost" href="inet.node.inet.StandardHost.html">StandardHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>IPv4 host with SCTP, TCP, UDP layers and applications.
+IP forwarding is disabled by default (see forwarding).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModel</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>3D model for OSG visualization, no 3D model by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModelColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImage</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>image for canvas visualization, no image by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImageColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>recordPcap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numPcapRecorders</td>
+      <td>int</td>
+      <td>recordPcap ? 1 : 0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numLoInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numWlanInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numEthInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of ethernet interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numPppInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of PPP interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numTunInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numVirtInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv4</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv6</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasGn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>forwarding</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>multicastForwarding</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasUdp</td>
+      <td>bool</td>
+      <td>firstAvailableOrEmpty("Udp") != ""</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasTcp</td>
+      <td>bool</td>
+      <td>firstAvailableOrEmpty("Tcp", "TcpLwip", "TcpNsc") != ""</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasSctp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numApps</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>hasTimeSynchronization</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 AS time synchronization</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasIngressTrafficFiltering</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 Qci ingress per-stream filtering</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasEgressTrafficFiltering</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 Qci egress per-stream filtering</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasEgressTrafficShaping</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 egress traffic shaping (credit based shaping, time aware shaping, asynchronous shaping)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasStreamRedundancy</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 CB frame replication and elimination</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasIncomingStreams</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 stream decoding</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasOutgoingStreams</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 stream identification and stream encoding</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasFramePreemption</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable IEEE 802.1 Qbu frame preemption</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>hasCutthroughSwitching</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>enable cut-through switching support</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>NodeBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/card</td>
+      <td>
+<p>change icon to emphasise hardware device</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>radioIn [ ]</td>
+      <td>input</td>
+      <td>numWlanInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>pppg [ ]</td>
+      <td>inout</td>
+      <td>numPppInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td>numEthInterfaces</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+      <td>string</td>
+      <td>"wlan[*] eth[*] ppp[*]"</td>
+      <td>
+<p>space-separated list of sibling module names to listen on</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module represents a Time-Sensitive Networking (TSN) hardware end device
+// that supports time synchronization, per-stream filtering and policing, scheduling
+// and traffic shaping, frame replication and elimination, frame preemption for
+// Ethernet networks. All TSN features are optional and they can be combined with
+// other Ethernet features.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">TsnDevice</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasTimeSynchronization</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 AS time synchronization
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasIngressTrafficFiltering</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 Qci ingress per-stream filtering
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasEgressTrafficFiltering</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 Qci egress per-stream filtering
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasEgressTrafficShaping</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 egress traffic shaping (credit based shaping, time aware shaping, asynchronous shaping)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 CB frame replication and elimination
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasIncomingStreams</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 stream decoding
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasOutgoingStreams</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 stream identification and stream encoding
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable IEEE 802.1 Qbu frame preemption
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasCutthroughSwitching</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable cut-through switching support
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">clock</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasTimeSynchronization</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;SettableClock&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable explicit local clock model
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetLayer&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// use Ethernet protocol layer outside of network interfaces
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;LayeredEthernetInterface&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// switch to modular Ethernet interface
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">macLayer</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetPreemptingMacLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;EthernetMacLayer&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">macLayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasEgressTrafficShaping</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021qTimeAwareShaper&quot;</span><span style="color: #232629; "> : (</span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;PacketQueue&quot;</span><span style="color: #232629; ">)); </span><span style="color: #808080; font-style: italic; ">// use priority queue having multiple subqueues controlled by separate gates
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">phyLayer</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasCutthroughSwitching</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetStreamingPhyLayer&quot;</span><span style="color: #232629; "> : (</span><span style="color: #232629; ">hasFramePreemption</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;EthernetPreemptingPhyLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;EthernetPhyLayer&quot;</span><span style="color: #232629; ">)); </span><span style="color: #808080; font-style: italic; ">// use packet streaming when cut-through switching is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasIncomingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasOutgoingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasIngressTrafficFiltering</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasEgressTrafficFiltering</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;BridgingLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// switch to modular bridging
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">interfaceRelay</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// disable frame relaying
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamIdentifier</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasOutgoingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;StreamIdentifierLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable stream identification when stream redundancy is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamIdentifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">identifier</span><span style="color: #232629; ">.</span><span style="color: #232629; ">hasSequenceNumbering</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable sequence numberinf if stream redundancy is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamRelay</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;StreamRelayLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable stream merging and stream splitting when stream redundancy is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamFilter</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasIngressTrafficFiltering</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasEgressTrafficFiltering</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;StreamFilterLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable stream filtering when ingress or egress per-stream filtering is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamFilter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ingress</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasIngressTrafficFiltering</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;SimpleIeee8021qFilter&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// use IEEE 802.1 Qci ingress filter when ingress per-stream filtering is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamFilter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">egress</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasEgressTrafficFiltering</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;SimpleIeee8021qFilter&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// use IEEE 802.1 Qci egress filter when egress per-stream filtering is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">bridging</span><span style="color: #232629; ">.</span><span style="color: #232629; ">streamCoder</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasIncomingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasOutgoingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;StreamCoderLayer&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable stream endocing/decoding when stream redundancy is enabled
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">ieee8021r</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021rProtocol&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">ieee8021q</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">hasIncomingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasOutgoingStreams</span><span style="color: #232629; "> || </span><span style="color: #232629; ">hasStreamRedundancy</span><span style="color: #232629; "> ? </span><span style="color: #008000; ">&quot;Ieee8021qProtocol&quot;</span><span style="color: #232629; "> : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/card&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// change icon to emphasise hardware device
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">gptp</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Gptp&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IApp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasTimeSynchronization</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">gptpNodeType</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;SLAVE_NODE&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">slavePort</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;eth0&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">masterPorts</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">([]);
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,75&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasTimeSynchronization</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">gptp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">socketOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">at</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">at</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">gptp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">socketIn</span><span style="color: #232629; ">;
+        }
+}
+</span></pre>
+File: <a href="src-inet-node-tsn-TsnDevice.ned.html">src/inet/node/tsn/TsnDevice.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

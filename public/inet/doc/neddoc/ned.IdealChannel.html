@@ -1,0 +1,1687 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IdealChannel</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IdealChannel</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#ned">ned</a></p>
+<h2 class="comptitle" style="float: left;">IdealChannel</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ffca0080;">
+    <span class="mdl-chip__text">channel</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.wireless.AccessPoint" href="inet.node.wireless.AccessPoint.html">AccessPoint</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A generic access point supporting multiple wireless radios, and
+multiple ethernet ports. The type of the ethernet MAC, relay unit
+and wireless card can be specified as parameters.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.acking.AckingWirelessInterface" href="inet.linklayer.acking.AckingWirelessInterface.html">AckingWirelessInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a highly abstracted wireless network interface (NIC)
+that uses a trivial MAC protocol. It offers simplicity for scenarios where
+Layer 1 and 2 effects can be completely ignored, for example testing the
+basic functionality of a wireless ad-hoc routing protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.AFxyQueue" href="inet.networklayer.diffserv.AFxyQueue.html">AFxyQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This is an example queue, that implements
+one class of the Assured <a title="inet.protocolelement.forwarding.Forwarding" href="inet.protocolelement.forwarding.Forwarding.html">Forwarding</a> PHB group (RFC 2597).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.aodv.AodvRouter" href="inet.node.aodv.AodvRouter.html">AodvRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>It models a ~<a title="inet.node.inet.WirelessHost" href="inet.node.inet.WirelessHost.html">WirelessHost</a> extended with ~<a title="inet.routing.aodv.Aodv" href="inet.routing.aodv.Aodv.html">Aodv</a> submodule.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.ApplicationLayerNodeBase" href="inet.node.base.ApplicationLayerNodeBase.html">ApplicationLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpUpdate.BGPRouterEx" href="inet.examples.bgpv4.BgpUpdate.BGPRouterEx.html">BGPRouterEx</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example IP router with BGPv4 and OSPFv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpOpen.BGPRouterSimple" href="inet.examples.bgpv4.BgpOpen.BGPRouterSimple.html">BGPRouterSimple</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example <a title="inet.networklayer.ipv4.Ipv4" href="inet.networklayer.ipv4.Ipv4.html">Ipv4</a> router with BGPv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.BridgingLayer" href="inet.linklayer.ethernet.common.BridgingLayer.html">BridgingLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides various layer 2 services such as packet forwarding,
+interface selection, virtual LAN handling, stream handling.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.routerperf.BurstHost" href="inet.examples.inet.routerperf.BurstHost.html">BurstHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Definition of an IP node with a transport generator that connects
+to IP directly, without TCP or UDP.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.BurstyPacketProducer" href="inet.queueing.source.BurstyPacketProducer.html">BurstyPacketProducer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module mixes two different packet sources to generate bursty traffic.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ratecontrol.Client" href="inet.examples.wireless.ratecontrol.Client.html">Client</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientApp" href="inet.tutorials.protocol.ClientApp.html">ClientApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost1" href="inet.tutorials.protocol.ClientHost1.html">ClientHost1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost2" href="inet.tutorials.protocol.ClientHost2.html">ClientHost2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost3" href="inet.tutorials.protocol.ClientHost3.html">ClientHost3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost4" href="inet.tutorials.protocol.ClientHost4.html">ClientHost4</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost5" href="inet.tutorials.protocol.ClientHost5.html">ClientHost5</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost6" href="inet.tutorials.protocol.ClientHost6.html">ClientHost6</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ClientHost7" href="inet.tutorials.protocol.ClientHost7.html">ClientHost7</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.mac.queue.CompoundPendingQueue" href="inet.linklayer.ieee80211.mac.queue.CompoundPendingQueue.html">CompoundPendingQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.DataService" href="inet.protocolelement.service.DataService.html">DataService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DataService" href="inet.tutorials.protocol.DataService.html">DataService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.diffserv.DiffservQueue" href="inet.networklayer.diffserv.DiffservQueue.html">DiffservQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This is an example queue, that can be used in
+interfaces of DS core and edge nodes to support
+the AFxy (RFC 2597) and EF (RFC 3246) PHBs.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.diffserv.DiffservTrafficConditioner" href="inet.showcases.general.diffserv.DiffservTrafficConditioner.html">DiffservTrafficConditioner</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.DirectionReverserLayer" href="inet.linklayer.ethernet.common.DirectionReverserLayer.html">DirectionReverserLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a layer that combines the decision for local delivery
+with the service of reversing the direction of an incoming packet to outgoing
+for packet forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.dsdv.DsdvRouter" href="inet.node.dsdv.DsdvRouter.html">DsdvRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A DSDV router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DSQueue1" href="inet.examples.diffserv.onedomain.DSQueue1.html">DSQueue1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Diffserv Queue used in Experiment 1.1 - 1.6 and 5.1.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DSQueue2" href="inet.examples.diffserv.onedomain.DSQueue2.html">DSQueue2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Diffserv Queue used in Experiment 2.1 - 2.4.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.DualIeee8021qFilter" href="inet.linklayer.ieee8021q.DualIeee8021qFilter.html">DualIeee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines two meters and their corresponding filters per path. This
+is primarily useful for combining a token bucket based metering with an
+asynchronous packet shaper. Note that the asynchronous packet shaper also has
+parts in the network interface queue module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.dymo.DymoRouter" href="inet.node.dymo.DymoRouter.html">DymoRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.DynamicDefragmenter" href="inet.tutorials.protocol.DynamicDefragmenter.html">DynamicDefragmenter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.eigrp.EigrpProcessDS" href="inet.routing.eigrp.EigrpProcessDS.html">EigrpProcessDS</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EthernetApp" href="inet.applications.ethernet.EthernetApp.html">EthernetApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module generates traffic as an Ethernet application. The traffic source
+and traffic sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetCutthroughLayer" href="inet.linklayer.ethernet.modular.EthernetCutthroughLayer.html">EthernetCutthroughLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer" href="inet.linklayer.ethernet.modular.EthernetFragmentingMacLayer.html">EthernetFragmentingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetHost" href="inet.node.ethernet.EthernetHost.html">EthernetHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An example host with one Ethernet port and a traffic generator that
+generates request-reply traffic directly over Ethernet. This host model
+does not contain higher layer protocols (IP, TCP). By default it is
+configured to use half-duplex MAC (CSMA/CD).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">EthernetHost2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An example host with one Ethernet interface and an Ethernet traffic
+generator directly connected to it. This host model does not contain
+higher layer protocols (IP, TCP). By default is configured to use
+half-duplex MAC (CSMA/CD).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.EthernetInterface" href="inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module represents an Ethernet network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetLayer" href="inet.linklayer.ethernet.modular.EthernetLayer.html">EthernetLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetMacLayer" href="inet.linklayer.ethernet.modular.EthernetMacLayer.html">EthernetMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wired.ethernet.EthernetPhyLayer" href="inet.physicallayer.wired.ethernet.EthernetPhyLayer.html">EthernetPhyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer" href="inet.linklayer.ethernet.modular.EthernetPreemptingMacLayer.html">EthernetPreemptingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer" href="inet.physicallayer.wired.ethernet.EthernetPreemptingPhyLayer.html">EthernetPreemptingPhyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosQueue" href="inet.linklayer.ethernet.common.EthernetQosQueue.html">EthernetQosQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.EthernetQosRedQueue" href="inet.linklayer.ethernet.common.EthernetQosRedQueue.html">EthernetQosRedQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Queue module that gives the PAUSE frames a higher priority,
+and using Random Early Detection algorithm on data frames,
+and can be parametrized with an ~<a title="inet.queueing.contract.IPacketQueue" href="inet.queueing.contract.IPacketQueue.html">IPacketQueue</a> for serving the
+data frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetStreamingMacLayer" href="inet.linklayer.ethernet.modular.EthernetStreamingMacLayer.html">EthernetStreamingMacLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetSwitch" href="inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Model of an Ethernet switch.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleCable" href="inet.tutorials.queueing.ExampleCable.html">ExampleCable</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleCompoundPriorityQueue" href="inet.tutorials.queueing.ExampleCompoundPriorityQueue.html">ExampleCompoundPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleHost" href="inet.tutorials.queueing.ExampleHost.html">ExampleHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleInterface" href="inet.tutorials.queueing.ExampleInterface.html">ExampleInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.ForwardingService" href="inet.protocolelement.service.ForwardingService.html">ForwardingService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">ForwardingService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.GatingPriorityQueue" href="inet.queueing.queue.GatingPriorityQueue.html">GatingPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues each having
+its own periodic gate for packet selection and an optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.gpsr.GpsrRouter" href="inet.node.gpsr.GpsrRouter.html">GpsrRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021as.GptpEndstation" href="inet.linklayer.ieee8021as.GptpEndstation.html">GptpEndstation</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a gPTP end station that contains a clock module and
+a gPTP protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">Ieee80211Interface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.11 network interface. It implements
+a large subset of the IEEE 802.11 standard, and may use radio models
+and wireless signal representations of varying levels of detail.
+It is also extremely configurable, and its component structure makes
+it easy to experiment with various details of the protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee802154.Ieee802154NarrowbandInterface" href="inet.linklayer.ieee802154.Ieee802154NarrowbandInterface.html">Ieee802154NarrowbandInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.15.4 narrowband network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee802154.Ieee802154UwbIrInterface" href="inet.linklayer.ieee802154.Ieee802154UwbIrInterface.html">Ieee802154UwbIrInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.15.4 UWB-IR network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qFilter" href="inet.linklayer.ieee8021q.Ieee8021qFilter.html">Ieee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q per-stream filtering and policing.
+The relationship between streams, gates and meters is not one-to-one. The
+number of streams, gates and meters can be different and the module will take
+care about the connections between the submodules based on the streamFilterTable
+parameter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qLayer" href="inet.linklayer.ieee8021q.Ieee8021qLayer.html">Ieee8021qLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qProtocol" href="inet.linklayer.ieee8021q.Ieee8021qProtocol.html">Ieee8021qProtocol</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q protocol encapsulation/decapsulation.
+It also provides socket support so applications can use the protocol directly.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper" href="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q time aware shaper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rLayer" href="inet.linklayer.ieee8021r.Ieee8021rLayer.html">Ieee8021rLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rProtocol" href="inet.linklayer.ieee8021r.Ieee8021rProtocol.html">Ieee8021rProtocol</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1r protocol encapsulation/decapsulation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ieee8022.Ieee8022LlcApp" href="inet.applications.ieee8022.Ieee8022LlcApp.html">Ieee8022LlcApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module generates traffic as an IEEE 802.2 LLC application. The traffic
+source and traffic sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.Ieee8022LlcLayer" href="inet.linklayer.ieee8022.Ieee8022LlcLayer.html">Ieee8022LlcLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">Interface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.InterfaceRelayLayer" href="inet.linklayer.ethernet.common.InterfaceRelayLayer.html">InterfaceRelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines the interface MAC address learning from incoming packets
+with the outgoing interface selection for outgoing packets into a single layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.InterfaceService" href="inet.protocolelement.service.InterfaceService.html">InterfaceService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ipapp.IpApp" href="inet.applications.ipapp.IpApp.html">IpApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module generates traffic for a IP application. The traffic source and
+traffic sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4LargeLAN" href="inet.examples.inet.ipv4largenet.IPv4LargeLAN.html">IPv4LargeLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch. One port of the hub
+connect to a 10Base2 segment.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4MediumLAN" href="inet.examples.inet.ipv4largenet.IPv4MediumLAN.html">IPv4MediumLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and a router on an Ethernet hub and a switch</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Network(<a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">1</a>,<a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">2</a>,<a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">3</a>) layer of an IPv4 node.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4SmallLAN" href="inet.examples.inet.ipv4largenet.IPv4SmallLAN.html">IPv4SmallLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts on a router; part of ~<a title="inet.examples.inet.ipv4largenet.IPv4LargeNet" href="inet.examples.inet.ipv4largenet.IPv4LargeNet.html">IPv4LargeNet</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv6.Ipv6NetworkLayer" href="inet.networklayer.ipv6.Ipv6NetworkLayer.html">Ipv6NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Represents an IPv6 network layer (L3).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.LargeLAN" href="inet.examples.ethernet.lans.LargeLAN.html">LargeLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch. One port of the hub
+connect to a 10Base2 segment. Part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.LayeredEthernetInterface" href="inet.linklayer.ethernet.LayeredEthernetInterface.html">LayeredEthernetInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an Ethernet network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.mpls.LdpMplsRouter" href="inet.node.mpls.LdpMplsRouter.html">LdpMplsRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An LDP-capable router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.LeakyBucket" href="inet.queueing.shaper.LeakyBucket.html">LeakyBucket</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a parameterizable leaky bucket algorithm.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.LinkLayerNodeBase" href="inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.loopback.LoopbackInterface" href="inet.linklayer.loopback.LoopbackInterface.html">LoopbackInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a loopback network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.MacService" href="inet.protocolelement.service.MacService.html">MacService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.ManetRouter" href="inet.node.inet.ManetRouter.html">ManetRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.ManetSensorNode" href="inet.showcases.wireless.sensornetwork.ManetSensorNode.html">ManetSensorNode</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.measurement.MeasurementLayer" href="inet.protocolelement.measurement.MeasurementLayer.html">MeasurementLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.MediumLAN" href="inet.examples.ethernet.lans.MediumLAN.html">MediumLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021as.MultiDomainGptp" href="inet.linklayer.ieee8021as.MultiDomainGptp.html">MultiDomainGptp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple ~<a title="inet.linklayer.ieee8021as.Gptp" href="inet.linklayer.ieee8021as.Gptp.html">Gptp</a> modules, one per time domain into a <a title="inet.examples.sctp.multihomed.multi" href="inet.examples.sctp.multihomed.multi.html">multi</a>
+time domain time synchronization module. Each gPTP time domain is automatically
+configured to use the corresponding subclock of the clock passed in to this
+module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.measurement.MultiMeasurementLayer" href="inet.protocolelement.measurement.MultiMeasurementLayer.html">MultiMeasurementLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.MultiPacketFilter" href="inet.queueing.filter.MultiPacketFilter.html">MultiPacketFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple packet filters into one.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.meter.MultiPacketMeter" href="inet.queueing.meter.MultiPacketMeter.html">MultiPacketMeter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple packet meters into one.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.policing.MultiPacketPolicing" href="inet.queueing.policing.MultiPacketPolicing.html">MultiPacketPolicing</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines multiple packet policing modules into one.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.measurement.flow.MyStandardHost" href="inet.showcases.measurement.flow.MyStandardHost.html">MyStandardHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.NetworkLayerNodeBase" href="inet.node.base.NetworkLayerNodeBase.html">NetworkLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.nexthop.NextHopNetworkLayer" href="inet.networklayer.nexthop.NextHopNetworkLayer.html">NextHopNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a network layer for the next hop forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hiddennode.Node" href="inet.examples.wireless.hiddennode.Node.html">Node</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Node" href="inet.tutorials.protocol.Node.html">Node</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.basic.OmittedEthernetEncapsulation" href="inet.linklayer.ethernet.basic.OmittedEthernetEncapsulation.html">OmittedEthernetEncapsulation</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.common.OmittedIeee8021dQosClassifier" href="inet.linklayer.common.OmittedIeee8021dQosClassifier.html">OmittedIeee8021dQosClassifier</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.OmittedIeee8021qTagEpdHeaderChecker" href="inet.linklayer.ieee8021q.OmittedIeee8021qTagEpdHeaderChecker.html">OmittedIeee8021qTagEpdHeaderChecker</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.OmittedIeee8021qTagEpdHeaderInserter" href="inet.linklayer.ieee8021q.OmittedIeee8021qTagEpdHeaderInserter.html">OmittedIeee8021qTagEpdHeaderInserter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.OmittedIeee8021qTagTpidHeaderChecker" href="inet.linklayer.ieee8021q.OmittedIeee8021qTagTpidHeaderChecker.html">OmittedIeee8021qTagTpidHeaderChecker</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.OmittedIeee8021qTagTpidHeaderInserter" href="inet.linklayer.ieee8021q.OmittedIeee8021qTagTpidHeaderInserter.html">OmittedIeee8021qTagTpidHeaderInserter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022Llc" href="inet.linklayer.ieee8022.OmittedIeee8022Llc.html">OmittedIeee8022Llc</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022LlcChecker" href="inet.linklayer.ieee8022.OmittedIeee8022LlcChecker.html">OmittedIeee8022LlcChecker</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022LlcInserter" href="inet.linklayer.ieee8022.OmittedIeee8022LlcInserter.html">OmittedIeee8022LlcInserter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022LlcLayer" href="inet.linklayer.ieee8022.OmittedIeee8022LlcLayer.html">OmittedIeee8022LlcLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022SnapChecker" href="inet.linklayer.ieee8022.OmittedIeee8022SnapChecker.html">OmittedIeee8022SnapChecker</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.OmittedIeee8022SnapInserter" href="inet.linklayer.ieee8022.OmittedIeee8022SnapInserter.html">OmittedIeee8022SnapInserter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.measurement.OmittedMeasurementLayer" href="inet.protocolelement.measurement.OmittedMeasurementLayer.html">OmittedMeasurementLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.OmittedPacketDelayer" href="inet.queueing.common.OmittedPacketDelayer.html">OmittedPacketDelayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.OmittedPacketFilter" href="inet.queueing.filter.OmittedPacketFilter.html">OmittedPacketFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.OmittedPacketFlow" href="inet.queueing.common.OmittedPacketFlow.html">OmittedPacketFlow</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.gate.OmittedPacketGate" href="inet.queueing.gate.OmittedPacketGate.html">OmittedPacketGate</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.meter.OmittedPacketMeter" href="inet.queueing.meter.OmittedPacketMeter.html">OmittedPacketMeter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.OmittedPacketQueue" href="inet.queueing.queue.OmittedPacketQueue.html">OmittedPacketQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.OmittedPacketServer" href="inet.queueing.server.OmittedPacketServer.html">OmittedPacketServer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.processing.OmittedProcessingDelayLayer" href="inet.protocolelement.processing.OmittedProcessingDelayLayer.html">OmittedProcessingDelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.OmittedProtocolLayer" href="inet.protocolelement.common.OmittedProtocolLayer.html">OmittedProtocolLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.socket.OmittedSocketLayer" href="inet.protocolelement.socket.OmittedSocketLayer.html">OmittedSocketLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.OmittedTrafficConditioner" href="inet.queueing.shaper.OmittedTrafficConditioner.html">OmittedTrafficConditioner</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.trafficconditioner.OmittedTrafficConditionerLayer" href="inet.protocolelement.trafficconditioner.OmittedTrafficConditionerLayer.html">OmittedTrafficConditionerLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the module given interface and can be used as an omitted
+optional module that removes itself from the module hierarchy during initialize.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areas.OneNetArea" href="inet.examples.ospfv2.areas.OneNetArea.html">OneNetArea</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area1" href="inet.examples.ospfv2.fulltest.OSPF_Area1.html">OSPF_Area1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area2" href="inet.examples.ospfv2.fulltest.OSPF_Area2.html">OSPF_Area2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_Area3" href="inet.examples.ospfv2.fulltest.OSPF_Area3.html">OSPF_Area3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.ospfv3.Ospfv3" href="inet.routing.ospfv3.Ospfv3.html">Ospfv3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketHistory" href="inet.queueing.common.PacketHistory.html">PacketHistory</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module connects one packet producer to one packet consumer. It can be
+pushed with packets from the connected packet producer. It keeps a copy of
+the last N packets pushed into its input. The packets are available in the
+runtime user interface (Qtenv) for inspection.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.policing.PacketPolicing" href="inet.queueing.policing.PacketPolicing.html">PacketPolicing</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a packet meter and a packet filter into a packet policing
+module. The meter measures the packet flow that is passing through and attaches
+some meta information to the packets. The filter drops the packets that don't
+match the implemented filter criteria.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.PacketShaper" href="inet.queueing.shaper.PacketShaper.html">PacketShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a packet queue and a packet gate into a packet shaper
+module. The queue stores the packets sorted according to its ordering and
+the gate decides when the first packet can be pulled from the queue.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.PeerService" href="inet.protocolelement.service.PeerService.html">PeerService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.routing.pim.Pim" href="inet.routing.pim.Pim.html">Pim</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ppp.PppInterface" href="inet.linklayer.ppp.PppInterface.html">PppInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a PPP network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PriorityQueue" href="inet.queueing.queue.PriorityQueue.html">PriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues and an
+optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.PriorityShaper" href="inet.queueing.shaper.PriorityShaper.html">PriorityShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a classifier, a scheduler and several traffic shapers
+into a single packet shaper. Packets are classified into one of the traffic
+shapers and the scheduler prioritizes among them.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.processing.ProcessingDelayLayer" href="inet.protocolelement.processing.ProcessingDelayLayer.html">ProcessingDelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.QueueFiller" href="inet.queueing.source.QueueFiller.html">QueueFiller</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module produces packets in order to prevent a queue from becoming empty.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.QueueingPacketDelayer" href="inet.queueing.common.QueueingPacketDelayer.html">QueueingPacketDelayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ReceiverHost" href="inet.tutorials.protocol.ReceiverHost.html">ReceiverHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.RedDropperQueue" href="inet.queueing.queue.RedDropperQueue.html">RedDropperQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Combines a packet queue with random early detection (RED) dropper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.REDQueue" href="inet.examples.inet.netperfmeter.REDQueue.html">REDQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.RequestConsumer" href="inet.queueing.sink.RequestConsumer.html">RequestConsumer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module processes incoming packets one by one in the order they arrive.
+First it classifies a packet according to the configured classifier function,
+then it generates tokens for the selected category in the configured response
+producer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ResponseProducer" href="inet.queueing.source.ResponseProducer.html">ResponseProducer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is capable of generating several different streams of packets,
+one after the other. For each traffic category, the packets are produced by
+a separate token based server. The traffic stream can be started by adding
+tokens the corresponding server module. The packet data, packet length, and
+timing distributions can be configured in the corresponding packet provider.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.Router" href="inet.node.inet.Router.html">Router</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>IPv4 router that supports wireless, Ethernet, PPP and external interfaces.
+By default, no wireless and external interfaces are added; the number of
+Ethernet and PPP ports depends on the external connections.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.mpls.RsvpMplsRouter" href="inet.node.mpls.RsvpMplsRouter.html">RsvpMplsRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An RSVP-TE capable router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.rtp.RtpHost" href="inet.node.rtp.RtpHost.html">RtpHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.SelectivityService" href="inet.protocolelement.service.SelectivityService.html">SelectivityService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.SenderHost" href="inet.tutorials.protocol.SenderHost.html">SenderHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerApp" href="inet.tutorials.protocol.ServerApp.html">ServerApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost1" href="inet.tutorials.protocol.ServerHost1.html">ServerHost1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost2" href="inet.tutorials.protocol.ServerHost2.html">ServerHost2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost3" href="inet.tutorials.protocol.ServerHost3.html">ServerHost3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost4" href="inet.tutorials.protocol.ServerHost4.html">ServerHost4</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost5" href="inet.tutorials.protocol.ServerHost5.html">ServerHost5</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost6" href="inet.tutorials.protocol.ServerHost6.html">ServerHost6</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ServerHost7" href="inet.tutorials.protocol.ServerHost7.html">ServerHost7</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.SimpleIeee8021qFilter" href="inet.linklayer.ieee8021q.SimpleIeee8021qFilter.html">SimpleIeee8021qFilter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a simplified version of the IEEE 802.1Q per-stream
+filtering and policing. Each filtered stream has its own path where metering
+and filtering happens independently of any other stream.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.SimpleNetworkLayer" href="inet.networklayer.common.SimpleNetworkLayer.html">SimpleNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a simple network layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.common.SinkApp" href="inet.applications.common.SinkApp.html">SinkApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a generic sink application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ratecontrol.SinkClient" href="inet.examples.wireless.ratecontrol.SinkClient.html">SinkClient</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hiddennode.SinkNode" href="inet.examples.wireless.hiddennode.SinkNode.html">SinkNode</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.SmallLAN" href="inet.examples.ethernet.lans.SmallLAN.html">SmallLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts on an Ethernet hub; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.common.SourceApp" href="inet.applications.common.SourceApp.html">SourceApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a generic source application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamCoderLayer" href="inet.protocolelement.redundancy.StreamCoderLayer.html">StreamCoderLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a stream decoder and a stream encoder into a layer. For
+incoming packets the stream decoder determines the stream of the packet. For
+outgoing packets the stream encoder determines the VLAN id, etc. of the packet.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.StreamFilterLayer" href="inet.linklayer.ieee8021q.StreamFilterLayer.html">StreamFilterLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines two packet filters into a protocol layer so that it can
+be used in a layered compound module. There are separate submodules for ingress
+and egress traffic, but in most cases only the ingress filter is used.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamIdentifierLayer" href="inet.protocolelement.redundancy.StreamIdentifierLayer.html">StreamIdentifierLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module wraps a stream identifier into a protocol layer so that it can
+be used in a layered compound module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.StreamPolicyLayer" href="inet.linklayer.ieee8021q.StreamPolicyLayer.html">StreamPolicyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamRelayLayer" href="inet.protocolelement.redundancy.StreamRelayLayer.html">StreamRelayLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module combines a stream merger and a stream splitter module into a
+stream relay layer. For incoming packets the identified streams are merged
+by the stream merger. For outgoing packets the requested streams are split
+by the stream splitter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.TC1" href="inet.examples.diffserv.onedomain.TC1.html">TC1</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Traffic conditioner used in Experiments 1.1-1.6 and 5.1.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.TC2" href="inet.examples.diffserv.onedomain.TC2.html">TC2</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Traffic conditioner used in Experiment 3.1.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.TC3" href="inet.examples.diffserv.onedomain.TC3.html">TC3</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Traffic conditioner used in Experiment 3.2.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TcpClientApp" href="inet.applications.tcpapp.TcpClientApp.html">TcpClientApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is a generic TCP client application. The traffic source
+and traffic sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TcpServerApp" href="inet.applications.tcpapp.TcpServerApp.html">TcpServerApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is a generic TCP server application with a TCP server listener
+that creates TCP server connections.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TcpServerConnection" href="inet.applications.tcpapp.TcpServerConnection.html">TcpServerConnection</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is a generic TCP server connection. The traffic source and traffic
+sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TelnetClientApp" href="inet.applications.tcpapp.TelnetClientApp.html">TelnetClientApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This client application contains a configurable pre-composed telnet traffic
+source and traffic sink.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TelnetClientTraffic" href="inet.tutorials.queueing.TelnetClientTraffic.html">TelnetClientTraffic</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TelnetServerConnection" href="inet.applications.tcpapp.TelnetServerConnection.html">TelnetServerConnection</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module contains a configurable pre-composed telnet traffic source and
+traffic sink as part of a telnet server application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TelnetServerTraffic" href="inet.tutorials.queueing.TelnetServerTraffic.html">TelnetServerTraffic</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hosttohost.ThroughputClient" href="inet.examples.wireless.hosttohost.ThroughputClient.html">ThroughputClient</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.testnewmac.ThroughputClient" href="inet.examples.wireless.testnewmac.ThroughputClient.html">ThroughputClient</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.throughput.ThroughputClient" href="inet.examples.wireless.throughput.ThroughputClient.html">ThroughputClient</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hosttohost.ThroughputServer" href="inet.examples.wireless.hosttohost.ThroughputServer.html">ThroughputServer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.testnewmac.ThroughputServer" href="inet.examples.wireless.testnewmac.ThroughputServer.html">ThroughputServer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.shaper.TokenBucket" href="inet.queueing.shaper.TokenBucket.html">TokenBucket</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a parameterizable token bucket algorithm.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.simple_.TrafficConditioner" href="inet.examples.diffserv.simple_.TrafficConditioner.html">TrafficConditioner</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.trafficconditioner.TrafficConditionerLayer" href="inet.protocolelement.trafficconditioner.TrafficConditionerLayer.html">TrafficConditionerLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.TransportLayerNodeBase" href="inet.node.base.TransportLayerNodeBase.html">TransportLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.tun.TunInterface" href="inet.linklayer.tun.TunInterface.html">TunInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a TUN network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areas.TwoNetsArea" href="inet.examples.ospfv2.areas.TwoNetsArea.html">TwoNetsArea</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.udpapp.UdpApp" href="inet.applications.udpapp.UdpApp.html">UdpApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module generates traffic for a UDP application. The traffic source and
+traffic sink modules can be built from queueing model elements.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.virtual.VirtualInterface" href="inet.linklayer.virtual.VirtualInterface.html">VirtualInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a virtual network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.vlan.VlanPolicyLayer" href="inet.linklayer.vlan.VlanPolicyLayer.html">VlanPolicyLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.throughput.WirelessAPWithSink" href="inet.examples.wireless.throughput.WirelessAPWithSink.html">WirelessAPWithSink</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Well, this models a 802.11 Access Point with a Sink.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.common.WirelessInterface" href="inet.linklayer.common.WirelessInterface.html">WirelessInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a generic wireless network interface.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.wiseroute.WiseRouteNetworkLayer" href="inet.networklayer.wiseroute.WiseRouteNetworkLayer.html">WiseRouteNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a simple network layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.xmipv6.xMIPv6Support" href="inet.networklayer.xmipv6.xMIPv6Support.html">xMIPv6Support</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Implements <a title="inet.networklayer.xmipv6.xMIPv6" href="inet.networklayer.xmipv6.xMIPv6.html">xMIPv6</a> (where x = F, H, F-H).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.BufferTutorialStep" href="inet.tutorials.queueing.BufferTutorialStep.html">BufferTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ClonerTutorialStep" href="inet.tutorials.queueing.ClonerTutorialStep.html">ClonerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ComparatorTutorialStep" href="inet.tutorials.queueing.ComparatorTutorialStep.html">ComparatorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.CompoundPacketQueueTutorialStep" href="inet.tutorials.queueing.CompoundPacketQueueTutorialStep.html">CompoundPacketQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ContentBasedClassifierTutorialStep" href="inet.tutorials.queueing.ContentBasedClassifierTutorialStep.html">ContentBasedClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ContentBasedSchedulerTutorialStep" href="inet.tutorials.queueing.ContentBasedSchedulerTutorialStep.html">ContentBasedSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ContentBasedTaggerTutorialStep" href="inet.tutorials.queueing.ContentBasedTaggerTutorialStep.html">ContentBasedTaggerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DelayerTutorialStep" href="inet.tutorials.queueing.DelayerTutorialStep.html">DelayerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DemultiplexerTutorialStep" href="inet.tutorials.queueing.DemultiplexerTutorialStep.html">DemultiplexerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DropTailQueueTutorialStep" href="inet.tutorials.queueing.DropTailQueueTutorialStep.html">DropTailQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DuplicatorTutorialStep" href="inet.tutorials.queueing.DuplicatorTutorialStep.html">DuplicatorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ExampleNetworkTutorialStep" href="inet.tutorials.queueing.ExampleNetworkTutorialStep.html">ExampleNetworkTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Filter1TutorialStep" href="inet.tutorials.queueing.Filter1TutorialStep.html">Filter1TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Filter2TutorialStep" href="inet.tutorials.queueing.Filter2TutorialStep.html">Filter2TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Gate1TutorialStep" href="inet.tutorials.queueing.Gate1TutorialStep.html">Gate1TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Gate2TutorialStep" href="inet.tutorials.queueing.Gate2TutorialStep.html">Gate2TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.GenericClassifierTutorialStep" href="inet.tutorials.queueing.GenericClassifierTutorialStep.html">GenericClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.GenericSchedulerTutorialStep" href="inet.tutorials.queueing.GenericSchedulerTutorialStep.html">GenericSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.InputQueueSwitching" href="inet.tutorials.queueing.InputQueueSwitching.html">InputQueueSwitching</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.LabelerTutorialStep" href="inet.tutorials.queueing.LabelerTutorialStep.html">LabelerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.LeakyBucketTutorialStep" href="inet.tutorials.queueing.LeakyBucketTutorialStep.html">LeakyBucketTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MarkovClassifierTutorialStep" href="inet.tutorials.queueing.MarkovClassifierTutorialStep.html">MarkovClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MarkovSchedulerTutorialStep" href="inet.tutorials.queueing.MarkovSchedulerTutorialStep.html">MarkovSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MeterTutorialStep" href="inet.tutorials.queueing.MeterTutorialStep.html">MeterTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MultiplexerTutorialStep" href="inet.tutorials.queueing.MultiplexerTutorialStep.html">MultiplexerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.OrdinalBasedDropperTutorialStep" href="inet.tutorials.queueing.OrdinalBasedDropperTutorialStep.html">OrdinalBasedDropperTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.OrdinalBasedDuplicatorTutorialStep" href="inet.tutorials.queueing.OrdinalBasedDuplicatorTutorialStep.html">OrdinalBasedDuplicatorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.OutputQueueSwitching" href="inet.tutorials.queueing.OutputQueueSwitching.html">OutputQueueSwitching</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PacketBasedTokenGeneratorTutorialStep" href="inet.tutorials.queueing.PacketBasedTokenGeneratorTutorialStep.html">PacketBasedTokenGeneratorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PacketQueueTutorialStep" href="inet.tutorials.queueing.PacketQueueTutorialStep.html">PacketQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.streamfiltering.underthehood.PeekingUnderTheHoodShowcase" href="inet.showcases.tsn.streamfiltering.underthehood.PeekingUnderTheHoodShowcase.html">PeekingUnderTheHoodShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.tsn.trafficshaping.underthehood.PeekingUnderTheHoodShowcase" href="inet.showcases.tsn.trafficshaping.underthehood.PeekingUnderTheHoodShowcase.html">PeekingUnderTheHoodShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityBufferTutorialStep" href="inet.tutorials.queueing.PriorityBufferTutorialStep.html">PriorityBufferTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityClassifierTutorialStep" href="inet.tutorials.queueing.PriorityClassifierTutorialStep.html">PriorityClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityQueueTutorialStep" href="inet.tutorials.queueing.PriorityQueueTutorialStep.html">PriorityQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PrioritySchedulerTutorialStep" href="inet.tutorials.queueing.PrioritySchedulerTutorialStep.html">PrioritySchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ProducerConsumerTutorialStep" href="inet.tutorials.queueing.ProducerConsumerTutorialStep.html">ProducerConsumerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ProviderCollectorTutorialStep" href="inet.tutorials.queueing.ProviderCollectorTutorialStep.html">ProviderCollectorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.QueueBasedTokenGeneratorTutorialStep" href="inet.tutorials.queueing.QueueBasedTokenGeneratorTutorialStep.html">QueueBasedTokenGeneratorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.QueueFillerTutorialStep" href="inet.tutorials.queueing.QueueFillerTutorialStep.html">QueueFillerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.RedDropperTutorialStep" href="inet.tutorials.queueing.RedDropperTutorialStep.html">RedDropperTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.RequestResponseTutorialStep" href="inet.tutorials.queueing.RequestResponseTutorialStep.html">RequestResponseTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ServerTutorialStep" href="inet.tutorials.queueing.ServerTutorialStep.html">ServerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.SignalBasedTokenGeneratorTutorialStep" href="inet.tutorials.queueing.SignalBasedTokenGeneratorTutorialStep.html">SignalBasedTokenGeneratorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TaggerTutorialStep" href="inet.tutorials.queueing.TaggerTutorialStep.html">TaggerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TelnetTutorialStep" href="inet.tutorials.queueing.TelnetTutorialStep.html">TelnetTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TimeBasedTokenGeneratorTutorialStep" href="inet.tutorials.queueing.TimeBasedTokenGeneratorTutorialStep.html">TimeBasedTokenGeneratorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TokenBasedServerTutorialStep" href="inet.tutorials.queueing.TokenBasedServerTutorialStep.html">TokenBasedServerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.TokenBucketTutorialStep" href="inet.tutorials.queueing.TokenBucketTutorialStep.html">TokenBucketTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.WrrClassifierTutorialStep" href="inet.tutorials.queueing.WrrClassifierTutorialStep.html">WrrClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.WrrSchedulerTutorialStep" href="inet.tutorials.queueing.WrrSchedulerTutorialStep.html">WrrSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>cIdealChannel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">IdealChannel</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">cIdealChannel</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: Built-in type
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

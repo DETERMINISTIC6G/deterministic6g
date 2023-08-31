@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DataLinkCanvasVisualizer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DataLinkCanvasVisualizer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_canvas_linklayer">inet.visualizer.canvas.linklayer</a></p>
+<h2 class="comptitle" style="float: left;">DataLinkCanvasVisualizer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module visualizes data link layer links on a 2D canvas. It displays an
+arrow for each active link in the network. See the documentation of the base
+module for what constitutes an active link. The arrow points from the source
+towards the destination. If a link is used in both directions then there are
+separate arrows for them. Each arrow fades out over time as the link becomes
+inactive unless it is reinforced by another packet. The arrow automatically
+follows the movement of mobile nodes.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~DataLinkOsgVisualizer, ~<a title="inet.visualizer.common.DataLinkVisualizer" href="inet.visualizer.common.DataLinkVisualizer.html">DataLinkVisualizer</a>, ~<a title="inet.visualizer.base.DataLinkVisualizerBase" href="inet.visualizer.base.DataLinkVisualizerBase.html">DataLinkVisualizerBase</a>, ~<a title="inet.visualizer.contract.IDataLinkVisualizer" href="inet.visualizer.contract.IDataLinkVisualizer.html">IDataLinkVisualizer</a></p>
+<img src="inet.visualizer.canvas.linklayer.DataLinkCanvasVisualizer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.canvas.linklayer.DataLinkCanvasVisualizer.html" title="DataLinkCanvasVisualizer" alt="DataLinkCanvasVisualizer" coords="0,42,281,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.canvas.linklayer.DataLinkCanvasVisualizer-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.DataLinkVisualizerBase" href="inet.visualizer.base.DataLinkVisualizerBase.html">DataLinkVisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for data link layer link visualizer simple modules. It
+keeps track of active links in a network. A link between two network node is
+considered active if a packet is sent recently between their link layers.
+Active links are not displayed by default, see the module parameters for how
+to enable the visualization. The actual visualization of active links is done
+in derived modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayLinks</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display arrows for active links, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>activityLevel</td>
+      <td>string</td>
+      <td>"service"</td>
+      <td>
+<p>determines what level of activity is displayed, service level by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>nodeFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which nodes are considered, matches all nodes by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>interfaceFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which interfaces are considered, matches all interfaces by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineColor</td>
+      <td>string</td>
+      <td>"darkcyan"</td>
+      <td>
+<p>link arrow color, black by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>link arrow style (solid, dashed, dotted)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineWidth</td>
+      <td>double</td>
+      <td>3</td>
+      <td>
+<p>link arrow width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineShift</td>
+      <td>double</td>
+      <td>16</td>
+      <td>
+<p>line shift to avoid overlapping arrows</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineShiftMode</td>
+      <td>string</td>
+      <td>"normal"</td>
+      <td>
+<p>determines how overlapping arrows are shifted, possible values are: none, normal, x, y, z; optional prefix + or -</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineContactSpacing</td>
+      <td>double</td>
+      <td>3</td>
+      <td>
+<p>spacing between arrow end and submodule icon</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>lineContactMode</td>
+      <td>string</td>
+      <td>"rectangular"</td>
+      <td>
+<p>determines how arrows are clipped at the submodules</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>labelFormat</td>
+      <td>string</td>
+      <td>"%n"</td>
+      <td>
+<p>determines what link data is displayed</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>labelFont</td>
+      <td>string</td>
+      <td>"<default>, 8px"</td>
+      <td>
+<p>label font, automatic by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>labelColor</td>
+      <td>string</td>
+      <td>"darkcyan"</td>
+      <td>
+<p>label color, black by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>fadeOutMode</td>
+      <td>string</td>
+      <td>"realTime"</td>
+      <td>
+<p>specifies how inactive links fade out</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>fadeOutTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>how quickly inactive links fade away, 1 second by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>fadeOutAnimationSpeed</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>animation speed while there are active links, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>holdAnimationTime</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>hold simulation (no progress) for the specified amount of animation time when the link is activated</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>zIndex</td>
+      <td>double</td>
+      <td>2</td>
+      <td>
+<p>determines the drawing order of figures relative to other visualizers</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>DataLinkCanvasVisualizer</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module visualizes data link layer links on a 2D canvas. It displays an
+// arrow for each active link in the network. See the documentation of the base
+// module for what constitutes an active link. The arrow points from the source
+// towards the destination. If a link is used in both directions then there are
+// separate arrows for them. Each arrow fades out over time as the link becomes
+// inactive unless it is reinforced by another packet. The arrow automatically
+// follows the movement of mobile nodes.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~DataLinkOsgVisualizer, ~DataLinkVisualizer, ~DataLinkVisualizerBase, ~IDataLinkVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">DataLinkCanvasVisualizer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DataLinkVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IDataLinkVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">zIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the drawing order of figures relative to other visualizers
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">DataLinkCanvasVisualizer</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-canvas-linklayer-DataLinkCanvasVisualizer.ned.html">src/inet/visualizer/canvas/linklayer/DataLinkCanvasVisualizer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

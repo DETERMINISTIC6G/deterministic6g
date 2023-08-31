@@ -1,0 +1,582 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PacketFilterBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PacketFilterBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_base">inet.queueing.base</a></p>
+<h2 class="comptitle" style="float: left;">PacketFilterBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This is a base module for various packet filter modules. Derived modules must
+implement a single packet matcher function which determines if a packet is to
+be passed through or filtered out.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.queueing.contract.IPacketFilter" href="inet.queueing.contract.IPacketFilter.html">IPacketFilter</a></p>
+<img src="inet.queueing.base.PacketFilterBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.base.PacketFilterBase.html" title="PacketFilterBase" alt="PacketFilterBase" coords="0,42,197,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.base.PacketFilterBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.ContentBasedFilter" href="inet.queueing.filter.ContentBasedFilter.html">ContentBasedFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module filters for packets matching the configured filter criteria.
+When the filter is pushed by a connected packet producer, it either pushes
+the packet to the connected packet consumer or drops it depending on the
+configured packet filter. Similarily, when the filter is pulled by a connected
+packet collector, it pulls packets from the connected packet provider until
+it finds one which matches the configured packet filter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.checksum.base.CrcCheckerBase" href="inet.protocolelement.checksum.base.CrcCheckerBase.html">CrcCheckerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.shaper.EligibilityTimeFilter" href="inet.protocolelement.shaper.EligibilityTimeFilter.html">EligibilityTimeFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module is a packet filter that operates based on the ~<a title="inet::EligibilityTimeTag" href="inet-EligibilityTimeTag.html">EligibilityTimeTag</a>
+attached to the packet that is passing through. Packets are dropped if the tag
+is missing. If the maxResidenceTime parameter is set, then the filter also drops
+the packets for which the eligibility time in the attached ~<a title="inet::EligibilityTimeTag" href="inet-EligibilityTimeTag.html">EligibilityTimeTag</a>
+is greater than the current simulation time plus the maximum residence time.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetAddressChecker" href="inet.linklayer.ethernet.modular.EthernetAddressChecker.html">EthernetAddressChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetFcsChecker" href="inet.linklayer.ethernet.modular.EthernetFcsChecker.html">EthernetFcsChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetFragmentFcsChecker" href="inet.linklayer.ethernet.modular.EthernetFragmentFcsChecker.html">EthernetFragmentFcsChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wired.ethernet.EthernetFragmentPhyHeaderChecker" href="inet.physicallayer.wired.ethernet.EthernetFragmentPhyHeaderChecker.html">EthernetFragmentPhyHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetMacHeaderChecker" href="inet.linklayer.ethernet.modular.EthernetMacHeaderChecker.html">EthernetMacHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wired.ethernet.EthernetPhyHeaderChecker" href="inet.physicallayer.wired.ethernet.EthernetPhyHeaderChecker.html">EthernetPhyHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.modular.EthernetTypeOrLengthChecker" href="inet.linklayer.ethernet.modular.EthernetTypeOrLengthChecker.html">EthernetTypeOrLengthChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.checksum.base.FcsCheckerBase" href="inet.protocolelement.checksum.base.FcsCheckerBase.html">FcsCheckerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.fragmentation.FragmentNumberHeaderChecker" href="inet.protocolelement.fragmentation.FragmentNumberHeaderChecker.html">FragmentNumberHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021ae.Ieee8021aeTagEpdHeaderChecker" href="inet.linklayer.ieee8021ae.Ieee8021aeTagEpdHeaderChecker.html">Ieee8021aeTagEpdHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>TODO this module is incomplete</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTagEpdHeaderChecker" href="inet.linklayer.ieee8021q.Ieee8021qTagEpdHeaderChecker.html">Ieee8021qTagEpdHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTagTpidHeaderChecker" href="inet.linklayer.ieee8021q.Ieee8021qTagTpidHeaderChecker.html">Ieee8021qTagTpidHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021r.Ieee8021rTagEpdHeaderChecker" href="inet.linklayer.ieee8021r.Ieee8021rTagEpdHeaderChecker.html">Ieee8021rTagEpdHeaderChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.Ieee8022LlcChecker" href="inet.linklayer.ieee8022.Ieee8022LlcChecker.html">Ieee8022LlcChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.Ieee8022SnapChecker" href="inet.linklayer.ieee8022.Ieee8022SnapChecker.html">Ieee8022SnapChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.LabelFilter" href="inet.queueing.filter.LabelFilter.html">LabelFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This packet filter module drops packets that don't match the given packet
+label filter criteria. The criteria can use wildcards and boolean operators.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.OrdinalBasedDropper" href="inet.queueing.filter.OrdinalBasedDropper.html">OrdinalBasedDropper</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module drops packets based on the ordinal number of the packet in the
+received stream of packets.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.PacketFilter" href="inet.queueing.filter.PacketFilter.html">PacketFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module filters for packets matching the configured filter criteria.
+When the filter is pushed by a connected packet producer, it either pushes
+the packet to the connected packet consumer or drops it depending on the
+configured packet filter. Similarily, when the filter is pulled by a connected
+packet collector, it pulls packets from the connected packet provider until
+it finds one which matches the configured packet filter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.ProtocolChecker" href="inet.protocolelement.common.ProtocolChecker.html">ProtocolChecker</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.RedDropper" href="inet.queueing.filter.RedDropper.html">RedDropper</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements Random Early Detection (RED).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.filter.StatisticalRateLimiter" href="inet.queueing.filter.StatisticalRateLimiter.html">StatisticalRateLimiter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module limit the datarate or the packetrate of a stream of packets based
+on the ~<a title="inet::RateTag" href="inet-RateTag.html">RateTag</a> attached to the packets.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamFilter" href="inet.protocolelement.redundancy.StreamFilter.html">StreamFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements a packet filter using solely the stream name. The stream
+name must match the filter criteria in order the packet to pass through the filter.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.redundancy.StreamMerger" href="inet.protocolelement.redundancy.StreamMerger.html">StreamMerger</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module merges the packets of the same stream by removing duplicates. In
+addition it also replaces the stream name on the packet based on the mapping
+parameter. For merging it maintains a separate finite buffer per stream with
+the last seen sequence numbers.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.vlan.VlanIndFilter" href="inet.linklayer.vlan.VlanIndFilter.html">VlanIndFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module filters out packets based on the attached <a title="inet::VlanInd" href="inet-VlanInd.html">VlanInd</a> tag.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.vlan.VlanReqFilter" href="inet.linklayer.vlan.VlanReqFilter.html">VlanReqFilter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module filters out packets based on the attached <a title="inet::VlanReq" href="inet-VlanReq.html">VlanReq</a> tag.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PacketProcessorBase" href="inet.queueing.base.PacketProcessorBase.html">PacketProcessorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various packet processing modules which maintains
+a few statistics.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"dropped %d/%p pk (%k/%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>backpressure</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/downarrow</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>PacketFilterBase</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetPushedIn</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPulledIn</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPushedOut</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetPulledOut</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>flowDroppedPacketLengths</td>
+      <td>flow specific dropped packet lengths</td>
+      <td>packetLength(demuxFlow(packetDropped))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>incomingDataRate</td>
+      <td>incoming data rate</td>
+      <td>throughput(merge(packetPushedIn, packetPulledIn))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPacketLengths</td>
+      <td>dropped packet lengths</td>
+      <td>packetLength(packetDropped)</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>incomingPacketLengths</td>
+      <td>incoming packet lengths</td>
+      <td>packetLength(merge(packetPushedIn, packetPulledIn))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>droppedDataRate</td>
+      <td>dropped data rate</td>
+      <td>throughput(packetDropped)</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>flowOutgoingPacketLengths</td>
+      <td>flow specific outgoing packet lengths</td>
+      <td>packetLength(demuxFlow(merge(packetPushedOut, packetPulledOut)))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>flowDroppedDataRate</td>
+      <td>flow specific dropped data rate</td>
+      <td>throughput(demuxFlow(packetDropped))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>droppedPackets</td>
+      <td>dropped packets</td>
+      <td>packetDropped</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>flowIncomingDataRate</td>
+      <td>flow specific incoming data rate</td>
+      <td>throughput(demuxFlow(merge(packetPushedIn, packetPulledIn)))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>outgoingDataRate</td>
+      <td>outgoing data rate</td>
+      <td>throughput(merge(packetPushedOut, packetPulledOut))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>outgoingPacketLengths</td>
+      <td>outgoing packet lengths</td>
+      <td>packetLength(merge(packetPushedOut, packetPulledOut))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>flowIncomingPacketLengths</td>
+      <td>flow specific incoming packet lengths</td>
+      <td>packetLength(demuxFlow(merge(packetPushedIn, packetPulledIn)))</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>flowOutgoingDataRate</td>
+      <td>flow specific outgoing data rate</td>
+      <td>throughput(demuxFlow(merge(packetPushedOut, packetPulledOut)))</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>incomingPackets</td>
+      <td>incoming packets</td>
+      <td>merge(packetPushedIn, packetPulledIn)</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>outgoingPackets</td>
+      <td>outgoing packets</td>
+      <td>merge(packetPushedOut, packetPulledOut)</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This is a base module for various packet filter modules. Derived modules must
+// implement a single packet matcher function which determines if a packet is to
+// be passed through or filtered out.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~IPacketFilter
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketFilterBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketProcessorBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">backpressure</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;dropped %d/%p pk (%k/%l)&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the text that is written on top of the submodule
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketFilterBase</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/downarrow&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the incoming packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the incoming packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the incoming packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the outgoing packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the outgoing packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the outgoing packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the dropped packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dropped packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the dropped packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dropped packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the dropped packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dropped data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific length of the incoming packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowIncomingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific incoming packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific data rate of the incoming packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowIncomingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific incoming data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedIn</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledIn</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific length of the outgoing packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowOutgoingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific outgoing packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific data rate of the outgoing packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowOutgoingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific outgoing data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">merge</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushedOut</span><span style="color: #232629; ">, </span><span style="color: #232629; ">packetPulledOut</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific length of the dropped packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowDroppedPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific dropped packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific data rate of the dropped packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowDroppedDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific dropped data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">send</span><span style="color: #232629; ">,</span><span style="color: #232629; ">push</span><span style="color: #232629; ">,</span><span style="color: #232629; ">pull</span><span style="color: #232629; ">,</span><span style="color: #232629; ">pass</span><span style="color: #232629; ">,</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">send</span><span style="color: #232629; ">,</span><span style="color: #232629; ">push</span><span style="color: #232629; ">,</span><span style="color: #232629; ">pull</span><span style="color: #232629; ">,</span><span style="color: #232629; ">pass</span><span style="color: #232629; ">,</span><span style="color: #232629; ">stream</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-base-PacketFilterBase.ned.html">src/inet/queueing/base/PacketFilterBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

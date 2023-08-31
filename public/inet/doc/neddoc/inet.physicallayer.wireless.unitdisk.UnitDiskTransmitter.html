@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>UnitDiskTransmitter</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">UnitDiskTransmitter</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_physicallayer_wireless_unitdisk">inet.physicallayer.wireless.unitdisk</a></p>
+<h2 class="comptitle" style="float: left;">UnitDiskTransmitter</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>This transmitter model produces transmissions that are parameterized with
+communication range, interference range, and detection range. It also
+supports an ideal communication channel with configuring the range parameters
+to infinity.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.physicallayer.wireless.unitdisk.UnitDiskReceiver" href="inet.physicallayer.wireless.unitdisk.UnitDiskReceiver.html">UnitDiskReceiver</a>, ~<a title="inet.physicallayer.wireless.unitdisk.UnitDiskRadio" href="inet.physicallayer.wireless.unitdisk.UnitDiskRadio.html">UnitDiskRadio</a>, ~<a title="inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium" href="inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>,
+~<a title="inet.physicallayer.wireless.unitdisk.UnitDiskAnalogModel" href="inet.physicallayer.wireless.unitdisk.UnitDiskAnalogModel.html">UnitDiskAnalogModel</a>.</p>
+<img src="inet.physicallayer.wireless.unitdisk.UnitDiskTransmitter-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.physicallayer.wireless.unitdisk.UnitDiskTransmitter-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>preambleDuration</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>preamble added before the header</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>headerLength</td>
+      <td>int</td>
+      <td>96b</td>
+      <td>
+<p>number of header bits added to the length of the MAC frame</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>the bitrate of the transmitter is used to compute the duration of the transmission</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>communicationRange</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>the range where the reception of transmissions produced by this transmitter is possible</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interferenceRange</td>
+      <td>double</td>
+      <td>communicationRange</td>
+      <td>
+<p>the range where transmissions produced by this transmitter interferes with other transmissions</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>detectionRange</td>
+      <td>double</td>
+      <td>interferenceRange</td>
+      <td>
+<p>the range where transmissions produced by this transmitter can be detected at all</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>UnitDiskTransmitter</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/wtx</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This transmitter model produces transmissions that are parameterized with
+// communication range, interference range, and detection range. It also
+// supports an ideal communication channel with configuring the range parameters
+// to infinity.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~UnitDiskReceiver, ~UnitDiskRadio, ~UnitDiskRadioMedium,
+// ~UnitDiskAnalogModel.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">UnitDiskTransmitter</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">ITransmitter</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">preambleDuration</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);                  </span><span style="color: #808080; font-style: italic; ">// preamble added before the header
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">headerLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">b</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">96</span><span style="color: #232629; ">b</span><span style="color: #232629; ">);                     </span><span style="color: #808080; font-style: italic; ">// number of header bits added to the length of the MAC frame
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">bitrate</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">);                                       </span><span style="color: #808080; font-style: italic; ">// the bitrate of the transmitter is used to compute the duration of the transmission
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">communicationRange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">);                              </span><span style="color: #808080; font-style: italic; ">// the range where the reception of transmissions produced by this transmitter is possible
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">interferenceRange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">communicationRange</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the range where transmissions produced by this transmitter interferes with other transmissions
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">detectionRange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">interferenceRange</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// the range where transmissions produced by this transmitter can be detected at all
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">UnitDiskTransmitter</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/wtx&quot;</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-physicallayer-wireless-unitdisk-UnitDiskTransmitter.ned.html">src/inet/physicallayer/wireless/unitdisk/UnitDiskTransmitter.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>EthernetHub</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">EthernetHub</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_ethernet">inet.node.ethernet</a></p>
+<h2 class="comptitle" style="float: left;">EthernetHub</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>An Ethernet hub model.</p>
+<p>The model simply broadcasts frames (and transmission updates
+representing aborted frames, etc.) received on one port on all
+other ports, mimicking the propagation of electrical signals.</p>
+<p>Note that no special attention is made to appropriately model
+frame truncations that occur when the link breaks, or comes
+back up while a transmission is underway. If you need
+to precisely model what happens when the link state changes,
+you cannot use this module.</p>
+<img src="inet.node.ethernet.EthernetHub-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.node.ethernet.EthernetHub.html" title="EthernetHub" alt="EthernetHub" coords="0,42,162,82">
+</map>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4LargeLAN" href="inet.examples.inet.ipv4largenet.IPv4LargeLAN.html">IPv4LargeLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch. One port of the hub
+connect to a 10Base2 segment.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4MediumLAN" href="inet.examples.inet.ipv4largenet.IPv4MediumLAN.html">IPv4MediumLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and a router on an Ethernet hub and a switch</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.LargeLAN" href="inet.examples.ethernet.lans.LargeLAN.html">LargeLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch. One port of the hub
+connect to a 10Base2 segment. Part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.MediumLAN" href="inet.examples.ethernet.lans.MediumLAN.html">MediumLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts and an Ethernet hub on a switch; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.SmallLAN" href="inet.examples.ethernet.lans.SmallLAN.html">SmallLAN</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Several hosts on an Ethernet hub; part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.arptest2.ARPTest" href="inet.examples.ethernet.arptest2.ARPTest.html">ARPTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithHub" href="inet.tests.ethernet.HostsWithHub.html">HostsWithHub</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.HubLAN" href="inet.examples.ethernet.lans.HubLAN.html">HubLAN</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Sample Ethernet LAN: four hosts connected by a hub.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.MixedLAN" href="inet.examples.ethernet.lans.MixedLAN.html">MixedLAN</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Sample Ethernet LAN containing eight hosts, a switch and a bus.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>::inet::physicallayer::WireJunction</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/hub;bgb=155,104</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceived</td>
+      <td>cMessage</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceived</td>
+      <td>packets</td>
+      <td>packetReceived</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// An Ethernet hub model.
+//
+// The model simply broadcasts frames (and transmission updates
+// representing aborted frames, etc.) received on one port on all
+// other ports, mimicking the propagation of electrical signals.
+//
+// Note that no special attention is made to appropriately model
+// frame truncations that occur when the link breaks, or comes
+// back up while a transmission is underway. If you need
+// to precisely model what happens when the link state changes,
+// you cannot use this module.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">EthernetHub</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(::</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">physicallayer</span><span style="color: #232629; ">::</span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/hub;bgb=155,104&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cMessage</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetReceived</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-node-ethernet-EthernetHub.ned.html">src/inet/node/ethernet/EthernetHub.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

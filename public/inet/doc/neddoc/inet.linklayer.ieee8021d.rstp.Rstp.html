@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Rstp</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Rstp</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_ieee8021d_rstp">inet.linklayer.ieee8021d.rstp</a></p>
+<h2 class="comptitle" style="float: left;">Rstp</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Implements the Rapid Spanning Tree <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> (IEEE 802.D-2004) for IEC 48-bit
+MAC addresses. It is a complete implementation except it doesn't fall back
+to STP when peers don't support RSTP.</p>
+<p>RSTP is a network protocol that ensures a loop-free topology for any
+bridged Ethernet local area network. The basic function of RSTP
+is to prevent bridge loops and the broadcast radiation that results from them.
+Spanning tree also allows a network design to include spare (redundant) links to
+provide automatic backup paths if an active link fails, without the danger of
+bridge loops, or the need for manual enabling/disabling of these backup links.
+RSTP is an improved version of STP, providing faster convergence.</p>
+<p>RSTP makes use of per-port configuration data such as cost and priority.
+They can be set using ~<a title="inet.linklayer.configurator.L2NetworkConfigurator" href="inet.linklayer.configurator.L2NetworkConfigurator.html">L2NetworkConfigurator</a>. Port state is kept in the switch's
+~<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a>.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.linklayer.configurator.L2NetworkConfigurator" href="inet.linklayer.configurator.L2NetworkConfigurator.html">L2NetworkConfigurator</a>, ~<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a></p>
+<img src="inet.linklayer.ieee8021d.rstp.Rstp-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.ieee8021d.rstp.Rstp.html" title="Rstp" alt="Rstp" coords="0,42,85,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee8021d.rstp.Rstp-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>helloTime</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>The hello time is the time between each bridge protocol data unit (BPDU) that is sent on a port.
+This time is equal to 2 seconds (sec) by default, but you can tune the time to be between 1 and 10 sec.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>forwardDelay</td>
+      <td>double</td>
+      <td>6s</td>
+      <td>
+<p>The forward delay is the time that is spent in the listening and learning state. This time is equal to 6 sec by default,
+but you can tune the time to be between 4 and 30 sec.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>maxAge</td>
+      <td>double</td>
+      <td>20s</td>
+      <td>
+<p>The max age timer controls the maximum length of time that passes before a bridge port saves its configuration BPDU information.
+This time is 20 sec by default, but you can tune the time to be between 6 and 40 sec.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>migrateTime</td>
+      <td>double</td>
+      <td>3s</td>
+      <td>
+<p>The migrate time is the time after which a non-assigned port becomes designated. This time is equal to 6 sec by default,
+but you can tune the time to be between 4 and 30 sec.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>tcWhileTime</td>
+      <td>double</td>
+      <td>6s</td>
+      <td>
+<p>The topology change while time is the time while a port will send TC=true (Topology Change Notification)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bridgePriority</td>
+      <td>int</td>
+      <td>32768</td>
+      <td>
+<p>The bridge priority determines which bridge is elected as the root bridge. If the switch has a bridge priority that is lower than all
+the other switches, the other switches automatically select the switch as the root switch.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>macTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.linklayer.ethernet.common.MacForwardingTable" href="inet.linklayer.ethernet.common.MacForwardingTable.html">MacForwardingTable</a> module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>visualize</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>Shows the spanning tree by coloring connections in the network graphics.
+Label ethernet interface with port role and status. Mark root switch</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>autoEdge</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>If true, edge ports immediately become designated/forwarding, else it will have to wait to get designated.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/network2</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>relayIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>relayOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Implements the Rapid Spanning Tree Protocol (IEEE 802.D-2004) for IEC 48-bit
+// MAC addresses. It is a complete implementation except it doesn't fall back
+// to STP when peers don't support RSTP.
+//
+// RSTP is a network protocol that ensures a loop-free topology for any
+// bridged Ethernet local area network. The basic function of RSTP
+// is to prevent bridge loops and the broadcast radiation that results from them.
+// Spanning tree also allows a network design to include spare (redundant) links to
+// provide automatic backup paths if an active link fails, without the danger of
+// bridge loops, or the need for manual enabling/disabling of these backup links.
+// RSTP is an improved version of STP, providing faster convergence.
+//
+// RSTP makes use of per-port configuration data such as cost and priority.
+// They can be set using ~L2NetworkConfigurator. Port state is kept in the switch's
+// ~InterfaceTable.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~L2NetworkConfigurator, ~InterfaceTable
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Rstp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">ISpanningTree</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #808080; font-style: italic; ">// The hello time is the time between each bridge protocol data unit (BPDU) that is sent on a port.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// This time is equal to 2 seconds (sec) by default, but you can tune the time to be between 1 and 10 sec.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">helloTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The forward delay is the time that is spent in the listening and learning state. This time is equal to 6 sec by default,
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// but you can tune the time to be between 4 and 30 sec.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardDelay</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">6</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The max age timer controls the maximum length of time that passes before a bridge port saves its configuration BPDU information.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// This time is 20 sec by default, but you can tune the time to be between 6 and 40 sec.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxAge</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The migrate time is the time after which a non-assigned port becomes designated. This time is equal to 6 sec by default,
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// but you can tune the time to be between 4 and 30 sec.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">migrateTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The topology change while time is the time while a port will send TC=true (Topology Change Notification)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcWhileTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">6</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The bridge priority determines which bridge is elected as the root bridge. If the switch has a bridge priority that is lower than all
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// the other switches, the other switches automatically select the switch as the root switch.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bridgePriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32768</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// The path to the MacForwardingTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">macTableModule</span><span style="color: #232629; ">;
+
+        </span><span style="color: #808080; font-style: italic; ">// Shows the spanning tree by coloring connections in the network graphics.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// Label ethernet interface with port role and status. Mark root switch
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">visualize</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+
+        </span><span style="color: #808080; font-style: italic; ">// If true, edge ports immediately become designated/forwarding, else it will have to wait to get designated.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">autoEdge</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/network2&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">relayIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">relayOut</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021d-rstp-Rstp.ned.html">src/inet/linklayer/ieee8021d/rstp/Rstp.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

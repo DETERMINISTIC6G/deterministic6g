@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ipv6NetworkLayer.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ipv6NetworkLayer.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/networklayer/ipv6/Ipv6NetworkLayer.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv6.Ipv6NetworkLayer" href="inet.networklayer.ipv6.Ipv6NetworkLayer.html">Ipv6NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Represents an IPv6 network layer (L3).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2005 OpenSim Ltd.
+// Copyright (C) 2005 Wei Yang, Ng
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+// Edited with OMNeT++ Academic/Noncommercial Edition.
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IIpv6Tunneling</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INetworkLayer</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IxMIPv6Support</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Icmpv6</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6NeighbourDiscovery</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents an IPv6 network layer (L3).
+//
+// The module has ports to connect to a higher layer (TCP, UDP) and
+// several network interfaces.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv6NetworkLayer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">INetworkLayer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">xMIPv6Support</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">xmipv6Module</span><span style="color: #232629; "> = </span><span style="color: #232629; ">xMIPv6Support</span><span style="color: #232629; "> ? </span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.mipv6support.xMobileIPv6&quot;</span><span style="color: #232629; ">) : </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">forwarding</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">multicastForwarding</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">routingTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.routingTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">ipv6NeighbourDiscoveryModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.neighbourDiscovery&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">icmpv6Module</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.icmpv6&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">ipv6TunnelingModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.iptunneling&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/fork&quot;</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">ifIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">INetworkHeader</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">ifOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">INetworkHeader</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">transportIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">transportOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">routingTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv6RoutingTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">up</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,100;b=600,5&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Icmpv6</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,300;b=600,5&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">neighbourDiscovery</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv6NeighbourDiscovery</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #808080; font-style: italic; ">// TODO rename to ip
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv6</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=550,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">iptunneling</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #800080; ">firstAvailable</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ipv6Tunneling&quot;</span><span style="color: #232629; ">))&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIpv6Tunneling</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mipv6support</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;xMIPv6Support&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IxMIPv6Support</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">xMIPv6Support</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=700,500&quot;</span><span style="color: #232629; ">);
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:  </span><span style="color: #808080; font-style: italic; ">// FIXME remove 'nocheck'!
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">transportIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=n&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">transportOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=n&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">up</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6Out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">icmpv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6In</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">lp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">iptunneling</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperTunnelingIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">iptunneling</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperTunnelingOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">iptunneling</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linkLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerTunnelingIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">iptunneling</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linkLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerTunnelingOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">neighbourDiscovery</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6Out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ndIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">neighbourDiscovery</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6In</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ndOut</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">mipv6support</span><span style="color: #232629; ">.</span><span style="color: #232629; ">fromIPv6</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">xMIPv6Out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">xMIPv6Support</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">mipv6support</span><span style="color: #232629; ">.</span><span style="color: #232629; ">toIPv6</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">xMIPv6In</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">xMIPv6Support</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ifOut</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ifIn</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

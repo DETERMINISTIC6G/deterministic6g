@@ -1,0 +1,2060 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ipv4NetworkConfigurator</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ipv4NetworkConfigurator</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_networklayer_configurator_ipv4">inet.networklayer.configurator.ipv4</a></p>
+<h2 class="comptitle" style="float: left;">Ipv4NetworkConfigurator</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module assigns IPv4 addresses and sets up static routing for an IPv4 network.
+It assigns per-interface IP addresses, strives to take subnets into account,
+and can also optimize the generated routing tables by merging routing entries.</p>
+<p>IMPORTANT: as of INET 2.2, this module does NOT assign addresses or add
+routes directly, just stores them in its internal data structures.
+Network(<a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">1</a>,<a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">2</a>,<a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">3</a>) nodes are supposed to contain an instance of ~<a title="inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NodeConfigurator.html">Ipv4NodeConfigurator</a>
+(normally part of the network layer compound module) that actually
+configures the node's interface table and routing table based on the
+information stored in the global network configurator module.</p>
+<p>The configurator supports both manual and automatic address assignment,
+and their combinations. You can provide address and netmask templates
+with unspecified parts, and the configurator automatically completes
+them by trying to put nodes on the same LAN into the same subnet.
+It also supports manual routes, and automatic routes that follow the
+shortest paths. By default, the configurator adds default routes where
+applicable (e.g. in hosts) and does subnet-based routing.</p>
+<p><a title="inet.examples.inet.hierarchical.Hierarchical" href="inet.examples.inet.hierarchical.Hierarchical.html">Hierarchical</a> routing can be set up by using only a fraction of configuration
+entries compared to the number of nodes. The configurator also does
+routing table optimization that significantly decreases the size of routing
+tables in large networks.</p>
+<p>Most of the above features can be turned on and off using NED parameters.
+The details (interface address and netmask templates, manual routes, etc.)
+can be configured in a single XML file for the whole network.</p>
+<p>Modules that represent network nodes (host, hub, bus, switch, access point,
+router, etc.) are expected to have the @networkNode property, becaue that's how the
+configurator recognizes them in the model. All nodes must have their
+interface table (~<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module) as their "interfaceTable" submodule.
+All routers must have their routing table (~<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">Ipv4RoutingTable</a> module) as their
+"routingTable" or "networkLayer.routingTable" submodule.</p>
+<p>By default all interfaces in all nodes will have a unique IPv4 address
+assigned. Routing tables will be configured so that there's a route
+following the shortest path from any node to any interface. In other words,
+all interfaces will be reachable from all nodes (e.g. ping).</p>
+<p>The configurator doesn't connect to any other modules (it has no gates),
+and should have only one instance in the whole model.  The configuration
+takes place in initialization stage 2 after the interfaces are registered
+in the ~<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> modules.</p>
+<p>The configurator goes through the following configuration steps:</p>
+  <ol><li>Builds a graph representing the network topology. The graph
+    will have a vertex for every module that has a @networkNode property (this
+    includes hosts, routers, and L2 devices like switches, access points,
+    Ethernet hubs, etc.) It also assigns weights to vertices and edges that
+    will be used by the shortest path algorithm when setting up routes.
+    Weights will be infinite for IP nodes that have IP forwarding disabled
+   (to prevent routes from transiting them), and zero for all other nodes
+    (routers and and L2 devices). Edge weights are chosen to be inversely
+    proportional to the bitrate of the link, so that the configurator
+    prefers connections with higher bandwidth. For internal purposes,
+    the configurator also builds a table of all "links" (the link data
+    structure consists of the set of network interfaces that are
+    on the same point-to-point link or LAN)</li>
+  <li>Assigns IP addresses to all interfaces of all nodes. The
+    assignment process takes into consideration the addresses and netmasks
+    already present on the interfaces (possibly set in earlier initialize
+    stages), and the configuration provided in the XML format (described
+    below). The configuration can specify "templates" for the address
+    and netmask, with parts that are fixed and parts that can be chosen
+    by the configurator (e.g. "10.0.x.x"). In the most general case,
+    the configurator is allowed to choose any address and netmask for all
+    interfaces (which results in automatic address assignment). In the most
+    constrained case, the configurator is forced to use the requested addresses
+    and netmasks for all interfaces (which translates to manual address assignment).
+    There are many possible configuration options between these two extremums. The
+    configurator assigns addresses in a way that maximizes the number of
+    nodes per subnet. Once it figures out the nodes that belong to a single
+    subnet it, will optimize for allocating the longest possible netmask.
+    The configurator might fail to assign netmasks and addresses according
+    to the given configuration parameters; if that happens, the assignment
+    process stops and an error is signalled.</li>
+  <li>Adds the manual routes that are specified in the configuration.</li>
+  <li>Adds static routes to all routing tables in the network. The
+    configurator uses Dijkstra's weighted shortest path algorithm to find
+    the desired routes between all possible node pairs. The resulting
+    routing tables will have one entry for all destination interfaces in the
+    network. The configurator can be safely instructed to add default routes
+    where applicable, significantly reducing the size of the host routing
+    tables. It can also add subnet routes instead of interface routes further
+    reducing the size of routing tables. Turning on this option requires
+    careful design to avoid having IP addresses from the same subnet on
+    different links. CAVEAT: Using manual routes and static route generation
+    together may have unwanted side effects, because route generation ignores
+    manual routes.</li>
+  <li>Then it optimizes the routing tables for size. This optimization allows
+    configuring larger networks with smaller memory footprint and makes the
+    routing table lookup faster. The resulting routing table might be
+    different in that it will route packets that the original routing table
+    did not. Nevertheless the following invariant holds: any packet routed
+    by the original routing table (has matching route) will still be routed
+    the same way by the optimized routing table.</li>
+  <li>Finally it dumps the requested results of the configuration. It can
+    dump network topology, assigned IP addresses, routing tables and its
+    own configuration format.</li></ol>
+<p>The following example configures all interfaces in the IPv4 address range
+10.0.0.0 - 10.255.255.255, and netmask range 255.0.0.0 - 255.255.255.255.
+This is the default configuration.</p>
+<p><pre>
+&lt;config&gt;
+  &lt;interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/&gt;
+&lt;/config&gt;
+</pre></p>
+<p>The following example configures a hierarchical network in a way that keeps
+routing tables <a title="inet.examples.ospfv3.small.small" href="inet.examples.ospfv3.small.small.html">small</a>.
+<pre>
+&lt;config&gt;
+  &lt;interface hosts="area11.lan1.*" address="10.11.1.x" netmask="255.255.255.x"/&gt;
+  &lt;interface hosts="area11.lan2.*" address="10.11.2.x" netmask="255.255.255.x"/&gt;
+  &lt;interface hosts="area12.lan1.*" address="10.12.1.x" netmask="255.255.255.x"/&gt;
+  &lt;interface hosts="area12.lan2.*" address="10.12.2.x" netmask="255.255.255.x"/&gt;
+  &lt;interface hosts="area*.router*" address="10.x.x.x" netmask="x.x.x.x"/&gt;
+  &lt;interface hosts="*" address="10.x.x.x" netmask="255.x.x.0"/&gt;
+&lt;/config&gt;
+</pre></p>
+<p>The XML configuration must contain exactly one &lt;config&gt; element. Under the
+root element there can be multiple of the following elements.</p>
+  <ul><li>&lt;interface&gt;
+   The interface element provides configuration parameters for one or more
+   interfaces in the network. The selector attributes limit the scope where
+   the interface element has effects. The parameter attributes limit the
+   range of assignable addresses and netmasks.</li>
+  <ul><li>@hosts
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces in the specified hosts are affected. The pattern might
+     be a full path starting from the network, or a module name anywhere in
+     the hierarchy, and other patterns similar to ini file keys. The default
+     value is "*" that matches all hosts.
+     e.g. "subnet.client*" or "host* router[0..3]" or "area*.*.host[0]"</li>
+  <li>@names
+     Optional selector attribute that specifies a list of interface name
+     patterns. Only interfaces with the specified names are affected. The
+     default value is "*" that matches all interfaces.
+     e.g. "eth* ppp0" or "*"</li>
+  <li>@towards
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces connected towards the specified hosts are affected. The
+     specified name will be matched against the names of hosts that are on
+     the same LAN with the one that is being configured. This works even if
+     there's a switch between the configured host and the one specified here.
+     For wired networks it might be easier to specify this parameter instead
+     of specifying the interface names. The default value is "*".
+     e.g. "ap" or "server" or "client*"</li>
+  <li>@among
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces in the specified hosts connected towards the specified
+     hosts are affected.
+     The 'among="X Y Z"' is same as 'hosts="X Y Z" towards="X Y Z"'.</li>
+  <li>@address
+     Optional parameter attribute that limits the range of assignable
+     addresses. Wildcards are allowed with using 'x' as part of the address
+     in place of a byte. Unspecified parts will be filled automatically be
+     the configurator. The default value "" means that the address will not
+     be configured. Unconfigured interfaces still have allocated addresses
+     in their subnets allowing them to become configured later very easily.
+     e.g. "192.168.1.1" or "10.0.x.x"</li>
+  <li>@netmask
+     Optional parameter attribute that limits the range of assignable
+     netmasks. Wildcards are allowed with using 'x' as part of the netmask
+     in place of a byte. Unspecified parts will be filled automatically be
+     the configurator. The default value "" means that any netmask can be
+     configured.
+     e.g. "255.255.255.0" or "/24" or "255.255.x.x" or "255.255.x.0"</li>
+  <li>@mtu                number
+     Optional parameter attribute to set the MTU parameter in the interface.
+     When unspecified the interface parameter is left unchanged.</li>
+  <li>@metric                number
+     Optional parameter attribute to set the Metric parameter in the interface.
+     When unspecified the interface parameter is left unchanged.</li>
+  <li>@groups
+     Optional parameter attribute; it may contain a list of (multicast)
+     IP addresses that will be added to the multicast groups of the interface.
+     See also the &lt;multicast-group&gt; element.</li>
+  <li>@add-static-route
+     Optional bool parameter (default=true).
+     Add static route to the routing table.</li>
+  <li>@add-default-route
+     Optional bool parameter (default=true).
+     Add default route to the routing table if the node has only one non-loopback interface.</li>
+  <li>@add-subnet-route
+     Optional bool parameter (default=true).
+     Add subnet route to the routing table.</li></ul>
+  <li>&lt;wireless&gt;
+   The wireless element specifies the members of a wireless network. It is
+   primarily useful when the members cannot be automatically determined using
+   the SSID parameters.</li>
+  <ul><li>@id (optional)
+     identifies wireless network, unique value used if missed</li>
+  <li>@hosts
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces in the specified hosts are affected. The default value
+     is "*" that matches all hosts.</li>
+  <li>@interfaces
+     Optional selector attribute that specifies a list of interface name
+     patterns. Only interfaces with the specified names are affected. The
+     default value is "*" that matches all interfaces.</li></ul>
+  <li>&lt;multicast-group&gt;
+   The multicast group element provides multicast network addresses for one
+   or more interfaces in the network.</li>
+  <ul><li>@hosts
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces in the specified hosts are affected. The default value
+     is "*" that matches all hosts.</li>
+  <li>@interfaces
+     Optional selector attribute that specifies a list of interface name
+     patterns. Only interfaces with the specified names are affected. The
+     default value is "*" that matches all interfaces.</li>
+  <li>@towards
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces connected towards the specified hosts are affected.
+     The default value is "*".</li>
+  <li>@among
+     Optional selector attribute that specifies a list of host name patterns.
+     Only interfaces in the specified hosts connected towards the specified
+     hosts are affected.
+     The 'among="X Y Z"' is same as 'hosts="X Y Z" towards="X Y Z"'.</li>
+  <li>@address
+     Mandatory parameter attribute that specifies a list of multicast group
+     addresses to be assigned. Values must be selected from the valid range
+     of multicast addresses.
+     e.g. "224.0.0.1 224.0.1.33"</li></ul>
+  <li>&lt;route&gt;
+   The route element provides routing table entries for multiple nodes
+   in the network. The selector attributes limit the scope where the route
+   element has effects.</li>
+  <ul><li>@hosts
+     Optional selector attribute that specifies a list of host name patterns.
+     Only routing tables in the specified hosts are affected. The default
+     value "" means all hosts will be affected.
+     e.g. "host* router[0..3]"</li>
+  <li>@destination
+     Optional parameter attribute that specifies the destination address in
+     the route (L3AddressResolver syntax). The default value is "*".
+     e.g. "192.168.1.1" or "subnet.client[3]" or "subnet.server(ipv4)" or "*"</li>
+  <li>@netmask
+     Optional parameter attribute that specifies the netmask in the route.
+     The default value is "*".
+     e.g. "255.255.255.0" or "/29" or "*"</li>
+  <li>@gateway
+     Optional parameter attribute that specifies the gateway (next-hop)
+     address in the route (L3AddressResolver syntax). When unspecified
+     the interface parameter must be specified. The default value is "*".
+     e.g. "192.168.1.254" or "subnet.router" or "*"</li>
+  <li>@interface
+     Optional parameter attribute that specifies the output interface name
+     in the route. When unspecified the gateway parameter must be specified.
+     This parameter has no default value.
+     e.g. "eth0"</li>
+  <li>@metric
+     Optional parameter attribute that specifies the metric in the route.
+     The default value is 0.</li></ul>
+  <li>&lt;multicast-route&gt;
+   The multicast-route elements add entries to multicast routing tables.</li>
+  <ul><li>@hosts
+     Optional selector attribute that specifies a list of host name patterns.
+     Only routing tables in the specified hosts are affected.
+     e.g. "host* router[0..3]"</li>
+  <li>@source
+     Optional parameter attribute that specifies the address of the source
+     network. The default value is "*" that matches all sources.</li>
+  <li>@netmask
+     Optional parameter attribute that specifies the netmask of the source
+     network. The default value is "*" that matches all sources.</li>
+  <li>@groups
+     Optional List of IPv4 multicast addresses specifying the groups this entry
+     applies to. The default value is "*" that matches all multicast groups.
+     e.g. "225.0.0.1 225.0.1.2".</li>
+  <li>@metric
+     Optional parameter attribute that specifies the metric in the route.</li>
+  <li>@parent
+     Optional parameter attribute that specifies the name of the interface
+     the multicast datagrams are expected to arrive. When a datagram arrives
+     on the parent interface, it will be forwarded towards the child interfaces;
+     otherwise it will be dropped. The default value is the interface on the
+     shortest path towards the source of the datagram.</li>
+  <li>@children
+     Mandatory parameter attribute that specifies a list of interface name
+     patterns:</li>
+  <ul><li>a name pattern (e.g. "ppp*") matches the name of the interface</li>
+  <li>a 'towards' pattern (starting with "&gt;", e.g. "&gt;router*") matches the interface
+        by naming one of the neighbour nodes on its link.
+     Incoming multicast datagrams are forwarded to each child interface except the
+     one they arrived in.</li></ul></ul>
+  <li>&lt;autoroute&gt;
+   The autoroute element specifies parameters for the automatic static routing.
+   If this element is not specified then the configurator assumes a default.
+   The default specifies that all routing tables will be modified and all the
+   shortest path to all interfaces will be computed.</li>
+  <ul><li>@sourceHosts
+     Optional selector attribute that specifies a list of host full path patterns.
+     It determines the set of routing tables that will be modified. The default
+     value is "**".</li>
+  <li>@destinationInterfaces
+     Optional parameter attribute that specifies a list of interface full path
+     patterns. It determines the set of destination interfaces for which the
+     shortest path will be computed. The default value is "**".</li>
+  <li>@metric
+     Optional parameter attribute that determines the metric that is used to
+     compute the shortest paths. Valid values are: "hopCount", "delay", "dataRate",
+     and "errorRate". The default value is "hopCount".</li>
+  <li>&lt;node&gt;
+     The node optional subelement specifies cost parameters for the shortest
+     path algorithm. If this subelement is not specified then the configurator
+     determines cost by default according to the selected metric.</li>
+  <li>@hosts
+       Mandatory selector attribute that specifies a list of node full path
+       patterns. It determines the affected set of nodes.</li>
+  <li>@cost
+       Mandatory parameter attribute that specifies the cost. Valid values are
+       "infinite" and numbers.</li>
+  <li>&lt;link&gt;
+     The node subelement specifies cost parameters for the shortest path algorithm.
+     If this subelement is not specified then the configurator determines link
+     cost by default according to the selected metric.</li>
+  <li>@interfaces
+       Mandatory selector attribute that specifies a list of interface full
+       path patterns. It determines the affected set of links connected to
+       the given interfaces.</li>
+  <li>@cost
+       Mandatory parameter attribute that specifies the cost. Valid values are
+       "infinite" and numbers.</li></ul></ul>
+<img src="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html" title="Ipv4NetworkConfigurator" alt="Ipv4NetworkConfigurator" coords="0,42,283,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.aggregation.AggregationShowcase" href="inet.showcases.wireless.aggregation.AggregationShowcase.html">AggregationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork.html">AnalogModelShowcaseDistanceNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork_" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork_.html">AnalogModelShowcaseDistanceNetwork_</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseNoiseNetwork" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseNoiseNetwork.html">AnalogModelShowcaseNoiseNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseRoutingNetwork" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseRoutingNetwork.html">AnalogModelShowcaseRoutingNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.styling.AnnotationShowcase" href="inet.showcases.visualizer.canvas.styling.AnnotationShowcase.html">AnnotationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample" href="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample.html">AntennaDirectionalSelectivityExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.aodv.AODVNetwork" href="inet.examples.aodv.AODVNetwork.html">AODVNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.arptest.ARPTest" href="inet.examples.ethernet.arptest.ARPTest.html">ARPTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.arptest2.ARPTest" href="inet.examples.ethernet.arptest2.ARPTest.html">ARPTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.backbone.Backbone" href="inet.examples.ospfv2.backbone.Backbone.html">Backbone</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ber.ber" href="inet.examples.inet.ber.ber.html">ber</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.Bgp2RoutersInAS.BgpNetwork" href="inet.examples.bgpv4.Bgp2RoutersInAS.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.Bgp3Routers.BgpNetwork" href="inet.examples.bgpv4.Bgp3Routers.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpAndOspf.BgpNetwork" href="inet.examples.bgpv4.BgpAndOspf.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpAndOspfSimple.BgpNetwork" href="inet.examples.bgpv4.BgpAndOspfSimple.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpCompleteTest.BgpNetwork" href="inet.examples.bgpv4.BgpCompleteTest.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpOpen.BgpNetwork" href="inet.examples.bgpv4.BgpOpen.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpUpdate.BgpNetwork" href="inet.examples.bgpv4.BgpUpdate.BgpNetwork.html">BgpNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.blockack.BlockAckShowcase" href="inet.showcases.wireless.blockack.BlockAckShowcase.html">BlockAckShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.bulktransfer.BulkTransfer" href="inet.examples.inet.bulktransfer.BulkTransfer.html">BulkTransfer</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tcpclientserver.ClientServer" href="inet.examples.inet.tcpclientserver.ClientServer.html">ClientServer</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tcp_eth_reconnect.ClientServerWithSM" href="inet.examples.inet.tcp_eth_reconnect.ClientServerWithSM.html">ClientServerWithSM</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tcp_ppp_reconnect.ClientServerWithSM" href="inet.examples.inet.tcp_ppp_reconnect.ClientServerWithSM.html">ClientServerWithSM</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.cloudandhosts.CloudAndHosts" href="inet.examples.internetcloud.cloudandhosts.CloudAndHosts.html">CloudAndHosts</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.cloudandrouters.CloudAndRouters" href="inet.examples.internetcloud.cloudandrouters.CloudAndRouters.html">CloudAndRouters</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.coexistence.CoexistenceShowcase" href="inet.showcases.wireless.coexistence.CoexistenceShowcase.html">CoexistenceShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.communicationcache.CommunicationCacheExample" href="inet.examples.communicationcache.CommunicationCacheExample.html">CommunicationCacheExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.configurator.ComplexConfiguratorNetwork" href="inet.examples.wireless.configurator.ComplexConfiguratorNetwork.html">ComplexConfiguratorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.Complexer" href="inet.showcases.visualizer.canvas.transportconnection.Complexer.html">Complexer</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorA" href="inet.tutorials.configurator.ConfiguratorA.html">ConfiguratorA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorB" href="inet.tutorials.configurator.ConfiguratorB.html">ConfiguratorB</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorD" href="inet.tutorials.configurator.ConfiguratorD.html">ConfiguratorD</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.configurator.ConfiguratorE" href="inet.tutorials.configurator.ConfiguratorE.html">ConfiguratorE</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.corruptionmode.CorruptionModeExample" href="inet.examples.wireless.corruptionmode.CorruptionModeExample.html">CorruptionModeExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.crosstalk.Crosstalk" href="inet.examples.wireless.crosstalk.Crosstalk.html">Crosstalk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.crosstalk.CrosstalkShowcaseBaseNetwork" href="inet.showcases.wireless.crosstalk.CrosstalkShowcaseBaseNetwork.html">CrosstalkShowcaseBaseNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerActivityLevelShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerActivityLevelShowcase.html">DataLinkVisualizerActivityLevelShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWiredShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWiredShowcase.html">DataLinkVisualizerEnablingWiredShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWirelessShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWirelessShowcase.html">DataLinkVisualizerEnablingWirelessShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerFilteringShowcase.html">DataLinkVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerMobileShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerMobileShowcase.html">DataLinkVisualizerMobileShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.dctcp.DcTcpIncast" href="inet.examples.inet.dctcp.DcTcpIncast.html">DcTcpIncast</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.DHCPShutdownReboot" href="inet.examples.dhcp.DHCPShutdownReboot.html">DHCPShutdownReboot</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.onedomain.DiffservNetwork" href="inet.examples.diffserv.onedomain.DiffservNetwork.html">DiffservNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.diffserv.simple_.DiffservNetwork" href="inet.examples.diffserv.simple_.DiffservNetwork.html">DiffservNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>This network contains a router with an 10Mbps Ethernet interface,
+and with a 128kbps dialup connection to a server.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.diffserv.DiffservNetwork" href="inet.showcases.general.diffserv.DiffservNetwork.html">DiffservNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.directionalantennas.DirectionalAntennasShowcase" href="inet.showcases.wireless.directionalantennas.DirectionalAntennasShowcase.html">DirectionalAntennasShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.manetrouting.dsdv.DsdvNetwork" href="inet.examples.manetrouting.dsdv.DsdvNetwork.html">DsdvNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.manetrouting.dymo.DYMONetwork" href="inet.examples.manetrouting.dymo.DYMONetwork.html">DYMONetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.dynamic.DynamicRadioNetwork" href="inet.examples.wireless.dynamic.DynamicRadioNetwork.html">DynamicRadioNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.dynamictest.DynamicTest" href="inet.examples.ospfv2.dynamictest.DynamicTest.html">DynamicTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rip.dynamictest.DynamicTest" href="inet.examples.rip.dynamictest.DynamicTest.html">DynamicTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.earthcloud.EarthCloud" href="inet.examples.internetcloud.earthcloud.EarthCloud.html">EarthCloud</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.basic.EigrpTestNetwork" href="inet.examples.eigrp.basic.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.snake.EigrpTestNetwork" href="inet.examples.eigrp.snake.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.square_stub.EigrpTestNetwork" href="inet.examples.eigrp.square_stub.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.square_stub_mesh.EigrpTestNetwork" href="inet.examples.eigrp.square_stub_mesh.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario6.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario6.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.testing_scenario_ds.EigrpTestNetwork" href="inet.examples.eigrp.testing_scenario_ds.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.two_node.EigrpTestNetwork" href="inet.examples.eigrp.two_node.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.eigrp.two_node6.EigrpTestNetwork" href="inet.examples.eigrp.two_node6.EigrpTestNetwork.html">EigrpTestNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.errorrate.ErrorRateShowcase" href="inet.showcases.wireless.errorrate.ErrorRateShowcase.html">ErrorRateShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.errorrate.ErrorRateTest" href="inet.examples.wireless.errorrate.ErrorRateTest.html">ErrorRateTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.filtering.FilteringExampleNetwork" href="inet.examples.wireless.filtering.FilteringExampleNetwork.html">FilteringExampleNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.flatnet.FlatNet" href="inet.examples.inet.flatnet.FlatNet.html">FlatNet</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.fragmentation.FragmentationShowcase" href="inet.showcases.wireless.fragmentation.FragmentationShowcase.html">FragmentationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.manetrouting.gpsr.GPSRNetworkManual" href="inet.examples.manetrouting.gpsr.GPSRNetworkManual.html">GPSRNetworkManual</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.manetrouting.gpsr.GPSRNetworkRandom" href="inet.examples.manetrouting.gpsr.GPSRNetworkRandom.html">GPSRNetworkRandom</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.gptp.GptpMasterSlave" href="inet.examples.gptp.GptpMasterSlave.html">GptpMasterSlave</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.handover.HandoverNetwork" href="inet.examples.wireless.handover.HandoverNetwork.html">HandoverNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.hiddennode.HiddenNodeShowcase" href="inet.showcases.wireless.hiddennode.HiddenNodeShowcase.html">HiddenNodeShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.hierarchical.Hierarchical" href="inet.examples.inet.hierarchical.Hierarchical.html">Hierarchical</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ieee80211levelofdetail.Ieee80211LevelofDetailShowcase" href="inet.examples.wireless.ieee80211levelofdetail.Ieee80211LevelofDetailShowcase.html">Ieee80211LevelofDetailShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationAdvancedFeaturesShowcase.html">Ieee80211VisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationDisplayingAssociationsShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationDisplayingAssociationsShowcase.html">Ieee80211VisualizationDisplayingAssociationsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase.html">Ieee80211VisualizationSignalLevelsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationVisualizingHandoverShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationVisualizingHandoverShowcase.html">Ieee80211VisualizationVisualizingHandoverShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.ieee802154.Ieee802154Showcase" href="inet.showcases.wireless.ieee802154.Ieee802154Showcase.html">Ieee802154Showcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.instrumentfigures.InstrumentShowcase" href="inet.showcases.visualizer.canvas.instrumentfigures.InstrumentShowcase.html">InstrumentShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase.html">InterfaceTableVisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationEnablingVisualizationShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationEnablingVisualizationShowcase.html">InterfaceTableVisualizationEnablingVisualizationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4hook.Ipv4hook" href="inet.examples.inet.ipv4hook.Ipv4hook.html">Ipv4hook</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO Auto-generated network</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.IPv4LargeNet" href="inet.examples.inet.ipv4largenet.IPv4LargeNet.html">IPv4LargeNet</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>A large Ethernet LAN -- see model description</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.kidsnw1.KIDSNw1" href="inet.examples.inet.kidsnw1.KIDSNw1.html">KIDSNw1</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211.Lan80211" href="inet.examples.wireless.lan80211.Lan80211.html">Lan80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211ac.Lan80211ac" href="inet.examples.wireless.lan80211ac.Lan80211ac.html">Lan80211ac</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layered80211.Layered80211" href="inet.examples.wireless.layered80211.Layered80211.html">Layered80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layeredapsk.LayeredApsk" href="inet.examples.wireless.layeredapsk.LayeredApsk.html">LayeredApsk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.mactest.MacTest" href="inet.examples.wireless.mactest.MacTest.html">MacTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.routing.manet.ManetprotocolsShowcaseA" href="inet.showcases.routing.manet.ManetprotocolsShowcaseA.html">ManetprotocolsShowcaseA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.routing.manet.ManetprotocolsShowcaseB" href="inet.showcases.routing.manet.ManetprotocolsShowcaseB.html">ManetprotocolsShowcaseB</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.ManetSensorNetwork" href="inet.showcases.wireless.sensornetwork.ManetSensorNetwork.html">ManetSensorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityDisplayingSignalsTransmissionsReceptionsShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityDisplayingSignalsTransmissionsReceptionsShowcase.html">MediumActivityDisplayingSignalsTransmissionsReceptionsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase.html">MediumActivityInterferingSignalsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityMultipleNodesShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityMultipleNodesShowcase.html">MediumActivityMultipleNodesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rip.mixednetwork.MixedNetwork" href="inet.examples.rip.mixednetwork.MixedNetwork.html">MixedNetwork</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO Auto-generated network</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.sctp.multihomed.multi" href="inet.examples.sctp.multihomed.multi.html">multi</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.multicast.MulticastNetwork" href="inet.examples.inet.multicast.MulticastNetwork.html">MulticastNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.multiple_areas_FINAL.multiple_areas2" href="inet.examples.ospfv3.multiple_areas_FINAL.multiple_areas2.html">multiple_areas2</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.manetrouting.multiradio.MultiRadio" href="inet.examples.manetrouting.multiradio.MultiRadio.html">MultiRadio</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Models a network with several hosts. Each host may contain one or
+more radios. Nodes are using adhoc routing to pass information.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.multiradio.MultiRadio" href="inet.examples.wireless.multiradio.MultiRadio.html">MultiRadio</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.multiradio.MultiRadioShowcase" href="inet.showcases.wireless.multiradio.MultiRadioShowcase.html">MultiRadioShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.nclients.NClients" href="inet.examples.inet.nclients.NClients.html">NClients</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.shutdownrestart.NClients" href="inet.examples.inet.shutdownrestart.NClients.html">NClients</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.sctp.nclients.NClients" href="inet.examples.sctp.nclients.NClients.html">NClients</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.nclients.NClients2" href="inet.examples.inet.nclients.NClients2.html">NClients2</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.neighborcache.NeighborCacheTest" href="inet.examples.neighborcache.NeighborCacheTest.html">NeighborCacheTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.idealwireless.Net" href="inet.examples.adhoc.idealwireless.Net.html">Net</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.ieee80211.Net80211" href="inet.examples.adhoc.ieee80211.Net80211.html">Net80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>TODO documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">Network</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>A generated network with grid topology.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ieee8021as.NetworkDaisyChain" href="inet.examples.ieee8021as.NetworkDaisyChain.html">NetworkDaisyChain</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathComplexShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathComplexShowcase.html">NetworkPathComplexShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathMobileShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathMobileShowcase.html">NetworkPathMobileShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathRIPShowcase.html">NetworkPathRIPShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathSimpleShowcase" href="inet.showcases.visualizer.canvas.networkpathactivity.NetworkPathSimpleShowcase.html">NetworkPathSimpleShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ieee8021as.NetworkWithCrossTraffic" href="inet.examples.ieee8021as.NetworkWithCrossTraffic.html">NetworkWithCrossTraffic</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.objectcache.ObjectCacheTest" href="inet.examples.objectcache.ObjectCacheTest.html">ObjectCacheTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.geometry.ObstacleIntersectionTest" href="inet.examples.geometry.ObstacleIntersectionTest.html">ObstacleIntersectionTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.obstacle.ObstacleTest" href="inet.examples.wireless.obstacle.ObstacleTest.html">ObstacleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areas.OSPF_AreaTest" href="inet.examples.ospfv2.areas.OSPF_AreaTest.html">OSPF_AreaTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_BackboneAndOneStubTest" href="inet.examples.ospfv2.areatests.OSPF_BackboneAndOneStubTest.html">OSPF_BackboneAndOneStubTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest" href="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest.html">OSPF_BackboneAndTwoStubsTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_BackboneTest" href="inet.examples.ospfv2.areatests.OSPF_BackboneTest.html">OSPF_BackboneTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_mininet" href="inet.examples.ospfv2.areatests.OSPF_mininet.html">OSPF_mininet</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.fulltest.OSPF_RFC2328_Fig6" href="inet.examples.ospfv2.fulltest.OSPF_RFC2328_Fig6.html">OSPF_RFC2328_Fig6</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropArpResolutionFailedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropArpResolutionFailedShowcase.html">PacketDropArpResolutionFailedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropInterfaceNotConnectedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropInterfaceNotConnectedShowcase.html">PacketDropInterfaceNotConnectedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropMacRetryLimitReachedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropMacRetryLimitReachedShowcase.html">PacketDropMacRetryLimitReachedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropNoRouteToDestinationShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropNoRouteToDestinationShowcase.html">PacketDropNoRouteToDestinationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropQueueOverflowShowcase.html">PacketDropQueueOverflowShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.pathloss.PathLossShowcase" href="inet.showcases.wireless.pathloss.PathLossShowcase.html">PathLossShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.pcaprecorder.PcapRecorderTest" href="inet.examples.inet.pcaprecorder.PcapRecorderTest.html">PcapRecorderTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.pcaprecording.PcapRecordingShowcase" href="inet.showcases.general.pcaprecording.PcapRecordingShowcase.html">PcapRecordingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerEnablingShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerEnablingShowcase.html">PhysicalLinkVisualizerEnablingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerFilteringShowcase.html">PhysicalLinkVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerMobileShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerMobileShowcase.html">PhysicalLinkVisualizerMobileShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.sm.basic.PIM_SM_Network" href="inet.examples.pim.sm.basic.PIM_SM_Network.html">PIM_SM_Network</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.dm.basic.pimDMFinal" href="inet.examples.pim.dm.basic.pimDMFinal.html">pimDMFinal</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.power.PowerConsumptionShowcase" href="inet.showcases.wireless.power.PowerConsumptionShowcase.html">PowerConsumptionShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.power.PowerNetwork" href="inet.examples.wireless.power.PowerNetwork.html">PowerNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.qos.QosShowcase" href="inet.showcases.wireless.qos.QosShowcase.html">QosShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.qos.QosThroughput" href="inet.examples.adhoc.qos.QosThroughput.html">QosThroughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.qos.QosThroughput" href="inet.examples.wireless.qos.QosThroughput.html">QosThroughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.net37.R37" href="inet.examples.mpls.net37.R37.html">R37</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.ratecontrol.RateControlShowcase" href="inet.showcases.wireless.ratecontrol.RateControlShowcase.html">RateControlShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.redmarker.RedMarkerNetwork" href="inet.examples.inet.redmarker.RedMarkerNetwork.html">RedMarkerNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.fingerprint.RegressionTestingTutorialWired" href="inet.tutorials.fingerprint.RegressionTestingTutorialWired.html">RegressionTestingTutorialWired</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.fingerprint.RegressionTestingTutorialWireless" href="inet.tutorials.fingerprint.RegressionTestingTutorialWireless.html">RegressionTestingTutorialWireless</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rip.infinitycount.RIPInfinityCountTest" href="inet.examples.rip.infinitycount.RIPInfinityCountTest.html">RIPInfinityCountTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.routerperf.RouterPerfNetwork" href="inet.examples.inet.routerperf.RouterPerfNetwork.html">RouterPerfNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDisplayingAllShowcase" href="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDisplayingAllShowcase.html">RoutingTableVisualizationDisplayingAllShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDynamicShowcase" href="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationDynamicShowcase.html">RoutingTableVisualizationDynamicShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationFilteringShowcase" href="inet.showcases.visualizer.canvas.routingtable.RoutingTableVisualizationFilteringShowcase.html">RoutingTableVisualizationFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_failure2.RSVPTE4" href="inet.examples.mpls.testte_failure2.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rtp.multicast1.RTPMulticast1" href="inet.examples.rtp.multicast1.RTPMulticast1.html">RTPMulticast1</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rtp.unicast.RTPNetwork" href="inet.examples.rtp.unicast.RTPNetwork.html">RTPNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rtp.unicast1.RTPUnicast1" href="inet.examples.rtp.unicast1.RTPUnicast1.html">RTPUnicast1</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rtp.unicast2.RTPUnicast2" href="inet.examples.rtp.unicast2.RTPUnicast2.html">RTPUnicast2</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseA" href="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseA.html">SensorNetworkShowcaseA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseB" href="inet.showcases.wireless.sensornetwork.SensorNetworkShowcaseB.html">SensorNetworkShowcaseB</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.shortcut.ShortcutMacExample" href="inet.examples.wireless.shortcut.ShortcutMacExample.html">ShortcutMacExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.shortcut.ShortcutRadioExample" href="inet.examples.wireless.shortcut.ShortcutRadioExample.html">ShortcutRadioExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.aodv.ShortestPath" href="inet.examples.aodv.ShortestPath.html">ShortestPath</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.configurator.SimpleConfiguratorNetwork" href="inet.examples.inet.configurator.SimpleConfiguratorNetwork.html">SimpleConfiguratorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.aodv.SimpleRREQ" href="inet.examples.aodv.SimpleRREQ.html">SimpleRREQ</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.aodv.SimpleRREQ2" href="inet.examples.aodv.SimpleRREQ2.html">SimpleRREQ2</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.simpletest.SimpleTest" href="inet.examples.ospfv2.simpletest.SimpleTest.html">SimpleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.rip.simpletest.SimpleTest" href="inet.examples.rip.simpletest.SimpleTest.html">SimpleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.small.small" href="inet.examples.ospfv3.small.small.html">small</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork.html">SpectrumShowcasePowerDensityMapNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork.html">SpectrumShowcaseSpectrumFigureSpectrogramNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPacketErrorRateShowcase" href="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPacketErrorRateShowcase.html">StatisticVisualizationPacketErrorRateShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPingRttShowcase" href="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPingRttShowcase.html">StatisticVisualizationPingRttShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.styling.StylingShowcase" href="inet.showcases.visualizer.canvas.styling.StylingShowcase.html">StylingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.submoduleinfo.SubmoduleInformationVisualizationShowcase" href="inet.showcases.visualizer.canvas.submoduleinfo.SubmoduleInformationVisualizationShowcase.html">SubmoduleInformationVisualizationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.synchronized.Synchronized" href="inet.examples.wireless.synchronized.Synchronized.html">Synchronized</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tcpapp.TcpAppExample" href="inet.examples.inet.tcpapp.TcpAppExample.html">TcpAppExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tcpwindowscale.tcpwindowscale" href="inet.examples.inet.tcpwindowscale.tcpwindowscale.html">tcpwindowscale</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.testNetwork" href="inet.examples.inet.netperfmeter.testNetwork.html">testNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.nic.TestNic" href="inet.examples.wireless.nic.TestNic.html">TestNic</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.scaling.TestRadioScaling" href="inet.examples.wireless.scaling.TestRadioScaling.html">TestRadioScaling</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.throughput.Throughput" href="inet.showcases.wireless.throughput.Throughput.html">Throughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationEnablingShowcase" href="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationEnablingShowcase.html">TransportConnectionVisualizationEnablingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationMultipleConnectionsShowcase" href="inet.showcases.visualizer.canvas.transportconnection.TransportConnectionVisualizationMultipleConnectionsShowcase.html">TransportConnectionVisualizationMultipleConnectionsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerFilteringShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerFilteringShowcase.html">TransportPathVisualizerFilteringShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWiredShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWiredShowcase.html">TransportPathVisualizerSimpleWiredShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWirelessShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWirelessShowcase.html">TransportPathVisualizerSimpleWirelessShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tunnel.Tunnel" href="inet.examples.inet.tunnel.Tunnel.html">Tunnel</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.txop.TxopShowcase" href="inet.showcases.wireless.txop.TxopShowcase.html">TxopShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.udpapp.UdpAppExample" href="inet.examples.inet.udpapp.UdpAppExample.html">UdpAppExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.broadcast.UDPBroadcastNetwork" href="inet.examples.inet.broadcast.UDPBroadcastNetwork.html">UDPBroadcastNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.udpburst.UDPBurst" href="inet.examples.inet.udpburst.UDPBurst.html">UDPBurst</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.udpclientserver.UdpClientServer" href="inet.examples.inet.udpclientserver.UdpClientServer.html">UdpClientServer</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.v3_2_routers.v3_2_routers" href="inet.examples.ospfv3.v3_2_routers.v3_2_routers.html">v3_2_routers</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.v3_3_areas.v3_3_areas" href="inet.examples.ospfv3.v3_3_areas.v3_3_areas.html">v3_3_areas</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.v3_4_routers_2_areas.v3_4_routers_2_areas" href="inet.examples.ospfv3.v3_4_routers_2_areas.v3_4_routers_2_areas.html">v3_4_routers_2_areas</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.v3_mesh.v3_mesh" href="inet.examples.ospfv3.v3_mesh.v3_mesh.html">v3_mesh</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv3.v3_square_2_areas.v3_square_2_areas" href="inet.examples.ospfv3.v3_square_2_areas.v3_square_2_areas.html">v3_square_2_areas</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.vlan.VlanExample" href="inet.examples.ethernet.vlan.VlanExample.html">VlanExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.voip.Voip" href="inet.examples.voip.Voip.html">Voip</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>A generated network with star topology.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP" href="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP.html">WiredAndWirelessHostsWithAP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WiredNetWithDHCP" href="inet.examples.dhcp.WiredNetWithDHCP.html">WiredNetWithDHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.wireless.WirelessA" href="inet.tutorials.wireless.WirelessA.html">WirelessA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWith2DHCP" href="inet.examples.dhcp.WirelessNetWith2DHCP.html">WirelessNetWith2DHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWithDHCP" href="inet.examples.dhcp.WirelessNetWithDHCP.html">WirelessNetWithDHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.configurator.base.L3NetworkConfiguratorBase" href="inet.networklayer.configurator.base.L3NetworkConfiguratorBase.html">L3NetworkConfiguratorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module serves as a base module for layer 3 network configurators.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>minLinkWeight</td>
+      <td>double</td>
+      <td>1E-3</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>configureIsolatedNetworksSeparatly</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>config</td>
+      <td>xml</td>
+      <td>xml("<config><interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/></config>")</td>
+      <td>
+<p>XML configuration parameters for IP address assignment and adding manual routes</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>assignAddresses</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>assign IP addresses to all interfaces in the network</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>assignUniqueAddresses</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>avoid using the same address and raise an error if not possible</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>assignDisjunctSubnetAddresses</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>avoid using the same address prefix and netmask on different links when assigning IP addresses to interfaces</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>addStaticRoutes</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>add static routes to the routing tables of all nodes to route to all destination interfaces (only where applicable; turn off when config file contains manual routes)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>addDefaultRoutes</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>add default routes if all routes from a source node go through the same gateway (used only if addStaticRoutes is true)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>addSubnetRoutes</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>add subnet routes instead of destination interface routes (only where applicable; used only if addStaticRoutes is true)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>addDirectRoutes</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>add direct routes (i.e. directly connected interfaces) to the routing table (used only if addStaticRoutes is true)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>optimizeRoutes</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>optimize routing tables by merging routes, the resulting routing table might route more packets than the original (used only if addStaticRoutes is true)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dumpTopology</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>print extracted network topology to the module output</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dumpLinks</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>print recognized network links to the module output</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dumpAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>print assigned IP addresses for all interfaces to the module output</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dumpRoutes</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>print configured and optimized routing tables for all nodes to the module output</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dumpConfig</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>write configuration into the given config file that can be fed back to speed up subsequent runs (network configurations)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>Ipv4NetworkConfigurator</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module assigns IPv4 addresses and sets up static routing for an IPv4 network.
+// It assigns per-interface IP addresses, strives to take subnets into account,
+// and can also optimize the generated routing tables by merging routing entries.
+//
+// IMPORTANT: as of INET 2.2, this module does NOT assign addresses or add
+// routes directly, just stores them in its internal data structures.
+// Network nodes are supposed to contain an instance of ~Ipv4NodeConfigurator
+// (normally part of the network layer compound module) that actually
+// configures the node's interface table and routing table based on the
+// information stored in the global network configurator module.
+//
+// The configurator supports both manual and automatic address assignment,
+// and their combinations. You can provide address and netmask templates
+// with unspecified parts, and the configurator automatically completes
+// them by trying to put nodes on the same LAN into the same subnet.
+// It also supports manual routes, and automatic routes that follow the
+// shortest paths. By default, the configurator adds default routes where
+// applicable (e.g. in hosts) and does subnet-based routing.
+//
+// Hierarchical routing can be set up by using only a fraction of configuration
+// entries compared to the number of nodes. The configurator also does
+// routing table optimization that significantly decreases the size of routing
+// tables in large networks.
+//
+// Most of the above features can be turned on and off using NED parameters.
+// The details (interface address and netmask templates, manual routes, etc.)
+// can be configured in a single XML file for the whole network.
+//
+// Modules that represent network nodes (host, hub, bus, switch, access point,
+// router, etc.) are expected to have the @networkNode property, becaue that's how the
+// configurator recognizes them in the model. All nodes must have their
+// interface table (~InterfaceTable module) as their &quot;interfaceTable&quot; submodule.
+// All routers must have their routing table (~Ipv4RoutingTable module) as their
+// &quot;routingTable&quot; or &quot;networkLayer.routingTable&quot; submodule.
+//
+// By default all interfaces in all nodes will have a unique IPv4 address
+// assigned. Routing tables will be configured so that there's a route
+// following the shortest path from any node to any interface. In other words,
+// all interfaces will be reachable from all nodes (e.g. ping).
+//
+// The configurator doesn't connect to any other modules (it has no gates),
+// and should have only one instance in the whole model.  The configuration
+// takes place in initialization stage 2 after the interfaces are registered
+// in the ~InterfaceTable modules.
+//
+// The configurator goes through the following configuration steps:
+//
+//  -# Builds a graph representing the network topology. The graph
+//     will have a vertex for every module that has a @networkNode property (this
+//     includes hosts, routers, and L2 devices like switches, access points,
+//     Ethernet hubs, etc.) It also assigns weights to vertices and edges that
+//     will be used by the shortest path algorithm when setting up routes.
+//     Weights will be infinite for IP nodes that have IP forwarding disabled
+///    (to prevent routes from transiting them), and zero for all other nodes
+//     (routers and and L2 devices). Edge weights are chosen to be inversely
+//     proportional to the bitrate of the link, so that the configurator
+//     prefers connections with higher bandwidth. For internal purposes,
+//     the configurator also builds a table of all &quot;links&quot; (the link data
+//     structure consists of the set of network interfaces that are
+//     on the same point-to-point link or LAN)
+//
+//  -# Assigns IP addresses to all interfaces of all nodes. The
+//     assignment process takes into consideration the addresses and netmasks
+//     already present on the interfaces (possibly set in earlier initialize
+//     stages), and the configuration provided in the XML format (described
+//     below). The configuration can specify &quot;templates&quot; for the address
+//     and netmask, with parts that are fixed and parts that can be chosen
+//     by the configurator (e.g. &quot;10.0.x.x&quot;). In the most general case,
+//     the configurator is allowed to choose any address and netmask for all
+//     interfaces (which results in automatic address assignment). In the most
+//     constrained case, the configurator is forced to use the requested addresses
+//     and netmasks for all interfaces (which translates to manual address assignment).
+//     There are many possible configuration options between these two extremums. The
+//     configurator assigns addresses in a way that maximizes the number of
+//     nodes per subnet. Once it figures out the nodes that belong to a single
+//     subnet it, will optimize for allocating the longest possible netmask.
+//     The configurator might fail to assign netmasks and addresses according
+//     to the given configuration parameters; if that happens, the assignment
+//     process stops and an error is signalled.
+//
+//  -# Adds the manual routes that are specified in the configuration.
+//
+//  -# Adds static routes to all routing tables in the network. The
+//     configurator uses Dijkstra's weighted shortest path algorithm to find
+//     the desired routes between all possible node pairs. The resulting
+//     routing tables will have one entry for all destination interfaces in the
+//     network. The configurator can be safely instructed to add default routes
+//     where applicable, significantly reducing the size of the host routing
+//     tables. It can also add subnet routes instead of interface routes further
+//     reducing the size of routing tables. Turning on this option requires
+//     careful design to avoid having IP addresses from the same subnet on
+//     different links. CAVEAT: Using manual routes and static route generation
+//     together may have unwanted side effects, because route generation ignores
+//     manual routes.
+//
+//  -# Then it optimizes the routing tables for size. This optimization allows
+//     configuring larger networks with smaller memory footprint and makes the
+//     routing table lookup faster. The resulting routing table might be
+//     different in that it will route packets that the original routing table
+//     did not. Nevertheless the following invariant holds: any packet routed
+//     by the original routing table (has matching route) will still be routed
+//     the same way by the optimized routing table.
+//
+//  -# Finally it dumps the requested results of the configuration. It can
+//     dump network topology, assigned IP addresses, routing tables and its
+//     own configuration format.
+//
+// The following example configures all interfaces in the IPv4 address range
+// 10.0.0.0 - 10.255.255.255, and netmask range 255.0.0.0 - 255.255.255.255.
+// This is the default configuration.
+//
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+// &lt;config&gt;
+//   &lt;interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/&gt;
+// &lt;/config&gt;
+// </span><span style="color: #800000; ">&lt;/pre&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// The following example configures a hierarchical network in a way that keeps
+// routing tables small.
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+// &lt;config&gt;
+//   &lt;interface hosts=&quot;area11.lan1.*&quot; address=&quot;10.11.1.x&quot; netmask=&quot;255.255.255.x&quot;/&gt;
+//   &lt;interface hosts=&quot;area11.lan2.*&quot; address=&quot;10.11.2.x&quot; netmask=&quot;255.255.255.x&quot;/&gt;
+//   &lt;interface hosts=&quot;area12.lan1.*&quot; address=&quot;10.12.1.x&quot; netmask=&quot;255.255.255.x&quot;/&gt;
+//   &lt;interface hosts=&quot;area12.lan2.*&quot; address=&quot;10.12.2.x&quot; netmask=&quot;255.255.255.x&quot;/&gt;
+//   &lt;interface hosts=&quot;area*.router*&quot; address=&quot;10.x.x.x&quot; netmask=&quot;x.x.x.x&quot;/&gt;
+//   &lt;interface hosts=&quot;*&quot; address=&quot;10.x.x.x&quot; netmask=&quot;255.x.x.0&quot;/&gt;
+// &lt;/config&gt;
+// </span><span style="color: #800000; ">&lt;/pre&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// The XML configuration must contain exactly one &lt;config&gt; element. Under the
+// root element there can be multiple of the following elements.
+//
+//  - &lt;interface&gt;
+//    The interface element provides configuration parameters for one or more
+//    interfaces in the network. The selector attributes limit the scope where
+//    the interface element has effects. The parameter attributes limit the
+//    range of assignable addresses and netmasks.
+//
+//    - @hosts
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces in the specified hosts are affected. The pattern might
+//      be a full path starting from the network, or a module name anywhere in
+//      the hierarchy, and other patterns similar to ini file keys. The default
+//      value is &quot;*&quot; that matches all hosts.
+//      e.g. &quot;subnet.client*&quot; or &quot;host* router[0..3]&quot; or &quot;area*.*.host[0]&quot;
+//
+//    - @names
+//      Optional selector attribute that specifies a list of interface name
+//      patterns. Only interfaces with the specified names are affected. The
+//      default value is &quot;*&quot; that matches all interfaces.
+//      e.g. &quot;eth* ppp0&quot; or &quot;*&quot;
+//
+//    - @towards
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces connected towards the specified hosts are affected. The
+//      specified name will be matched against the names of hosts that are on
+//      the same LAN with the one that is being configured. This works even if
+//      there's a switch between the configured host and the one specified here.
+//      For wired networks it might be easier to specify this parameter instead
+//      of specifying the interface names. The default value is &quot;*&quot;.
+//      e.g. &quot;ap&quot; or &quot;server&quot; or &quot;client*&quot;
+//
+//    - @among
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces in the specified hosts connected towards the specified
+//      hosts are affected.
+//      The 'among=&quot;X Y Z&quot;' is same as 'hosts=&quot;X Y Z&quot; towards=&quot;X Y Z&quot;'.
+//
+//    - @address
+//      Optional parameter attribute that limits the range of assignable
+//      addresses. Wildcards are allowed with using 'x' as part of the address
+//      in place of a byte. Unspecified parts will be filled automatically be
+//      the configurator. The default value &quot;&quot; means that the address will not
+//      be configured. Unconfigured interfaces still have allocated addresses
+//      in their subnets allowing them to become configured later very easily.
+//      e.g. &quot;192.168.1.1&quot; or &quot;10.0.x.x&quot;
+//
+//    - @netmask
+//      Optional parameter attribute that limits the range of assignable
+//      netmasks. Wildcards are allowed with using 'x' as part of the netmask
+//      in place of a byte. Unspecified parts will be filled automatically be
+//      the configurator. The default value &quot;&quot; means that any netmask can be
+//      configured.
+//      e.g. &quot;255.255.255.0&quot; or &quot;/24&quot; or &quot;255.255.x.x&quot; or &quot;255.255.x.0&quot;
+//
+//    - @mtu                number
+//      Optional parameter attribute to set the MTU parameter in the interface.
+//      When unspecified the interface parameter is left unchanged.
+//
+//    - @metric                number
+//      Optional parameter attribute to set the Metric parameter in the interface.
+//      When unspecified the interface parameter is left unchanged.
+//
+//    - @groups
+//      Optional parameter attribute; it may contain a list of (multicast)
+//      IP addresses that will be added to the multicast groups of the interface.
+//      See also the &lt;multicast-group&gt; element.
+//
+//    - @add-static-route
+//      Optional bool parameter (default=true).
+//      Add static route to the routing table.
+//
+//    - @add-default-route
+//      Optional bool parameter (default=true).
+//      Add default route to the routing table if the node has only one non-loopback interface.
+//
+//    - @add-subnet-route
+//      Optional bool parameter (default=true).
+//      Add subnet route to the routing table.
+//
+//  - &lt;wireless&gt;
+//    The wireless element specifies the members of a wireless network. It is
+//    primarily useful when the members cannot be automatically determined using
+//    the SSID parameters.
+//
+//    - @id (optional)
+//      identifies wireless network, unique value used if missed
+//
+//    - @hosts
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces in the specified hosts are affected. The default value
+//      is &quot;*&quot; that matches all hosts.
+//
+//    - @interfaces
+//      Optional selector attribute that specifies a list of interface name
+//      patterns. Only interfaces with the specified names are affected. The
+//      default value is &quot;*&quot; that matches all interfaces.
+//
+//  - &lt;multicast-group&gt;
+//    The multicast group element provides multicast network addresses for one
+//    or more interfaces in the network.
+//
+//    - @hosts
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces in the specified hosts are affected. The default value
+//      is &quot;*&quot; that matches all hosts.
+//
+//    - @interfaces
+//      Optional selector attribute that specifies a list of interface name
+//      patterns. Only interfaces with the specified names are affected. The
+//      default value is &quot;*&quot; that matches all interfaces.
+//
+//    - @towards
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces connected towards the specified hosts are affected.
+//      The default value is &quot;*&quot;.
+//
+//    - @among
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only interfaces in the specified hosts connected towards the specified
+//      hosts are affected.
+//      The 'among=&quot;X Y Z&quot;' is same as 'hosts=&quot;X Y Z&quot; towards=&quot;X Y Z&quot;'.
+//
+//    - @address
+//      Mandatory parameter attribute that specifies a list of multicast group
+//      addresses to be assigned. Values must be selected from the valid range
+//      of multicast addresses.
+//      e.g. &quot;224.0.0.1 224.0.1.33&quot;
+//
+//  - &lt;route&gt;
+//    The route element provides routing table entries for multiple nodes
+//    in the network. The selector attributes limit the scope where the route
+//    element has effects.
+//
+//    - @hosts
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only routing tables in the specified hosts are affected. The default
+//      value &quot;&quot; means all hosts will be affected.
+//      e.g. &quot;host* router[0..3]&quot;
+//
+//    - @destination
+//      Optional parameter attribute that specifies the destination address in
+//      the route (L3AddressResolver syntax). The default value is &quot;*&quot;.
+//      e.g. &quot;192.168.1.1&quot; or &quot;subnet.client[3]&quot; or &quot;subnet.server(ipv4)&quot; or &quot;*&quot;
+//
+//    - @netmask
+//      Optional parameter attribute that specifies the netmask in the route.
+//      The default value is &quot;*&quot;.
+//      e.g. &quot;255.255.255.0&quot; or &quot;/29&quot; or &quot;*&quot;
+//
+//    - @gateway
+//      Optional parameter attribute that specifies the gateway (next-hop)
+//      address in the route (L3AddressResolver syntax). When unspecified
+//      the interface parameter must be specified. The default value is &quot;*&quot;.
+//      e.g. &quot;192.168.1.254&quot; or &quot;subnet.router&quot; or &quot;*&quot;
+//
+//    - @interface
+//      Optional parameter attribute that specifies the output interface name
+//      in the route. When unspecified the gateway parameter must be specified.
+//      This parameter has no default value.
+//      e.g. &quot;eth0&quot;
+//
+//    - @metric
+//      Optional parameter attribute that specifies the metric in the route.
+//      The default value is 0.
+//
+//  - &lt;multicast-route&gt;
+//    The multicast-route elements add entries to multicast routing tables.
+//
+//    - @hosts
+//      Optional selector attribute that specifies a list of host name patterns.
+//      Only routing tables in the specified hosts are affected.
+//      e.g. &quot;host* router[0..3]&quot;
+//
+//    - @source
+//      Optional parameter attribute that specifies the address of the source
+//      network. The default value is &quot;*&quot; that matches all sources.
+//
+//    - @netmask
+//      Optional parameter attribute that specifies the netmask of the source
+//      network. The default value is &quot;*&quot; that matches all sources.
+//
+//    - @groups
+//      Optional List of IPv4 multicast addresses specifying the groups this entry
+//      applies to. The default value is &quot;*&quot; that matches all multicast groups.
+//      e.g. &quot;225.0.0.1 225.0.1.2&quot;.
+//
+//    - @metric
+//      Optional parameter attribute that specifies the metric in the route.
+//
+//    - @parent
+//      Optional parameter attribute that specifies the name of the interface
+//      the multicast datagrams are expected to arrive. When a datagram arrives
+//      on the parent interface, it will be forwarded towards the child interfaces;
+//      otherwise it will be dropped. The default value is the interface on the
+//      shortest path towards the source of the datagram.
+//
+//    - @children
+//      Mandatory parameter attribute that specifies a list of interface name
+//      patterns:
+//       - a name pattern (e.g. &quot;ppp*&quot;) matches the name of the interface
+//       - a 'towards' pattern (starting with &quot;&gt;&quot;, e.g. &quot;&gt;router*&quot;) matches the interface
+//         by naming one of the neighbour nodes on its link.
+//      Incoming multicast datagrams are forwarded to each child interface except the
+//      one they arrived in.
+//
+//  - &lt;autoroute&gt;
+//    The autoroute element specifies parameters for the automatic static routing.
+//    If this element is not specified then the configurator assumes a default.
+//    The default specifies that all routing tables will be modified and all the
+//    shortest path to all interfaces will be computed.
+//
+//    - @sourceHosts
+//      Optional selector attribute that specifies a list of host full path patterns.
+//      It determines the set of routing tables that will be modified. The default
+//      value is &quot;**&quot;.
+//
+//    - @destinationInterfaces
+//      Optional parameter attribute that specifies a list of interface full path
+//      patterns. It determines the set of destination interfaces for which the
+//      shortest path will be computed. The default value is &quot;**&quot;.
+//
+//    - @metric
+//      Optional parameter attribute that determines the metric that is used to
+//      compute the shortest paths. Valid values are: &quot;hopCount&quot;, &quot;delay&quot;, &quot;dataRate&quot;,
+//      and &quot;errorRate&quot;. The default value is &quot;hopCount&quot;.
+//
+//    - &lt;node&gt;
+//      The node optional subelement specifies cost parameters for the shortest
+//      path algorithm. If this subelement is not specified then the configurator
+//      determines cost by default according to the selected metric.
+//
+//      - @hosts
+//        Mandatory selector attribute that specifies a list of node full path
+//        patterns. It determines the affected set of nodes.
+//
+//      - @cost
+//        Mandatory parameter attribute that specifies the cost. Valid values are
+//        &quot;infinite&quot; and numbers.
+//
+//    - &lt;link&gt;
+//      The node subelement specifies cost parameters for the shortest path algorithm.
+//      If this subelement is not specified then the configurator determines link
+//      cost by default according to the selected metric.
+//
+//      - @interfaces
+//        Mandatory selector attribute that specifies a list of interface full
+//        path patterns. It determines the affected set of links connected to
+//        the given interfaces.
+//
+//      - @cost
+//        Mandatory parameter attribute that specifies the cost. Valid values are
+//        &quot;infinite&quot; and numbers.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">L3NetworkConfiguratorBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">config</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;config&gt;&lt;interface hosts='**' address='10.x.x.x' netmask='255.x.x.x'/&gt;&lt;/config&gt;&quot;</span><span style="color: #232629; ">)); </span><span style="color: #808080; font-style: italic; ">// XML configuration parameters for IP address assignment and adding manual routes
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">assignAddresses</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// assign IP addresses to all interfaces in the network
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">assignUniqueAddresses</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// avoid using the same address and raise an error if not possible
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">assignDisjunctSubnetAddresses</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// avoid using the same address prefix and netmask on different links when assigning IP addresses to interfaces
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">addStaticRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// add static routes to the routing tables of all nodes to route to all destination interfaces (only where applicable; turn off when config file contains manual routes)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">addDefaultRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// add default routes if all routes from a source node go through the same gateway (used only if addStaticRoutes is true)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">addSubnetRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// add subnet routes instead of destination interface routes (only where applicable; used only if addStaticRoutes is true)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">addDirectRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// add direct routes (i.e. directly connected interfaces) to the routing table (used only if addStaticRoutes is true)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">optimizeRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// optimize routing tables by merging routes, the resulting routing table might route more packets than the original (used only if addStaticRoutes is true)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpTopology</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// print extracted network topology to the module output
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpLinks</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// print recognized network links to the module output
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpAddresses</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// print assigned IP addresses for all interfaces to the module output
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpRoutes</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// print configured and optimized routing tables for all nodes to the module output
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpConfig</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// write configuration into the given config file that can be fed back to speed up subsequent runs (network configurations)
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-networklayer-configurator-ipv4-Ipv4NetworkConfigurator.ned.html">src/inet/networklayer/configurator/ipv4/Ipv4NetworkConfigurator.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>CreditBasedGate</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">CreditBasedGate</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_gate">inet.queueing.gate</a></p>
+<h2 class="comptitle" style="float: left;">CreditBasedGate</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module is a packet gate that operates based on the number of credits
+it contains. The gate is open if the number of credits is greater than the
+configured transmit credit limit, it is closed otherwise. The module attaches
+a ~<a title="inet::CreditGateTag" href="inet-CreditGateTag.html">CreditGateTag</a> to all packets that pass through. The attached tag allows
+the gate module to determine if a packet belongs to it when the packet is
+eventually transmitted.</p>
+<p>The number of credits decreases if a packet that passed through this gate is
+currently being transmitted by the network interface. Otherwise, the number
+of credits increases below the transmit credit limit or if there are packets
+waiting to be transmitted. Besides, the number of credits immediately drops
+down to the transmit credit limit if no more packets are available after the
+network interface finishes a transmission from this gate.</p>
+<p>This module is part of the credit based shaper infrastructure.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet::CreditGateTag" href="inet-CreditGateTag.html">CreditGateTag</a>, ~<a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">PacketQueue</a></p>
+<img src="inet.queueing.gate.CreditBasedGate-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.gate.CreditBasedGate.html" title="CreditBasedGate" alt="CreditBasedGate" coords="0,42,201,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.gate.CreditBasedGate-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qCreditBasedGate" href="inet.linklayer.ieee8021q.Ieee8021qCreditBasedGate.html">Ieee8021qCreditBasedGate</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module is a packet gate that can be used to implement the IEEE 802.1q
+credit based shaper algorithm in combination with a packet queue.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PacketGateBase" href="inet.queueing.base.PacketGateBase.html">PacketGateBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various packet gate modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %n cr\nserved %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>bitrate</td>
+      <td>double</td>
+      <td>nan bps</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>extraLength</td>
+      <td>int</td>
+      <td>0b</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>extraDuration</td>
+      <td>double</td>
+      <td>0s</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>idleCreditGainRate</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>rate of credit increase while the packets that passed through this gate don't use the physical channel</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>transmitCreditSpendRate</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>rate of credit decrease while the packets that passed through this gate use the physical channel</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>initialCredit</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>initial number of credits</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>transmitCreditLimit</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>credit limit above which the gate is open</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>minCredit</td>
+      <td>double</td>
+      <td>-inf</td>
+      <td>
+<p>minimum number of credits</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>maxCredit</td>
+      <td>double</td>
+      <td>inf</td>
+      <td>
+<p>maximum number of credits</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>accumulateCreditInGuardBand</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether credit increases during implicit guard band when no packets can be sent anymore</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>CreditBasedGate</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>in</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>creditsChanged</td>
+      <td>double</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>numCredits</td>
+      <td>number of credits</td>
+      <td>creditsChanged</td>
+      <td>vector</td>
+      <td>cr</td>
+      <td>linear</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module is a packet gate that operates based on the number of credits
+// it contains. The gate is open if the number of credits is greater than the
+// configured transmit credit limit, it is closed otherwise. The module attaches
+// a ~CreditGateTag to all packets that pass through. The attached tag allows
+// the gate module to determine if a packet belongs to it when the packet is
+// eventually transmitted.
+//
+// The number of credits decreases if a packet that passed through this gate is
+// currently being transmitted by the network interface. Otherwise, the number
+// of credits increases below the transmit credit limit or if there are packets
+// waiting to be transmitted. Besides, the number of credits immediately drops
+// down to the transmit credit limit if no more packets are available after the
+// network interface finishes a transmission from this gate.
+//
+// This module is part of the credit based shaper infrastructure.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~CreditGateTag, ~PacketQueue
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">CreditBasedGate</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketGateBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketGate</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">idleCreditGainRate</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// rate of credit increase while the packets that passed through this gate don't use the physical channel
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">transmitCreditSpendRate</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// rate of credit decrease while the packets that passed through this gate use the physical channel
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">initialCredit</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// initial number of credits
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">transmitCreditLimit</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// credit limit above which the gate is open
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">minCredit</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum number of credits
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxCredit</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum number of credits
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">accumulateCreditInGuardBand</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// whether credit increases during implicit guard band when no packets can be sent anymore
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;contains %n cr\nserved %p pk (%l)&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines display string text above the submodule
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">CreditBasedGate</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">creditsChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numCredits</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;number of credits&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">creditsChanged</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cr</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-gate-CreditBasedGate.ned.html">src/inet/queueing/gate/CreditBasedGate.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

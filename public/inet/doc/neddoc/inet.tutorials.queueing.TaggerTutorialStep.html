@@ -1,0 +1,366 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TaggerTutorialStep</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TaggerTutorialStep</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tutorials_queueing">inet.tutorials.queueing</a></p>
+<h2 class="comptitle" style="float: left;">TaggerTutorialStep</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #2196f340;">
+    <span class="mdl-chip__text">network</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.tutorials.queueing.TaggerTutorialStep-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="60,120,145,192">
+<area shape="rect" href="inet.queueing.marker.PacketTagger.html" title="PacketTagger" alt="PacketTagger" coords="272,120,333,192">
+<area shape="rect" href="inet.queueing.sink.PassivePacketSink.html" title="PassivePacketSink" alt="PassivePacketSink" coords="455,120,549,192">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tutorials.queueing.TaggerTutorialStep-usage.svg"></object>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>isNetwork</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>bgb=600,200</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"tagged %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.dscp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies differentiated services code point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.ecn</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies explicit congestion notification</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.tos</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.interfaceName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>specifies outgoing interface, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.hopLimit</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies network layer TTL, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.vlanId</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies VLAN, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.pcp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies PCP, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.userPriority</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies user priority, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.transmissionPower</td>
+      <td>double</td>
+      <td>nan W</td>
+      <td>
+<p>specifies signal transmission power, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.encapsulationProtocols</td>
+      <td>object</td>
+      <td>[]</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">tagger</a>.filterClass</td>
+      <td>string</td>
+      <td>"inet::queueing::AnyPacketFilter"</td>
+      <td>
+<p>determines which packets are tagged</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.PassivePacketSink" href="inet.queueing.sink.PassivePacketSink.html">consumer</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"received %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.PassivePacketSink" href="inet.queueing.sink.PassivePacketSink.html">consumer</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.PassivePacketSink" href="inet.queueing.sink.PassivePacketSink.html">consumer</a>.initialConsumptionOffset</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>initial duration before which packets are not consumed</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.PassivePacketSink" href="inet.queueing.sink.PassivePacketSink.html">consumer</a>.consumptionInterval</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>elapsed time between subsequent packets allowed to be pushed by the connected packet producer, 0 means any number of packets can be pushed at the same simulation time</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.PassivePacketSink" href="inet.queueing.sink.PassivePacketSink.html">consumer</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">TaggerTutorialStep</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;bgb=600,200&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">producer</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tagger</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketTagger</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">consumer</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PassivePacketSink</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=500,100&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">producer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tagger</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">tagger</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">consumer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//-------------------------------------------------
+</span><span style="color: #232629; ">
+
+</span></pre>
+File: <a href="tutorials-queueing-QueueingTutorial.ned.html">tutorials/queueing/QueueingTutorial.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

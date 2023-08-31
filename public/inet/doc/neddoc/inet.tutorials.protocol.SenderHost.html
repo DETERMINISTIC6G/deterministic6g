@@ -1,0 +1,1073 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>SenderHost</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">SenderHost</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tutorials_protocol">inet.tutorials.protocol</a></p>
+<h2 class="comptitle" style="float: left;">SenderHost</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.tutorials.protocol.SenderHost-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="64,120,140,192">
+<area shape="rect" href="inet.queueing.marker.PacketTagger.html" title="PacketTagger" alt="PacketTagger" coords="65,220,139,292">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="164,120,240,192">
+<area shape="rect" href="inet.queueing.marker.PacketTagger.html" title="PacketTagger" alt="PacketTagger" coords="165,220,239,292">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="264,120,340,192">
+<area shape="rect" href="inet.queueing.marker.PacketTagger.html" title="PacketTagger" alt="PacketTagger" coords="265,220,339,292">
+<area shape="rect" href="inet.queueing.common.PacketMultiplexer.html" title="PacketMultiplexer" alt="PacketMultiplexer" coords="144,335,260,377">
+<area shape="rect" href="inet.protocolelement.ordering.SequenceNumbering.html" title="SequenceNumbering" alt="SequenceNumbering" coords="105,420,300,492">
+<area shape="rect" href="inet.queueing.queue.PacketQueue.html" title="PacketQueue" alt="PacketQueue" coords="133,520,271,592">
+<area shape="rect" href="inet.queueing.server.InstantServer.html" title="InstantServer" alt="InstantServer" coords="173,620,231,692">
+<area shape="rect" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html" title="FragmentNumberHeaderBasedDefragmenter" alt="FragmentNumberHeaderBasedDefragmenter" coords="149,720,255,792">
+<area shape="rect" href="inet.queueing.common.PacketMultiplexer.html" title="PacketMultiplexer" alt="PacketMultiplexer" coords="194,835,310,877">
+<area shape="rect" href="inet.queueing.queue.InProgressQueue.html" title="InProgressQueue" alt="InProgressQueue" coords="71,920,233,992">
+<area shape="rect" href="inet.queueing.server.PreemptingServer.html" title="PreemptingServer" alt="PreemptingServer" coords="168,1020,336,1092">
+<area shape="rect" href="inet.protocolelement.checksum.FcsHeaderInserter.html" title="FcsHeaderInserter" alt="FcsHeaderInserter" coords="152,1120,253,1192">
+<area shape="rect" href="inet.protocolelement.common.InterpacketGapInserter.html" title="InterpacketGapInserter" alt="InterpacketGapInserter" coords="93,1220,312,1292">
+<area shape="rect" href="inet.protocolelement.transceiver.StreamThroughTransmitter.html" title="StreamThroughTransmitter" alt="StreamThroughTransmitter" coords="150,1320,255,1392">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tutorials.protocol.SenderHost-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network90" href="inet.tutorials.protocol.Network90.html">Network90</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/pc</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>g</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceA</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"tagged %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.dscp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies differentiated services code point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.ecn</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies explicit congestion notification</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.tos</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.interfaceName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>specifies outgoing interface, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.hopLimit</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies network layer TTL, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.vlanId</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies VLAN, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.pcp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies PCP, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.userPriority</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies user priority, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.transmissionPower</td>
+      <td>double</td>
+      <td>nan W</td>
+      <td>
+<p>specifies signal transmission power, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.encapsulationProtocols</td>
+      <td>object</td>
+      <td>[]</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerA</a>.filterClass</td>
+      <td>string</td>
+      <td>"inet::queueing::AnyPacketFilter"</td>
+      <td>
+<p>determines which packets are tagged</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceB</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"tagged %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.dscp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies differentiated services code point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.ecn</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies explicit congestion notification</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.tos</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.interfaceName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>specifies outgoing interface, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.hopLimit</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies network layer TTL, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.vlanId</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies VLAN, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.pcp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies PCP, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.userPriority</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies user priority, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.transmissionPower</td>
+      <td>double</td>
+      <td>nan W</td>
+      <td>
+<p>specifies signal transmission power, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.encapsulationProtocols</td>
+      <td>object</td>
+      <td>[]</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerB</a>.filterClass</td>
+      <td>string</td>
+      <td>"inet::queueing::AnyPacketFilter"</td>
+      <td>
+<p>determines which packets are tagged</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">sourceC</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"tagged %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.dscp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies differentiated services code point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.ecn</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies explicit congestion notification</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.tos</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>if not -1, set the Type Of Service (IPv4) / Traffic Class (IPv6) field of sent packets to this value</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.interfaceName</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>specifies outgoing interface, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.hopLimit</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies network layer TTL, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.vlanId</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies VLAN, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.pcp</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies PCP, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.userPriority</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies user priority, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.transmissionPower</td>
+      <td>double</td>
+      <td>nan W</td>
+      <td>
+<p>specifies signal transmission power, unused by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.encapsulationProtocols</td>
+      <td>object</td>
+      <td>[]</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.marker.PacketTagger" href="inet.queueing.marker.PacketTagger.html">taggerC</a>.filterClass</td>
+      <td>string</td>
+      <td>"inet::queueing::AnyPacketFilter"</td>
+      <td>
+<p>determines which packets are tagged</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"passed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer1</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer1</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.ordering.SequenceNumbering" href="inet.protocolelement.ordering.SequenceNumbering.html">sequenceNumbering</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">pendingQueue</a>.bufferModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative module path to the <a title="inet.queueing.contract.IPacketBuffer" href="inet.queueing.contract.IPacketBuffer.html">IPacketBuffer</a> module used by this queue, implicit buffer by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.InstantServer" href="inet.queueing.server.InstantServer.html">server</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"served %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.InstantServer" href="inet.queueing.server.InstantServer.html">server</a>.serveSchedulingPriority</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>specifies the FES scheduling priority for the extra event that is pulling the packet, -1 means no extra event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.deleteSelf</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter" href="inet.protocolelement.fragmentation.FragmentNumberHeaderBasedDefragmenter.html">fragmenter</a>.headerPosition</td>
+      <td>string</td>
+      <td>"front"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer2</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"passed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer2</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.common.PacketMultiplexer" href="inet.queueing.common.PacketMultiplexer.html">multiplexer2</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.InProgressQueue" href="inet.queueing.queue.InProgressQueue.html">inProgressQueue</a>.bufferModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative module path to the <a title="inet.queueing.contract.IPacketBuffer" href="inet.queueing.contract.IPacketBuffer.html">IPacketBuffer</a> module used by this queue, implicit buffer by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.PreemptingServer" href="inet.queueing.server.PreemptingServer.html">preemptingServer</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"served %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.PreemptingServer" href="inet.queueing.server.PreemptingServer.html">preemptingServer</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.server.PreemptingServer" href="inet.queueing.server.PreemptingServer.html">preemptingServer</a>.datarate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.checksum.FcsHeaderInserter" href="inet.protocolelement.checksum.FcsHeaderInserter.html">fcsInserter</a>.headerPosition</td>
+      <td>string</td>
+      <td>"back"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.InterpacketGapInserter" href="inet.protocolelement.common.InterpacketGapInserter.html">InterpacketGapInserter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"delayed %p pk (%l)\nifg: %g"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.InterpacketGapInserter" href="inet.protocolelement.common.InterpacketGapInserter.html">InterpacketGapInserter</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.InterpacketGapInserter" href="inet.protocolelement.common.InterpacketGapInserter.html">InterpacketGapInserter</a>.initialChannelBusy</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>assume that channel was busy before the simulation started</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.common.InterpacketGapInserter" href="inet.protocolelement.common.InterpacketGapInserter.html">InterpacketGapInserter</a>.duration</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.transceiver.StreamThroughTransmitter" href="inet.protocolelement.transceiver.StreamThroughTransmitter.html">transmitter</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.transceiver.StreamThroughTransmitter" href="inet.protocolelement.transceiver.StreamThroughTransmitter.html">transmitter</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.transceiver.StreamThroughTransmitter" href="inet.protocolelement.transceiver.StreamThroughTransmitter.html">transmitter</a>.datarate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">SenderHost</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/pc&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">g</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">sourceA</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">taggerA</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketTagger</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">sourceB</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">taggerB</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketTagger</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">sourceC</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">taggerC</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketTagger</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">multiplexer1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketMultiplexer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">sequenceNumbering</span><span style="color: #232629; ">: </span><span style="color: #232629; ">SequenceNumbering</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">pendingQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,500&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">server</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InstantServer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,600&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">fragmenter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">FragmentNumberHeaderBasedDefragmenter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,700&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">multiplexer2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketMultiplexer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,800&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">inProgressQueue</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InProgressQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=150,900&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">preemptingServer</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PreemptingServer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,1000&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">fcsInserter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">FcsHeaderInserter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,1100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">InterpacketGapInserter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterpacketGapInserter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,1200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StreamThroughTransmitter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,1300&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">sourceA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">taggerA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">sourceB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">taggerB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">sourceC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">taggerC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">taggerA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiplexer1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">taggerB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiplexer1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">taggerC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiplexer1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">multiplexer1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceNumbering</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">sequenceNumbering</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">pendingQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">pendingQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">server</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">server</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmenter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">fragmenter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiplexer2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">multiplexer2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">inProgressQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">inProgressQueue</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">preemptingServer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #808080; font-style: italic; ">// TODO:        preemptingServer.preemptedOut --&gt; multiplexer2.in++;
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">preemptingServer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">fcsInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">InterpacketGapInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">InterpacketGapInserter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">transmitter</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">g</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="tutorials-protocol-Network90.ned.html">tutorials/protocol/Network90.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

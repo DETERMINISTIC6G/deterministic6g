@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IEtherMac</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IEtherMac</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_contract">inet.linklayer.contract</a></p>
+<h2 class="comptitle" style="float: left;">IEtherMac</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">Interface</a> for Ethernet MAC implementations. All Ethernet MAC implementations
+should implement this (i.e. declared as: <a title="inet.linklayer.ethernet.basic.EthernetCsmaMac" href="inet.linklayer.ethernet.basic.EthernetCsmaMac.html">EthernetCsmaMac</a> like <a title="inet.linklayer.contract.IEtherMac" href="inet.linklayer.contract.IEtherMac.html">IEtherMac</a>).
+The existing implementations are these: ~<a title="inet.linklayer.ethernet.basic.EthernetCsmaMac" href="inet.linklayer.ethernet.basic.EthernetCsmaMac.html">EthernetCsmaMac</a> and ~<a title="inet.linklayer.ethernet.basic.EthernetMac" href="inet.linklayer.ethernet.basic.EthernetMac.html">EthernetMac</a>.</p>
+<p>Doesn't do encapsulation/decapsulation; see ~<a title="inet.linklayer.ethernet.basic.EthernetEncapsulation" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html">EthernetEncapsulation</a> for that.</p>
+<p>Expected environment:</p>
+  <ul><li>phys$i and phys$o should be connected to the "network"</li>
+  <li>upperLayerIn and upperLayerOut are usually connected to ~<a title="inet.linklayer.ethernet.basic.EthernetEncapsulation" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html">EthernetEncapsulation</a> (in hosts)
+  or ~<a title="inet.linklayer.contract.IMacRelayUnit" href="inet.linklayer.contract.IMacRelayUnit.html">IMacRelayUnit</a> (in a switch)</li></ul>
+<p>The module does not perform encapsulation or decapsulation of frames --
+this is done by higher layers (~<a title="inet.linklayer.ethernet.basic.EthernetEncapsulation" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html">EthernetEncapsulation</a>).</p>
+<p>When a frame is received from the higher layers, it must be an Ethernet frame,
+and with all protocol fields filled out (including the destination MAC address).
+The source address, if left empty, will be filled in. Then the frame is queued
+and transmitted according to the CSMA/CD protocol.</p>
+<p>Data frames received from the network are Ethernet frames. They are passed to
+the higher layers without modification.</p>
+<p>Also, the module properly responds to PAUSE frames, but never sends them
+by itself -- however, it transmits PAUSE frames received from upper layers.
+See <a href="ether-pause.html">PAUSE handling</a> for more info.</p>
+<img src="inet.linklayer.contract.IEtherMac-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.contract.IEtherMac.html" title="IEtherMac" alt="IEtherMac" coords="0,42,238,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.contract.IEtherMac-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.basic.EthernetCsmaMac" href="inet.linklayer.ethernet.basic.EthernetCsmaMac.html">EthernetCsmaMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Ethernet MAC layer. MAC performs transmission and reception of frames.
+See the ~<a title="inet.linklayer.contract.IEtherMac" href="inet.linklayer.contract.IEtherMac.html">IEtherMac</a> for the Ethernet MAC layer general informations.
+Doesn't do encapsulation/decapsulation; see ~<a title="inet.linklayer.ieee8022.Ieee8022Llc" href="inet.linklayer.ieee8022.Ieee8022Llc.html">Ieee8022Llc</a> and ~<a title="inet.linklayer.ethernet.basic.EthernetEncapsulation" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html">EthernetEncapsulation</a> for
+that.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.basic.EthernetMac" href="inet.linklayer.ethernet.basic.EthernetMac.html">EthernetMac</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Ethernet MAC which supports full-duplex operation ONLY.
+See the ~<a title="inet.linklayer.contract.IEtherMac" href="inet.linklayer.contract.IEtherMac.html">IEtherMac</a> for general informations.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.EthernetInterface" href="inet.linklayer.ethernet.EthernetInterface.html">EthernetInterface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module represents an Ethernet network interface.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>promiscuous</td>
+      <td>bool</td>
+      <td></td>
+      <td>
+<p>if true, all packets are received, otherwise only the
+ones with matching destination MAC address</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>duplexMode</td>
+      <td>bool</td>
+      <td></td>
+      <td>
+<p>selects full-duplex (true) or half-duplex (false) operation</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mtu</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/rxtx</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Interface for Ethernet MAC implementations. All Ethernet MAC implementations
+// should implement this (i.e. declared as: EthernetCsmaMac like IEtherMac).
+// The existing implementations are these: ~EthernetCsmaMac and ~EthernetMac.
+//
+// Doesn't do encapsulation/decapsulation; see ~EthernetEncapsulation for that.
+//
+// Expected environment:
+// - phys$i and phys$o should be connected to the &quot;network&quot;
+// - upperLayerIn and upperLayerOut are usually connected to ~EthernetEncapsulation (in hosts)
+//   or ~IMacRelayUnit (in a switch)
+//
+// The module does not perform encapsulation or decapsulation of frames --
+// this is done by higher layers (~EthernetEncapsulation).
+//
+// When a frame is received from the higher layers, it must be an Ethernet frame,
+// and with all protocol fields filled out (including the destination MAC address).
+// The source address, if left empty, will be filled in. Then the frame is queued
+// and transmitted according to the CSMA/CD protocol.
+//
+// Data frames received from the network are Ethernet frames. They are passed to
+// the higher layers without modification.
+//
+// Also, the module properly responds to PAUSE frames, but never sends them
+// by itself -- however, it transmits PAUSE frames received from upper layers.
+// See </span><span style="color: #800000; ">&lt;a href=&quot;ether-pause.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">PAUSE handling</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; "> for more info.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEtherMac</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">promiscuous</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// if true, all packets are received, otherwise only the
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// ones with matching destination MAC address
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">duplexMode</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// selects full-duplex (true) or half-duplex (false) operation
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">mtu</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">B</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/rxtx&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// to ~EthernetEncapsulation or ~IMacRelayUnit
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// to ~EthernetEncapsulation or ~IMacRelayUnit
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">phys</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EthernetSignal</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// to the network
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-linklayer-contract-IEthernetMac.ned.html">src/inet/linklayer/contract/IEthernetMac.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

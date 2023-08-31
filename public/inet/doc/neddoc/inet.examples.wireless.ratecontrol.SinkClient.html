@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>SinkClient</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">SinkClient</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_examples_wireless_ratecontrol">inet.examples.wireless.ratecontrol</a></p>
+<h2 class="comptitle" style="float: left;">SinkClient</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.examples.wireless.ratecontrol.SinkClient-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="37,128,168,184">
+<area shape="rect" href="inet.applications.ethernet.EtherAppServer.html" title="EtherAppServer" alt="EtherAppServer" coords="282,120,326,192">
+<area shape="rect" href="inet.linklayer.ieee80211.Ieee80211Interface.html" title="Ieee80211Interface" alt="Ieee80211Interface" coords="230,220,285,292">
+<area shape="rect" href="inet.mobility.single.RectangleMobility.html" title="RectangleMobility" alt="RectangleMobility" coords="65,228,140,284">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.examples.wireless.ratecontrol.SinkClient-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ratecontrol.RateControlTest" href="inet.examples.wireless.ratecontrol.RateControlTest.html">RateControlTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/cellphone</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>radioIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppServer" href="inet.applications.ethernet.EtherAppServer.html">sink</a>.localSAP</td>
+      <td>int</td>
+      <td>0xf1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppServer" href="inet.applications.ethernet.EtherAppServer.html">sink</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppServer" href="inet.applications.ethernet.EtherAppServer.html">sink</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt" href="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt.html">mgmt</a>.macModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the MAC module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.subjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path which determines the subject module, the motion of which this mobility model describes, the default value is the parent module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.coordinateSystemModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>module path of the geographic coordinate system module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"p: %p\nv: %v"</td>
+      <td>
+<p>format string for the mobility module's display string text</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.updateDisplayString</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables continuous update of the subject module's position via modifying its display string</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMinX</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min x position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMinY</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min y position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMinZ</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min z position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMaxX</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max x position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMaxY</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max y position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.constraintAreaMaxZ</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max z position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.updateInterval</td>
+      <td>double</td>
+      <td>0.1s</td>
+      <td>
+<p>the simulation time interval used to regularly signal mobility state changes and update the display</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.faceForward</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.startPos</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>in range [0.0,4.0): topleft=0, topright=1, bottomright=2, bottomleft=3</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.RectangleMobility" href="inet.mobility.single.RectangleMobility.html">mobility</a>.speed</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>speed of the host</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">SinkClient</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/cellphone&quot;</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">radio</span><span style="color: #232629; ">.</span><span style="color: #232629; ">antenna</span><span style="color: #232629; ">.</span><span style="color: #232629; ">mobilityModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.^.^.mobility&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@directIn</span><span style="color: #232629; ">;
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">sink</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EtherAppServer</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ieee80211Interface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,200;q=queue&quot;</span><span style="color: #232629; ">);
+                </span><span style="color: #232629; ">mgmt</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;Ieee80211MgmtAdhoc&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">agent</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">mobility</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RectangleMobility</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">radioIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">sink</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">sink</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="examples-wireless-ratecontrol-RateControlTest.ned.html">examples/wireless/ratecontrol/RateControlTest.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

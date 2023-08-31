@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PcapRecorder.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PcapRecorder.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/common/packet/recorder/PcapRecorder.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Records PCAP traces of frames sent/received by other modules within
+the same host. By default, it records frames sent/received by L2 modules
+of ~<a title="inet.node.inet.StandardHost" href="inet.node.inet.StandardHost.html">StandardHost</a> and ~Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>). The output filename is expected in the
+pcapFile parameter. The <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a> module can also print tcpdump-like
+textual information to on the log (EV); this functionality can be
+controlled by the verbose parameter.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2005 Michael Tuexen
+// Copyright (C) 2008 Irene Ruengeler
+// Copyright (C) 2009 Thomas Dreibholz
+// Copyright (C) 2011 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">recorder</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Records PCAP traces of frames sent/received by other modules within
+// the same host. By default, it records frames sent/received by L2 modules
+// of ~StandardHost and ~Router. The output filename is expected in the
+// pcapFile parameter. The PcapRecorder module can also print tcpdump-like
+// textual information to on the log (EV); this functionality can be
+// controlled by the verbose parameter.
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Which modules to record:</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; "> The list of modules can to be specified in
+// the moduleNamePatterns parameter. It is a space-separated list of module
+// names, which will be interpreted as children of the PcapRecorder's parent
+// module. To record elements of a module vector, add &quot;[*]&quot; to the name
+// (example: &quot;eth[*]&quot;).
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Operation:</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; "> PcapRecorder adds signal listeners to the recorded
+// modules. The signals subscribed to are &quot;packetSentToLower&quot; and
+// &quot;packetReceivedFromLower&quot;, but these names can be overridden with the
+// sendingSignalNames and receivingSignalNames parameters. The packets
+// themselves are expected as cPacket* signal values.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PcapRecorder</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">verbose</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// whether to log packets on the module output
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">pcapFile</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the PCAP file to be written
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fileFormat</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;pcap&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;pcapng&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;pcapng&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snaplen</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">65535</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// maximum number of bytes to record per packet
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpBadFrames</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enable dump of frames with hasBitError
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">moduleNamePatterns</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;wlan[*] eth[*] ppp[*]&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// space-separated list of sibling module names to listen on
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">sendingSignalNames</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;packetSentToLower&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// space-separated list of outbound packet signals to subscribe to
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">receivingSignalNames</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;packetReceivedFromLower&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// space-separated list of inbound packet signals to subscribe to
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">dumpProtocols</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ethernetmac ppp ieee80211mac&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// space-separated list of protocol names as defined in the Protocol class
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">object</span><span style="color: #232629; "> </span><span style="color: #232629; ">packetFilter</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;*&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// which packets are considered, matches all packets by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">helpers</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// usable PcapRecorder::IHelper helpers for accept packettype and store/convert packet as specified linktype
+</span><span style="color: #232629; ">                                         </span><span style="color: #808080; font-style: italic; ">// currently available: &quot;inet::AckingMacToEthernetPcapRecorderHelper&quot;
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">alwaysFlush</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// flush the pcapFile after each write to ensure that all packets are captured in case of a crash
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;rec: %n pks&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/blackboard&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetRecorded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

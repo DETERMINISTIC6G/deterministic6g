@@ -1,0 +1,965 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MediumVisualizerBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MediumVisualizerBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_base">inet.visualizer.base</a></p>
+<h2 class="comptitle" style="float: left;">MediumVisualizerBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This is a base module for medium visualizer simple modules. It keeps track
+of ongoing signal departures, ongoing signal arrivals, and propagating signals.</p>
+<p>It subscribes for signalSourceAdded, signalSourceRemoved, signalAdded,
+signalRemoved, signalDepartureStarted, signalDepartureEnded, signalArrivalStarted,
+signalArrivalEnded simulation signals at the module determined by the mediumModule
+parameter. The actual visualization of the medium is done in derived modules.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer" href="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer.html">MediumCanvasVisualizer</a>, ~MediumOsgVisualizer, ~<a title="inet.visualizer.contract.IMediumVisualizer" href="inet.visualizer.contract.IMediumVisualizer.html">IMediumVisualizer</a>, ~<a title="inet.visualizer.base.VisualizerBase" href="inet.visualizer.base.VisualizerBase.html">VisualizerBase</a></p>
+<img src="inet.visualizer.base.MediumVisualizerBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.base.MediumVisualizerBase.html" title="MediumVisualizerBase" alt="MediumVisualizerBase" coords="0,42,254,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.base.MediumVisualizerBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer" href="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer.html">MediumCanvasVisualizer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module visualizes a medium on a 2D canvas. It displays communication
+ranges and interference ranges as circles around network nodes. It displays
+an image at network nodes which are currently transmitting, and a different
+image at other network nodes whcih are currently receiving. It also displays
+radio signals as a 2D ring or a 3D sphere as they propagate through the
+medium.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.VisualizerBase" href="inet.visualizer.base.VisualizerBase.html">VisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for visualizer simple modules. It simply provides the
+visualization target module for derived modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mediumModule</td>
+      <td>string</td>
+      <td>"radioMedium"</td>
+      <td>
+<p>the medium module that is displayed, refers to a top level submodule by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>networkNodeVisualizerModule</td>
+      <td>string</td>
+      <td>"^.networkNodeVisualizer"</td>
+      <td>
+<p>the network node visualizer module, refers to a sibling submodule by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>nodeFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which nodes are considered, matches all nodes by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interfaceFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which interfaces are considered, matches all interfaces by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displaySignals</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display signals propagating through the medium, disabled by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalColor</td>
+      <td>string</td>
+      <td>"dark"</td>
+      <td>
+<p>signal color is a list of colors, a set of dark colors by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalPropagationAnimationSpeed</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>animation speed while the very beginning or end of a signal is propagating on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalPropagationAnimationTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>signal propagation animation duration when signalPropagationAnimationSpeed is unspecified</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalPropagationAdditionalTime</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>additional simulation time to animate signal propagation after leaving last receiver</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalTransmissionAnimationSpeed</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>animation speed while a signal is being transmitted on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalTransmissionAnimationTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>signal transmission animation duration when signalTransmissionAnimationSpeed is unspecified</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalAnimationSpeedChangeTimeMode</td>
+      <td>string</td>
+      <td>"realTime"</td>
+      <td>
+<p>specifies the time mode for animation speed changes between propagation and transmission animation</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalAnimationSpeedChangeTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>animation speed changes smoothly from propagationAnimationSpeed to transmissionAnimationSpeed in the specified real time</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displaySignalDepartures</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display an image where a signal departure is currently in progress, disabled by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalDepartureImage</td>
+      <td>string</td>
+      <td>"misc/signal_departure.png"</td>
+      <td>
+<p>image for ongoing signal departures</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalDeparturePlacementHint</td>
+      <td>string</td>
+      <td>"topCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalDeparturePlacementPriority</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displaySignalArrivals</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display an image where a signal arrival is currently in progress, disabled by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalArrivalImage</td>
+      <td>string</td>
+      <td>"misc/signal_arrival.png"</td>
+      <td>
+<p>image for ongoing signal arrivals</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalArrivalPlacementHint</td>
+      <td>string</td>
+      <td>"topCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalArrivalPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayCommunicationRanges</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display communication ranges as circles around radios, enabled by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>communicationRangeLineColor</td>
+      <td>string</td>
+      <td>"blue"</td>
+      <td>
+<p>communication range circle line color, blue by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>communicationRangeLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>communication range circle line style, solid by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>communicationRangeLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>communication range circle line width, 1 by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayInterferenceRanges</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display interference ranges as circles around radios, disabled by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interferenceRangeLineColor</td>
+      <td>string</td>
+      <td>"gray"</td>
+      <td>
+<p>interference range circle color, gray by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interferenceRangeLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>interference range circle line style, solid by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interferenceRangeLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>interference range circle line width, 1 by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>autoPowerAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>parameters shared between power density maps, spectrums and spectrograms</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMinPower</td>
+      <td>double</td>
+      <td>inf dBmW</td>
+      <td>
+<p>minimum signal power if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMaxPower</td>
+      <td>double</td>
+      <td>0 dBmW</td>
+      <td>
+<p>maximum signal power if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMinPowerDensity</td>
+      <td>double</td>
+      <td>inf dBmWpMHz</td>
+      <td>
+<p>minimum signal power density if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMaxPowerDensity</td>
+      <td>double</td>
+      <td>-inf dBmWpMHz</td>
+      <td>
+<p>maxium signal power density if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>autoTimeAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables automatic time axis configuration</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMinTime</td>
+      <td>double</td>
+      <td>0 s</td>
+      <td>
+<p>relative to current simulation time</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMaxTime</td>
+      <td>double</td>
+      <td>0 s</td>
+      <td>
+<p>relative to current simulation time</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>autoFrequencyAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables automatic frequency axis configuration</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMinFrequency</td>
+      <td>double</td>
+      <td>inf Hz</td>
+      <td>
+<p>minimum signal frequency if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalMaxFrequency</td>
+      <td>double</td>
+      <td>-inf Hz</td>
+      <td>
+<p>maximum signal frequency if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayMainPowerDensityMap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for main power density map</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapPixmapDensity</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>pixmap relative resolution</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapMinX</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>minimum X coordinate</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapMaxX</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>maximum X coordinate, compound module size by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapMinY</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>minimum Y coordinate</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapMaxY</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>maximum Y coordinate, compound module size by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapZ</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>Z coordinate</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mainPowerDensityMapFigureYTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayPowerDensityMaps</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for power density maps</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapPixelMode</td>
+      <td>string</td>
+      <td>"mean"</td>
+      <td>
+<p>specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapApproximationSize</td>
+      <td>int</td>
+      <td>10</td>
+      <td>
+<p>medium power density function approximation along X and Y axes</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapCenterFrequency</td>
+      <td>double</td>
+      <td>nan Hz</td>
+      <td>
+<p>center frequency of medium power density sampling or integration</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapBandwidth</td>
+      <td>double</td>
+      <td>0 Hz</td>
+      <td>
+<p>bandwidth of medium power density integration, 0 means sampling, inf means total integrated power</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapPixmapWidth</td>
+      <td>double</td>
+      <td>powerDensityMapFigureWidth</td>
+      <td>
+<p>pixmap resolution width</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapPixmapHeight</td>
+      <td>double</td>
+      <td>powerDensityMapFigureHeight</td>
+      <td>
+<p>pixmap resolution height</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapZ</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>Z coordinate</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>powerDensityMapFigureYTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displaySpectrums</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for spectrum figures</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumFigureYTickCount</td>
+      <td>int</td>
+      <td>5</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumFigureInterpolationSize</td>
+      <td>double</td>
+      <td>5</td>
+      <td>
+<p>power spectrum density interpolation distance along the frequency axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumPlacementHint</td>
+      <td>string</td>
+      <td>"bottomCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrumPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displaySpectrograms</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for spectrogram figures</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramPixelMode</td>
+      <td>string</td>
+      <td>"mean"</td>
+      <td>
+<p>specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramPixmapWidth</td>
+      <td>double</td>
+      <td>spectrogramFigureWidth</td>
+      <td>
+<p>pixmap resolution width</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramPixmapHeight</td>
+      <td>double</td>
+      <td>spectrogramFigureHeight</td>
+      <td>
+<p>pixmap resolution height</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramFigureYTickCount</td>
+      <td>int</td>
+      <td>5</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramPlacementHint</td>
+      <td>string</td>
+      <td>"bottomCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spectrogramPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>MediumVisualizerBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This is a base module for medium visualizer simple modules. It keeps track
+// of ongoing signal departures, ongoing signal arrivals, and propagating signals.
+//
+// It subscribes for signalSourceAdded, signalSourceRemoved, signalAdded,
+// signalRemoved, signalDepartureStarted, signalDepartureEnded, signalArrivalStarted,
+// signalArrivalEnded simulation signals at the module determined by the mediumModule
+// parameter. The actual visualization of the medium is done in derived modules.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~MediumCanvasVisualizer, ~MediumOsgVisualizer, ~IMediumVisualizer, ~VisualizerBase
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">VisualizerBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">mediumModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;radioMedium&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the medium module that is displayed, refers to a top level submodule by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">networkNodeVisualizerModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.networkNodeVisualizer&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the network node visualizer module, refers to a sibling submodule by default
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">nodeFilter</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;*&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// which nodes are considered, matches all nodes by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceFilter</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;*&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// which interfaces are considered, matches all interfaces by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">object</span><span style="color: #232629; "> </span><span style="color: #232629; ">packetFilter</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;*&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// which packets are considered, matches all packets by default
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displaySignals</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display signals propagating through the medium, disabled by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalColor</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;light&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;dark&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;dark&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// signal color is a list of colors, a set of dark colors by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalPropagationAnimationSpeed</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// animation speed while the very beginning or end of a signal is propagating on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalPropagationAnimationTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// signal propagation animation duration when signalPropagationAnimationSpeed is unspecified
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalPropagationAdditionalTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// additional simulation time to animate signal propagation after leaving last receiver
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalTransmissionAnimationSpeed</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// animation speed while a signal is being transmitted on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalTransmissionAnimationTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// signal transmission animation duration when signalTransmissionAnimationSpeed is unspecified
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalAnimationSpeedChangeTimeMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;realTime&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;animationTime&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;simulationTime&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;realTime&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// specifies the time mode for animation speed changes between propagation and transmission animation
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalAnimationSpeedChangeTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// animation speed changes smoothly from propagationAnimationSpeed to transmissionAnimationSpeed in the specified real time
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displaySignalDepartures</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display an image where a signal departure is currently in progress, disabled by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalDepartureImage</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;misc/signal_departure.png&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// image for ongoing signal departures
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalDeparturePlacementHint</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;topCenter&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalDeparturePlacementPriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the order of annotation positioning
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displaySignalArrivals</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display an image where a signal arrival is currently in progress, disabled by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalArrivalImage</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;misc/signal_arrival.png&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// image for ongoing signal arrivals
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalArrivalPlacementHint</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;topCenter&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalArrivalPlacementPriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the order of annotation positioning
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayCommunicationRanges</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display communication ranges as circles around radios, enabled by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">communicationRangeLineColor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;blue&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// communication range circle line color, blue by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">communicationRangeLineStyle</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;solid&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// communication range circle line style, solid by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">communicationRangeLineWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// communication range circle line width, 1 by default
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayInterferenceRanges</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display interference ranges as circles around radios, disabled by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interferenceRangeLineColor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;gray&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// interference range circle color, gray by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interferenceRangeLineStyle</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;solid&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// interference range circle line style, solid by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">interferenceRangeLineWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// interference range circle line width, 1 by default
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// parameters shared between power density maps, spectrums and spectrograms
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">autoPowerAxis</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enables automatic power axis configuration
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMinPower</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">dBmW</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">dBmW</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum signal power if axis is not automatic
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMaxPower</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">dBmW</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; "> </span><span style="color: #232629; ">dBmW</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum signal power if axis is not automatic
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMinPowerDensity</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">dBmWpMHz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">dBmWpMHz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum signal power density if axis is not automatic
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMaxPowerDensity</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">dBmWpMHz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">dBmWpMHz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maxium signal power density if axis is not automatic
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">autoTimeAxis</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enables automatic time axis configuration
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMinTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// relative to current simulation time
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMaxTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// relative to current simulation time
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">autoFrequencyAxis</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enables automatic frequency axis configuration
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMinFrequency</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum signal frequency if axis is not automatic
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalMaxFrequency</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum signal frequency if axis is not automatic
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// parameters for main power density map
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayMainPowerDensityMap</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display a power density map for the transmission medium, can be enabled with dimensional analog models only
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapPixmapDensity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pixmap relative resolution
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapMinX</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum X coordinate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapMaxX</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum X coordinate, compound module size by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapMinY</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// minimum Y coordinate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapMaxY</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum Y coordinate, compound module size by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapZ</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// Z coordinate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapFigureXTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the X axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">mainPowerDensityMapFigureYTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the Y axis
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// parameters for power density maps
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayPowerDensityMaps</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display power density maps at the nodes, can be enabled with dimensional analog models only
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;total&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;signal&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapPixelMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;sample&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;partition&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;mean&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;mean&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapApproximationSize</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// medium power density function approximation along X and Y axes
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapCenterFrequency</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// center frequency of medium power density sampling or integration
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapBandwidth</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; "> </span><span style="color: #232629; ">Hz</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// bandwidth of medium power density integration, 0 means sampling, inf means total integrated power
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapFigureWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">200</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure width in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapFigureHeight</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">120</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure height in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapPixmapWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">powerDensityMapFigureWidth</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pixmap resolution width
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapPixmapHeight</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">powerDensityMapFigureHeight</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pixmap resolution height
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapZ</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// Z coordinate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapFigureXTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the X axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerDensityMapFigureYTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the Y axis
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// parameters for spectrum figures
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displaySpectrums</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display power spectral density at the nodes, can be enabled with dimensional analog models only
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;total&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;signal&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumFigureWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">200</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure width in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumFigureHeight</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">120</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure height in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumFigureXTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the X axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumFigureYTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the Y axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumFigureInterpolationSize</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// power spectrum density interpolation distance along the frequency axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumPlacementHint</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;bottomCenter&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrumPlacementPriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the order of annotation positioning
+</span><span style="color: #232629; ">
+        </span><span style="color: #808080; font-style: italic; ">// parameters for spectrogram figures
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displaySpectrograms</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// display power density spectrograms at the nodes, can be enabled with dimensional analog models only
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;total&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;signal&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramPixelMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;sample&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;partition&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;mean&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;mean&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramFigureWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">200</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure width in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramFigureHeight</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">120</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// plot figure height in pixels
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramPixmapWidth</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">spectrogramFigureWidth</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pixmap resolution width
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramPixmapHeight</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">spectrogramFigureHeight</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pixmap resolution height
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramFigureXTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the X axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramFigureYTickCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of ticks along the Y axis
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramPlacementHint</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;bottomCenter&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spectrogramPlacementPriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the order of annotation positioning
+</span><span style="color: #232629; ">
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">MediumVisualizerBase</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-base-MediumVisualizerBase.ned.html">src/inet/visualizer/base/MediumVisualizerBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PriorityBufferTutorialStep</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PriorityBufferTutorialStep</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tutorials_queueing">inet.tutorials.queueing</a></p>
+<h2 class="comptitle" style="float: left;">PriorityBufferTutorialStep</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #2196f340;">
+    <span class="mdl-chip__text">network</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.tutorials.queueing.PriorityBufferTutorialStep-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.buffer.PriorityBuffer.html" title="PriorityBuffer" alt="PriorityBuffer" coords="99,370,156,442">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="79,120,175,192">
+<area shape="rect" href="inet.queueing.source.ActivePacketSource.html" title="ActivePacketSource" alt="ActivePacketSource" coords="79,245,175,317">
+<area shape="rect" href="inet.queueing.queue.PacketQueue.html" title="PacketQueue" alt="PacketQueue" coords="293,120,362,192">
+<area shape="rect" href="inet.queueing.queue.PacketQueue.html" title="PacketQueue" alt="PacketQueue" coords="293,245,362,317">
+<area shape="rect" href="inet.queueing.sink.ActivePacketSink.html" title="ActivePacketSink" alt="ActivePacketSink" coords="482,120,573,192">
+<area shape="rect" href="inet.queueing.sink.ActivePacketSink.html" title="ActivePacketSink" alt="ActivePacketSink" coords="482,245,573,317">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tutorials.queueing.PriorityBufferTutorialStep-usage.svg"></object>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>isNetwork</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PriorityBuffer" href="inet.queueing.buffer.PriorityBuffer.html">buffer</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l)\nadded %a removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PriorityBuffer" href="inet.queueing.buffer.PriorityBuffer.html">buffer</a>.packetCapacity</td>
+      <td>int</td>
+      <td>100</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PriorityBuffer" href="inet.queueing.buffer.PriorityBuffer.html">buffer</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PriorityBuffer" href="inet.queueing.buffer.PriorityBuffer.html">buffer</a>.dropperClass</td>
+      <td>string</td>
+      <td>"inet::queueing::PacketWithHighestOwnerModuleIdDropper"</td>
+      <td>
+<p>determines which packets are dropped when the buffer is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer1</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"created %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.packetNameFormat</td>
+      <td>string</td>
+      <td>"%a-%c"</td>
+      <td>
+<p>see directives in module documentation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.packetRepresentation</td>
+      <td>string</td>
+      <td>"byteCount"</td>
+      <td>
+<p>determines the chunk of the packet data</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.packetProtocol</td>
+      <td>string</td>
+      <td>"unknown"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.packetData</td>
+      <td>int</td>
+      <td>-1</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.attachCreationTimeTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.attachIdentityTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.attachDirectionTag</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.initialProductionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not produced. When negative, then produce packet in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.productionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pushed to the connected packet consumer</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.source.ActivePacketSource" href="inet.queueing.source.ActivePacketSource.html">producer2</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue1</a>.packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue1</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue1</a>.dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue1</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue2</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue2</a>.packetCapacity</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>maximum number of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue2</a>.dataCapacity</td>
+      <td>int</td>
+      <td>-1b</td>
+      <td>
+<p>maximum total length of packets in the queue, no limit by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue2</a>.dropperClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketDropperFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">queue2</a>.comparatorClass</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>determines the order of packets in the queue, insertion order by default; the parameter must be the name of a <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class which implements the IPacketComparatorFunction <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ interface and is registered via Register_Class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector1</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"received %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector1</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector1</a>.initialCollectionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not collected, negative value means: try the first collection in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector1</a>.collectionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pulled from the connected packet provider</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector1</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector2</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"received %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector2</a>.clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector2</a>.initialCollectionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not collected, negative value means: try the first collection in initialize()</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector2</a>.collectionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pulled from the connected packet provider</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.sink.ActivePacketSink" href="inet.queueing.sink.ActivePacketSink.html">collector2</a>.scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">PriorityBufferTutorialStep</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">buffer</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PriorityBuffer</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=125,350&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">producer1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=125,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">producer2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSource</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=125,225&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">queue1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=325,100&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">bufferModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.buffer&quot;</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">queue2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=325,225&quot;</span><span style="color: #232629; ">);
+            </span><span style="color: #232629; ">bufferModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.buffer&quot;</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">collector1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSink</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=525,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">collector2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ActivePacketSink</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=525,225&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">producer1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">queue1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">queue1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">collector1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">producer2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">queue2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">queue2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">collector2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//-------------------------------------------------
+</span><span style="color: #232629; ">
+
+</span></pre>
+File: <a href="tutorials-queueing-QueueingTutorial.ned.html">tutorials/queueing/QueueingTutorial.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

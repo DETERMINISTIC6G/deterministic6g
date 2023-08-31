@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DcTcpIncast.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DcTcpIncast.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/inet/dctcp/DcTcpIncast.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.dctcp.DcTcpIncast" href="inet.examples.inet.dctcp.DcTcpIncast.html">DcTcpIncast</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// author: Marcel Marek
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">dctcp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Router</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">ned</span><span style="color: #232629; ">.</span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">DcTcpIncast</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;bgb=740,580&quot;</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">types</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+        {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">per</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">ber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+        }
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Router</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=315,141;i=abstract/router&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client11</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=50,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client12</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=50,176&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client13</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=32,239&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client14</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=38,307&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client15</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=60.000004,359.23077&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client16</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=110.00001,404.6154&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client17</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=160.76924,430.00003&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client18</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=215.38463,455.38464&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client19</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=263.84616,463.07693&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client110</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=313.84616,468.46155&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client111</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=375.38464,469.23077&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client112</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=424.6154,470.00003&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client113</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=461.53848,457.69232&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client114</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=516.9231,429.23077&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client115</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=557.6923,406.15387&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client116</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=598,377&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client117</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=591,307&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client118</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=591,245&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client119</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=591,176&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client120</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=580,119&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=523.8462,35.384617&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">client21</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=311.53848,27.692308&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client11</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client12</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e3</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client13</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e4</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client14</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e5</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client15</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e6</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client16</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e7</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client17</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e8</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client18</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e9</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client19</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e10</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client110</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e11</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client111</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e12</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client112</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e13</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client113</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e14</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client114</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e15</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client115</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e16</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client116</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e17</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client117</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e18</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client118</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e19</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client119</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e20</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client120</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">routerCore</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">e21</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NormalP</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">client21</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

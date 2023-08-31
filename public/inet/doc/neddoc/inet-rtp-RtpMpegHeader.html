@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>RtpMpegHeader</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">RtpMpegHeader</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet::rtp</code></p>
+<h2 class="comptitle" style="float: left;">RtpMpegHeader</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>FieldsChunk</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>headerLength</td>
+      <td>int</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>payloadLength</td>
+      <td>int</td>
+      <td>
+<p>size of the mpeg data</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mbz</td>
+      <td>uint8_t</td>
+      <td>
+<p>Unused. Must be set to zero in current specification.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>two</td>
+      <td>bool</td>
+      <td>
+<p>Set to 1 when the MPEG-2 video-specific header extension follows this header.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>temporalReference</td>
+      <td>uint16_t</td>
+      <td>
+<p>The temporal reference of the current picture within the current GOP.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>activeN</td>
+      <td>bool</td>
+      <td>
+<p>Set to 1 when the following bit (N) is used to signal changes in the picture header information for MPEG-2 payloads.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>newPictureHeader</td>
+      <td>bool</td>
+      <td>
+<p>Used for MPEG-2 payloads when the previous bit (AN) is set to 1. Otherwise, it must be set to zero.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sequenceHeaderPresent</td>
+      <td>bool</td>
+      <td>
+<p>Normally 0 and set to 1 at the occurrence of each MPEG sequence header.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>beginningOfSlice</td>
+      <td>bool</td>
+      <td>
+<p>Set when the start of the packet payload is a slice start code, or when a slice start
+code is preceded only by one or more of a Video_Sequence_Header, GOP_header and/or Picture_Header.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>endOfSlice</td>
+      <td>bool</td>
+      <td>
+<p>Set when the last byte of the payload is the end of an MPEG slice.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>pictureType</td>
+      <td>uint8_t</td>
+      <td>
+<p>picture type of the frame the data in this packet belongs to.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>fbv</td>
+      <td>bool</td>
+      <td>
+<p>full_pel_backward_vector</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bfc</td>
+      <td>uint8_t</td>
+      <td>
+<p>backward_f_code</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ffv</td>
+      <td>bool</td>
+      <td>
+<p>full_pel_forward_vector</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ffc</td>
+      <td>uint8_t</td>
+      <td>
+<p>forward_f_code</p>
+<p>currenrtly unused fields:
+int mzb;
+int two;
+int temporalReference;
+int activeN;
+int newPictureHeader;
+int sequenceHeaderPresent;
+int beginningOfSlice;
+int endOfSlice;
+int fbv;
+int bfc;
+int ffv;
+int ffc;</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">RtpMpegHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">headerLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">payloadLength</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// size of the mpeg data
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">mbz</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Unused. Must be set to zero in current specification.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">two</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Set to 1 when the MPEG-2 video-specific header extension follows this header.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">temporalReference</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The temporal reference of the current picture within the current GOP.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">activeN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Set to 1 when the following bit (N) is used to signal changes in the picture header information for MPEG-2 payloads.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">newPictureHeader</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Used for MPEG-2 payloads when the previous bit (AN) is set to 1. Otherwise, it must be set to zero.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceHeaderPresent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Normally 0 and set to 1 at the occurrence of each MPEG sequence header.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">beginningOfSlice</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Set when the start of the packet payload is a slice start code, or when a slice start
+</span><span style="color: #232629; ">                                   </span><span style="color: #808080; font-style: italic; ">// code is preceded only by one or more of a Video_Sequence_Header, GOP_header and/or Picture_Header.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">endOfSlice</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Set when the last byte of the payload is the end of an MPEG slice.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">pictureType</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// picture type of the frame the data in this packet belongs to.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fbv</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// full_pel_backward_vector
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bfc</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// backward_f_code
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ffv</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// full_pel_forward_vector
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ffc</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// forward_f_code
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// currenrtly unused fields:
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int mzb;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int two;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int temporalReference;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int activeN;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int newPictureHeader;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int sequenceHeaderPresent;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int beginningOfSlice;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int endOfSlice;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int fbv;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int bfc;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int ffv;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int ffc;
+</span><span style="color: #232629; ">}
+</span></pre>
+File: <a href="src-inet-transportlayer-rtp-profiles-avprofile-RtpMpegPacket.msg.html">src/inet/transportlayer/rtp/profiles/avprofile/RtpMpegPacket.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>GptpBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">GptpBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">GptpBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>ieee802.1AS-2020 10.6.2.1, 11.4.2</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>FieldsChunk</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>majorSdoId</td>
+      <td>uint8_t</td>
+      <td>
+<p>The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+received for which the value is not one of the values specified in those subclauses shall be ignored.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>messageType</td>
+      <td>GptpMessageType</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>minorVersionPTP</td>
+      <td>uint8_t</td>
+      <td>
+<p>For transmitted messages, the value shall be 1 (see 7.5.4 and 13.3.2.5 of IEEE Std 1588-2019).
+For received messages, the value is ignored.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>versionPTP</td>
+      <td>uint8_t</td>
+      <td>
+<p>For transmitted messages, the value shall be 2 (see 7.5.4 and 13.3.2.4 of IEEE Std 1588-2019). For received
+messages, if the value is not 2, the entire message shall be ignored.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>messageLengthField</td>
+      <td>uint16_t</td>
+      <td>
+<p>The value is the total number of octets that form the PTP message.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>domainNumber</td>
+      <td>uint8_t</td>
+      <td>
+<p>The domainNumber for Pdelay_Req, Pdelay_Resp, and Pdelay_Resp_Follow_Up messages shall be 0.
+The domainNumber for all other PTP messages is as specified in 10.6.2.2.6.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>minorSdoId</td>
+      <td>uint8_t</td>
+      <td>
+<p>The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+received for which the value is not one of the values specified in those subclauses shall be ignored.
+Currently unused in INET</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>flags</td>
+      <td>uint16_t</td>
+      <td>
+<p>10.6.2.2.8 flags (Octet2)
+The value of the bits of the array are defined in Table 10-9. For message types where the bit is not defined in
+Table 10-9, the value of the bit is set to FALSE.
+Use ~<a title="inet::GptpFlags" href="inet-GptpFlags.html">GptpFlags</a> enums.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>correctionField</td>
+      <td>clocktime_t</td>
+      <td>
+<p>The correctionField is the value of the correction as specified in Table 11-6, measured in nanoseconds and
+multiplied by 2^16. For example, 2.5 ns is represented as 0x0000000000028000.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>messageTypeSpecific</td>
+      <td>uint32_t</td>
+      <td>
+<p>The value of the messageTypeSpecific field varies, based on the value of the messageType field, as described in Table 10-10.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sourcePortIdentity</td>
+      <td>PortIdentity</td>
+      <td>
+<p>The value is the PTP Port identity attribute (see 8.5.2) of the PTP Port that transmits the PTP message.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sequenceId</td>
+      <td>uint16_t</td>
+      <td>
+<p>The sequenceId field is assigned as specified in 10.5.7.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>controlField</td>
+      <td>uint8_t</td>
+      <td>
+<p>The value is 0.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>logMessageInterval</td>
+      <td>uint8_t</td>
+      <td>
+<p>For Sync and Follow_Up messages, the value is the value of currentLogSyncInterval (see 10.2.5.4 and
+10.7.2.3). For Pdelay_Req messages, the value is the value of currentLogPdelayReqInterval. For
+Pdelay_Resp and Pdelay_Resp_Follow_Up messages, the value is transmitted as 0x7F and ignored on
+reception.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// ieee802.1AS-2020 10.6.2.1, 11.4.2
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">majorSdoId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// 11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// received for which the value is not one of the values specified in those subclauses shall be ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">GptpMessageType</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageType</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">minorVersionPTP</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// For transmitted messages, the value shall be 1 (see 7.5.4 and 13.3.2.5 of IEEE Std 1588-2019).
+</span><span style="color: #232629; ">                                     </span><span style="color: #808080; font-style: italic; ">// For received messages, the value is ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">versionPTP</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// For transmitted messages, the value shall be 2 (see 7.5.4 and 13.3.2.4 of IEEE Std 1588-2019). For received
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// messages, if the value is not 2, the entire message shall be ignored.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageLengthField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is the total number of octets that form the PTP message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">domainNumber</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The domainNumber for Pdelay_Req, Pdelay_Resp, and Pdelay_Resp_Follow_Up messages shall be 0.
+</span><span style="color: #232629; ">                                  </span><span style="color: #808080; font-style: italic; ">// The domainNumber for all other PTP messages is as specified in 10.6.2.2.6.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">minorSdoId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is specified in 8.1 for all transmitted PTP messages of a gPTP domain. The value is specified in
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// 11.2.17 for all transmitted PTP messages of the Common Mean Link Delay Service. Any PTP message
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// received for which the value is not one of the values specified in those subclauses shall be ignored.
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// Currently unused in INET
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">flags</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// 10.6.2.2.8 flags (Octet2)
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// The value of the bits of the array are defined in Table 10-9. For message types where the bit is not defined in
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// Table 10-9, the value of the bit is set to FALSE.
+</span><span style="color: #232629; ">                             </span><span style="color: #808080; font-style: italic; ">// Use ~GptpFlags enums.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">correctionField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">64</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The correctionField is the value of the correction as specified in Table 11-6, measured in nanoseconds and
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// multiplied by 2^16. For example, 2.5 ns is represented as 0x0000000000028000.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageTypeSpecific</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of the messageTypeSpecific field varies, based on the value of the messageType field, as described in Table 10-10.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">PortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; ">sourcePortIdentity</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">80</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value is the PTP Port identity attribute (see 8.5.2) of the PTP Port that transmits the PTP message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The sequenceId field is assigned as specified in 10.5.7.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">controlField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The value is 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">logMessageInterval</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// For Sync and Follow_Up messages, the value is the value of currentLogSyncInterval (see 10.2.5.4 and
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// 10.7.2.3). For Pdelay_Req messages, the value is the value of currentLogPdelayReqInterval. For
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// Pdelay_Resp and Pdelay_Resp_Follow_Up messages, the value is transmitted as 0x7F and ignored on
+</span><span style="color: #232629; ">                                        </span><span style="color: #808080; font-style: italic; ">// reception.
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021as-GptpPacket.msg.html">src/inet/linklayer/ieee8021as/GptpPacket.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

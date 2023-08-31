@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DualRateThreeColorMeter.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DualRateThreeColorMeter.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/queueing/meter/DualRateThreeColorMeter.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.meter.DualRateThreeColorMeter" href="inet.queueing.meter.DualRateThreeColorMeter.html">DualRateThreeColorMeter</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This packet meter module measures the packet flow that is passing through
+using two token buckets. The meter attaches a ~<a title="inet::LabelsTag" href="inet-LabelsTag.html">LabelsTag</a> to each packet with
+either green, yellow or red color depending on which token bucket contains
+the required number of tokens for the packet.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">meter</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This packet meter module measures the packet flow that is passing through
+// using two token buckets. The meter attaches a ~LabelsTag to each packet with
+// either green, yellow or red color depending on which token bucket contains
+// the required number of tokens for the packet.
+//
+// The first token bucket is filled with tokens using the committed information
+// rate. The maximum number of tokens is determined by the committed burst size.
+// The second token bucket is filled with tokens using the excess information
+// rate. The maximum number of tokens is determined by the excess burst size.
+// Excess tokens from the first token bucket overflow into the second token bucket.
+//
+// By default, packets consume 1 token per byte.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~SingleRateTwoColorMeter, ~SingleRateThreeColorMeter
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~SingleRateTwoColorClassifier, ~SingleRateThreeColorClassifier, ~DualRateThreeColorClassifier
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">DualRateThreeColorMeter</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MultiTokenBucketMeter</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">committedInformationRate</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// committed information rate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">excessInformationRate</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// excess information rate
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">committedBurstSize</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">b</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// committed burst size
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">excessBurstSize</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">b</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// excess burst size
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// how many bits are represented by 1 token
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">colorAware</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enables color-aware mode where packets can only be demoted
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">buckets</span><span style="color: #232629; "> = [{</span><span style="color: #232629; ">initialNumTokens</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">committedBurstSize</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">maxNumTokens</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">committedBurstSize</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">tokenProductionRate</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">committedInformationRate</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">label</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;green&quot;</span><span style="color: #232629; ">},
+                   {</span><span style="color: #232629; ">initialNumTokens</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">excessBurstSize</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">maxNumTokens</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">excessBurstSize</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">tokenProductionRate</span><span style="color: #232629; ">: </span><span style="color: #800080; ">dropUnit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">excessInformationRate</span><span style="color: #232629; ">) / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">, </span><span style="color: #232629; ">label</span><span style="color: #232629; ">: </span><span style="color: #008000; ">&quot;yellow&quot;</span><span style="color: #232629; ">}];
+        </span><span style="color: #232629; ">tokenConsumptionPerBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; "> / </span><span style="color: #232629; ">bitsPerToken</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">defaultLabel</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;red&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">labelPriority</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">colorAware</span><span style="color: #232629; "> ? [</span><span style="color: #008000; ">&quot;green&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;yellow&quot;</span><span style="color: #232629; ">, </span><span style="color: #008000; ">&quot;red&quot;</span><span style="color: #232629; ">] : []);
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

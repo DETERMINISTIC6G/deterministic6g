@@ -1,0 +1,464 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>HostsWithBus</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">HostsWithBus</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tests_ethernet">inet.tests.ethernet</a></p>
+<h2 class="comptitle" style="float: left;">HostsWithBus</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #2196f340;">
+    <span class="mdl-chip__text">network</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.tests.ethernet.HostsWithBus-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.tests.ethernet.EthernetHost2.html" title="EthernetHost2" alt="EthernetHost2" coords="47,100,101,172">
+<area shape="rect" href="inet.tests.ethernet.EthernetHost2.html" title="EthernetHost2" alt="EthernetHost2" coords="309,100,363,172">
+<area shape="rect" href="inet.tests.ethernet.EthernetHost2.html" title="EthernetHost2" alt="EthernetHost2" coords="309,100,363,172">
+<area shape="rect" href="inet.physicallayer.wired.common.WireJunction.html" title="WireJunction" alt="WireJunction" coords="232,212,273,260">
+<area shape="rect" href="inet.physicallayer.wired.common.WireJunction.html" title="WireJunction" alt="WireJunction" coords="232,312,273,360">
+<area shape="rect" href="inet.physicallayer.wired.common.WireJunction.html" title="WireJunction" alt="WireJunction" coords="232,412,273,460">
+<area shape="rect" href="inet.common.scenario.ScenarioManager.html" title="ScenarioManager" alt="ScenarioManager" coords="105,200,267,272">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tests.ethernet.HostsWithBus-usage.svg"></object>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>isNetwork</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.destAddress</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>destination MAC address, or module path name of destination station; empty means off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.ssap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc ssap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.dsap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc dsap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.startTime</td>
+      <td>double</td>
+      <td>this.sendInterval</td>
+      <td>
+<p>time of sending the first packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>time of finishing sending, negative values mean forever</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.sendInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>interval between sending bursts</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.numPacketsPerBurst</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>number of packets to send per burst (packets within a burst are sent at the same simulation time)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td>
+<p>length of packets to send</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostA</a>.<a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.destAddress</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>destination MAC address, or module path name of destination station; empty means off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.ssap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc ssap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.dsap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc dsap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.startTime</td>
+      <td>double</td>
+      <td>this.sendInterval</td>
+      <td>
+<p>time of sending the first packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>time of finishing sending, negative values mean forever</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.sendInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>interval between sending bursts</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.numPacketsPerBurst</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>number of packets to send per burst (packets within a burst are sent at the same simulation time)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td>
+<p>length of packets to send</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostB</a>.<a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.destAddress</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>destination MAC address, or module path name of destination station; empty means off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.ssap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc ssap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.dsap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc dsap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.startTime</td>
+      <td>double</td>
+      <td>this.sendInterval</td>
+      <td>
+<p>time of sending the first packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>time of finishing sending, negative values mean forever</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.sendInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>interval between sending bursts</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.numPacketsPerBurst</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>number of packets to send per burst (packets within a burst are sent at the same simulation time)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td>
+<p>length of packets to send</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.EthernetHost2" href="inet.tests.ethernet.EthernetHost2.html">hostC</a>.<a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.scenario.ScenarioManager" href="inet.common.scenario.ScenarioManager.html">scenarioManager</a>.script</td>
+      <td>xml</td>
+      <td>xml("<empty/>")</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">HostsWithBus</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">hostA</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost2</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=72,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hostB</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost2</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=334,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">hostC</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EthernetHost2</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=334,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tap1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,180&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tap2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,280&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tap3</span><span style="color: #232629; ">: </span><span style="color: #232629; ">WireJunction</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,380&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">scenarioManager</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ScenarioManager</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">script</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;empty/&gt;&quot;</span><span style="color: #232629; ">));
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=184,180&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">tap1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hostA</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">tap2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hostB</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">tap3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">hostC</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">tap1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tap2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">tap2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tap3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">port</span><span style="color: #232629; ">++;
+}
+
+</span></pre>
+File: <a href="tests-networks-ethernet-network-bus.ned.html">tests/networks/ethernet/network-bus.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

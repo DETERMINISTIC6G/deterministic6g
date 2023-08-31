@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TcpConnection.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TcpConnection.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/tcp/TcpConnection.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpSackRexmitQueue" href="inet-tcp-TcpSackRexmitQueue.html">TcpSackRexmitQueue</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpAlgorithm" href="inet-tcp-TcpAlgorithm.html">TcpAlgorithm</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpSendQueue" href="inet-tcp-TcpSendQueue.html">TcpSendQueue</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpReceiveQueue" href="inet-tcp-TcpReceiveQueue.html">TcpReceiveQueue</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpConnection" href="inet-tcp-TcpConnection.html">TcpConnection</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2016 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ChunkBuffer</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ChunkQueue</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">L3Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TcpConnectionState</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/Tcp.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpAlgorithm.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpConnection.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpReceiveQueue.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpSackRexmitQueue.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpSendQueue.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp_common/TcpHeader.h&quot;</span><span style="color: #232629; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSackRexmitQueue</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">; }
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpAlgorithm</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">; }
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpSendQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ChunkQueue</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataBuffer</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpReceiveQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">ReorderBuffer</span><span style="color: #232629; "> </span><span style="color: #232629; ">reorderBuffer</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpConnection</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">socketId</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// identifies connection within the app
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">listeningSocketId</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// identifies listening connection within the app
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// socket pair
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">localAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remoteAddr</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">localPort</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">remotePort</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">TcpStateVariables</span><span style="color: #232629; "> *</span><span style="color: #232629; ">state</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// TCP queues
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TcpSendQueue</span><span style="color: #232629; "> *</span><span style="color: #232629; ">sendQueue</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TcpReceiveQueue</span><span style="color: #232629; "> *</span><span style="color: #232629; ">receiveQueue</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TcpSackRexmitQueue</span><span style="color: #232629; "> *</span><span style="color: #232629; ">rexmitQueue</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">TcpAlgorithm</span><span style="color: #232629; "> *</span><span style="color: #232629; ">tcpAlgorithm</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fsmState</span><span style="color: #232629; ">;
+};
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

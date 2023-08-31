@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TcpBaseAlgState.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TcpBaseAlgState.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/tcp/flavours/TcpBaseAlgState.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpBaseAlgStateVariables" href="inet-tcp-TcpBaseAlgStateVariables.html">TcpBaseAlgStateVariables</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>State variables for TcpBaseAlg.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2022 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TcpConnectionState</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+    #</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/transportlayer/tcp/TcpAlgorithm.h&quot;</span><span style="color: #232629; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">///
+/// State variables for TcpBaseAlg.
+///
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpBaseAlgStateVariables</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpStateVariables</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+
+    </span><span style="color: #808080; font-style: italic; ">/// retransmit count
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rexmit_count</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; number of retransmissions (=1 after first rexmit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rexmit_timeout</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; current retransmission timeout (aka RTO)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// persist factor
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">persist_factor</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; factor needed for simplified PERSIST timer calculation
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">persist_timeout</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; current persist timeout
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// congestion window
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_cwnd</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; congestion window
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// round-trip time measurements
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtseq</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; starting sequence number of timed data
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rtseq_sendtime</span><span style="color: #232629; "> = </span><span style="color: #232629; ">SIMTIME_ZERO</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; time when rtseq was sent (0 if RTT measurement is not running)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// round-trip time estimation (Jacobson's algorithm)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">srtt</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; smoothed round-trip time
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rttvar</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; "> / </span><span style="color: #008000; ">4</span><span style="color: #232629; ">.</span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; variance of round-trip time
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// number of RTOs
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">numRtos</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; total number of RTOs
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">/// RFC 3782 variables
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@{
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">recover</span><span style="color: #232629; "> = </span><span style="color: #232629; ">iss</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; recover (RFC 3782)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">firstPartialACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">///&lt; first partial acknowledgement (RFC 3782)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//@}
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpBaseAlgStateVariables</span><span style="color: #232629; ">) {{
+  </span><span style="color: #232629; ">public</span><span style="color: #232629; ">:
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">str</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">override</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">detailedInfo</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">override</span><span style="color: #232629; ">;
+}}
+
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

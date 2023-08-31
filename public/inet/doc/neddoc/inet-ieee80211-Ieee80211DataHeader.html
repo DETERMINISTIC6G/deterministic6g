@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211DataHeader</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211DataHeader</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet::ieee80211</code></p>
+<h2 class="comptitle" style="float: left;">Ieee80211DataHeader</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>Format of the 802.11 data frame</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>Ieee80211DataOrMgmtHeader</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td>
+<p>The presence of the Address 4 field is determined by the setting of the To DS and From DS subfields of
+ the Frame Control field (see below). The QoS Control field is present when the QoS subfield of the Subtype
+ field is set to 1 (8.3.2.1 Data frame format)
+ FIXME chunkLength is not a constant value DATAFRAME_HEADER_MINLENGTH (24 bytes).
+ For example, with Address 4 and without QoS the correct length is 30 bytes.
+ Without Address 4 and QoS the correct value is indeed 24 bytes.
+ With Address 4 and QoS the correct value is indeed 32 bytes.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>type</td>
+      <td></td>
+      <td>
+<p>or ST_DATA_WITH_QOS</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>address4</td>
+      <td>MacAddress</td>
+      <td>
+<p>optional field, exists when toDS and fromDS are true</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ackPolicy</td>
+      <td>AckPolicy</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>tid</td>
+      <td>uint8_t</td>
+      <td>
+<p>optional field, exists when type == ST_DATA_WITH_QOS</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>aMsduPresent</td>
+      <td>bool</td>
+      <td>
+<p>8.2.4.5.9 A-MSDU Present subfield</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Format of the 802.11 data frame
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataOrMgmtHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">//  The presence of the Address 4 field is determined by the setting of the To DS and From DS subfields of
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  the Frame Control field (see below). The QoS Control field is present when the QoS subfield of the Subtype
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  field is set to 1 (8.3.2.1 Data frame format)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  FIXME chunkLength is not a constant value DATAFRAME_HEADER_MINLENGTH (24 bytes).
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  For example, with Address 4 and without QoS the correct length is 30 bytes.
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  Without Address 4 and QoS the correct value is indeed 24 bytes.
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//  With Address 4 and QoS the correct value is indeed 32 bytes.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">DATAFRAME_HEADER_MINLENGTH</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_DATA</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// or ST_DATA_WITH_QOS
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">address4</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// optional field, exists when toDS and fromDS are true
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">AckPolicy</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackPolicy</span><span style="color: #232629; "> = </span><span style="color: #232629; ">NORMAL_ACK</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// optional field, exists when type == ST_DATA_WITH_QOS
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">aMsduPresent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 8.2.4.5.9 A-MSDU Present subfield
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//TODO this can be introduced when the SNAP header
+//class Ieee80211QoSDataHeader extends Ieee80211DataHeader
+//{
+//    type = ST_DATA_WITH_QOS;
+//    chunkLength = DATAFRAME_HEADER_MINLENGTH + QOSCONTROL_PART_LENGTH;
+//    AckPolicy ackPolicy = NORMAL_ACK; //FIXME in real life this is part of the optional qos field above...
+//    uint8_t tid;
+//    // TODO other QoS control field parts
+//}
+</span><span style="color: #232629; ">
+</span></pre>
+File: <a href="src-inet-linklayer-ieee80211-mac-Ieee80211Frame.msg.html">src/inet/linklayer/ieee80211/mac/Ieee80211Frame.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MessageDispatcher</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MessageDispatcher</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_common">inet.common</a></p>
+<h2 class="comptitle" style="float: left;">MessageDispatcher</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module connects multiple applications, protocols and interfaces with
+each other and automatically dispatches messages and packets between them.
+It allows many different configurations from layered architectures where
+message dispatchers separate different communication layers to centralized
+architectures where a single message dispatcher is connected to all components.</p>
+<p>Configuring the dispatch mechanism:</p>
+  <ul><li>protocols must register by calling registerService and/or registerProtocol</li>
+  <li>interfaces must register by calling registerInterface</li>
+  <li>sockets must register by sending socket messages</li>
+  <li>packets must have tags attached which specifie the destination protocol, interface or socket</li></ul>
+<img src="inet.common.MessageDispatcher-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="0,42,228,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.common.MessageDispatcher-inheritance.svg"></object>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.wireless.AccessPoint" href="inet.node.wireless.AccessPoint.html">AccessPoint</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A generic access point supporting multiple wireless radios, and
+multiple ethernet ports. The type of the ethernet MAC, relay unit
+and wireless card can be specified as parameters.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.ApplicationLayerNodeBase" href="inet.node.base.ApplicationLayerNodeBase.html">ApplicationLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpUpdate.BGPRouterEx" href="inet.examples.bgpv4.BgpUpdate.BGPRouterEx.html">BGPRouterEx</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example IP router with BGPv4 and OSPFv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpOpen.BGPRouterSimple" href="inet.examples.bgpv4.BgpOpen.BGPRouterSimple.html">BGPRouterSimple</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example <a title="inet.networklayer.ipv4.Ipv4" href="inet.networklayer.ipv4.Ipv4.html">Ipv4</a> router with BGPv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ethernet.common.DirectionReverserLayer" href="inet.linklayer.ethernet.common.DirectionReverserLayer.html">DirectionReverserLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a layer that combines the decision for local delivery
+with the service of reversing the direction of an incoming packet to outgoing
+for packet forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetHost" href="inet.node.ethernet.EthernetHost.html">EthernetHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An example host with one Ethernet port and a traffic generator that
+generates request-reply traffic directly over Ethernet. This host model
+does not contain higher layer protocols (IP, TCP). By default it is
+configured to use half-duplex MAC (CSMA/CD).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetSwitch" href="inet.node.ethernet.EthernetSwitch.html">EthernetSwitch</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Model of an Ethernet switch.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.ForwardingService" href="inet.protocolelement.service.ForwardingService.html">ForwardingService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.ForwardingService" href="inet.tutorials.protocol.ForwardingService.html">ForwardingService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8022.Ieee8022LlcLayer" href="inet.linklayer.ieee8022.Ieee8022LlcLayer.html">Ieee8022LlcLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">Interface</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.protocolelement.service.InterfaceService" href="inet.protocolelement.service.InterfaceService.html">InterfaceService</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">Ipv4NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Network(<a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">1</a>,<a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">2</a>,<a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">3</a>) layer of an IPv4 node.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv6.Ipv6NetworkLayer" href="inet.networklayer.ipv6.Ipv6NetworkLayer.html">Ipv6NetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Represents an IPv6 network layer (L3).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.mpls.LdpMplsRouter" href="inet.node.mpls.LdpMplsRouter.html">LdpMplsRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An LDP-capable router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.LinkLayerNodeBase" href="inet.node.base.LinkLayerNodeBase.html">LinkLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.NetworkLayerNodeBase" href="inet.node.base.NetworkLayerNodeBase.html">NetworkLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.nexthop.NextHopNetworkLayer" href="inet.networklayer.nexthop.NextHopNetworkLayer.html">NextHopNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a network layer for the next hop forwarding.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Node" href="inet.tutorials.protocol.Node.html">Node</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.mpls.RsvpMplsRouter" href="inet.node.mpls.RsvpMplsRouter.html">RsvpMplsRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An RSVP-TE capable router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.SimpleNetworkLayer" href="inet.networklayer.common.SimpleNetworkLayer.html">SimpleNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a simple network layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.tcpapp.TcpServerApp" href="inet.applications.tcpapp.TcpServerApp.html">TcpServerApp</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module is a generic TCP server application with a TCP server listener
+that creates TCP server connections.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.TransportLayerNodeBase" href="inet.node.base.TransportLayerNodeBase.html">TransportLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.wiseroute.WiseRouteNetworkLayer" href="inet.networklayer.wiseroute.WiseRouteNetworkLayer.html">WiseRouteNetworkLayer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module provides a simple network layer.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PacketProcessorBase" href="inet.queueing.base.PacketProcessorBase.html">PacketProcessorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various packet processing modules which maintains
+a few statistics.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=-;b=100,5,,,,1;</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>MessageDispatcher</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in [ ]</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>out [ ]</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module connects multiple applications, protocols and interfaces with
+// each other and automatically dispatches messages and packets between them.
+// It allows many different configurations from layered architectures where
+// message dispatchers separate different communication layers to centralized
+// architectures where a single message dispatcher is connected to all components.
+//
+// Configuring the dispatch mechanism:
+//  - protocols must register by calling registerService and/or registerProtocol
+//  - interfaces must register by calling registerInterface
+//  - sockets must register by sending socket messages
+//  - packets must have tags attached which specifie the destination protocol, interface or socket
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketProcessorBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardServiceRegistration</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardProtocolRegistration</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=-;b=100,5,,,,1;&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; ">[];
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; ">[];
+}
+
+</span></pre>
+File: <a href="src-inet-common-MessageDispatcher.ned.html">src/inet/common/MessageDispatcher.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

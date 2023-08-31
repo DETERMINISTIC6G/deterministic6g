@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IPacketBuffer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IPacketBuffer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_contract">inet.queueing.contract</a></p>
+<h2 class="comptitle" style="float: left;">IPacketBuffer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This module interface is implemented by packet buffer modules. A packet
+buffer is often used by packet queues to store packets in a limited shared
+resource. Packets can be added to and removed from a packet buffer. When the
+buffer becomes overloaded, one or more packets are dropped according to the
+configured dropping strategy. For each dropped packet, the packet owner is
+notified in order to update its internal state.</p>
+<img src="inet.queueing.contract.IPacketBuffer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.contract.IPacketBuffer.html" title="IPacketBuffer" alt="IPacketBuffer" coords="0,42,270,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.contract.IPacketBuffer-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PacketBuffer" href="inet.queueing.buffer.PacketBuffer.html">PacketBuffer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides packet storage for sharing and optimizing storage space
+between multiple packet queues. When a packet buffer becomes overloaded, the
+packet dropping strategy can drop any number of packets from any number of
+connected packet queues.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.buffer.PriorityBuffer" href="inet.queueing.buffer.PriorityBuffer.html">PriorityBuffer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This buffer drops packets among the connected packet queues based on their
+module id.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.GatingPriorityQueue" href="inet.queueing.queue.GatingPriorityQueue.html">GatingPriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues each having
+its own periodic gate for packet selection and an optional shared memory buffer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper" href="inet.linklayer.ieee8021q.Ieee8021qTimeAwareShaper.html">Ieee8021qTimeAwareShaper</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements the IEEE 802.1Q time aware shaper.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PriorityQueue" href="inet.queueing.queue.PriorityQueue.html">PriorityQueue</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements a priority queue with multiple inner queues and an
+optional shared memory buffer.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/buffer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module interface is implemented by packet buffer modules. A packet
+// buffer is often used by packet queues to store packets in a limited shared
+// resource. Packets can be added to and removed from a packet buffer. When the
+// buffer becomes overloaded, one or more packets are dropped according to the
+// configured dropping strategy. For each dropped packet, the packet owner is
+// notified in order to update its internal state.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketBuffer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/buffer&quot;</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-queueing-contract-IPacketBuffer.ned.html">src/inet/queueing/contract/IPacketBuffer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

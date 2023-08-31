@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PacketQueue.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PacketQueue.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File src/inet/queueing/queue/PacketQueue.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.queue.PacketQueue" href="inet.queueing.queue.PacketQueue.html">PacketQueue</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements a widely configurable packet queue, which is suitable
+among others, to be used in MAC protocols, traffic conditioning, and quality
+of services. This module can be used on its own, but it's also often supplemented
+by additional queueing components such as servers, classifiers, schedulers,
+multiplexers, etc. This kind of composition allows to form a larger module
+which can act as a packet queue with more complex behavior.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queue</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">base</span><span style="color: #232629; ">.</span><span style="color: #232629; ">PacketQueueBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">queueing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">IPacketQueue</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This module implements a widely configurable packet queue, which is suitable
+// among others, to be used in MAC protocols, traffic conditioning, and quality
+// of services. This module can be used on its own, but it's also often supplemented
+// by additional queueing components such as servers, classifiers, schedulers,
+// multiplexers, etc. This kind of composition allows to form a larger module
+// which can act as a packet queue with more complex behavior.
+//
+// By default, this module acts as a standard FIFO queue with an infinite
+// internal buffer. Nevertheless, it can also be configured to limit the number
+// of packets and the total data length of packets in the internal buffer.
+// If the queue becomes overloaded by surpassing the limits of the internal
+// buffer, an error is raised unless a packet drop algorithm is configured.
+//
+// When a packet drop algorithm is used, then one or more packets are dropped
+// until the storage limits are met according to the dropping strategy. Packets
+// are only dropped after the new packet has been inserted into the queue. This
+// method allows higher priority packets to take precedence over already stored
+// lower priority packets even if the queue is already full. If a packet dropper
+// function is not used and any queue capacity parameter is specified then the
+// queue provides back pressure towards its source.
+//
+// The queue can also keep the packets sorted according to a comparator function.
+// If a comparator is not configured, then packets are pushed at the back of the
+// queue and they are kept in this order. Packets are always pulled at the front
+// of the queue.
+//
+// It's also possible to use an external buffer, which can be shared among multiple
+// queues. In this case, the storage limits are configured on the packet buffer,
+// which also takes care of dropping packets from either this queue or some
+// other queues as necessary.
+//
+// Some often used packet queue variants such as ~DropTailQueue are implemented
+// as dervide modules.
+//
+// Some notable packet dropper functions are: ~PacketAtCollectionBeginDropper,
+// ~PacketAtCollectionEndDropper, ~PacketWithHighestOwnerModuleIdDropper,
+// ~PacketWithLowestModuleIdDropper.
+//
+// Some notable packet comparator functions are: ~PacketUserPriorityComparator,
+// ~PacketCreationTimeComparator, ~PacketEligibilityTimeComparator.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~IPacketBuffer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketQueueBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPacketQueue</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">packetCapacity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum number of packets in the queue, no limit by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">dataCapacity</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">b</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">b</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// maximum total length of packets in the queue, no limit by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">dropperClass</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines which packets are dropped when the queue is overloaded, packets are not dropped by default; the parameter must be the name of a C++ class which implements the IPacketDropperFunction C++ interface and is registered via Register_Class
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">comparatorClass</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the order of packets in the queue, insertion order by default; the parameter must be the name of a C++ class which implements the IPacketComparatorFunction C++ interface and is registered via Register_Class
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">bufferModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// relative module path to the IPacketBuffer module used by this queue, implicit buffer by default
+</span><span style="color: #232629; ">        </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;contains %p pk (%l) pushed %u\npulled %o removed %r dropped %d&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketQueue</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPushEnded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">?);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetRemoved</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the number of packets in the queue
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">queueLength</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;queue length&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">warmup</span><span style="color: #232629; ">(</span><span style="color: #232629; ">atomic</span><span style="color: #232629; ">(</span><span style="color: #232629; ">constant0</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushEnded</span><span style="color: #232629; ">) + </span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">) - </span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">) - </span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetRemoved</span><span style="color: #232629; ">) - </span><span style="color: #232629; ">count</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">last</span><span style="color: #232629; ">,</span><span style="color: #800080; ">max</span><span style="color: #232629; ">,</span><span style="color: #232629; ">timeavg</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sample</span><span style="color: #232629; ">-</span><span style="color: #232629; ">hold</span><span style="color: #232629; ">; </span><span style="color: #232629; ">autoWarmupFilter</span><span style="color: #232629; ">=</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the total bit length of all packets in the queue
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">queueBitLength</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;queue bit length&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">warmup</span><span style="color: #232629; ">(</span><span style="color: #232629; ">atomic</span><span style="color: #232629; ">(</span><span style="color: #232629; ">constant0</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushEnded</span><span style="color: #232629; ">) + </span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">)) - </span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">)) - </span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetRemoved</span><span style="color: #232629; ">)) - </span><span style="color: #232629; ">sum</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">)))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">last</span><span style="color: #232629; ">,</span><span style="color: #800080; ">max</span><span style="color: #232629; ">,</span><span style="color: #232629; ">timeavg</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sample</span><span style="color: #232629; ">-</span><span style="color: #232629; ">hold</span><span style="color: #232629; ">; </span><span style="color: #232629; ">autoWarmupFilter</span><span style="color: #232629; ">=</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the queueing time of packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">queueingTime</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;queueing times&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">queueingTime</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">s</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the incoming packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the incoming packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the incoming packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">incomingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;incoming datarate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the outgoing packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingPackets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the outgoing packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingPacketLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the outgoing packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">outgoingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;outgoing datarate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the packet that is dropped due to queue overflow
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPacketsQueueOverflow</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dropped packets: queue overflow&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetDropReasonIsQueueOverflow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the packet that is dropped due to queue overflow
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">droppedPacketLengthsQueueOverflow</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;dropped packet lengths: queue overflow&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropReasonIsQueueOverflow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific queueing time of packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowQueueingTime</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow queueing times&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">queueingTime</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">)); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">s</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific data rate of the incoming packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowIncomingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific incoming data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">flowPacketLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPushStarted</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the flow specific data rate of the outgoing packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">flowOutgoingDataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;flow specific outgoing data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">flowPacketLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">demuxFlow</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">))); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@defaultStatistic</span><span style="color: #232629; ">(</span><span style="color: #232629; ">queueLength</span><span style="color: #232629; ">:</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">);
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

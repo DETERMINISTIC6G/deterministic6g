@@ -1,0 +1,738 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211Frame.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211Frame.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/linklayer/ieee80211/mac/Ieee80211Frame.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::BitVector" href="inet-BitVector.html">BitVector</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::SequenceNumberCyclic" href="inet-ieee80211-SequenceNumberCyclic.html">SequenceNumberCyclic</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211FrameType" href="inet-ieee80211-Ieee80211FrameType.html">Ieee80211FrameType</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>802.11 frame type constants (type+subtype), for the "type" field of
+Ieee80211FrameControl</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::AckPolicy" href="inet-ieee80211-AckPolicy.html">AckPolicy</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Ack policy values for the 802.11 QoS control field</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MacTrailer" href="inet-ieee80211-Ieee80211MacTrailer.html">Ieee80211MacTrailer</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MacHeader" href="inet-ieee80211-Ieee80211MacHeader.html">Ieee80211MacHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>The common part of 802.11 frames.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211OneAddressHeader" href="inet-ieee80211-Ieee80211OneAddressHeader.html">Ieee80211OneAddressHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of a 802.11 frame with address1 present, like ACK and CTS</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211AckFrame" href="inet-ieee80211-Ieee80211AckFrame.html">Ieee80211AckFrame</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of the 802.11 ACK frame</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211TwoAddressHeader" href="inet-ieee80211-Ieee80211TwoAddressHeader.html">Ieee80211TwoAddressHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of a 802.11 frame with address1 and address2 present</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211RtsFrame" href="inet-ieee80211-Ieee80211RtsFrame.html">Ieee80211RtsFrame</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of the 802.11 RTS frame</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211CtsFrame" href="inet-ieee80211-Ieee80211CtsFrame.html">Ieee80211CtsFrame</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of the 802.11 CTS frame</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211DataOrMgmtHeader" href="inet-ieee80211-Ieee80211DataOrMgmtHeader.html">Ieee80211DataOrMgmtHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Common base class for 802.11 data and management frames</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211DataHeader" href="inet-ieee80211-Ieee80211DataHeader.html">Ieee80211DataHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Format of the 802.11 data frame</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MgmtHeader" href="inet-ieee80211-Ieee80211MgmtHeader.html">Ieee80211MgmtHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Base class for 802.11 management frames (subclasses will add frame body contents)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211ActionFrame" href="inet-ieee80211-Ieee80211ActionFrame.html">Ieee80211ActionFrame</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.3.13 Action frame format -- mgmt frame with subtype action</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MsduSubframeHeader" href="inet-ieee80211-Ieee80211MsduSubframeHeader.html">Ieee80211MsduSubframeHeader</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MpduSubframeHeader" href="inet-ieee80211-Ieee80211MpduSubframeHeader.html">Ieee80211MpduSubframeHeader</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211AddbaRequest" href="inet-ieee80211-Ieee80211AddbaRequest.html">Ieee80211AddbaRequest</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.5.5.2 ADDBA <a title="inet::Request" href="inet-Request.html">Request</a> frame format</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211AddbaResponse" href="inet-ieee80211-Ieee80211AddbaResponse.html">Ieee80211AddbaResponse</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.5.5.3 ADDBA Response frame format</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211Delba" href="inet-ieee80211-Ieee80211Delba.html">Ieee80211Delba</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.5.5.4 DELBA frame format</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211BlockAckReq" href="inet-ieee80211-Ieee80211BlockAckReq.html">Ieee80211BlockAckReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.1.8 BlockAckReq frame format</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211BasicBlockAckReq" href="inet-ieee80211-Ieee80211BasicBlockAckReq.html">Ieee80211BasicBlockAckReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211CompressedBlockAckReq" href="inet-ieee80211-Ieee80211CompressedBlockAckReq.html">Ieee80211CompressedBlockAckReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MultiTidBlockAckReq" href="inet-ieee80211-Ieee80211MultiTidBlockAckReq.html">Ieee80211MultiTidBlockAckReq</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211BlockAck" href="inet-ieee80211-Ieee80211BlockAck.html">Ieee80211BlockAck</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.1.9 BlockAck frame format -- 410p.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211BasicBlockAck" href="inet-ieee80211-Ieee80211BasicBlockAck.html">Ieee80211BasicBlockAck</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.1.9.2 Basic BlockAck variant -- 411p.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211CompressedBlockAck" href="inet-ieee80211-Ieee80211CompressedBlockAck.html">Ieee80211CompressedBlockAck</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.1.9.3 Compressed BlockAck variant</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ieee80211::Ieee80211MultiTidBlockAck" href="inet-ieee80211-Ieee80211MultiTidBlockAck.html">Ieee80211MultiTidBlockAck</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>8.3.1.9.4 Multi-TID BlockAck variant</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2006 OpenSim Ltd.
+// Copyright (C) 2001 Eric Wu and Steve Woon, Monash University, Melbourne, Australia
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">FcsMode</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">linklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/common/BitVector.h&quot;</span><span style="color: #232629; ">
+#</span><span style="color: #232629; ">include</span><span style="color: #232629; "> </span><span style="color: #008000; ">&quot;inet/linklayer/ieee80211/mac/common/Ieee80211Defs.h&quot;</span><span style="color: #232629; ">
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BitVector</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@opaque</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@toString</span><span style="color: #232629; ">(.</span><span style="color: #232629; ">toString</span><span style="color: #232629; ">());
+}
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">ieee80211</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@opaque</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_RTS</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">160</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">//bits
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_CTS</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">112</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">//bits
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_ACK</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">112</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">//bits
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_MGMT</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">28</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">//bits
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_ADDBAREQ</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_MGMT</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">9</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// mgmt length + action body length
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_ADDBARESP</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_MGMT</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">9</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// mgmt length + action body length
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_DELBA</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_MGMT</span><span style="color: #232629; "> + </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">6</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// mgmt length + action body length
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_BASIC_BLOCKACK</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; "> + </span><span style="color: #008000; ">2</span><span style="color: #232629; "> + (</span><span style="color: #008000; ">2</span><span style="color: #232629; "> + </span><span style="color: #008000; ">128</span><span style="color: #232629; ">) + </span><span style="color: #008000; ">4</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// header + ba control + ba information + fcs
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">DATAFRAME_HEADER_MINLENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; "> + </span><span style="color: #008000; ">2</span><span style="color: #232629; "> + </span><span style="color: #008000; ">3</span><span style="color: #232629; "> * </span><span style="color: #008000; ">6</span><span style="color: #232629; "> + </span><span style="color: #008000; ">2</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">//bits without QoS, without Address4: 2 + 2 + 3*6(addresses) + 2
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">QOSCONTROL_PART_LENGTH</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; "> * </span><span style="color: #008000; ">8</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// QoS Control field length (bits)
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">MAX_NUM_FRAGMENTS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">16</span><span style="color: #232629; ">;
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_A_MSDU_SUBFRAME_HEADER</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">14</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">//48 + 48 + 16 bits
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">LENGTH_A_MPDU_SUBFRAME_HEADER</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; "> + </span><span style="color: #008000; ">12</span><span style="color: #232629; "> + </span><span style="color: #008000; ">8</span><span style="color: #232629; "> + </span><span style="color: #008000; ">8</span><span style="color: #232629; ">);
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 802.11 frame type constants (type+subtype), for the &quot;type&quot; field of
+// Ieee80211FrameControl
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211FrameType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// management:
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ST_ASSOCIATIONREQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x00</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_ASSOCIATIONRESPONSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x01</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_REASSOCIATIONREQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x02</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_REASSOCIATIONRESPONSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x03</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_PROBEREQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x04</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_PROBERESPONSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x05</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_BEACON</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x08</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_ATIM</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x09</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_DISASSOCIATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0a</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_AUTHENTICATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0b</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_DEAUTHENTICATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0c</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_ACTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0d</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_NOACKACTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0e</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// control (CFEND/CFEND_CFACK omitted):
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ST_PSPOLL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x1a</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_RTS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x1b</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_CTS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x1c</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x1d</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_BLOCKACK_REQ</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x18</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_BLOCKACK</span><span style="color: #232629; ">     = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x19</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// data (CFPOLL/CFACK subtypes omitted):
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ST_DATA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x20</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_DATA_WITH_QOS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x28</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//Feedback frame for multicast tramsmission
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ST_LBMS_REQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x30</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ST_LBMS_REPORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x31</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Ack policy values for the 802.11 QoS control field
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">AckPolicy</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">NORMAL_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NO_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NO_EXPLICIT_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BLOCK_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MacTrailer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcs</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">FcsMode</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">FCS_MODE_UNDEFINED</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// The common part of 802.11 frames.
+//
+// NOTE:
+// FCS value is not explicitly modeled, but it is included in the length.
+// Frame control format fields not supported by this model are omitted:
+// MoreFlag, PowerMgmt, MoreData, WEP, Order.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MacHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_ACK</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">Ieee80211FrameType</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// type and subtype
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">toDS</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fromDS</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">moreFragments</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">retry</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">powerMgmt</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unused
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">moreData</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unused
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">protectedFrame</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unused
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">order</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unused
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">durationField</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// &quot;duration&quot; in the Duration/ID field (-1=no duration)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">AID</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// &quot;id&quot; (Association ID) in the Duration/ID field (-1=no ID)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">receiverAddress</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// aka address1 (RA)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">MACArrive</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// FIXME remove it, technical data, used inside of MAC module
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ieee80211MacHeader</span><span style="color: #232629; ">) {{
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">getProtocolVersion</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> ((</span><span style="color: #232629; ">getType</span><span style="color: #232629; ">() &amp; </span><span style="color: #008000; ">0</span><span style="color: #232629; ">b11000000</span><span style="color: #232629; ">) &gt;&gt; </span><span style="color: #008000; ">6</span><span style="color: #232629; ">); }
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">getFrameType</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> ((</span><span style="color: #232629; ">getType</span><span style="color: #232629; ">() &amp; </span><span style="color: #008000; ">0</span><span style="color: #232629; ">b00110000</span><span style="color: #232629; ">) &gt;&gt; </span><span style="color: #008000; ">4</span><span style="color: #232629; ">); }
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">getSubType</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> (</span><span style="color: #232629; ">getType</span><span style="color: #232629; ">() &amp; </span><span style="color: #008000; ">0</span><span style="color: #232629; ">b00001111</span><span style="color: #232629; ">); }
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">setType</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">protocolVersion</span><span style="color: #232629; ">, </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">frameType</span><span style="color: #232629; ">, </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">subType</span><span style="color: #232629; ">) {
+        </span><span style="color: #232629; ">setType</span><span style="color: #232629; ">(</span><span style="color: #232629; ">static_cast</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">ieee80211</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Ieee80211FrameType</span><span style="color: #232629; ">&gt;((</span><span style="color: #232629; ">protocolVersion</span><span style="color: #232629; "> &lt;&lt; </span><span style="color: #008000; ">6</span><span style="color: #232629; ">) | (</span><span style="color: #232629; ">frameType</span><span style="color: #232629; "> &lt;&lt; </span><span style="color: #008000; ">4</span><span style="color: #232629; ">) | </span><span style="color: #232629; ">subType</span><span style="color: #232629; ">));
+    }
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of a 802.11 frame with address1 present, like ACK and CTS
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211OneAddressHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MacHeader</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of the 802.11 ACK frame
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211AckFrame</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211OneAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_ACK</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_ACK</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of a 802.11 frame with address1 and address2 present
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211TwoAddressHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211OneAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_RTS</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">transmitterAddress</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// aka address2 (TA)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of the 802.11 RTS frame
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211RtsFrame</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211TwoAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_RTS</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_RTS</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of the 802.11 CTS frame
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211CtsFrame</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211OneAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_CTS</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_CTS</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Common base class for 802.11 data and management frames
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataOrMgmtHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211TwoAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_MGMT</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">address3</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmentNumber</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceNumber</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Format of the 802.11 data frame
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataOrMgmtHeader</span><span style="color: #232629; ">
+{
+</span><span style="color: #808080; font-style: italic; ">//  The presence of the Address 4 field is determined by the setting of the To DS and From DS subfields of
+//  the Frame Control field (see below). The QoS Control field is present when the QoS subfield of the Subtype
+//  field is set to 1 (8.3.2.1 Data frame format)
+//  FIXME chunkLength is not a constant value DATAFRAME_HEADER_MINLENGTH (24 bytes).
+//  For example, with Address 4 and without QoS the correct length is 30 bytes.
+//  Without Address 4 and QoS the correct value is indeed 24 bytes.
+//  With Address 4 and QoS the correct value is indeed 32 bytes.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">DATAFRAME_HEADER_MINLENGTH</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_DATA</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// or ST_DATA_WITH_QOS
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">address4</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// optional field, exists when toDS and fromDS are true
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">AckPolicy</span><span style="color: #232629; "> </span><span style="color: #232629; ">ackPolicy</span><span style="color: #232629; "> = </span><span style="color: #232629; ">NORMAL_ACK</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// optional field, exists when type == ST_DATA_WITH_QOS
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">aMsduPresent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 8.2.4.5.9 A-MSDU Present subfield
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//TODO this can be introduced when the SNAP header
+//class Ieee80211QoSDataHeader extends Ieee80211DataHeader
+//{
+//    type = ST_DATA_WITH_QOS;
+//    chunkLength = DATAFRAME_HEADER_MINLENGTH + QOSCONTROL_PART_LENGTH;
+//    AckPolicy ackPolicy = NORMAL_ACK; //FIXME in real life this is part of the optional qos field above...
+//    uint8_t tid;
+//    // TODO other QoS control field parts
+//}
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//
+// Base class for 802.11 management frames (subclasses will add frame body contents)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MgmtHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211DataOrMgmtHeader</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">// 8.3.3.13 Action frame format -- mgmt frame with subtype action
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211ActionFrame</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MgmtHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_ACTION</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">category</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckAction</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// TODO subclasses will add action subfield contents
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//WirelessNetworkManagementAction action; // action TODO remove it
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MsduSubframeHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_A_MSDU_SUBFRAME_HEADER</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">sa</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// source addr.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">MacAddress</span><span style="color: #232629; "> </span><span style="color: #232629; ">da</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// destination addr.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MpduSubframeHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_A_MPDU_SUBFRAME_HEADER</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.5.5.2 ADDBA Request frame format
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211AddbaRequest</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211ActionFrame</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_ADDBAREQ</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">category</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// category field set to 3 (representing Block Ack). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">blockAckAction</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Block Ack Action field is set to 0 (representing ADDBA request). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dialogToken</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Dialog Token field is set to a nonzero value chosen by the STA. (1 byte)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Parameter Set field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">aMsduSupported</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The A-MSDU Supported subfield determines whether an A-MSDU may be carried in a QoS data MPDU sent under this Block Ack agreement. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckPolicy</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Block Ack Policy subfield is set to 1 for immediate Block Ack and 0 for delayed Block Ack. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The TID subfield contains the value of the TC or TS for which the BlockAck is being requested. (4 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bufferSize</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Buffer Size subfield indicates the number of buffers available for this particular TID. (10 bits)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Timeout Value field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The Block Ack Timeout Value field contains the duration, in TUs, after which the Block Ack setup is
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// terminated, if there are no frame exchanges (see 10.5.4) within this duration using this Block Ack
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// agreement. A value of 0 disables the timeout.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckTimeoutValue</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Starting Sequence Control (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The Starting Sequence Number subfield of the Block Ack Starting Sequence Control subfield contains the sequence number of the first MSDU for which this Basic
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// BlockAckReq frame is sent. The Fragment Number subfield is set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">_fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// FIXME DataOrMgmtFreme has a fragmentNumber (4 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// the sequence number of the first MSDU (12 bits)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.5.5.3 ADDBA Response frame format
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211AddbaResponse</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211ActionFrame</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_ADDBARESP</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">category</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Category field is set to 3 (representing Block Ack). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">blockAckAction</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Block Ack Action field is set to 1 (representing ADDBA response). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dialogToken</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Dialog Token field value is copied from the corresponding received ADDBA Request frame. (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">statusCode</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Status Code field is used in a response management frame to indicate the success or failure of a requested operation. (2 bytes)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Parameter Set field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">aMsduSupported</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The A-MSDU Supported subfield determines whether an A-MSDU may be carried in a QoS data MPDU sent under this Block Ack agreement. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckPolicy</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Block Ack Policy subfield is set to 1 for immediate Block Ack and 0 for delayed Block Ack. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The TID subfield contains the value of the TC or TS for which the BlockAck is being requested. (4 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">bufferSize</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The Buffer Size subfield indicates the number of buffers available for this particular TID. (10 bits)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Block Ack Timeout Value field (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The Block Ack Timeout Value field contains the duration, in TUs, after which the Block Ack setup is
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// terminated, if there are no frame exchanges (see 10.5.4) within this duration using this Block Ack
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// agreement. A value of 0 disables the timeout.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckTimeoutValue</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.5.5.4 DELBA frame format
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211Delba</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211ActionFrame</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_DELBA</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">category</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Category field is set to 3 (representing DELBA). (1 byte)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">blockAckAction</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Block Ack Action field is set to 2 (representing DELBA). (1 byte)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// DELBA Parameter Set (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Reserved. (11 bits)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">initiator</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// It is set to 1 to indicate the originator and is set to 0 to indicate the recipient.
+</span><span style="color: #232629; ">                    </span><span style="color: #808080; font-style: italic; ">// The Initiator subfield indicates if the originator or the recipient of the data is sending this frame. (1 bit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tid</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The TID subfield indicates the TSID or the UP for which the Block Ack has been originally set up. (4 bits)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// This Reason Code field is used to indicate the reason that an unsolicited notification management frame of
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// type Disassociation, Deauthentication, DELTS, DELBA, DLS Teardown, or Mesh Peering Close was
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// generated. (2 bytes)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reasonCode</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.3.1.8 BlockAckReq frame format
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAckReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211TwoAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// The RA field of the BlockAck frame is the address of the recipient STA that requested the Block Ack.
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The TA field is the address of the STA transmitting the BlockAck frame.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_BLOCKACK_REQ</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">barAckPolicy</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 0-Normal Acknowledgment, 1-No Acknowledgment.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BasicBlockAckReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAckReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">38</span><span style="color: #232629; ">);
+
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">tidInfo</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//  The TID_INFO subfield of the BAR Control field of the Basic BlockAckReq frame contains the TID for which a Basic BlockAck frame is requested.
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// The BAR Information field of the Basic BlockAckReq frame contains the Block Ack Starting Sequence
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Control subfield, as shown in Figure 8-21. The Starting Sequence Number subfield of the Block Ack
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Starting Sequence Control subfield contains the sequence number of the first MSDU for which this Basic
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// BlockAckReq frame is sent. The Fragment Number subfield is set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211CompressedBlockAckReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAckReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">38</span><span style="color: #232629; ">);
+
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">tidInfo</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// The TID_INFO subfield of the BAR Control field of the Compressed BlockAckReq frame contains the TID for which a BlockAck frame is requested.
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The BAR Information field of the Compressed BlockAckReq frame contains the Block Ack Starting
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Sequence Control subfield, as shown in Figure 8-21. The Starting Sequence Number subfield of the Block
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Ack Starting Sequence Control subfield contains the sequence number of the first MSDU or A-MSDU for
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// which this BlockAckReq frame is sent. The Fragment Number subfield of the Block Ack Starting Sequence
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Control subfield is set to 0.
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MultiTidBlockAckReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAckReq</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// chunkLength TODO
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The BAR Information field of the Compressed BlockAckReq frame contains the Block Ack Starting
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Sequence Control subfield, as shown in Figure 8-21. The Starting Sequence Number subfield of the Block
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Ack Starting Sequence Control subfield contains the sequence number of the first MSDU or A-MSDU for
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// which this BlockAckReq frame is sent. The Fragment Number subfield of the Block Ack Starting Sequence
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Control subfield is set to 0.
+</span><span style="color: #232629; ">
+    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// TODO unimplemented
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.3.1.9 BlockAck frame format -- 410p.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAck</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211TwoAddressHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// The RA field of the BlockAck frame is the address of the recipient STA that requested the Block Ack.
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// The TA field is the address of the STA transmitting the BlockAck frame.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ST_BLOCKACK</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// BA Control
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckPolicy</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// Table 8-17&mdash;BA Ack Policy subfield: 0-Normal Acknowledgment, 1-No Acknowledgment.
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// Table 8-18&mdash;BlockAck frame variant encoding
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.3.1.9.2 Basic BlockAck variant -- 411p.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BasicBlockAck</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAck</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LENGTH_BASIC_BLOCKACK</span><span style="color: #232629; "> - </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// The BA Information field of the Basic BlockAck frame comprises the Block Ack Starting Sequence Control
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// subfield and the Block Ack Bitmap subfield, as shown in Figure 8-26.
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// ??
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// The Block Ack Bitmap subfield is 128 octets in length and is used to indicate the received status of up to
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// 64 MSDUs. Bit position n of the Block Ack bitmap, if equal to 1, acknowledges receipt of an MPDU with an
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// MPDU sequence control value equal to (Block Ack Starting Sequence Control + n). Bit position n of the
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Block Ack bitmap, if equal to 0, indicates that an MPDU with MPDU sequence control value equal to
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// (Block Ack Starting Sequence Control + n) has not been received. Each of the MPDU Sequence Control
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// field and Block Ack Starting Sequence Control subfield values are treated as a 16-bit unsigned integer. For
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// unused fragment numbers of an MSDU, the corresponding bits in the bitmap are set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">BitVector</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckBitmap</span><span style="color: #232629; ">[</span><span style="color: #008000; ">64</span><span style="color: #232629; ">]; </span><span style="color: #808080; font-style: italic; ">// 64 * 16 bitmatrix
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// The TID_INFO subfield of the BA Control field of the Basic BlockAck frame contains the TID for which
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// this BlockAck frame is sent.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">tidInfo</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.3.1.9.3 Compressed BlockAck variant
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211CompressedBlockAck</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAck</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// chunkLength TODO
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// The BA Information field of the Compressed BlockAck frame comprises the Block Ack Starting Sequence
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// Control subfield and the Block Ack Bitmap subfield, as shown in Figure 8-27.
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">fragmentNumber</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SequenceNumberCyclic</span><span style="color: #232629; "> </span><span style="color: #232629; ">startingSequenceNumber</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BitVector</span><span style="color: #232629; "> </span><span style="color: #232629; ">blockAckBitmap</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 64 bits
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// The TID_INFO subfield of the BA Control field of the Compressed BlockAck frame contains the TID for
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// which this BlockAck frame is sent.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">tidInfo</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// 8.3.1.9.4 Multi-TID BlockAck variant
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MultiTidBlockAck</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211BlockAck</span><span style="color: #232629; ">
+{
+    </span><span style="color: #808080; font-style: italic; ">// chunkLength TODO
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">multiTid</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">compressedBitmap</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// TODO unimplemented
+</span><span style="color: #232629; ">}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

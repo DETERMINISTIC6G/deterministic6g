@@ -1,0 +1,322 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>EthernetEncapsulation</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">EthernetEncapsulation</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_ethernet_basic">inet.linklayer.ethernet.basic</a></p>
+<h2 class="comptitle" style="float: left;">EthernetEncapsulation</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Performs Ethernet II or Ethernet with LLC/SNAP encapsulation/decapsulation.</p>
+<p>Expected environment:</p>
+  <ul><li>lowerLayerIn, lowerLayerOut gates should be connected to an ~<a title="inet.linklayer.ethernet.basic.EthernetCsmaMac" href="inet.linklayer.ethernet.basic.EthernetCsmaMac.html">EthernetCsmaMac</a></li>
+  <li>upperLayerIn, upperLayerOut gates should be connected to higher layer
+  protocol or application</li></ul>
+<p>Functionality:</p>
+  <ul><li>packets coming from upper layers will be encapsulated in EthernetII frame
+  (~<a title="inet::EthernetMacHeader" href="inet-EthernetMacHeader.html">EthernetMacHeader</a>) or Ethernet SNAP frame (~<a title="inet::Ieee8022LlcSnapHeader" href="inet-Ieee8022LlcSnapHeader.html">Ieee8022LlcSnapHeader</a>)
+  depending on the useSNAP module parameter,
+  and sent to MAC. The ~<a title="inet::EtherType" href="inet-EtherType.html">EtherType</a> is taken from the ~<a title="inet::PacketProtocolTag" href="inet-PacketProtocolTag.html">PacketProtocolTag</a> tag
+  attached to the packet. The source address will be filled in by ~<a title="inet.linklayer.ethernet.basic.EthernetCsmaMac" href="inet.linklayer.ethernet.basic.EthernetCsmaMac.html">EthernetCsmaMac</a>.</li>
+  <li>also accepts SENDPAUSE command (message kind=IEEE802CTRL_SENDPAUSE) from
+  higher layer: it will send a PAUSE frame, as described in
+  <a href="ether-pause.html">PAUSE frames</a>.</li>
+  <li>Ethernet frames arriving from MAC will be decapsulated, and sent up to the
+  higher layers. Accepts ~<a title="inet::EthernetMacHeader" href="inet-EthernetMacHeader.html">EthernetMacHeader</a>, ~<a title="inet::Ieee8022LlcHeader" href="inet-Ieee8022LlcHeader.html">Ieee8022LlcHeader</a>, and
+  ~<a title="inet::Ieee8022LlcSnapHeader" href="inet-Ieee8022LlcSnapHeader.html">Ieee8022LlcSnapHeader</a> too.</li></ul>
+<img src="inet.linklayer.ethernet.basic.EthernetEncapsulation-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html" title="EthernetEncapsulation" alt="EthernetEncapsulation" coords="0,42,253,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ethernet.basic.EthernetEncapsulation-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>registerProtocol</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>FIXME //KLUDGE should redesign place of <a title="inet.linklayer.ethernet.basic.EthernetEncapsulation" href="inet.linklayer.ethernet.basic.EthernetEncapsulation.html">EthernetEncapsulation</a> and LLC modules</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>lifecycleSupport</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>EthernetEncapsulation</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/layer</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>upperLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td>
+<p>TODO accepts packets and socket commands with  @messageKinds(<a title="inet::SocketCommandCode" href="inet-SocketCommandCode.html">SocketCommandCode</a>), too</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>upperLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td>
+<p>TODO sends packets and socket indications with @messageKinds(<a title="inet::SocketStatusInd" href="inet-SocketStatusInd.html">SocketStatusInd</a>), too</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lowerLayerOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>pauseSent</td>
+      <td>long</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>decapPk</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>encapPk</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>pauseSent</td>
+      <td>pause sent</td>
+      <td></td>
+      <td>count, sum, vector</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>decapPk</td>
+      <td>packets decapsulated</td>
+      <td>decapPk</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>encapPk</td>
+      <td>packets encapsulated</td>
+      <td>encapPk</td>
+      <td>count, sum(packetBytes), vector(packetBytes)</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Performs Ethernet II or Ethernet with LLC/SNAP encapsulation/decapsulation.
+//
+// Expected environment:
+// - lowerLayerIn, lowerLayerOut gates should be connected to an ~EthernetCsmaMac
+// - upperLayerIn, upperLayerOut gates should be connected to higher layer
+//   protocol or application
+//
+// Functionality:
+// - packets coming from upper layers will be encapsulated in EthernetII frame
+//   (~EthernetMacHeader) or Ethernet SNAP frame (~Ieee8022LlcSnapHeader)
+//   depending on the useSNAP module parameter,
+//   and sent to MAC. The ~EtherType is taken from the ~PacketProtocolTag tag
+//   attached to the packet. The source address will be filled in by ~EthernetCsmaMac.
+// - also accepts SENDPAUSE command (message kind=IEEE802CTRL_SENDPAUSE) from
+//   higher layer: it will send a PAUSE frame, as described in
+//   </span><span style="color: #800000; ">&lt;a href=&quot;ether-pause.html&quot;&gt;</span><span style="color: #808080; font-style: italic; ">PAUSE frames</span><span style="color: #800000; ">&lt;/a&gt;</span><span style="color: #808080; font-style: italic; ">.
+// - Ethernet frames arriving from MAC will be decapsulated, and sent up to the
+//   higher layers. Accepts ~EthernetMacHeader, ~Ieee8022LlcHeader, and
+//   ~Ieee8022LlcSnapHeader too.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">EthernetEncapsulation</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetLayer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">registerProtocol</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">//FIXME //KLUDGE should redesign place of EthernetEncapsulation and LLC modules
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// The path to the InterfaceTable module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@lifecycleSupport</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">stopOperationExtraTime</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// extra time after lifecycle stop operation finished
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">stopOperationTimeout</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; ">s</span><span style="color: #232629; ">);    </span><span style="color: #808080; font-style: italic; ">// timeout value for lifecycle stop operation
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EthernetEncapsulation</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/layer&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">encapPk</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">decapPk</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">cPacket</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">pauseSent</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">long</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// pause units
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetDropped</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">encapPk</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets encapsulated&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">encapPk</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">decapPk</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets decapsulated&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">decapPk</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sum(packetBytes)&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;vector(packetBytes)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">pauseSent</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;pause sent&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">,</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// TODO accepts packets and socket commands with  @messageKinds(inet::SocketCommandCode), too
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// TODO sends packets and socket indications with @messageKinds(inet::SocketStatusInd), too
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; ">;
+}
+</span></pre>
+File: <a href="src-inet-linklayer-ethernet-basic-EthernetEncapsulation.ned.html">src/inet/linklayer/ethernet/basic/EthernetEncapsulation.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

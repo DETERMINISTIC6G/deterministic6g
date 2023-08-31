@@ -1,0 +1,955 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MediumCanvasVisualizer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MediumCanvasVisualizer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_canvas_physicallayer">inet.visualizer.canvas.physicallayer</a></p>
+<h2 class="comptitle" style="float: left;">MediumCanvasVisualizer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module visualizes a medium on a 2D canvas. It displays communication
+ranges and interference ranges as circles around network nodes. It displays
+an image at network nodes which are currently transmitting, and a different
+image at other network nodes whcih are currently receiving. It also displays
+radio signals as a 2D ring or a 3D sphere as they propagate through the
+medium.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer" href="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer.html">MediumCanvasVisualizer</a>, ~<a title="inet.visualizer.common.MediumVisualizer" href="inet.visualizer.common.MediumVisualizer.html">MediumVisualizer</a>, ~<a title="inet.visualizer.base.MediumVisualizerBase" href="inet.visualizer.base.MediumVisualizerBase.html">MediumVisualizerBase</a>, ~<a title="inet.visualizer.contract.IMediumVisualizer" href="inet.visualizer.contract.IMediumVisualizer.html">IMediumVisualizer</a></p>
+<img src="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer.html" title="MediumCanvasVisualizer" alt="MediumCanvasVisualizer" coords="0,42,276,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.canvas.physicallayer.MediumCanvasVisualizer-inheritance.svg"></object>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.MediumVisualizerBase" href="inet.visualizer.base.MediumVisualizerBase.html">MediumVisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for medium visualizer simple modules. It keeps track
+of ongoing signal departures, ongoing signal arrivals, and propagating signals.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mediumModule</td>
+      <td>string</td>
+      <td>"radioMedium"</td>
+      <td>
+<p>the medium module that is displayed, refers to a top level submodule by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>networkNodeVisualizerModule</td>
+      <td>string</td>
+      <td>"^.networkNodeVisualizer"</td>
+      <td>
+<p>the network node visualizer module, refers to a sibling submodule by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>nodeFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which nodes are considered, matches all nodes by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>interfaceFilter</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>which interfaces are considered, matches all interfaces by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displaySignals</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display signals propagating through the medium, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalColor</td>
+      <td>string</td>
+      <td>"dark"</td>
+      <td>
+<p>signal color is a list of colors, a set of dark colors by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalPropagationAnimationSpeed</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>animation speed while the very beginning or end of a signal is propagating on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalPropagationAnimationTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>signal propagation animation duration when signalPropagationAnimationSpeed is unspecified</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalPropagationAdditionalTime</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>additional simulation time to animate signal propagation after leaving last receiver</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalTransmissionAnimationSpeed</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>animation speed while a signal is being transmitted on the medium, value must be in the range (0, +inf) or NaN, the latter means automatic setting</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalTransmissionAnimationTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>signal transmission animation duration when signalTransmissionAnimationSpeed is unspecified</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalAnimationSpeedChangeTimeMode</td>
+      <td>string</td>
+      <td>"realTime"</td>
+      <td>
+<p>specifies the time mode for animation speed changes between propagation and transmission animation</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalAnimationSpeedChangeTime</td>
+      <td>double</td>
+      <td>1s</td>
+      <td>
+<p>animation speed changes smoothly from propagationAnimationSpeed to transmissionAnimationSpeed in the specified real time</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displaySignalDepartures</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display an image where a signal departure is currently in progress, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalDepartureImage</td>
+      <td>string</td>
+      <td>"misc/signal_departure.png"</td>
+      <td>
+<p>image for ongoing signal departures</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalDeparturePlacementHint</td>
+      <td>string</td>
+      <td>"topCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalDeparturePlacementPriority</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displaySignalArrivals</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display an image where a signal arrival is currently in progress, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalArrivalImage</td>
+      <td>string</td>
+      <td>"misc/signal_arrival.png"</td>
+      <td>
+<p>image for ongoing signal arrivals</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalArrivalPlacementHint</td>
+      <td>string</td>
+      <td>"topCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalArrivalPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayCommunicationRanges</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display communication ranges as circles around radios, enabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>communicationRangeLineColor</td>
+      <td>string</td>
+      <td>"blue"</td>
+      <td>
+<p>communication range circle line color, blue by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>communicationRangeLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>communication range circle line style, solid by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>communicationRangeLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>communication range circle line width, 1 by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayInterferenceRanges</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>display interference ranges as circles around radios, disabled by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>interferenceRangeLineColor</td>
+      <td>string</td>
+      <td>"gray"</td>
+      <td>
+<p>interference range circle color, gray by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>interferenceRangeLineStyle</td>
+      <td>string</td>
+      <td>"solid"</td>
+      <td>
+<p>interference range circle line style, solid by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>interferenceRangeLineWidth</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>interference range circle line width, 1 by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>autoPowerAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>parameters shared between power density maps, spectrums and spectrograms</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMinPower</td>
+      <td>double</td>
+      <td>inf dBmW</td>
+      <td>
+<p>minimum signal power if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMaxPower</td>
+      <td>double</td>
+      <td>0 dBmW</td>
+      <td>
+<p>maximum signal power if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMinPowerDensity</td>
+      <td>double</td>
+      <td>inf dBmWpMHz</td>
+      <td>
+<p>minimum signal power density if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMaxPowerDensity</td>
+      <td>double</td>
+      <td>-inf dBmWpMHz</td>
+      <td>
+<p>maxium signal power density if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>autoTimeAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables automatic time axis configuration</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMinTime</td>
+      <td>double</td>
+      <td>0 s</td>
+      <td>
+<p>relative to current simulation time</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMaxTime</td>
+      <td>double</td>
+      <td>0 s</td>
+      <td>
+<p>relative to current simulation time</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>autoFrequencyAxis</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables automatic frequency axis configuration</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMinFrequency</td>
+      <td>double</td>
+      <td>inf Hz</td>
+      <td>
+<p>minimum signal frequency if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>signalMaxFrequency</td>
+      <td>double</td>
+      <td>-inf Hz</td>
+      <td>
+<p>maximum signal frequency if axis is not automatic</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayMainPowerDensityMap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for main power density map</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapPixmapDensity</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>pixmap relative resolution</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapMinX</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>minimum X coordinate</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapMaxX</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>maximum X coordinate, compound module size by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapMinY</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>minimum Y coordinate</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapMaxY</td>
+      <td>double</td>
+      <td>nan</td>
+      <td>
+<p>maximum Y coordinate, compound module size by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapZ</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>Z coordinate</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>mainPowerDensityMapFigureYTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displayPowerDensityMaps</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for power density maps</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapPixelMode</td>
+      <td>string</td>
+      <td>"mean"</td>
+      <td>
+<p>specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapApproximationSize</td>
+      <td>int</td>
+      <td>10</td>
+      <td>
+<p>medium power density function approximation along X and Y axes</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapCenterFrequency</td>
+      <td>double</td>
+      <td>nan Hz</td>
+      <td>
+<p>center frequency of medium power density sampling or integration</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapBandwidth</td>
+      <td>double</td>
+      <td>0 Hz</td>
+      <td>
+<p>bandwidth of medium power density integration, 0 means sampling, inf means total integrated power</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapPixmapWidth</td>
+      <td>double</td>
+      <td>powerDensityMapFigureWidth</td>
+      <td>
+<p>pixmap resolution width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapPixmapHeight</td>
+      <td>double</td>
+      <td>powerDensityMapFigureHeight</td>
+      <td>
+<p>pixmap resolution height</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapZ</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>Z coordinate</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>powerDensityMapFigureYTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displaySpectrums</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for spectrum figures</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumFigureYTickCount</td>
+      <td>int</td>
+      <td>5</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumFigureInterpolationSize</td>
+      <td>double</td>
+      <td>5</td>
+      <td>
+<p>power spectrum density interpolation distance along the frequency axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumPlacementHint</td>
+      <td>string</td>
+      <td>"bottomCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrumPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>displaySpectrograms</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>parameters for spectrogram figures</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramMode</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>total means total transmission medium, signal means transmitted or received signal, auto means total or signal and noise if transmission or reception is in progress</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramPixelMode</td>
+      <td>string</td>
+      <td>"mean"</td>
+      <td>
+<p>specifices the method used to determine the color of each pixel, sample method is the least accurate but the fastest (sample &lt; partition &lt; mean)</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramFigureWidth</td>
+      <td>double</td>
+      <td>200</td>
+      <td>
+<p>plot figure width in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramFigureHeight</td>
+      <td>double</td>
+      <td>120</td>
+      <td>
+<p>plot figure height in pixels</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramPixmapWidth</td>
+      <td>double</td>
+      <td>spectrogramFigureWidth</td>
+      <td>
+<p>pixmap resolution width</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramPixmapHeight</td>
+      <td>double</td>
+      <td>spectrogramFigureHeight</td>
+      <td>
+<p>pixmap resolution height</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramFigureXTickCount</td>
+      <td>int</td>
+      <td>3</td>
+      <td>
+<p>number of ticks along the X axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramFigureYTickCount</td>
+      <td>int</td>
+      <td>5</td>
+      <td>
+<p>number of ticks along the Y axis</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramPlacementHint</td>
+      <td>string</td>
+      <td>"bottomCenter"</td>
+      <td>
+<p>annotation placement hint, space separated list of any, top, bottom, left, right, topLeft, topCenter, topRight, etc.</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>spectrogramPlacementPriority</td>
+      <td>double</td>
+      <td>-1</td>
+      <td>
+<p>determines the order of annotation positioning</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>zIndex</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>determines the drawing order of figures relative to other visualizers</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalShape</td>
+      <td>string</td>
+      <td>"ring"</td>
+      <td>
+<p>shape for displaying signals</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalOpacity</td>
+      <td>double</td>
+      <td>0.5</td>
+      <td>
+<p>signal opacity, value must be in the range [0, 1]</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalRingCount</td>
+      <td>int</td>
+      <td>20</td>
+      <td>
+<p>number of stationary rings around the transmitter, value must be in the range [0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalRingSize</td>
+      <td>double</td>
+      <td>50m</td>
+      <td>
+<p>width of stationary rings, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalFadingDistance</td>
+      <td>double</td>
+      <td>50m</td>
+      <td>
+<p>distance parameter for exponential opacity decreasing, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalFadingFactor</td>
+      <td>double</td>
+      <td>1.2</td>
+      <td>
+<p>factor parameter for exponential opacity decreasing, value must be in the range (1, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalWaveCount</td>
+      <td>int</td>
+      <td>20</td>
+      <td>
+<p>number of moving circles representing waves around the transmitter, value must be in the range [0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalWaveLength</td>
+      <td>double</td>
+      <td>50m</td>
+      <td>
+<p>distance between moving circles representing waves, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalWaveWidth</td>
+      <td>double</td>
+      <td>10m</td>
+      <td>
+<p>width of moving circles representing waves, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>signalWaveFadingAnimationSpeedFactor</td>
+      <td>double</td>
+      <td>1</td>
+      <td>
+<p>value must be in the range [0, 1]</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayCommunicationHeat</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>when enabled the radio medium displays recent successful receptions as a heat map overlay</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>MediumCanvasVisualizer</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module visualizes a medium on a 2D canvas. It displays communication
+// ranges and interference ranges as circles around network nodes. It displays
+// an image at network nodes which are currently transmitting, and a different
+// image at other network nodes whcih are currently receiving. It also displays
+// radio signals as a 2D ring or a 3D sphere as they propagate through the
+// medium.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~MediumCanvasVisualizer, ~MediumVisualizer, ~MediumVisualizerBase, ~IMediumVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumCanvasVisualizer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">MediumVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMediumVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">zIndex</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// determines the drawing order of figures relative to other visualizers
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalShape</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ring&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;sphere&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;ring&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// shape for displaying signals
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalOpacity</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">5</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// signal opacity, value must be in the range [0, 1]
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalRingCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of stationary rings around the transmitter, value must be in the range [0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalRingSize</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// width of stationary rings, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalFadingDistance</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// distance parameter for exponential opacity decreasing, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalFadingFactor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">.</span><span style="color: #008000; ">2</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// factor parameter for exponential opacity decreasing, value must be in the range (1, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveCount</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">20</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// number of moving circles representing waves around the transmitter, value must be in the range [0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">50</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// distance between moving circles representing waves, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveWidth</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// width of moving circles representing waves, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">signalWaveFadingAnimationSpeedFactor</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// value must be in the range [0, 1]
+</span><span style="color: #232629; ">
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayCommunicationHeat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// when enabled the radio medium displays recent successful receptions as a heat map overlay
+</span><span style="color: #232629; ">
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">MediumCanvasVisualizer</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-canvas-physicallayer-MediumCanvasVisualizer.ned.html">src/inet/visualizer/canvas/physicallayer/MediumCanvasVisualizer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

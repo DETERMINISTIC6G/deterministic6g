@@ -1,0 +1,347 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>EthernetHost2</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">EthernetHost2</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_tests_ethernet">inet.tests.ethernet</a></p>
+<h2 class="comptitle" style="float: left;">EthernetHost2</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>An example host with one Ethernet interface and an Ethernet traffic
+generator directly connected to it. This host model does not contain
+higher layer protocols (IP, TCP). By default is configured to use
+half-duplex MAC (CSMA/CD).</p>
+<img src="inet.tests.ethernet.EthernetHost2-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.applications.ethernet.EtherTrafGen.html" title="EtherTrafGen" alt="EtherTrafGen" coords="182,120,226,192">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="7,228,138,284">
+<area shape="rect" href="inet.linklayer.ieee8022.IIeee8022Llc.html" title="IIeee8022Llc" alt="IIeee8022Llc" coords="182,220,226,292">
+<area shape="rect" href="inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="163,320,242,392">
+<area shape="rect" href="inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="182,420,235,492">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.tests.ethernet.EthernetHost2-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithBus" href="inet.tests.ethernet.HostsWithBus.html">HostsWithBus</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithHub" href="inet.tests.ethernet.HostsWithHub.html">HostsWithHub</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithSwitch" href="inet.tests.ethernet.HostsWithSwitch.html">HostsWithSwitch</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.TwoHosts" href="inet.tests.ethernet.TwoHosts.html">TwoHosts</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>csmacdSupport</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>by default use CSMA/CD</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/pc2</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>ethg</td>
+      <td>inout</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.destAddress</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>destination MAC address, or module path name of destination station; empty means off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.ssap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc ssap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.dsap</td>
+      <td>int</td>
+      <td>-1</td>
+      <td>
+<p>llc dsap to set on outgoing packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.startTime</td>
+      <td>double</td>
+      <td>this.sendInterval</td>
+      <td>
+<p>time of sending the first packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>time of finishing sending, negative values mean forever</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.sendInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>interval between sending bursts</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.numPacketsPerBurst</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>number of packets to send per burst (packets within a burst are sent at the same simulation time)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.packetLength</td>
+      <td>int</td>
+      <td></td>
+      <td>
+<p>length of packets to send</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherTrafGen" href="inet.applications.ethernet.EtherTrafGen.html">app</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// An example host with one Ethernet interface and an Ethernet traffic
+// generator directly connected to it. This host model does not contain
+// higher layer protocols (IP, TCP). By default is configured to use
+// half-duplex MAC (CSMA/CD).
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">EthernetHost2</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);  </span><span style="color: #808080; font-style: italic; ">// by default use CSMA/CD
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@enum</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">,</span><span style="color: #008000; ">&quot;computed&quot;</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;declared&quot;</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">fcsMode</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">csmacdSupport</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">registerProtocol</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/pc2&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">EtherFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">app</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EtherTrafGen</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,100&quot;</span><span style="color: #232629; ">);
+                </span><span style="color: #232629; ">interface</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;eth&quot;</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=70,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee8022Llc&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIeee8022Llc</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,200&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetEncapsulation&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetLayer</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,300&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;EthernetInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IEthernetInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,400,row,150;q=txQueue&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">app</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">app</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">llc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">eth</span><span style="color: #232629; ">.</span><span style="color: #232629; ">phys</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;m=s&quot;</span><span style="color: #232629; ">); } </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="tests-networks-ethernet-EthernetHost2.ned.html">tests/networks/ethernet/EthernetHost2.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

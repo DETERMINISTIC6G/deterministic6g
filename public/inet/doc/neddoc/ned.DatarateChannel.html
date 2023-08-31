@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>DatarateChannel</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">DatarateChannel</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#ned">ned</a></p>
+<h2 class="comptitle" style="float: left;">DatarateChannel</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ffca0080;">
+    <span class="mdl-chip__text">channel</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="ned.DatarateChannel-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.internetcloud.earthcloud.EarthCloud" href="inet.examples.internetcloud.earthcloud.EarthCloud.html">EarthCloud</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.gptp.GptpMasterSlave" href="inet.examples.gptp.GptpMasterSlave.html">GptpMasterSlave</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithBus" href="inet.tests.ethernet.HostsWithBus.html">HostsWithBus</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithHub" href="inet.tests.ethernet.HostsWithHub.html">HostsWithHub</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.HostsWithSwitch" href="inet.tests.ethernet.HostsWithSwitch.html">HostsWithSwitch</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.HubLAN" href="inet.examples.ethernet.lans.HubLAN.html">HubLAN</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Sample Ethernet LAN: four hosts connected by a hub.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.multiradio.MultiRadio" href="inet.examples.wireless.multiradio.MultiRadio.html">MultiRadio</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network2" href="inet.tutorials.protocol.Network2.html">Network2</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network3" href="inet.tutorials.protocol.Network3.html">Network3</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network4" href="inet.tutorials.protocol.Network4.html">Network4</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network5" href="inet.tutorials.protocol.Network5.html">Network5</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network6" href="inet.tutorials.protocol.Network6.html">Network6</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.protocol.Network7" href="inet.tutorials.protocol.Network7.html">Network7</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ieee8021as.NetworkWithCrossTraffic" href="inet.examples.ieee8021as.NetworkWithCrossTraffic.html">NetworkWithCrossTraffic</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_failure.RSVPTE4" href="inet.examples.mpls.testte_failure.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_failure2.RSVPTE4" href="inet.examples.mpls.testte_failure2.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_reroute.RSVPTE4" href="inet.examples.mpls.testte_reroute.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_routing.RSVPTE4" href="inet.examples.mpls.testte_routing.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_tunnel.RSVPTE4" href="inet.examples.mpls.testte_tunnel.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.tunnel.Tunnel" href="inet.examples.inet.tunnel.Tunnel.html">Tunnel</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.TwoHosts" href="inet.examples.ethernet.lans.TwoHosts.html">TwoHosts</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Sample Ethernet LAN: two hosts directly connected to each other
+via twisted pair.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.tests.ethernet.TwoHosts" href="inet.tests.ethernet.TwoHosts.html">TwoHosts</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.accessChannel" href="inet.examples.inet.netperfmeter.accessChannel.html">accessChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.sctp.cmttest.BottlePath" href="inet.examples.sctp.cmttest.BottlePath.html">BottlePath</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">cable</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>A 100Mb/s Ethernet cable(<a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">1</a>,<a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">2</a>). Part of ~LargeNet(<a title="inet.examples.ethernet.lans.LargeNet" href="inet.examples.ethernet.lans.LargeNet.html">1</a>,<a title="inet.examples.ieee8021d.LargeNet" href="inet.examples.ieee8021d.LargeNet.html">2</a>).</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">cable</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>A 100Mb/s Ethernet cable(<a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">1</a>,<a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">2</a>). Part of ~<a title="inet.examples.inet.ipv4largenet.IPv4LargeNet" href="inet.examples.inet.ipv4largenet.IPv4LargeNet.html">IPv4LargeNet</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.netperfmeter.coreChannel" href="inet.examples.inet.netperfmeter.coreChannel.html">coreChannel</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mobileipv6.ethernetline" href="inet.examples.mobileipv6.ethernetline.html">ethernetline</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.ethernet.EthernetLink" href="inet.node.ethernet.EthernetLink.html">EthernetLink</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>Base for Ethernet link types. Propagation delay can be specified with the
+length of the cable(<a title="inet.examples.ethernet.lans.cable" href="inet.examples.ethernet.lans.cable.html">1</a>,<a title="inet.examples.inet.ipv4largenet.cable" href="inet.examples.inet.ipv4largenet.cable.html">2</a>), i.e. in meters instead of nanoseconds or microseconds.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.redmarker.FastP" href="inet.examples.inet.redmarker.FastP.html">FastP</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mobileipv6.fiberline" href="inet.examples.mobileipv6.fiberline.html">fiberline</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.inet.redmarker.NormalP" href="inet.examples.inet.redmarker.NormalP.html">NormalP</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.sctp.cmttest.NormalPath" href="inet.examples.sctp.cmttest.NormalPath.html">NormalPath</a></td>
+      <td><i>channel</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.misc.ThruputMeteringChannel" href="inet.common.misc.ThruputMeteringChannel.html">ThruputMeteringChannel</a></td>
+      <td><i>channel</i></td>
+      <td>
+<p>This channels adds support for thruput metering to the datarate channel.
+A cDatarateChannel extended with throughput calculation. Values
+are displayed on the link, using the connection's "t=" or "tt=" display
+string tag.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>disabled</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>delay</td>
+      <td>double</td>
+      <td>0s</td>
+      <td>
+<p>propagation delay</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>datarate</td>
+      <td>double</td>
+      <td>0bps</td>
+      <td>
+<p>bits per second; 0=infinite</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>ber</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>bit error rate (BER)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>per</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>packet error rate (PER)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>cDatarateChannel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>channelBusy</td>
+      <td>long</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>messageSent</td>
+      <td>omnetpp::cMessage</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>messageDiscarded</td>
+      <td>omnetpp::cMessage</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetsDiscarded</td>
+      <td></td>
+      <td>constant1(messageDiscarded)</td>
+      <td>count?</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>busy</td>
+      <td></td>
+      <td>channelBusy</td>
+      <td>vector?</td>
+      <td></td>
+      <td>sample-hold</td>
+   </tr>
+   <tr class="local">
+      <td>utilization</td>
+      <td></td>
+      <td>timeavg(channelBusy)</td>
+      <td>last?</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetBytes</td>
+      <td></td>
+      <td>packetBytes(messageSent)</td>
+      <td>sum?</td>
+      <td>B</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>throughput</td>
+      <td></td>
+      <td>sumPerDuration(packetBits(messageSent))</td>
+      <td>last?</td>
+      <td>bps</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td></td>
+      <td>constant1(messageSent)</td>
+      <td>count?</td>
+      <td></td>
+      <td>none</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">DatarateChannel</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">cDatarateChannel</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">channelBusy</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">long</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">messageSent</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">omnetpp</span><span style="color: #232629; ">::</span><span style="color: #232629; ">cMessage</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">messageDiscarded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">omnetpp</span><span style="color: #232629; ">::</span><span style="color: #232629; ">cMessage</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">busy</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">channelBusy</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sample</span><span style="color: #232629; ">-</span><span style="color: #232629; ">hold</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">utilization</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;timeavg(channelBusy)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">last</span><span style="color: #232629; ">?);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;constant1(messageSent)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetBytes</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packetBytes(messageSent)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">B</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetsDiscarded</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;constant1(messageDiscarded)&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">](</span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;sumPerDuration(packetBits(messageSent))&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">last</span><span style="color: #232629; ">?; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">disabled</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// propagation delay
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// bits per second; 0=infinite
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">ber</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// bit error rate (BER)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">per</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// packet error rate (PER)
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: Built-in type
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

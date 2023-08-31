@@ -1,0 +1,522 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ThroughputClient</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ThroughputClient</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_examples_wireless_testnewmac">inet.examples.wireless.testnewmac</a></p>
+<h2 class="comptitle" style="float: left;">ThroughputClient</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+<p>(no description)</p>
+<img src="inet.examples.wireless.testnewmac.ThroughputClient-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="37,128,168,184">
+<area shape="rect" href="inet.applications.ethernet.EtherAppClient.html" title="EtherAppClient" alt="EtherAppClient" coords="282,120,326,192">
+<area shape="rect" href="inet.linklayer.ieee80211.Ieee80211Interface.html" title="Ieee80211Interface" alt="Ieee80211Interface" coords="230,220,285,292">
+<area shape="rect" href="inet.mobility.single.CircleMobility.html" title="CircleMobility" alt="CircleMobility" coords="65,228,140,284">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.examples.wireless.testnewmac.ThroughputClient-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.testnewmac.Throughput" href="inet.examples.wireless.testnewmac.Throughput.html">Throughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/wifilaptop</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>radioIn</td>
+      <td>input</td>
+      <td></td>
+      <td>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.destAddress</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>destination MAC address, or module path name of destination station; empty means off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.startTime</td>
+      <td>double</td>
+      <td>this.sendInterval</td>
+      <td>
+<p>time of sending the first request</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.stopTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>time of finishing sending, negative values mean forever</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.localSAP</td>
+      <td>int</td>
+      <td>0xf0</td>
+      <td>
+<p>local service access point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.remoteSAP</td>
+      <td>int</td>
+      <td>0xf1</td>
+      <td>
+<p>remote service access point</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.sendInterval</td>
+      <td>double</td>
+      <td>uniform(0s,1s)</td>
+      <td>
+<p>interval between sending requests</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.reqLength</td>
+      <td>int</td>
+      <td>100B</td>
+      <td>
+<p>length of request packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.respLength</td>
+      <td>int</td>
+      <td>1KiB</td>
+      <td>
+<p>length of response packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.stopOperationExtraTime</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>extra time after lifecycle stop operation finished</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.applications.ethernet.EtherAppClient" href="inet.applications.ethernet.EtherAppClient.html">cli</a>.stopOperationTimeout</td>
+      <td>double</td>
+      <td>2s</td>
+      <td>
+<p>timeout value for lifecycle stop operation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">wlan</a>.<a title="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt" href="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt.html">mgmt</a>.macModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the MAC module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.subjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path which determines the subject module, the motion of which this mobility model describes, the default value is the parent module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.coordinateSystemModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>module path of the geographic coordinate system module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"p: %p\nv: %v"</td>
+      <td>
+<p>format string for the mobility module's display string text</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.updateDisplayString</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables continuous update of the subject module's position via modifying its display string</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMinX</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min x position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMinY</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min y position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMinZ</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min z position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMaxX</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max x position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMaxY</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max y position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.constraintAreaMaxZ</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max z position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.updateInterval</td>
+      <td>double</td>
+      <td>0.1s</td>
+      <td>
+<p>the simulation time interval used to regularly signal mobility state changes and update the display</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.faceForward</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.cx</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>x coord of the center of the circle</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.cy</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>y coord of the center of the circle</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.cz</td>
+      <td>double</td>
+      <td>0m</td>
+      <td>
+<p>z coord of the center of the circle</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.r</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>radius of the circle</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.speed</td>
+      <td>double</td>
+      <td>0mps</td>
+      <td>
+<p>speed of the host</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.CircleMobility" href="inet.mobility.single.CircleMobility.html">mobility</a>.startAngle</td>
+      <td>double</td>
+      <td>uniform(0deg, 360deg)</td>
+      <td>
+<p>starting angle</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">ThroughputClient</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/wifilaptop&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">radio</span><span style="color: #232629; ">.</span><span style="color: #232629; ">antenna</span><span style="color: #232629; ">.</span><span style="color: #232629; ">mobilityModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.^.^.mobility&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@directIn</span><span style="color: #232629; ">;
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">cli</span><span style="color: #232629; ">: </span><span style="color: #232629; ">EtherAppClient</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">interface</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;wlan&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ieee80211Interface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,200;q=queue&quot;</span><span style="color: #232629; ">);
+                </span><span style="color: #232629; ">mgmt</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;Ieee80211MgmtAdhoc&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">agent</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">mac</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;Ieee80211Mac&quot;</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">mobility</span><span style="color: #232629; ">: </span><span style="color: #232629; ">CircleMobility</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">radioIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">cli</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+}
+
+</span></pre>
+File: <a href="examples-wireless-testnewmac-Throughput.ned.html">examples/wireless/testnewmac/Throughput.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

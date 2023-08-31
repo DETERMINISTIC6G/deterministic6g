@@ -1,0 +1,544 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PhysicalEnvironment</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PhysicalEnvironment</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_environment_common">inet.environment.common</a></p>
+<h2 class="comptitle" style="float: left;">PhysicalEnvironment</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>The propagation of communication signals, the movement of communicating
+agents, or battery exhaustion depend on the surrounding physical environment.
+For example, signals can be absorbed by objects, can pass through objects,
+can be refracted by surfaces, can be reflected from surfaces, etc.</p>
+<p>This module represents the physical environment. The physical environment
+defines a set of physical objects. The physical objects are loaded from an
+XML configuration file. The file must contain exactly one &lt;config&gt; root
+element. Under the root element there can be multiple of the following
+elements.</p>
+  <ul><li>&lt;object&gt;
+   This element defines a physical object.</li>
+  <ul><li>id:
+      This optional attribute specifies a globally unique integer identifier
+      among all objects. This value might be used to find a specific object
+      from <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ models.</li>
+  <li>name:
+      This optional attribute specifies the name of the object. The name need
+      not be unique, and it might be still useful on the graphical user interface.</li>
+  <li>shape:
+      TODO</li>
+  <li>position:
+      This mandatory attribute specifies the position of the object. The value
+      constists of a type followed by 3 coordinates (X, Y, and Z) separated
+      by spaces. The type specifier determines which predefined point of the
+      shape is specified by the coordinates. The supported types are min, max,
+      and center. The coordinates refer to the respective point of the shape's
+      bounding box without applying orientation.</li>
+  <li>orientation:
+      This optional attribute specifies the orientation of the object relative
+      to the default orientation of the shape. The value contains 3 rotation
+      Euler angles (heading, elevation and bank) respectively. The rotation
+      is done around the center of the shape's bounding box.</li>
+  <li>material:
+      This mandatory attribute specifies the material of the object. The value
+      contains the name of a predefined material, or refers to a material
+      defined in the same file. In the latter case the value contains the
+      identifier or the name of the material.</li>
+  <li>line-width:
+      This optional attribute specifies the line width for the outline of the
+      object's surface. The value 0 means the object will not have an outline.
+      The default value is 1.</li>
+  <li>line-color:
+      This optional attribute specifies the color for the outline of the
+      object's surface. The value either contains a predefined color name or
+      3 integers (red, green, and blue) between 0 and 255 separated by spaces.
+      The default value is black.</li>
+  <li>fill-color:
+      This optional attribute specifies the color for filling the object's
+      surface. The value is either a predefined color name or 3 integers (red,
+      green, and blue) between 0 and 255 separated by spaces. The default
+      value is white.</li>
+  <li>opacity:
+      This optional attribute specifies the opacity of the object. The value
+      is a number between 0 and 1, the former means completely transparent,
+      the latter means completely opaque. The default value is 1.</li>
+  <li>tags:
+      This optional attribute attaches multiple tags, separated by spaces, to
+      the object. They are primarily useful for hiding objects in the graphical
+      user interface. The default value is empty.</li>
+  <li>texture:
+      This optional attribute specifies an image that is drawn on the faces of
+      the object. The default value specifies no texture.</li></ul>
+  <li>&lt;shape&gt;
+   This element defines a shape that might be used by multiple physical objects.</li>
+  <ul><li>id:
+      This mandatory attribute specifies a globally unique integer identifier
+      among all shapes. This value might be used in the shape attribute of
+      object elements.</li>
+  <li>type:
+      This mandatory attribute determines the type of the shape. Valid values
+      are sphere, cuboid, prism, and polyhedron.</li>
+  <li>size:
+      This attribute is mandatory for cuboid shapes, it specifies the size in
+      meters. The value contains 3 coordinates (X, Y, and Z sizes) separated
+      by spaces.</li>
+  <li>radius:
+      This attribute is mandatory for sphere shapes, it specifies the radius
+      in meters.</li>
+  <li>height:
+      This attribute is mandatory for prism shapes, it specifies the height
+      in meters.</li>
+  <li>points:
+      This attribute is mandatory for prism and polyhedron shapes, it contains
+      a sequence of numbers separated by spaces. The value specifies the base
+      polygon for prisms using 2 coordinates per point, or it specifies the
+      vertices for polyhedrons using 3 coordinates per point.</li></ul>
+  <li>&lt;material&gt;
+   This element defines a material that might be used by multiple physical objects.</li>
+  <ul><li>id:
+      This mandatory attribute specifies a globally unique integer identifier
+      among all materials. This value might be used in the material attribute
+      of object elements.</li>
+  <li>name:
+      This optional attribute specifies the name of the material. This value
+      might be used in the material attribute of object elements to refer to
+      this material. The name need not be unique, and it might be still useful
+      on the graphical user interface.</li>
+  <li>resistivity:
+      This mandatory attribute specifies the resistivity of the material in
+      ohm per meter. Resistivity is used to compute the dielectric loss
+      tangent of the material.</li>
+  <li>relativePermittivity:
+      This mandatory attribute specifies the relative permittivity of the
+      material as a unitless quantity. Relative permittivity is used to
+      compute the dielectric loss tangent and the refractive index of the
+      material.</li>
+  <li>relativePermeability:
+      This mandatory attribute specifies the relative permeability of the
+      material as a unitless quantity. Relative permeability is used to
+      compute the refractive index of the material.</li></ul></ul>
+<img src="inet.environment.common.PhysicalEnvironment-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.environment.contract.IObjectCache.html" title="IObjectCache" alt="IObjectCache" coords="45,120,159,192">
+<area shape="rect" href="inet.environment.contract.IGround.html" title="IGround" alt="IGround" coords="68,220,136,292">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.environment.common.PhysicalEnvironment-usage.svg"></object>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.environment.common.PhysicalEnvironment-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.errorrate.ErrorRateShowcase" href="inet.showcases.wireless.errorrate.ErrorRateShowcase.html">ErrorRateShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.hiddennode.HiddenNodeShowcase" href="inet.showcases.wireless.hiddennode.HiddenNodeShowcase.html">HiddenNodeShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase" href="inet.showcases.visualizer.canvas.ieee80211.Ieee80211VisualizationSignalLevelsShowcase.html">Ieee80211VisualizationSignalLevelsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase.html">MediumActivityInterferingSignalsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mobility.MobileNetwork" href="inet.examples.mobility.MobileNetwork.html">MobileNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.objectcache.ObjectCacheTest" href="inet.examples.objectcache.ObjectCacheTest.html">ObjectCacheTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.geometry.ObstacleIntersectionTest" href="inet.examples.geometry.ObstacleIntersectionTest.html">ObstacleIntersectionTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.obstacle.ObstacleTest" href="inet.examples.wireless.obstacle.ObstacleTest.html">ObstacleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.pathloss.PathLossShowcase" href="inet.showcases.wireless.pathloss.PathLossShowcase.html">PathLossShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.ratecontrol.RateControlShowcase" href="inet.showcases.wireless.ratecontrol.RateControlShowcase.html">RateControlShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ratecontrol.RateControlTest" href="inet.examples.wireless.ratecontrol.RateControlTest.html">RateControlTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork.html">SpectrumShowcasePowerDensityMapNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork.html">SpectrumShowcaseSpectrumFigureSpectrogramNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.wireless.WirelessC" href="inet.tutorials.wireless.WirelessC.html">WirelessC</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>coordinateSystemModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>module path of the geographic coordinate system module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>temperature</td>
+      <td>double</td>
+      <td>293K</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>spaceMinX</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of x coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spaceMinY</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of y coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spaceMinZ</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of z coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spaceMaxX</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of x coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spaceMaxY</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of y coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>spaceMaxZ</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of z coordinates in space, NaN means determined by physical objects, NaN by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>config</td>
+      <td>xml</td>
+      <td>xml("<config/>")</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=misc/town</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>PhysicalEnvironment</td>
+      <td>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// The propagation of communication signals, the movement of communicating
+// agents, or battery exhaustion depend on the surrounding physical environment.
+// For example, signals can be absorbed by objects, can pass through objects,
+// can be refracted by surfaces, can be reflected from surfaces, etc.
+//
+// This module represents the physical environment. The physical environment
+// defines a set of physical objects. The physical objects are loaded from an
+// XML configuration file. The file must contain exactly one &lt;config&gt; root
+// element. Under the root element there can be multiple of the following
+// elements.
+//
+//  - &lt;object&gt;
+//    This element defines a physical object.
+//
+//    - id:
+//       This optional attribute specifies a globally unique integer identifier
+//       among all objects. This value might be used to find a specific object
+//       from C++ models.
+//
+//    - name:
+//       This optional attribute specifies the name of the object. The name need
+//       not be unique, and it might be still useful on the graphical user interface.
+//
+//    - shape:
+//       TODO
+//
+//    - position:
+//       This mandatory attribute specifies the position of the object. The value
+//       constists of a type followed by 3 coordinates (X, Y, and Z) separated
+//       by spaces. The type specifier determines which predefined point of the
+//       shape is specified by the coordinates. The supported types are min, max,
+//       and center. The coordinates refer to the respective point of the shape's
+//       bounding box without applying orientation.
+//
+//    - orientation:
+//       This optional attribute specifies the orientation of the object relative
+//       to the default orientation of the shape. The value contains 3 rotation
+//       Euler angles (heading, elevation and bank) respectively. The rotation
+//       is done around the center of the shape's bounding box.
+//
+//    - material:
+//       This mandatory attribute specifies the material of the object. The value
+//       contains the name of a predefined material, or refers to a material
+//       defined in the same file. In the latter case the value contains the
+//       identifier or the name of the material.
+//
+//    - line-width:
+//       This optional attribute specifies the line width for the outline of the
+//       object's surface. The value 0 means the object will not have an outline.
+//       The default value is 1.
+//
+//    - line-color:
+//       This optional attribute specifies the color for the outline of the
+//       object's surface. The value either contains a predefined color name or
+//       3 integers (red, green, and blue) between 0 and 255 separated by spaces.
+//       The default value is black.
+//
+//    - fill-color:
+//       This optional attribute specifies the color for filling the object's
+//       surface. The value is either a predefined color name or 3 integers (red,
+//       green, and blue) between 0 and 255 separated by spaces. The default
+//       value is white.
+//
+//    - opacity:
+//       This optional attribute specifies the opacity of the object. The value
+//       is a number between 0 and 1, the former means completely transparent,
+//       the latter means completely opaque. The default value is 1.
+//
+//    - tags:
+//       This optional attribute attaches multiple tags, separated by spaces, to
+//       the object. They are primarily useful for hiding objects in the graphical
+//       user interface. The default value is empty.
+//
+//    - texture:
+//       This optional attribute specifies an image that is drawn on the faces of
+//       the object. The default value specifies no texture.
+//
+//  - &lt;shape&gt;
+//    This element defines a shape that might be used by multiple physical objects.
+//
+//    - id:
+//       This mandatory attribute specifies a globally unique integer identifier
+//       among all shapes. This value might be used in the shape attribute of
+//       object elements.
+//
+//    - type:
+//       This mandatory attribute determines the type of the shape. Valid values
+//       are sphere, cuboid, prism, and polyhedron.
+//
+//    - size:
+//       This attribute is mandatory for cuboid shapes, it specifies the size in
+//       meters. The value contains 3 coordinates (X, Y, and Z sizes) separated
+//       by spaces.
+//
+//    - radius:
+//       This attribute is mandatory for sphere shapes, it specifies the radius
+//       in meters.
+//
+//    - height:
+//       This attribute is mandatory for prism shapes, it specifies the height
+//       in meters.
+//
+//    - points:
+//       This attribute is mandatory for prism and polyhedron shapes, it contains
+//       a sequence of numbers separated by spaces. The value specifies the base
+//       polygon for prisms using 2 coordinates per point, or it specifies the
+//       vertices for polyhedrons using 3 coordinates per point.
+//
+//  - &lt;material&gt;
+//    This element defines a material that might be used by multiple physical objects.
+//
+//    - id:
+//       This mandatory attribute specifies a globally unique integer identifier
+//       among all materials. This value might be used in the material attribute
+//       of object elements.
+//
+//    - name:
+//       This optional attribute specifies the name of the material. This value
+//       might be used in the material attribute of object elements to refer to
+//       this material. The name need not be unique, and it might be still useful
+//       on the graphical user interface.
+//
+//    - resistivity:
+//       This mandatory attribute specifies the resistivity of the material in
+//       ohm per meter. Resistivity is used to compute the dielectric loss
+//       tangent of the material.
+//
+//    - relativePermittivity:
+//       This mandatory attribute specifies the relative permittivity of the
+//       material as a unitless quantity. Relative permittivity is used to
+//       compute the dielectric loss tangent and the refractive index of the
+//       material.
+//
+//    - relativePermeability:
+//       This mandatory attribute specifies the relative permeability of the
+//       material as a unitless quantity. Relative permeability is used to
+//       compute the refractive index of the material.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">PhysicalEnvironment</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPhysicalEnvironment</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">coordinateSystemModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// module path of the geographic coordinate system module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">temperature</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">K</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">293</span><span style="color: #232629; ">K</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMinX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of x coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMinY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of y coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMinZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of z coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMaxX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of x coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMaxY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of y coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">spaceMaxZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of z coordinates in space, NaN means determined by physical objects, NaN by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">config</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;config/&gt;&quot;</span><span style="color: #232629; ">));
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=misc/town&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PhysicalEnvironment</span><span style="color: #232629; ">);
+
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">objectCache</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IObjectCache</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ground</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IGround</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> != </span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200&quot;</span><span style="color: #232629; ">);
+        }
+}
+
+</span></pre>
+File: <a href="src-inet-environment-common-PhysicalEnvironment.ned.html">src/inet/environment/common/PhysicalEnvironment.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IIntegratedVisualizer</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IIntegratedVisualizer</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_contract">inet.visualizer.contract</a></p>
+<h2 class="comptitle" style="float: left;">IIntegratedVisualizer</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>This module interface allows configuring different ~<a title="inet.visualizer.contract.IIntegratedVisualizer" href="inet.visualizer.contract.IIntegratedVisualizer.html">IIntegratedVisualizer</a>
+submodules from INI files. Integrated visualizers are compound modules, they
+don't display anything on their own. Instead they combine multiple
+visualizers, most often simple modules, to provide a convenient way to add
+complex visualizations to a simulation.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer" href="inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a>, ~IntegratedOsgVisualizer, ~<a title="inet.visualizer.common.IntegratedVisualizer" href="inet.visualizer.common.IntegratedVisualizer.html">IntegratedVisualizer</a></p>
+<img src="inet.visualizer.contract.IIntegratedVisualizer-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.contract.IIntegratedVisualizer.html" title="IIntegratedVisualizer" alt="IIntegratedVisualizer" coords="0,42,336,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.contract.IIntegratedVisualizer-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer" href="inet.visualizer.canvas.integrated.IntegratedCanvasVisualizer.html">IntegratedCanvasVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates all canvas visualizers into a single module. It
+supports disabling any submodule visualizer by providing an empty string as
+its type.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.integrated.IntegratedMultiCanvasVisualizer" href="inet.visualizer.canvas.integrated.IntegratedMultiCanvasVisualizer.html">IntegratedMultiCanvasVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates all canvas visualizers into a single module. It
+supports disabling any submodule visualizer by providing an empty string as
+its type.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.common.IntegratedMultiVisualizer" href="inet.visualizer.common.IntegratedMultiVisualizer.html">IntegratedMultiVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates canvas and osg visualizers into a single module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.common.IntegratedVisualizer" href="inet.visualizer.common.IntegratedVisualizer.html">IntegratedVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates canvas and osg visualizers into a single module.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.common.IntegratedMultiVisualizer" href="inet.visualizer.common.IntegratedMultiVisualizer.html">IntegratedMultiVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates canvas and osg visualizers into a single module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.common.IntegratedVisualizer" href="inet.visualizer.common.IntegratedVisualizer.html">IntegratedVisualizer</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module integrates canvas and osg visualizers into a single module.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample" href="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample.html">AntennaDirectionalSelectivityExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.configurator.ComplexConfiguratorNetwork" href="inet.examples.wireless.configurator.ComplexConfiguratorNetwork.html">ComplexConfiguratorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.crosstalk.Crosstalk" href="inet.examples.wireless.crosstalk.Crosstalk.html">Crosstalk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.dynamic.DynamicRadioNetwork" href="inet.examples.wireless.dynamic.DynamicRadioNetwork.html">DynamicRadioNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.errorrate.ErrorRateTest" href="inet.examples.wireless.errorrate.ErrorRateTest.html">ErrorRateTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.handover.HandoverNetwork" href="inet.examples.wireless.handover.HandoverNetwork.html">HandoverNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211.Lan80211" href="inet.examples.wireless.lan80211.Lan80211.html">Lan80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.lan80211ac.Lan80211ac" href="inet.examples.wireless.lan80211ac.Lan80211ac.html">Lan80211ac</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layered80211.Layered80211" href="inet.examples.wireless.layered80211.Layered80211.html">Layered80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layeredapsk.LayeredApsk" href="inet.examples.wireless.layeredapsk.LayeredApsk.html">LayeredApsk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.multiradio.MultiRadio" href="inet.examples.wireless.multiradio.MultiRadio.html">MultiRadio</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.idealwireless.Net" href="inet.examples.adhoc.idealwireless.Net.html">Net</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.ieee80211.Net80211" href="inet.examples.adhoc.ieee80211.Net80211.html">Net80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networks.base.NetworkBase" href="inet.networks.base.NetworkBase.html">NetworkBase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.obstacle.ObstacleTest" href="inet.examples.wireless.obstacle.ObstacleTest.html">ObstacleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.power.PowerNetwork" href="inet.examples.wireless.power.PowerNetwork.html">PowerNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.hostautoconf.Scenario" href="inet.examples.adhoc.hostautoconf.Scenario.html">Scenario</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.synchronized.Synchronized" href="inet.examples.wireless.synchronized.Synchronized.html">Synchronized</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.nic.TestNic" href="inet.examples.wireless.nic.TestNic.html">TestNic</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.scaling.TestRadioScaling" href="inet.examples.wireless.scaling.TestRadioScaling.html">TestRadioScaling</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.hosttohost.Throughput" href="inet.examples.wireless.hosttohost.Throughput.html">Throughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.throughput.Throughput" href="inet.examples.wireless.throughput.Throughput.html">Throughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP" href="inet.examples.wireless.wiredandwirelesshostswithap.WiredAndWirelessHostsWithAP.html">WiredAndWirelessHostsWithAP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.wireless.WirelessA" href="inet.tutorials.wireless.WirelessA.html">WirelessA</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWith2DHCP" href="inet.examples.dhcp.WirelessNetWith2DHCP.html">WirelessNetWith2DHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.dhcp.WirelessNetWithDHCP" href="inet.examples.dhcp.WirelessNetWithDHCP.html">WirelessNetWithDHCP</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module interface allows configuring different ~IIntegratedVisualizer
+// submodules from INI files. Integrated visualizers are compound modules, they
+// don't display anything on their own. Instead they combine multiple
+// visualizers, most often simple modules, to provide a convenient way to add
+// complex visualizations to a simulation.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~IntegratedCanvasVisualizer, ~IntegratedOsgVisualizer, ~IntegratedVisualizer
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIntegratedVisualizer</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/app&quot;</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-visualizer-contract-IIntegratedVisualizer.ned.html">src/inet/visualizer/contract/IIntegratedVisualizer.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

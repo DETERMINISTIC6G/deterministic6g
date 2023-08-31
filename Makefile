@@ -28,7 +28,7 @@ docold:
 	doxygen Doxyfile
 
 neddoc:
-	cd .. && opp_neddoc deterministic6g/ inet/
+	cd .. && opp_neddoc deterministic6g/ inet/ -o deterministic6g/public
 
 doc:
 	@cd doc/src && $(MAKE)

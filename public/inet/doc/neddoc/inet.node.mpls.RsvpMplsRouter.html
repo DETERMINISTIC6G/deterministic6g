@@ -1,0 +1,692 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>RsvpMplsRouter</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">RsvpMplsRouter</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_mpls">inet.node.mpls</a></p>
+<h2 class="comptitle" style="float: left;">RsvpMplsRouter</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>An RSVP-TE capable router.</p>
+<p>~<a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">RsvpTe</a> occupies the Transport layer; however, it is not a transport protocol
+itself. ~<a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">RsvpTe</a> uses transport protocols to route packets. ~<a title="inet.networklayer.ted.Ted" href="inet.networklayer.ted.Ted.html">Ted</a> is used
+to calculate shortest paths.</p>
+<img src="inet.node.mpls.RsvpMplsRouter-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="74,428,131,484">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="37,228,168,284">
+<area shape="rect" href="inet.networklayer.ted.Ted.html" title="Ted" alt="Ted" coords="87,528,118,584">
+<area shape="rect" href="inet.networklayer.ted.LinkStateRouting.html" title="LinkStateRouting" alt="LinkStateRouting" coords="526,100,678,172">
+<area shape="rect" href="inet.networklayer.rsvpte.RsvpTe.html" title="RsvpTe" alt="RsvpTe" coords="282,100,326,172">
+<area shape="rect" href="inet.networklayer.mpls.IIngressClassifier.html" title="IIngressClassifier" alt="IIngressClassifier" coords="61,128,143,184">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,198,706,235">
+<area shape="rect" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html" title="Ipv4NetworkLayer" alt="Ipv4NetworkLayer" coords="432,260,476,332">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,358,706,395">
+<area shape="rect" href="inet.linklayer.contract.ILoopbackInterface.html" title="ILoopbackInterface" alt="ILoopbackInterface" coords="157,580,347,652">
+<area shape="rect" href="inet.linklayer.contract.IPppInterface.html" title="IPppInterface" alt="IPppInterface" coords="320,580,484,652">
+<area shape="rect" href="inet.networklayer.mpls.Mpls.html" title="Mpls" alt="Mpls" coords="429,420,476,492">
+<area shape="rect" href="inet.networklayer.mpls.LibTable.html" title="LibTable" alt="LibTable" coords="67,328,138,384">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="202,518,706,555">
+</map>
+<h3 class="subtitle">Usage diagram</h3>
+<p>The following diagram shows usage relationships between types.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.mpls.RsvpMplsRouter-usage.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.net37.R37" href="inet.examples.mpls.net37.R37.html">R37</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.net37.R37orig" href="inet.examples.mpls.net37.R37orig.html">R37orig</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_failure.RSVPTE4" href="inet.examples.mpls.testte_failure.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_failure2.RSVPTE4" href="inet.examples.mpls.testte_failure2.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_reroute.RSVPTE4" href="inet.examples.mpls.testte_reroute.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_routing.RSVPTE4" href="inet.examples.mpls.testte_routing.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.mpls.testte_tunnel.RSVPTE4" href="inet.examples.mpls.testte_tunnel.RSVPTE4.html">RSVPTE4</a></td>
+      <td><i>network</i></td>
+      <td>
+<p>Example network to demonstrate Rsvp-TE.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>numLoInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>peers</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>routerId</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=abstract/router</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>pppg [ ]</td>
+      <td>inout</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ted.Ted" href="inet.networklayer.ted.Ted.html">ted</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ted.Ted" href="inet.networklayer.ted.Ted.html">ted</a>.routingTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ted.LinkStateRouting" href="inet.networklayer.ted.LinkStateRouting.html">linkStateRouting</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ted.LinkStateRouting" href="inet.networklayer.ted.LinkStateRouting.html">linkStateRouting</a>.routingTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ted.LinkStateRouting" href="inet.networklayer.ted.LinkStateRouting.html">linkStateRouting</a>.tedModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.routingTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.libTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.tedModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.traffic</td>
+      <td>xml</td>
+      <td>xml("<sessions/>")</td>
+      <td>
+<p>specifies paths to set up</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.helloInterval</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.rsvpte.RsvpTe" href="inet.networklayer.rsvpte.RsvpTe.html">rsvp</a>.helloTimeout</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.routerId</td>
+      <td>string</td>
+      <td>"auto"</td>
+      <td>
+<p>for routers, the router id using IPv4 address dotted
+notation; specify "auto" to select the highest
+interface address; should be left empty ("") for hosts</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.netmaskRoutes</td>
+      <td>string</td>
+      <td>"*"</td>
+      <td>
+<p>maintain netmask routes for interfaces</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.forwarding</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>turns IP forwarding on/off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.multicastForwarding</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>turns multicast forwarding on/off</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.useAdminDist</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>Use Cisco like administrative distances</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4RoutingTable" href="inet.networklayer.ipv4.Ipv4RoutingTable.html">routingTable</a>.routingFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>routing table file name</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4NatTable" href="inet.networklayer.ipv4.Ipv4NatTable.html">natTable</a>.networkProtocolModule</td>
+      <td>string</td>
+      <td>"^.ip"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Ipv4NatTable" href="inet.networklayer.ipv4.Ipv4NatTable.html">natTable</a>.config</td>
+      <td>xml</td>
+      <td>xml("<config></config>")</td>
+      <td>
+<p>XML configuration parameters for network address translation</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">up</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">up</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">up</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Icmp" href="inet.networklayer.ipv4.Icmp.html">icmp</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Icmp" href="inet.networklayer.ipv4.Icmp.html">icmp</a>.routingTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Icmp" href="inet.networklayer.ipv4.Icmp.html">icmp</a>.crcMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.networklayer.ipv4.Icmp" href="inet.networklayer.ipv4.Icmp.html">icmp</a>.quoteLength</td>
+      <td>int</td>
+      <td>8B</td>
+      <td>
+<p>Number of bytes from original packet to quote in ICMP reply</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">mp</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">mp</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">mp</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">lp</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">lp</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.ipv4.Ipv4NetworkLayer" href="inet.networklayer.ipv4.Ipv4NetworkLayer.html">ipv4</a>.<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">lp</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nm</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nm</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nm</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.mpls.Mpls" href="inet.networklayer.mpls.Mpls.html">mpls</a>.interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the <a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">InterfaceTable</a> module</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.mpls.Mpls" href="inet.networklayer.mpls.Mpls.html">mpls</a>.libTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.mpls.LibTable" href="inet.networklayer.mpls.LibTable.html">libTable</a>.config</td>
+      <td>xml</td>
+      <td>xml("<libtable/>")</td>
+      <td>
+<p>table contents to be loaded on startup</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">ml</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">ml</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">ml</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// An RSVP-TE capable router.
+//
+// ~RsvpTe occupies the Transport layer; however, it is not a transport protocol
+// itself. ~RsvpTe uses transport protocols to route packets. ~Ted is used
+// to calculate shortest paths.
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">RsvpMplsRouter</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@networkNode</span><span style="color: #232629; ">();
+        </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">node</span><span style="color: #232629; ">,</span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">-</span><span style="color: #232629; ">node</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=abstract/router&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasStatus</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numLoInterfaces</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">peers</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerId</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;auto&quot;</span><span style="color: #232629; ">);
+        *.</span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">routingTable</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routerId</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">this</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routerId</span><span style="color: #232629; ">;
+        *.</span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.interfaceTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">routingTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.ipv4.routingTable&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">tedModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.ted&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">rsvpModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.rsvp&quot;</span><span style="color: #232629; ">));
+        *.</span><span style="color: #232629; ">libTableModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #232629; ">absPath</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;.libTable&quot;</span><span style="color: #232629; ">));
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">inout</span><span style="color: #232629; "> </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PppFrame</span><span style="color: #232629; ">-</span><span style="color: #232629; ">conn</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">status</span><span style="color: #232629; ">: </span><span style="color: #232629; ">NodeStatus</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">if</span><span style="color: #232629; "> </span><span style="color: #232629; ">hasStatus</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,400;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">interfaceTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">InterfaceTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ted</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ted</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,500;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">linkStateRouting</span><span style="color: #232629; ">: </span><span style="color: #232629; ">LinkStateRouting</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">peers</span><span style="color: #232629; "> = </span><span style="color: #232629; ">parent</span><span style="color: #232629; ">.</span><span style="color: #232629; ">peers</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=600,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">rsvp</span><span style="color: #232629; ">: </span><span style="color: #232629; ">RsvpTe</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">peers</span><span style="color: #232629; "> = </span><span style="color: #232629; ">parent</span><span style="color: #232629; ">.</span><span style="color: #232629; ">peers</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">classifierModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.classifier&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,80&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">classifier</span><span style="color: #232629; ">: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;RsvpClassifier&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIngressClassifier</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,160;b=500,5,,,,1&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkLayer</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,240&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,320;b=500,5,,,,1&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">lo</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numLoInterfaces</span><span style="color: #232629; ">]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;LoopbackInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">ILoopbackInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=250,560&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">)]: &lt;</span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;PppInterface&quot;</span><span style="color: #232629; ">)&gt; </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IPppInterface</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=400,560,row,150;q=l2queue&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Mpls</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">classifierModule</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;^.classifier&quot;</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,400&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">libTable</span><span style="color: #232629; ">: </span><span style="color: #232629; ">LibTable</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,300;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">ml</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MessageDispatcher</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,480;b=500,5,,,,1&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">linkStateRouting</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkStateRouting</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportIn</span><span style="color: #232629; ">;
+
+        </span><span style="color: #232629; ">rsvp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">rsvp</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--</span><span style="color: #232629; "> </span><span style="color: #232629; ">tn</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ifOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ifIn</span><span style="color: #232629; ">;
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #232629; ">numLoInterfaces</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">lo</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">lo</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        }
+
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">..</span><span style="color: #800000; font-weight: bold; ">sizeof</span><span style="color: #232629; ">(</span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">)-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">pppg</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">] </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">phys</span><span style="color: #232629; ">;
+
+            </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ml</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+            </span><span style="color: #232629; ">ml</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ppp</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        }
+        </span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">ml</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">ml</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">.</span><span style="color: #232629; ">lowerLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">out</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerIn</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">mpls</span><span style="color: #232629; ">.</span><span style="color: #232629; ">upperLayerOut</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">nm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">in</span><span style="color: #232629; ">++;
+}
+
+</span></pre>
+File: <a href="src-inet-node-mpls-RsvpMplsRouter.ned.html">src/inet/node/mpls/RsvpMplsRouter.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>EtherType.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">EtherType.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/linklayer/common/EtherType.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::EtherType" href="inet-EtherType.html">EtherType</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Some <a title="inet::EtherType" href="inet-EtherType.html">EtherType</a> values (Ethernet II).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2017 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Some EtherType values (Ethernet II).
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">EtherType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ETHERTYPE_IPv4</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0800</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_ARP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0806</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_INET_CDP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x2000</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_SRP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x22EA</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_TSN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x22F0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_TRILL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x22F3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_L2_ISIS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x22F4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_INET_FLOODING</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x36FC</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_RARP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8035</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_8021Q_TAG</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8100</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_IPv6</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x86DD</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_UNKNOWN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x86F0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_INET_PROBABILISTIC</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x86FD</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_INET_WISEROUTE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x86FE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_NEXT_HOP_FORWARDING</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x86FF</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// not in standard, INET spceific value for @NextHopForwarding
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ETHERTYPE_FLOW_CONTROL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8808</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_MPLS_UNICAST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8847</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_MPLS_MULTICAST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x8848</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_8021ad_S_TAG</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x88A8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_LLDP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x88CC</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_IEEE8021AE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x88E5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_GPTP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x88F7</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_TTETH</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x891D</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ETHERTYPE_IEEE8021_R_TAG</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">xF1C1</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+    </span><span style="color: #232629; ">inline</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">isEth2Type</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; ">)  { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; "> &gt;= </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x600</span><span style="color: #232629; "> || </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; "> == </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; }  </span><span style="color: #808080; font-style: italic; ">// typeOrLength is type
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">inline</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">isIeee8023Length</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; ">)  { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; "> &gt; </span><span style="color: #008000; ">0</span><span style="color: #232629; "> &amp;&amp; </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; "> &lt; </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x600</span><span style="color: #232629; ">; }  </span><span style="color: #808080; font-style: italic; ">// typeOrLength is length
+</span><span style="color: #232629; ">}}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

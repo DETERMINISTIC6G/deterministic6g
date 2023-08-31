@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ITcp</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ITcp</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_transportlayer_contract">inet.transportlayer.contract</a></p>
+<h2 class="comptitle" style="float: left;">ITcp</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p><a title="inet.tutorials.protocol.Interface" href="inet.tutorials.protocol.Interface.html">Interface</a> for TCP protocol implementations. All TCP implementations should
+implement this (i.e. declared as: TCP like <a title="inet.transportlayer.contract.ITcp" href="inet.transportlayer.contract.ITcp.html">ITcp</a>)
+The existing implementations are these: ~<a title="inet.transportlayer.tcp.Tcp" href="inet.transportlayer.tcp.Tcp.html">Tcp</a>, ~TcpLwip, (and ~TcpNsc in the inet-gpl project).</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;Communication with applications&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt;</p>
+<p>For communication between applications and TCP, the ~<a title="inet::TcpCommandCode" href="inet-TcpCommandCode.html">TcpCommandCode</a>
+and ~<a title="inet::TcpStatusInd" href="inet-TcpStatusInd.html">TcpStatusInd</a> enums are used as message kinds, and ~<a title="inet::TcpCommand" href="inet-TcpCommand.html">TcpCommand</a>
+and its subclasses are used as control info.</p>
+<p>To open a connection from a client app, send a cMessage to TCP with
+TCP_C_OPEN_ACTIVE as message kind and a ~<a title="inet::TcpOpenCommand" href="inet-TcpOpenCommand.html">TcpOpenCommand</a> object filled in
+and attached to it as control info. (The peer TCP will have to be LISTENing;
+the server app can achieve this with a similar cMessage but TCP_C_OPEN_PASSIVE
+message kind.) With passive open, there's a possibility to cause the connection
+"fork" on an incoming connection, leaving the original connection LISTENing
+on the port (see the fork field in ~<a title="inet::TcpOpenCommand" href="inet-TcpOpenCommand.html">TcpOpenCommand</a>).</p>
+<p>The app can send data by assigning the TCP_C_SEND message kind to the data packet,
+and sending it to TCP. The app will receive data as messages
+with the TCP_I_DATA message kind.</p>
+<p>To close, the client sends a cMessage to TCP with the TCP_C_CLOSE message kind
+and ~<a title="inet::TcpCommand" href="inet-TcpCommand.html">TcpCommand</a> control info.</p>
+<p>TCP sends notifications to the application whenever there's a significant
+change in the state of the connection: established, remote TCP closed,
+closed, timed out, connection refused, connection reset, etc. These
+notifications are also cMessages with message kind TCP_I_xxx
+(TCP_I_ESTABLISHED, etc.) and ~<a title="inet::TcpCommand" href="inet-TcpCommand.html">TcpCommand</a> as control info.</p>
+<p>One TCP module can serve several application modules, and several
+connections per application. When talking to applications, a
+connection is identified by the connId that is assigned by the application in
+the OPEN call.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;Sockets&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt;</p>
+<p>The TcpSocket <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ class is provided to simplify managing TCP connections
+from applications. TcpSocket handles the job of assembling and sending
+command messages (OPEN, CLOSE, etc) to TCP, and it also simplifies
+the task of dealing with packets and notification messages coming from TCP.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;Communication with the IP layer&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt;</p>
+<p>A TCP header is represented by the class ~<a title="inet::tcp::TcpHeader" href="inet-tcp-TcpHeader.html">TcpHeader</a>.</p>
+<p>The TCP model relies on sending and receiving ~<a title="inet::L3AddressReq" href="inet-L3AddressReq.html">L3AddressReq</a>/~<a title="inet::L3AddressInd" href="inet-L3AddressInd.html">L3AddressInd</a> tags
+attached to TCP segment packets.</p>
+<img src="inet.transportlayer.contract.ITcp-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.transportlayer.contract.ITcp.html" title="ITcp" alt="ITcp" coords="0,42,182,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.transportlayer.contract.ITcp-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.transportlayer.tcp.Tcp" href="inet.transportlayer.tcp.Tcp.html">Tcp</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>TCP protocol implementation.
+See the ~<a title="inet.transportlayer.contract.ITcp" href="inet.transportlayer.contract.ITcp.html">ITcp</a> for the <a title="inet.transportlayer.tcp.Tcp" href="inet.transportlayer.tcp.Tcp.html">Tcp</a> layer general informations.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.transportlayer.tcp_common.TcpSpoof" href="inet.transportlayer.tcp_common.TcpSpoof.html">TcpSpoof</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Sends fabricated TCP packets. This is a base implementation,
+you'll probably have to customize it in <a title="inet.examples.ospfv2.fulltest.C" href="inet.examples.ospfv2.fulltest.C.html">C</a>++ according to
+what you want to send and when you want to send it.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpUpdate.BGPRouterEx" href="inet.examples.bgpv4.BgpUpdate.BGPRouterEx.html">BGPRouterEx</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example IP router with BGPv4 and OSPFv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.bgpv4.BgpOpen.BGPRouterSimple" href="inet.examples.bgpv4.BgpOpen.BGPRouterSimple.html">BGPRouterSimple</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Example <a title="inet.networklayer.ipv4.Ipv4" href="inet.networklayer.ipv4.Ipv4.html">Ipv4</a> router with BGPv4 support.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.mpls.LdpMplsRouter" href="inet.node.mpls.LdpMplsRouter.html">LdpMplsRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>An LDP-capable router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.base.TransportLayerNodeBase" href="inet.node.base.TransportLayerNodeBase.html">TransportLayerNodeBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/wheelbarrow</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Interface for TCP protocol implementations. All TCP implementations should
+// implement this (i.e. declared as: TCP like ITcp)
+// The existing implementations are these: ~Tcp, ~TcpLwip, (and ~TcpNsc in the inet-gpl project).
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Communication with applications</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// For communication between applications and TCP, the ~TcpCommandCode
+// and ~TcpStatusInd enums are used as message kinds, and ~TcpCommand
+// and its subclasses are used as control info.
+//
+// To open a connection from a client app, send a cMessage to TCP with
+// TCP_C_OPEN_ACTIVE as message kind and a ~TcpOpenCommand object filled in
+// and attached to it as control info. (The peer TCP will have to be LISTENing;
+// the server app can achieve this with a similar cMessage but TCP_C_OPEN_PASSIVE
+// message kind.) With passive open, there's a possibility to cause the connection
+// &quot;fork&quot; on an incoming connection, leaving the original connection LISTENing
+// on the port (see the fork field in ~TcpOpenCommand).
+//
+// The app can send data by assigning the TCP_C_SEND message kind to the data packet,
+// and sending it to TCP. The app will receive data as messages
+// with the TCP_I_DATA message kind.
+//
+// To close, the client sends a cMessage to TCP with the TCP_C_CLOSE message kind
+// and ~TcpCommand control info.
+//
+// TCP sends notifications to the application whenever there's a significant
+// change in the state of the connection: established, remote TCP closed,
+// closed, timed out, connection refused, connection reset, etc. These
+// notifications are also cMessages with message kind TCP_I_xxx
+// (TCP_I_ESTABLISHED, etc.) and ~TcpCommand as control info.
+//
+// One TCP module can serve several application modules, and several
+// connections per application. When talking to applications, a
+// connection is identified by the connId that is assigned by the application in
+// the OPEN call.
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Sockets</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// The TcpSocket C++ class is provided to simplify managing TCP connections
+// from applications. TcpSocket handles the job of assembling and sending
+// command messages (OPEN, CLOSE, etc) to TCP, and it also simplifies
+// the task of dealing with packets and notification messages coming from TCP.
+//
+// </span><span style="color: #800000; ">&lt;b&gt;</span><span style="color: #808080; font-style: italic; ">Communication with the IP layer</span><span style="color: #800000; ">&lt;/b&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// A TCP header is represented by the class ~TcpHeader.
+//
+// The TCP model relies on sending and receiving ~L3AddressReq/~L3AddressInd tags
+// attached to TCP segment packets.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">ITcp</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/wheelbarrow&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">appIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpHeader</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv6ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">appOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpCommand</span><span style="color: #232629; ">/</span><span style="color: #232629; ">up</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">ipOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpHeader</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv4ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">,</span><span style="color: #232629; ">Ipv6ControlInfo</span><span style="color: #232629; ">/</span><span style="color: #232629; ">down</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-transportlayer-contract-ITcp.ned.html">src/inet/transportlayer/contract/ITcp.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

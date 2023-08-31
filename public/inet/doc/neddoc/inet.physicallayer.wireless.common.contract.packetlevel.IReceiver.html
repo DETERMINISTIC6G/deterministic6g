@@ -1,0 +1,257 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>IReceiver</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">IReceiver</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_physicallayer_wireless_common_contract_packetlevel">inet.physicallayer.wireless.common.contract.packetlevel</a></p>
+<h2 class="comptitle" style="float: left;">IReceiver</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00e5ff40;">
+    <span class="mdl-chip__text">module interface</span>
+</span><div style="clear: both;"/>
+
+<p>The receiver model describes the physical process which converts electric
+signals into packets.</p>
+<img src="inet.physicallayer.wireless.common.contract.packetlevel.IReceiver-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.physicallayer.wireless.common.contract.packetlevel.IReceiver.html" title="IReceiver" alt="IReceiver" coords="0,42,228,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.physicallayer.wireless.common.contract.packetlevel.IReceiver-inheritance.svg"></object>
+<h3 class="subtitle">Implemented by</h3>
+<table class="implementorstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.apsk.packetlevel.ApskDimensionalReceiver" href="inet.physicallayer.wireless.apsk.packetlevel.ApskDimensionalReceiver.html">ApskDimensionalReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model receives a transmission succesfully if the minimum of the
+signal to noise and interference ratio over the duration of the reception is
+sufficiently high. It uses the error model to compute the error rate based on
+this value and the used modulation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.apsk.bitlevel.ApskLayeredReceiver" href="inet.physicallayer.wireless.apsk.bitlevel.ApskLayeredReceiver.html">ApskLayeredReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model is part of a simple hypothetical layered radio. It
+receives detailed transmissions that have separate representation for
+all simulated domains. The levelOfDetail parameter controls which domains
+are actually simulated, but all parameters relevant to the error model are
+expected to be set on the reception.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.apsk.packetlevel.ApskScalarReceiver" href="inet.physicallayer.wireless.apsk.packetlevel.ApskScalarReceiver.html">ApskScalarReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model receives a transmission succesfully if the minimum of the
+signal to noise and interference ratio over the duration of the reception is
+sufficiently high. It uses the error model to compute the error rate based on
+this value and the used modulation.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211DimensionalReceiver" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211DimensionalReceiver.html">Ieee80211DimensionalReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model receives an IEEE 802.11 transmission successfully if the
+minimum of the signal to noise and interference ratio over the duration of
+the reception is sufficiently high. It uses one of the IEEE 802.11 specific
+error models to compute the error rate based on this value and the used
+operation mode.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.bitlevel.Ieee80211LayeredOfdmReceiver" href="inet.physicallayer.wireless.ieee80211.bitlevel.Ieee80211LayeredOfdmReceiver.html">Ieee80211LayeredOfdmReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module implements an IEEE 802.11 OFDM receiver.
+The implemenation details are based on the following standard:
+IEEE Std 802.11-2012 PART 11: WIRELESS LAN MAC AND PHY SPECIFICATIONS</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ReceiverBase" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ReceiverBase.html">Ieee80211ReceiverBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model serves as the base module for IEEE 802.11 receivers. It
+supports switching channels, configuring different operation modes, and
+preamble modes.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211ScalarReceiver.html">Ieee80211ScalarReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model receives an IEEE 802.11 transmission successfully if the
+minimum of the signal to noise and interference ratio over the duration of
+the reception is sufficiently high. It uses one of the IEEE 802.11 specific
+error models to compute the error rate based on this value and the used
+operation mode.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskReceiver" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskReceiver.html">Ieee80211UnitDiskReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskTransmitter" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskTransmitter.html">Ieee80211UnitDiskTransmitter</a>, ~<a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskRadio" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211UnitDiskRadio.html">Ieee80211UnitDiskRadio</a>, ~<a title="inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium" href="inet.physicallayer.wireless.unitdisk.UnitDiskRadioMedium.html">UnitDiskRadioMedium</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalReceiver" href="inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandDimensionalReceiver.html">Ieee802154NarrowbandDimensionalReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarReceiver" href="inet.physicallayer.wireless.ieee802154.packetlevel.Ieee802154NarrowbandScalarReceiver.html">Ieee802154NarrowbandScalarReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.ieee802154.bitlevel.Ieee802154UwbIrReceiver" href="inet.physicallayer.wireless.ieee802154.bitlevel.Ieee802154UwbIrReceiver.html">Ieee802154UwbIrReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.common.base.packetlevel.NarrowbandReceiverBase" href="inet.physicallayer.wireless.common.base.packetlevel.NarrowbandReceiverBase.html">NarrowbandReceiverBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module servces as a base module for narrowband receiver models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.common.base.packetlevel.SnirReceiverBase" href="inet.physicallayer.wireless.common.base.packetlevel.SnirReceiverBase.html">SnirReceiverBase</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This module servces as a base module for SNIR receiver models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.unitdisk.UnitDiskReceiver" href="inet.physicallayer.wireless.unitdisk.UnitDiskReceiver.html">UnitDiskReceiver</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This receiver model receives a transmission succesfully within communication
+range unless there's another interfering transmission within interference
+range. It also supports an ideal communication channel with configuring the
+receiver to ignore interfering transmissions.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Used in compound modules</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.physicallayer.wireless.common.radio.packetlevel.Radio" href="inet.physicallayer.wireless.common.radio.packetlevel.Radio.html">Radio</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>The radio model describes the physical device that is capable of transmitting
+and receiving signals on the medium. It contains an antenna model, a
+transmitter model, a receiver model, and an energy consumer model.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/wrx</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// The receiver model describes the physical process which converts electric
+// signals into packets.
+//
+</span><span style="color: #800000; font-weight: bold; ">moduleinterface</span><span style="color: #232629; "> </span><span style="color: #232629; ">IReceiver</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/wrx&quot;</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-physicallayer-wireless-common-contract-packetlevel-IReceiver.ned.html">src/inet/physicallayer/wireless/common/contract/packetlevel/IReceiver.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

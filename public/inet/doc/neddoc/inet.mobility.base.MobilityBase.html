@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>MobilityBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">MobilityBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_mobility_base">inet.mobility.base</a></p>
+<h2 class="comptitle" style="float: left;">MobilityBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Abstract base module for mobility models.</p>
+<p>Format directives:</p>
+  <ul><li>%p position</li>
+  <li>%v velocity</li>
+  <li>%s speed</li>
+  <li>%a acceleration</li>
+  <li>%P angular position</li>
+  <li>%V angular velocity</li>
+  <li>%S angular speed</li>
+  <li>%A angular acceleration</li></ul>
+<img src="inet.mobility.base.MobilityBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.mobility.base.MobilityBase.html" title="MobilityBase" alt="MobilityBase" coords="0,42,163,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.mobility.base.MobilityBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.AttachedMobility" href="inet.mobility.single.AttachedMobility.html">AttachedMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides a mobility that is attached to another mobility at a
+given offset. The position, velocity and acceleration are all affectred by
+the respective quantites and the orientation of the mobility where this one
+is attached.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.FacingMobility" href="inet.mobility.single.FacingMobility.html">FacingMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module provides orientation towards the target mobility model as seen
+from the source mobility model.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.base.MovingMobilityBase" href="inet.mobility.base.MovingMobilityBase.html">MovingMobilityBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Abstract base module for mobility models.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StaticConcentricMobility" href="inet.mobility.static.StaticConcentricMobility.html">StaticConcentricMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Places all hosts on concentric circles</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StaticGridMobility" href="inet.mobility.static.StaticGridMobility.html">StaticGridMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Places all hosts in a rectangular grid.
+The usable area (constraint area minus margins on each side) is split into smaller cells
+(with separationX,separationY size). Hosts are placed in the middle of each cell.
+By default, the number of columns and rows follow the aspect ratio of the usable area.
+By default stepX and stepY are calculated based on the number of columns and rows.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.static.StationaryMobility" href="inet.mobility.static.StationaryMobility.html">StationaryMobility</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This mobility module does nothing; it can be used for stationary nodes.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.mobility.single.SuperpositioningMobility" href="inet.mobility.single.SuperpositioningMobility.html">SuperpositioningMobility</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>This mobility module combines the trajectory of several other mobility modules
+using superposition. In other words, the position, velocity and acceleration
+is the sum of the respective quantities of all submodules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>subjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path which determines the subject module, the motion of which this mobility model describes, the default value is the parent module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>coordinateSystemModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>module path of the geographic coordinate system module</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"p: %p\nv: %v"</td>
+      <td>
+<p>format string for the mobility module's display string text</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>updateDisplayString</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enables continuous update of the subject module's position via modifying its display string</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMinX</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min x position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMinY</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min y position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMinZ</td>
+      <td>double</td>
+      <td>-inf m</td>
+      <td>
+<p>min z position of the constraint area, unconstrained by default (negative infinity)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMaxX</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max x position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMaxY</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max y position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>constraintAreaMaxZ</td>
+      <td>double</td>
+      <td>inf m</td>
+      <td>
+<p>max z position of the constraint area, unconstrained by default (positive infinity)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>mobilityStateChanged</td>
+      <td>inet::MobilityBase</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Abstract base module for mobility models.
+//
+// Format directives:
+//  - %p position
+//  - %v velocity
+//  - %s speed
+//  - %a acceleration
+//  - %P angular position
+//  - %V angular velocity
+//  - %S angular speed
+//  - %A angular acceleration
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">MobilityBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IMobility</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">mobilityStateChanged</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">MobilityBase</span><span style="color: #232629; ">);     </span><span style="color: #808080; font-style: italic; ">// it's work in inet, but not work in extended module in other namespace
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">subjectModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// module path which determines the subject module, the motion of which this mobility model describes, the default value is the parent module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">coordinateSystemModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// module path of the geographic coordinate system module
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p: %p\nv: %v&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// format string for the mobility module's display string text
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">updateDisplayString</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// enables continuous update of the subject module's position via modifying its display string
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMinX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// min x position of the constraint area, unconstrained by default (negative infinity)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMinY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// min y position of the constraint area, unconstrained by default (negative infinity)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMinZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// min z position of the constraint area, unconstrained by default (negative infinity)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMaxX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// max x position of the constraint area, unconstrained by default (positive infinity)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMaxY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// max y position of the constraint area, unconstrained by default (positive infinity)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">constraintAreaMaxZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">inf</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// max z position of the constraint area, unconstrained by default (positive infinity)
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-mobility-base-MobilityBase.ned.html">src/inet/mobility/base/MobilityBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

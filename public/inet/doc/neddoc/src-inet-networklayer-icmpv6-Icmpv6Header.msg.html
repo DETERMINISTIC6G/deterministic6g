@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Icmpv6Header.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Icmpv6Header.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/networklayer/icmpv6/Icmpv6Header.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6Type" href="inet-Icmpv6Type.html">Icmpv6Type</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6DestUnav" href="inet-Icmpv6DestUnav.html">Icmpv6DestUnav</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>ICMPv6 "codes" for type ICMPv6_DESTINATION_UNREACHABLE</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6TimeEx" href="inet-Icmpv6TimeEx.html">Icmpv6TimeEx</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>ICMPv6 "codes" for type ICMPv6_TIME_EXCEEDED</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6ParameterProblem" href="inet-Icmpv6ParameterProblem.html">Icmpv6ParameterProblem</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>ICMPv6 "codes" for type ICMPv6_PARAMETER_PROBLEM</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6Header" href="inet-Icmpv6Header.html">Icmpv6Header</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents an ICMPv6 packet.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6DestUnreachableMsg" href="inet-Icmpv6DestUnreachableMsg.html">Icmpv6DestUnreachableMsg</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Notes:
+  1. As defined in RFC2463: Section 3</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6PacketTooBigMsg" href="inet-Icmpv6PacketTooBigMsg.html">Icmpv6PacketTooBigMsg</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6TimeExceededMsg" href="inet-Icmpv6TimeExceededMsg.html">Icmpv6TimeExceededMsg</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6ParamProblemMsg" href="inet-Icmpv6ParamProblemMsg.html">Icmpv6ParamProblemMsg</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6EchoRequestMsg" href="inet-Icmpv6EchoRequestMsg.html">Icmpv6EchoRequestMsg</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>ICMPv6 Echo <a title="inet::Request" href="inet-Request.html">Request</a> packet (RFC2463: Section 4).
+Data is attached through encapsulation (see <a title="inet.networklayer.icmpv6.Icmpv6" href="inet.networklayer.icmpv6.Icmpv6.html">Icmpv6</a>.cc)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::Icmpv6EchoReplyMsg" href="inet-Icmpv6EchoReplyMsg.html">Icmpv6EchoReplyMsg</a></td>
+      <td><i>class</i></td>
+      <td>
+<p><a title="inet.networklayer.icmpv6.Icmpv6" href="inet.networklayer.icmpv6.Icmpv6.html">Icmpv6</a> Echo Reply packet. Data is attached through encapsulation (see <a title="inet.networklayer.icmpv6.Icmpv6" href="inet.networklayer.icmpv6.Icmpv6.html">Icmpv6</a>.cc)</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2001 CTIE, Monash University
+// Copyright (C) 2005 OpenSim Ltd.
+// Copyright (C) 2005 Wei Yang, Ng
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Units</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">CrcMode</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">ICMPv6_HEADER_BYTES</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #cccccc; font-style: italic; ">//# </span><span style="color: #000080; ">TODO</span><span style="color: #cccccc; font-style: italic; "> consolidate this file's contents with ICMPMessage.msg
+</span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Type</span><span style="color: #232629; ">
+{
+
+    </span><span style="color: #232629; ">ICMPv6_UNSPECIFIED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_DESTINATION_UNREACHABLE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_PACKET_TOO_BIG</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_TIME_EXCEEDED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_PARAMETER_PROBLEM</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_ECHO_REQUEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">128</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_ECHO_REPLY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">129</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_MLD_QUERY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">130</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_MLD_REPORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">131</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_MLD_DONE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">132</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_ROUTER_SOL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">133</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_ROUTER_AD</span><span style="color: #232629; "> = </span><span style="color: #008000; ">134</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_NEIGHBOUR_SOL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">135</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_NEIGHBOUR_AD</span><span style="color: #232629; "> = </span><span style="color: #008000; ">136</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_REDIRECT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">137</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_MLDv2_REPORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">143</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ICMPv6_EXPERIMENTAL_MOBILITY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">150</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">//Zarrar Yousaf 02.08.07 (FMIPv6 Implementation)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// ICMPv6 &quot;codes&quot; for type ICMPv6_DESTINATION_UNREACHABLE
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6DestUnav</span><span style="color: #232629; ">
+{
+
+    </span><span style="color: #232629; ">NO_ROUTE_TO_DEST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">COMM_WITH_DEST_PROHIBITED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">//2 - NOT ASSIGNED
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">ADDRESS_UNREACHABLE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">PORT_UNREACHABLE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// ICMPv6 &quot;codes&quot; for type ICMPv6_TIME_EXCEEDED
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6TimeEx</span><span style="color: #232629; ">
+{
+
+    </span><span style="color: #232629; ">ND_HOP_LIMIT_EXCEEDED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ND_FRAGMENT_REASSEMBLY_TIME</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// ICMPv6 &quot;codes&quot; for type ICMPv6_PARAMETER_PROBLEM
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6ParameterProblem</span><span style="color: #232629; ">
+{
+
+    </span><span style="color: #232629; ">ERROREOUS_HDR_FIELD</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">UNRECOGNIZED_NEXT_HDR_TYPE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">UNRECOGNIZED_IPV6_OPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents an ICMPv6 packet.
+//
+// Notes:
+//    1. number of octets excluding the error datagram that is usually appended
+//       in optInfo, i.e. the Type|CODE|CHECKSUM|UNUSED/POINTER/MTU/OTHER
+//       as defined in RFC2463
+//    2. Any ICMP type with MSB set, i.e. &gt;=128 is an Informational ICMP message
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_HEADER_BYTES</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Icmpv6Type</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// 1 byte
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//int code; // 1 byte //TODO this should be specific to different ICMP types.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">chksum</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// 2 bytes
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">CrcMode</span><span style="color: #232629; "> </span><span style="color: #232629; ">crcMode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">CRC_MODE_UNDEFINED</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// 4 bytes 'type' specific values
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Notes:
+//   1. As defined in RFC2463: Section 3
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6DestUnreachableMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_DESTINATION_UNREACHABLE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Icmpv6DestUnav</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// unused 4 bytes
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6PacketTooBigMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_PACKET_TOO_BIG</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//Set to 0 by sender and ignored by receiver.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">MTU</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//MTU of next-hop link
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6TimeExceededMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_TIME_EXCEEDED</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Icmpv6TimeEx</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6ParamProblemMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_PARAMETER_PROBLEM</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Icmpv6ParameterProblem</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// ICMPv6 Echo Request packet (RFC2463: Section 4).
+// Data is attached through encapsulation (see Icmpv6.cc)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6EchoRequestMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_ECHO_REQUEST</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">identifier</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// identifier to aid in matching Echo replies. May be Zero
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">seqNumber</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// sequence number to aid in matching Echo replies. May be Zero
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">//Data is attached through encapsulation. See Icmpv6.cc
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Icmpv6 Echo Reply packet. Data is attached through encapsulation (see Icmpv6.cc)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6EchoReplyMsg</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Icmpv6Header</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ICMPv6_ECHO_REPLY</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">code</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">identifier</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// identifier to aid in matching Echo replies. May be Zero
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">seqNumber</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// sequence number to aid in matching Echo replies. May be Zero
+</span><span style="color: #232629; ">}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

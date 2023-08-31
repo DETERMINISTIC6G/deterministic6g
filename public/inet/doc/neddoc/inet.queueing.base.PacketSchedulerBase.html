@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>PacketSchedulerBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">PacketSchedulerBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_base">inet.queueing.base</a></p>
+<h2 class="comptitle" style="float: left;">PacketSchedulerBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This is a base module for various packet scheduler modules. Derived modules
+must implement a single packet scheduler function which determines the index
+of the input gate for the pulled packet.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.queueing.contract.IPacketScheduler" href="inet.queueing.contract.IPacketScheduler.html">IPacketScheduler</a></p>
+<img src="inet.queueing.base.PacketSchedulerBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.base.PacketSchedulerBase.html" title="PacketSchedulerBase" alt="PacketSchedulerBase" coords="0,42,243,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.base.PacketSchedulerBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.ContentBasedScheduler" href="inet.queueing.scheduler.ContentBasedScheduler.html">ContentBasedScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module connects one packet collector to multiple packet providers. It
+can be pulled for packets by the connected packet collector. When this
+happens, the scheduler pulls a packet from one of its packet providers based
+on the configured packet filters. The first matching expression determines
+the index of the input gate.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.LabelScheduler" href="inet.queueing.scheduler.LabelScheduler.html">LabelScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module schedules packets based on the attached labels in a ~<a title="inet::LabelsTag" href="inet-LabelsTag.html">LabelsTag</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.MarkovScheduler" href="inet.queueing.scheduler.MarkovScheduler.html">MarkovScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements a packet scheduler using a Markov process that has
+as many states as input gates the scheduler has. The input gate for the next
+packet is determined by the current state of the Markov process.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.PacketScheduler" href="inet.queueing.scheduler.PacketScheduler.html">PacketScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module connects one packet collector to multiple packet providers. It
+can be pulled for packets by the connected packet collector. When this
+happens, the scheduler pulls a packet from one of its packet providers based
+on the configured scheduler function. The packet scheduler function takes a
+list of packet providers and returns an integer which in turn is used for
+determining the input gate.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.PriorityScheduler" href="inet.queueing.scheduler.PriorityScheduler.html">PriorityScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This scheduler pulls packets from the first non-empty among its connected
+packet providers.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.scheduler.WrrScheduler" href="inet.queueing.scheduler.WrrScheduler.html">WrrScheduler</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module implements weighted round-robin scheduling.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.PacketProcessorBase" href="inet.queueing.base.PacketProcessorBase.html">PacketProcessorBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various packet processing modules which maintains
+a few statistics.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"scheduled %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>reverseOrder</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/join</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>PacketSchedulerBase</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in [ ]</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>out</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetPulled</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetLengths</td>
+      <td>packet lengths</td>
+      <td>packetLength(packetPulled)</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>dataRate</td>
+      <td>data rate</td>
+      <td>throughput(packetPulled)</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td>packets</td>
+      <td>packetPulled</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This is a base module for various packet scheduler modules. Derived modules
+// must implement a single packet scheduler function which determines the index
+// of the input gate for the pulled packet.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~IPacketScheduler
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketSchedulerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketProcessorBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reverseOrder</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">false</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">displayStringTextFormat</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;scheduled %p pk (%l)&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketSchedulerBase</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/join&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">Packet</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the scheduled packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packets</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packets&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">; </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">count</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">pk</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the length of the scheduled packet
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">packetLengths</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;packet lengths&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">packetLength</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">sum</span><span style="color: #232629; ">,</span><span style="color: #232629; ">histogram</span><span style="color: #232629; ">,</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">b</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">none</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// the statistical value is the data rate of the scheduled packets
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@statistic</span><span style="color: #232629; ">[</span><span style="color: #232629; ">dataRate</span><span style="color: #232629; ">](</span><span style="color: #232629; ">title</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;data rate&quot;</span><span style="color: #232629; ">; </span><span style="color: #232629; ">source</span><span style="color: #232629; ">=</span><span style="color: #232629; ">throughput</span><span style="color: #232629; ">(</span><span style="color: #232629; ">packetPulled</span><span style="color: #232629; ">); </span><span style="color: #232629; ">record</span><span style="color: #232629; ">=</span><span style="color: #232629; ">vector</span><span style="color: #232629; ">; </span><span style="color: #232629; ">unit</span><span style="color: #232629; ">=</span><span style="color: #232629; ">bps</span><span style="color: #232629; ">; </span><span style="color: #232629; ">interpolationmode</span><span style="color: #232629; ">=</span><span style="color: #232629; ">linear</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; ">[];
+        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">out</span><span style="color: #232629; ">;
+}
+</span></pre>
+File: <a href="src-inet-queueing-base-PacketSchedulerBase.ned.html">src/inet/queueing/base/PacketSchedulerBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

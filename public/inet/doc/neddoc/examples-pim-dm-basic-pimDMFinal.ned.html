@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>pimDMFinal.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">pimDMFinal.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/pim/dm/basic/pimDMFinal.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.pim.dm.basic.pimDMFinal" href="inet.examples.pim.dm.basic.pimDMFinal.html">pimDMFinal</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2013 Brno University of Technology (http://nes.fit.vutbr.cz/ansa)
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">// @file finalTest.ned
+// </span><span style="color: #000080; ">@date</span><span style="color: #808080; font-style: italic; "> 21.10.2011
+// </span><span style="color: #000080; ">@author</span><span style="color: #808080; font-style: italic; ">: Tomas Prochazka (mailto:xproch21@stud.fit.vutbr.cz), Vladimir Vesely (mailto:ivesely@fit.vutbr.cz)
+// @brief Topology with PIM network
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pim</span><span style="color: #232629; ">.</span><span style="color: #232629; ">dm</span><span style="color: #232629; ">.</span><span style="color: #232629; ">basic</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethernet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">MulticastRouter</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">pimDMFinal</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">R1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MulticastRouter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=425,190&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">R2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MulticastRouter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=275,280&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">R3</span><span style="color: #232629; ">: </span><span style="color: #232629; ">MulticastRouter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=575,280&quot;</span><span style="color: #232629; ">);
+        }
+
+        </span><span style="color: #232629; ">Source1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=425,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">Host1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=200,370;i=device/pc&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">Source2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=500,370&quot;</span><span style="color: #232629; ">);
+        }
+
+        </span><span style="color: #232629; ">Host2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=350,370;i=device/pc&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">Host3</span><span style="color: #232629; ">: </span><span style="color: #232629; ">StandardHost</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=650,370;i=device/pc&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #808080; font-style: italic; ">//        scenarioManager: ScenarioManager {
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//            @display(&quot;p=376,26&quot;);
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//            script = xmldoc(&quot;scenario.xml&quot;);
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//        }
+</span><span style="color: #232629; ">    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">allowunconnected</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">R1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">R2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">R1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">R3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">R1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Source1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">R2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Host1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">R2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Host2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+
+        </span><span style="color: #232629; ">R3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Source2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        </span><span style="color: #232629; ">R3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Eth100M</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Host3</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

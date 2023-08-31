@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ActivePacketSink</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ActivePacketSink</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_queueing_sink">inet.queueing.sink</a></p>
+<h2 class="comptitle" style="float: left;">ActivePacketSink</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module is an active packet sink which pulls packets from the connected
+module. It pulls whole packets through the in gate at every collection interval.
+It pulls the first packet after the initial collection offset.</p>
+<p>If backpressure is present at the end of a collection interval, then it waits
+until the backpressure disappears, and then pulls in a packet. The collection
+interval timer always starts after the module pulls a packet in.</p>
+<p>All pulled packets are counted and deleted.</p>
+<p>Invariants:</p>
+  <ul><li>two subsequent packets are always pulled in at least collectionInterval time apart</li>
+  <li>backpressure prevents packets from being pulled in</li></ul>
+<img src="inet.queueing.sink.ActivePacketSink-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.queueing.sink.ActivePacketSink.html" title="ActivePacketSink" alt="ActivePacketSink" coords="0,42,201,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.queueing.sink.ActivePacketSink-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.BufferTutorialStep" href="inet.tutorials.queueing.BufferTutorialStep.html">BufferTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ComparatorTutorialStep" href="inet.tutorials.queueing.ComparatorTutorialStep.html">ComparatorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.CompoundPacketQueueTutorialStep" href="inet.tutorials.queueing.CompoundPacketQueueTutorialStep.html">CompoundPacketQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ContentBasedSchedulerTutorialStep" href="inet.tutorials.queueing.ContentBasedSchedulerTutorialStep.html">ContentBasedSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DemultiplexerTutorialStep" href="inet.tutorials.queueing.DemultiplexerTutorialStep.html">DemultiplexerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.DropTailQueueTutorialStep" href="inet.tutorials.queueing.DropTailQueueTutorialStep.html">DropTailQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Filter2TutorialStep" href="inet.tutorials.queueing.Filter2TutorialStep.html">Filter2TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.Gate2TutorialStep" href="inet.tutorials.queueing.Gate2TutorialStep.html">Gate2TutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.GenericSchedulerTutorialStep" href="inet.tutorials.queueing.GenericSchedulerTutorialStep.html">GenericSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.MarkovSchedulerTutorialStep" href="inet.tutorials.queueing.MarkovSchedulerTutorialStep.html">MarkovSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PacketQueueTutorialStep" href="inet.tutorials.queueing.PacketQueueTutorialStep.html">PacketQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityBufferTutorialStep" href="inet.tutorials.queueing.PriorityBufferTutorialStep.html">PriorityBufferTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityClassifierTutorialStep" href="inet.tutorials.queueing.PriorityClassifierTutorialStep.html">PriorityClassifierTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PriorityQueueTutorialStep" href="inet.tutorials.queueing.PriorityQueueTutorialStep.html">PriorityQueueTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.PrioritySchedulerTutorialStep" href="inet.tutorials.queueing.PrioritySchedulerTutorialStep.html">PrioritySchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.ProviderCollectorTutorialStep" href="inet.tutorials.queueing.ProviderCollectorTutorialStep.html">ProviderCollectorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.QueueBasedTokenGeneratorTutorialStep" href="inet.tutorials.queueing.QueueBasedTokenGeneratorTutorialStep.html">QueueBasedTokenGeneratorTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.QueueFillerTutorialStep" href="inet.tutorials.queueing.QueueFillerTutorialStep.html">QueueFillerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.RedDropperTutorialStep" href="inet.tutorials.queueing.RedDropperTutorialStep.html">RedDropperTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.queueing.WrrSchedulerTutorialStep" href="inet.tutorials.queueing.WrrSchedulerTutorialStep.html">WrrSchedulerTutorialStep</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.queueing.base.ActivePacketSinkBase" href="inet.queueing.base.ActivePacketSinkBase.html">ActivePacketSinkBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for various active packet sink modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>displayStringTextFormat</td>
+      <td>string</td>
+      <td>"received %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>clockModule</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>relative path of a module that implements IClock(<a title="inet::IClock" href="inet-IClock.html">1</a>,<a title="inet.clock.contract.IClock" href="inet.clock.contract.IClock.html">2</a>); optional</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>initialCollectionOffset</td>
+      <td>double</td>
+      <td>-1s</td>
+      <td>
+<p>initial duration before which packets are not collected, negative value means: try the first collection in initialize()</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>collectionInterval</td>
+      <td>double</td>
+      <td></td>
+      <td>
+<p>elapsed time between subsequent packets pulled from the connected packet provider</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>scheduleForAbsoluteTime</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>when a clock is used relative means that setting the clock will not affect the simulation time of the event</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/sink</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>ActivePacketSink</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>in</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetPulled</td>
+      <td>inet::Packet</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Statistics</h3>
+<table class="statisticstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="title">Title</th>
+      <th class="source">Source</th>
+      <th class="record">Record</th>
+      <th class="unit">Unit</th>
+      <th class="interpolationmode">Interpolation Mode</th>
+   </tr>
+   <tr class="local">
+      <td>packetDelayVariation</td>
+      <td>packet delay variation</td>
+      <td>stddev(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPulled))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDelayDifferenceToMean</td>
+      <td>packet delay difference to mean</td>
+      <td>differenceToMean(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPulled))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>meanBitLifeTimePerPacket</td>
+      <td>mean bit life time per packet</td>
+      <td>weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPulled)))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packetLengths</td>
+      <td>packet lengths</td>
+      <td>packetLength(packetPulled)</td>
+      <td>sum, histogram, vector</td>
+      <td>b</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>dataRate</td>
+      <td>data rate</td>
+      <td>throughput(packetPulled)</td>
+      <td>vector</td>
+      <td>bps</td>
+      <td>linear</td>
+   </tr>
+   <tr class="local">
+      <td>packetJitter</td>
+      <td>packet jitter</td>
+      <td>jitter(weightedMeanPerGroup(groupRegionsPerPacket(lifeTimePerRegion(packetPulled))))</td>
+      <td>vector, histogram</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>bitLifeTime</td>
+      <td>bit life time</td>
+      <td>weightTimes(lengthWeightedValuePerRegion(lifeTimePerRegion(packetPulled)))</td>
+      <td>histogram?</td>
+      <td>s</td>
+      <td>none</td>
+   </tr>
+   <tr class="local">
+      <td>packets</td>
+      <td>packets</td>
+      <td>packetPulled</td>
+      <td>count</td>
+      <td>pk</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module is an active packet sink which pulls packets from the connected
+// module. It pulls whole packets through the in gate at every collection interval.
+// It pulls the first packet after the initial collection offset.
+//
+// If backpressure is present at the end of a collection interval, then it waits
+// until the backpressure disappears, and then pulls in a packet. The collection
+// interval timer always starts after the module pulls a packet in.
+//
+// All pulled packets are counted and deleted.
+//
+// Invariants:
+//  - two subsequent packets are always pulled in at least collectionInterval time apart
+//  - backpressure prevents packets from being pulled in
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">ActivePacketSink</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ActivePacketSinkBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IActivePacketSink</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">clockModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// relative path of a module that implements IClock; optional
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">initialCollectionOffset</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// initial duration before which packets are not collected, negative value means: try the first collection in initialize()
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">volatile</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">collectionInterval</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// elapsed time between subsequent packets pulled from the connected packet provider
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">scheduleForAbsoluteTime</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// when a clock is used relative means that setting the clock will not affect the simulation time of the event
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ActivePacketSink</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">in</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">pull</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-queueing-sink-ActivePacketSink.ned.html">src/inet/queueing/sink/ActivePacketSink.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

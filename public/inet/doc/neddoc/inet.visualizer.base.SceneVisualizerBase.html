@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>SceneVisualizerBase</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">SceneVisualizerBase</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_visualizer_base">inet.visualizer.base</a></p>
+<h2 class="comptitle" style="float: left;">SceneVisualizerBase</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This is a base module for scene visualizer simple modules. It determines the
+bounds of the scene, that is the minimum area where the whole simulation
+fits in. The scene encloses all physical objects and the constraint area
+of all mobile nodes. The visualizer also provides a timer which can be used
+to periodically update the user interface independently of the underlying
+simulation. The actual visualization of the scene is done in derived modules.</p>
+<p>&lt;<a title="inet::b" href="inet-b.html">b</a>&gt;See also:&lt;/<a title="inet::b" href="inet-b.html">b</a>&gt; ~<a title="inet.visualizer.canvas.scene.SceneCanvasVisualizer" href="inet.visualizer.canvas.scene.SceneCanvasVisualizer.html">SceneCanvasVisualizer</a>, ~SceneOsgVisualizer, ~<a title="inet.visualizer.contract.ISceneVisualizer" href="inet.visualizer.contract.ISceneVisualizer.html">ISceneVisualizer</a>, ~<a title="inet.visualizer.base.VisualizerBase" href="inet.visualizer.base.VisualizerBase.html">VisualizerBase</a></p>
+<img src="inet.visualizer.base.SceneVisualizerBase-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.visualizer.base.SceneVisualizerBase.html" title="SceneVisualizerBase" alt="SceneVisualizerBase" coords="0,42,232,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.visualizer.base.SceneVisualizerBase-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.scene.OpenStreetMapSceneCanvasVisualizer" href="inet.visualizer.canvas.scene.OpenStreetMapSceneCanvasVisualizer.html">OpenStreetMapSceneCanvasVisualizer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module visualizes a stream map given in an OpenStreetMap file.
+Other objects of the scene are placed on the map according to the coordinate system module.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.canvas.scene.SceneCanvasVisualizer" href="inet.visualizer.canvas.scene.SceneCanvasVisualizer.html">SceneCanvasVisualizer</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This module visualizes the scene on a 2D canvas. It provides the 3D coordinate
+system's 2D orthographic projection for other visualizers. This is used to get
+a consistent visualization accross all visualizers. It can also display the
+coordinate system axes.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.visualizer.base.VisualizerBase" href="inet.visualizer.base.VisualizerBase.html">VisualizerBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>This is a base module for visualizer simple modules. It simply provides the
+visualization target module for derived modules.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationTargetModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines where the visualization should appear in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>visualizationSubjectModule</td>
+      <td>string</td>
+      <td>"^"</td>
+      <td>
+<p>module path relative to the visualizer which determines what part of the simulation model the visualizer displays in the user interface, parent module by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>tags</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tag added to each visualization for disambiguation in the runtime environment</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>physicalEnvironmentModule</td>
+      <td>string</td>
+      <td>"physicalEnvironment"</td>
+      <td>
+<p>the physical environment module, refers to a top level submodule by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>networkNodeVisualizerModule</td>
+      <td>string</td>
+      <td>"^.networkNodeVisualizer"</td>
+      <td>
+<p>the network node visualizer, refers to a sibling submodule by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>axisLength</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>length of x, y, and z axes, no axis by default</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>animationSpeed</td>
+      <td>double</td>
+      <td>0</td>
+      <td>
+<p>always active animation speed independent of any visualization, value must be in the range (0, +inf)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMinX</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of x coordinates in scene</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMinY</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of y coordinates in scene</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMinZ</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>lower bound of z coordinates in scene</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMaxX</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of x coordinates in scene</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMaxY</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of y coordinates in scene</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sceneMaxZ</td>
+      <td>double</td>
+      <td>nan m</td>
+      <td>
+<p>upper bound of z coordinates in scene</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>SceneVisualizerBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/app</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This is a base module for scene visualizer simple modules. It determines the
+// bounds of the scene, that is the minimum area where the whole simulation
+// fits in. The scene encloses all physical objects and the constraint area
+// of all mobile nodes. The visualizer also provides a timer which can be used
+// to periodically update the user interface independently of the underlying
+// simulation. The actual visualization of the scene is done in derived modules.
+//
+// </span><span style="color: #000080; ">@see</span><span style="color: #808080; font-style: italic; "> ~SceneCanvasVisualizer, ~SceneOsgVisualizer, ~ISceneVisualizer, ~VisualizerBase
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">SceneVisualizerBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">VisualizerBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">physicalEnvironmentModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;physicalEnvironment&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the physical environment module, refers to a top level submodule by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">networkNodeVisualizerModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.networkNodeVisualizer&quot;</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// the network node visualizer, refers to a sibling submodule by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">axisLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@mutable</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// length of x, y, and z axes, no axis by default
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">animationSpeed</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// always active animation speed independent of any visualization, value must be in the range (0, +inf)
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMinX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of x coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMinY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of y coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMinZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// lower bound of z coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMaxX</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of x coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMaxY</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of y coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">sceneMaxZ</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">m</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">nan</span><span style="color: #232629; "> </span><span style="color: #232629; ">m</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// upper bound of z coordinates in scene
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">SceneVisualizerBase</span><span style="color: #232629; ">);
+}
+</span></pre>
+File: <a href="src-inet-visualizer-base-SceneVisualizerBase.ned.html">src/inet/visualizer/base/SceneVisualizerBase.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

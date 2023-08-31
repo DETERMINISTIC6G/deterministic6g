@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee8021qTagEpdHeader</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee8021qTagEpdHeader</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">Ieee8021qTagEpdHeader</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>This chunk represents an IEEE 802.1Q tag header without the TPID field and
+with the following <a title="inet::EtherType" href="inet-EtherType.html">EtherType</a> <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> Discrimination (EPD) in the packet.
+The reason for this shifted representation is that it's often easier to look
+at a 802.1Q tag this way during processing. The typeOrLength field contains
+the <a title="inet::EtherType" href="inet-EtherType.html">EtherType</a> as defined in the section 9.2 EtherTypes of the IEEE Std 802-2014,
+IEEE Standard for Local and Metropolitan Area Networks: Overview and Architecture.</p>
+<p>0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-----+-+-----------------------+-------------------------------+
+| PCP |D|        VLAN ID        |        <a title="inet::EtherType" href="inet-EtherType.html">EtherType</a>/Length       |
++-----+-+-----------------------+-------------------------------+</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>FieldsChunk</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>chunkLength</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>pcp</td>
+      <td>uint8_t</td>
+      <td>
+<p>Priority Code Point (PCP): a 3-bit field which refers to the IEEE 802.1p priority. It indicates the frame priority level.
+Values are from 0 (best effort) to 7 (highest); 1 represents the lowest priority.
+Priority order lowest to highest: 1 0 2 3 4 5 6 7</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>dei</td>
+      <td>bool</td>
+      <td>
+<p>Drop Eligible Indicator (DEI): a 1-bit field. May be used separately or in conjunction with PCP to indicate frames eligible to be dropped in the presence of congestion.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>vid</td>
+      <td>uint16_t</td>
+      <td>
+<p>VLAN Identifier (VID): a 12-bit field specifying the VLAN to which the frame belongs.
+The hexadecimal values of 0x000 and 0xFFF are reserved. All other values may be used as VLAN identifiers, allowing up to 4,094 VLANs.
+The reserved value 0x000 indicates that the frame does not belong to any VLAN; in this case,
+the 802.1Q tag specifies only a priority and is referred to as a priority tag. On bridges,
+VLAN 1 (the default VLAN ID) is often reserved for a management VLAN; this is vendor-specific.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>typeOrLength</td>
+      <td>uint16_t</td>
+      <td>
+<p>This field contains the 16 bits immediately following the 802.1Q tag header TCI field:
+I. Tag <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> Identifier (TPID) of the following tag header: 16-bit field specifying an <a title="inet::EtherType" href="inet-EtherType.html">EtherType</a> value that is used to identify the frame as a tagged frame and to select the correct tag decoding functions.
+II. This two-octet field takes one of two meanings, depending on its numeric value. For numerical evaluation,
+    the first octet is the most significant octet of this field.
+    a) If the value of this field is less than or equal to 1500 decimal (05DC hexadecimal), then the Length/
+       Type field indicates the number of MAC client data octets contained in the subsequent MAC <a title="inet.examples.wireless.ratecontrol.Client" href="inet.examples.wireless.ratecontrol.Client.html">Client</a>
+       Data field of the basic frame (Length interpretation).
+    <a title="inet::b" href="inet-b.html">b</a>) If the value of this field is greater than or equal to 1536 decimal (0600 hexadecimal), then the
+       Length/Type field indicates the Ethertype of the MAC client protocol (Type interpretation).</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This chunk represents an IEEE 802.1Q tag header without the TPID field and
+// with the following EtherType Protocol Discrimination (EPD) in the packet.
+// The reason for this shifted representation is that it's often easier to look
+// at a 802.1Q tag this way during processing. The typeOrLength field contains
+// the EtherType as defined in the section 9.2 EtherTypes of the IEEE Std 802-2014,
+// IEEE Standard for Local and Metropolitan Area Networks: Overview and Architecture.
+//
+//  0                   1                   2                   3
+//  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
+// +-----+-+-----------------------+-------------------------------+
+// | PCP |D|        VLAN ID        |        EtherType/Length       |
+// +-----+-+-----------------------+-------------------------------+
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee8021qTagEpdHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">);
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">pcp</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// Priority Code Point (PCP): a 3-bit field which refers to the IEEE 802.1p priority. It indicates the frame priority level.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// Values are from 0 (best effort) to 7 (highest); 1 represents the lowest priority.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// Priority order lowest to highest: 1 0 2 3 4 5 6 7
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dei</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// Drop Eligible Indicator (DEI): a 1-bit field. May be used separately or in conjunction with PCP to indicate frames eligible to be dropped in the presence of congestion.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">vid</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// VLAN Identifier (VID): a 12-bit field specifying the VLAN to which the frame belongs.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// The hexadecimal values of 0x000 and 0xFFF are reserved. All other values may be used as VLAN identifiers, allowing up to 4,094 VLANs.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// The reserved value 0x000 indicates that the frame does not belong to any VLAN; in this case,
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// the 802.1Q tag specifies only a priority and is referred to as a priority tag. On bridges,
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// VLAN 1 (the default VLAN ID) is often reserved for a management VLAN; this is vendor-specific.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeOrLength</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// This field contains the 16 bits immediately following the 802.1Q tag header TCI field:
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// I. Tag Protocol Identifier (TPID) of the following tag header: 16-bit field specifying an EtherType value that is used to identify the frame as a tagged frame and to select the correct tag decoding functions.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">// II. This two-octet field takes one of two meanings, depending on its numeric value. For numerical evaluation,
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//     the first octet is the most significant octet of this field.
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//     a) If the value of this field is less than or equal to 1500 decimal (05DC hexadecimal), then the Length/
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//        Type field indicates the number of MAC client data octets contained in the subsequent MAC Client
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//        Data field of the basic frame (Length interpretation).
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//     b) If the value of this field is greater than or equal to 1536 decimal (0600 hexadecimal), then the
+</span><span style="color: #232629; ">                           </span><span style="color: #808080; font-style: italic; ">//        Length/Type field indicates the Ethertype of the MAC client protocol (Type interpretation).
+</span><span style="color: #232629; ">}
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021q-Ieee8021qTagHeader.msg.html">src/inet/linklayer/ieee8021q/Ieee8021qTagHeader.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

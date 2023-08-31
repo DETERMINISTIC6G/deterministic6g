@@ -1,0 +1,444 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>BgpHeader.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">BgpHeader.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/routing/bgpv4/bgpmessage/BgpHeader.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpAsPathSegment" href="inet-bgp-BgpAsPathSegment.html">BgpAsPathSegment</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents a BGPv4 AS_PATH path attribute (RFC 4271 Section 4.3)</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpType" href="inet-bgp-BgpType.html">BgpType</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>BGPv4 message types</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpHeader" href="inet-bgp-BgpHeader.html">BgpHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents a BGPv4 message header.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpKeepAliveMessage" href="inet-bgp-BgpKeepAliveMessage.html">BgpKeepAliveMessage</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents a BGPv4 KEEPALIVE message.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpOptionalParameterBase" href="inet-bgp-BgpOptionalParameterBase.html">BgpOptionalParameterBase</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpOptionalParameterRaw" href="inet-bgp-BgpOptionalParameterRaw.html">BgpOptionalParameterRaw</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpOpenMessage" href="inet-bgp-BgpOpenMessage.html">BgpOpenMessage</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents a BGPv4 OPEN message.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdateAttributeTypeCode" href="inet-bgp-BgpUpdateAttributeTypeCode.html">BgpUpdateAttributeTypeCode</a></td>
+      <td><i>enum</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributes" href="inet-bgp-BgpUpdatePathAttributes.html">BgpUpdatePathAttributes</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesOrigin" href="inet-bgp-BgpUpdatePathAttributesOrigin.html">BgpUpdatePathAttributesOrigin</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>ORIGIN (RFC4271 Section 4.3, Type code 1):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesAsPath" href="inet-bgp-BgpUpdatePathAttributesAsPath.html">BgpUpdatePathAttributesAsPath</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>AS_PATH (RFC4271 Section 4.3, Type code 2):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesNextHop" href="inet-bgp-BgpUpdatePathAttributesNextHop.html">BgpUpdatePathAttributesNextHop</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>NEXT_HOP (RFC4271 Section 4.3, Type code 3):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesMultiExitDisc" href="inet-bgp-BgpUpdatePathAttributesMultiExitDisc.html">BgpUpdatePathAttributesMultiExitDisc</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>MULTI_EXIT_DISC (RFC4271 Section 4.3, Type code 4):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesLocalPref" href="inet-bgp-BgpUpdatePathAttributesLocalPref.html">BgpUpdatePathAttributesLocalPref</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>LOCAL_PREF (RFC4271 Section 4.3, Type code 5):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesAtomicAggregate" href="inet-bgp-BgpUpdatePathAttributesAtomicAggregate.html">BgpUpdatePathAttributesAtomicAggregate</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>ATOMIC_AGGREGATE (RFC4271 Section 4.3, Type code 6):</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdatePathAttributesAggregator" href="inet-bgp-BgpUpdatePathAttributesAggregator.html">BgpUpdatePathAttributesAggregator</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdateWithdrawnRoutes" href="inet-bgp-BgpUpdateWithdrawnRoutes.html">BgpUpdateWithdrawnRoutes</a></td>
+      <td><i>struct</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdateNlri" href="inet-bgp-BgpUpdateNlri.html">BgpUpdateNlri</a></td>
+      <td><i>struct</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::bgp::BgpUpdateMessage" href="inet-bgp-BgpUpdateMessage.html">BgpUpdateMessage</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Represents a BGPv4 UPDATE message.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2010 Helene Lageber
+// Copyright (C) 2019 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Units</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">bgpv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">BgpCommon</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">bgp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">19</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">BGP_OPEN_OCTETS</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; ">);
+</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">B</span><span style="color: #232629; "> </span><span style="color: #232629; ">BGP_EMPTY_UPDATE_OCTETS</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// UnfeasibleRoutesLength (2) + TotalPathAttributeLength (2)
+</span><span style="color: #232629; ">}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents a BGPv4 AS_PATH path attribute (RFC 4271 Section 4.3)
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpAsPathSegment</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BgpPathSegmentType</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">asValue</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// BGPv4 message types
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">BGP_OPEN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BGP_UPDATE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BGP_NOTIFICATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BGP_KEEPALIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents a BGPv4 message header.
+//
+// Header fields modeled:
+//   - Marker: 16 octets (authentication)
+//   - Length: 2 octets  (total size of the message)
+//   - Type: 1 octet
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">FieldsChunk</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">marker</span><span style="color: #232629; ">[</span><span style="color: #008000; ">16</span><span style="color: #232629; ">] = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">xFF</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">totalLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">BgpType</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">static_cast</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">BgpType</span><span style="color: #232629; ">&gt;(-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">);
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents a BGPv4 KEEPALIVE message.
+//
+// KEEPALIVE messages are exchanged as often as necessary between systems
+// to avoid exceeding the BGP Hold Timer (constant defined in BgpOpen).
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpKeepAliveMessage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_KEEPALIVE</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpOptionalParameterBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">parameterType</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">parameterValueLength</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//TODO add accepted BgpOptionalParameter variants
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpOptionalParameterRaw</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpOptionalParameterBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">char</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents a BGPv4 OPEN message.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpOpenMessage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_OPEN</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; "> + </span><span style="color: #232629; ">BGP_OPEN_OCTETS</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">totalLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; "> + </span><span style="color: #232629; ">BGP_OPEN_OCTETS</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">version</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// BGP Version, 1 octet
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">myAS</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// My Autonomous system, 2 octets
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">holdTime</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Hold Time in seconds, 2 octets
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">BGPIdentifier</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 4 octets
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">optionalParametersLength</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 octet, total length (in bytes) of optionalParameters[] (if = 0, no optional parameters)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">BgpOptionalParameterBase</span><span style="color: #232629; "> *</span><span style="color: #232629; ">optionalParameter</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@owned</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdateAttributeTypeCode</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ORIGIN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">AS_PATH</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NEXT_HOP</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">MULTI_EXIT_DISC</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">LOCAL_PREF</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">ATOMIC_AGGREGATE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">AGGREGATOR</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 bit, Optional bit. It defines whether the attribute is optional (if set to 1) or well-known (if set to 0).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 bit, Transitive bit. It defines whether an optional attribute is transitive (if set to 1) or non-transitive (if set to 0). Transitive bit MUST be set to 1 for well-known attributes
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">partialBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 bit, Partial bit. It defines whether the information contained in the optional transitive attribute is partial (if set to 1) or complete (if set to 0).  For well-known attributes and for optional non-transitive attributes, the Partial bit MUST be set to 0.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">extendedLengthBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 bit, Extended Length bit. It defines whether the Attribute Length is one octet (if set to 0) or two octets (if set to 1).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 4 bit
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">BgpUpdateAttributeTypeCode</span><span style="color: #232629; "> </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 1 octet
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 2 octets or just 1 depending on the value of flags.extendedLengthBit
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">// ORIGIN (RFC4271 Section 4.3, Type code 1):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesOrigin</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ORIGIN</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BgpSessionType</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// AS_PATH (RFC4271 Section 4.3, Type code 2):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesAsPath</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">AS_PATH</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BgpAsPathSegment</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//NEXT_HOP (RFC4271 Section 4.3, Type code 3):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesNextHop</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">NEXT_HOP</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//MULTI_EXIT_DISC (RFC4271 Section 4.3, Type code 4):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesMultiExitDisc</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">MULTI_EXIT_DISC</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//LOCAL_PREF (RFC4271 Section 4.3, Type code 5):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesLocalPref</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">LOCAL_PREF</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">value</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//ATOMIC_AGGREGATE (RFC4271 Section 4.3, Type code 6):
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesAtomicAggregate</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ATOMIC_AGGREGATE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributesAggregator</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">typeCode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">AGGREGATOR</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">optionalBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">transitiveBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">asNumber</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">bgpSpeaker</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdateWithdrawnRoutes</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">char</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 1 octet
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefix</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 4 octets
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdateNlri</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #808080; font-style: italic; ">// uint32_t pathIdentifier      // specified in RFC 7911, optional 4 octets, wireshark detect existing of this field with heuristical algorithm
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">length</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// length of prefix in bits, 1 octet
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefix</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// 1-4 octets, based on length ((length + 7) / 8)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Represents a BGPv4 UPDATE message.
+//
+// see RFC 4271 Section 4.3
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpUpdateMessage</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">BgpHeader</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_UPDATE</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; "> + </span><span style="color: #232629; ">BGP_EMPTY_UPDATE_OCTETS</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">totalLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">BGP_HEADER_OCTETS</span><span style="color: #232629; "> + </span><span style="color: #232629; ">BGP_EMPTY_UPDATE_OCTETS</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">withDrawnRoutesLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// This 2-octets unsigned integer indicates the total length of
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// the Withdrawn Routes field in octets.  Its value allows the
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// length of the Network Layer Reachability Information field to
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// be determined, as specified below.
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// A value of 0 indicates that no routes are being withdrawn from
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// service, and that the WITHDRAWN ROUTES field is not present in
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// this UPDATE message.
+</span><span style="color: #232629; ">
+    </span><span style="color: #232629; ">BgpUpdateWithdrawnRoutes</span><span style="color: #232629; "> </span><span style="color: #232629; ">withdrawnRoutes</span><span style="color: #232629; ">[];
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">totalPathAttributeLength</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// This 2-octets unsigned integer indicates the total length of
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// Path Attributes field in octets.  Its value allows the length
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// of the Network Layer Reachability field to be determined as
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// specified below.
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">//
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// A value of 0 indicates that neither the Network Layer
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// Reachability Information field nor the Path Attribute field is
+</span><span style="color: #232629; ">                                              </span><span style="color: #808080; font-style: italic; ">// present in this UPDATE message.
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">BgpUpdatePathAttributes</span><span style="color: #232629; ">* </span><span style="color: #232629; ">pathAttributes</span><span style="color: #232629; ">[] </span><span style="color: #232629; font-weight: bold; ">@owned</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@allowReplace</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">BgpUpdateNlri</span><span style="color: #232629; "> </span><span style="color: #232629; ">NLRI</span><span style="color: #232629; ">[];
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

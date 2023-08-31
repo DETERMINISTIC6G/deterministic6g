@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>L2NetworkConfigurator</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">L2NetworkConfigurator</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_configurator">inet.linklayer.configurator</a></p>
+<h2 class="comptitle" style="float: left;">L2NetworkConfigurator</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>This module allows to configure network scenarios at layer 2.
+The ~<a title="inet.linklayer.ieee8021d.stp.Stp" href="inet.linklayer.ieee8021d.stp.Stp.html">Stp</a> and ~<a title="inet.linklayer.ieee8021d.rstp.Rstp" href="inet.linklayer.ieee8021d.rstp.Rstp.html">Rstp</a> related parameters such as link cost, port priority
+and the "is-edge" flag can be configured with XML files.</p>
+<p>This module is based on ~<a title="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>. The optional selector
+attributes: @hosts, @names, @towards, @among are also comes with this
+configurator and each of them behaves similarly to its ~<a title="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a> equivalent.
+@ports selector added to configuring per-port parameters in Ieee8021dInterfaceData.</p>
+<p>The following example configures port 5 (if it exists) on all switches to cost 19 and
+priority 32768:
+<pre>
+&lt;config&gt;
+  &lt;interface hosts='**' ports='5' cost='19' priority='32768'/&gt;
+&lt;/config&gt;
+<pre></p>
+<p>For more information about the usage of the selector attributes see ~<a title="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator" href="inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator.html">Ipv4NetworkConfigurator</a>.</p>
+<img src="inet.linklayer.configurator.L2NetworkConfigurator-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.configurator.L2NetworkConfigurator.html" title="L2NetworkConfigurator" alt="L2NetworkConfigurator" coords="0,42,264,82">
+</map>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ieee8021d.SwitchNetwork" href="inet.examples.ieee8021d.SwitchNetwork.html">SwitchNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>config</td>
+      <td>xml</td>
+      <td>xml("<config><interface hosts='**' ports='**' cost='19' priority='128' edge='false'/></config>")</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// This module allows to configure network scenarios at layer 2.
+// The ~Stp and ~Rstp related parameters such as link cost, port priority
+// and the &quot;is-edge&quot; flag can be configured with XML files.
+//
+// This module is based on ~Ipv4NetworkConfigurator. The optional selector
+// attributes: @hosts, @names, @towards, @among are also comes with this
+// configurator and each of them behaves similarly to its ~Ipv4NetworkConfigurator equivalent.
+// @ports selector added to configuring per-port parameters in Ieee8021dInterfaceData.
+//
+// The following example configures port 5 (if it exists) on all switches to cost 19 and
+// priority 32768:
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+// &lt;config&gt;
+//   &lt;interface hosts='**' ports='5' cost='19' priority='32768'/&gt;
+// &lt;/config&gt;
+// </span><span style="color: #800000; ">&lt;pre&gt;</span><span style="color: #808080; font-style: italic; ">
+//
+// For more information about the usage of the selector attributes see ~Ipv4NetworkConfigurator.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">L2NetworkConfigurator</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; "> </span><span style="color: #232629; ">config</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;config&gt;&lt;interface hosts='**' ports='**' cost='19' priority='128' edge='false'/&gt;&lt;/config&gt;&quot;</span><span style="color: #232629; ">));
+}
+
+</span></pre>
+File: <a href="src-inet-linklayer-configurator-L2NetworkConfigurator.ned.html">src/inet/linklayer/configurator/L2NetworkConfigurator.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

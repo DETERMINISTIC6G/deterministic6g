@@ -1,0 +1,626 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ospfv3Packet.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ospfv3Packet.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/routing/ospfv3/Ospfv3Packet.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3Packet" href="inet-ospfv3-Ospfv3Packet.html">Ospfv3Packet</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Common OSPFv3 packet header - this header is present in every OSPFv3 packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3Options" href="inet-ospfv3-Ospfv3Options.html">Ospfv3Options</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>options for OSPFv3 packets - present in Hello, DD and certain LSAs</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3HelloPacket" href="inet-ospfv3-Ospfv3HelloPacket.html">Ospfv3HelloPacket</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>OSPFv3 hello packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LsaHeader" href="inet-ospfv3-Ospfv3LsaHeader.html">Ospfv3LsaHeader</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Common LSA Header - this header is present in every LSA
+triplet {lsType, linkStateID, advertisingRouter} uniquely identify the LSA</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3Lsa" href="inet-ospfv3-Ospfv3Lsa.html">Ospfv3Lsa</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LsaFunctionCode" href="inet-ospfv3-Ospfv3LsaFunctionCode.html">Ospfv3LsaFunctionCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>LSA Function Code</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LsaPrefixMetric" href="inet-ospfv3-Ospfv3LsaPrefixMetric.html">Ospfv3LsaPrefixMetric</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>used for Intra-Area-Prefix LSA</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LsaPrefix0" href="inet-ospfv3-Ospfv3LsaPrefix0.html">Ospfv3LsaPrefix0</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>Address Prefix options</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3RouterLsaType" href="inet-ospfv3-Ospfv3RouterLsaType.html">Ospfv3RouterLsaType</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>) LSA</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3RouterLsaBody" href="inet-ospfv3-Ospfv3RouterLsaBody.html">Ospfv3RouterLsaBody</a></td>
+      <td><i>struct</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3RouterLsa" href="inet-ospfv3-Ospfv3RouterLsa.html">Ospfv3RouterLsa</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3NetworkLsa" href="inet-ospfv3-Ospfv3NetworkLsa.html">Ospfv3NetworkLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Network(<a title="inet.examples.inet.igmp.Network" href="inet.examples.inet.igmp.Network.html">1</a>,<a title="inet.examples.pim.dm.assert.Network" href="inet.examples.pim.dm.assert.Network.html">2</a>,<a title="inet.examples.pim.iptv.Network" href="inet.examples.pim.iptv.Network.html">3</a>) LSA</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3InterAreaPrefixLsa" href="inet-ospfv3-Ospfv3InterAreaPrefixLsa.html">Ospfv3InterAreaPrefixLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Inter-Area-Prefix-LSAs</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3InterAreaRouterLsa" href="inet-ospfv3-Ospfv3InterAreaRouterLsa.html">Ospfv3InterAreaRouterLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Inter-Area-Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>)-LSAs</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3AsExternalLsa" href="inet-ospfv3-Ospfv3AsExternalLsa.html">Ospfv3AsExternalLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>AS-External-LSAs</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3NssaLsa" href="inet-ospfv3-Ospfv3NssaLsa.html">Ospfv3NssaLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>NSSA-LSAs
+Routers in a Not-so-stubby-area (NSSA) do not receive external LSAs from Area Border Routers,
+but are allowed to send external routing information for redistribution.
+They use type 7 LSAs to tell the ABRs about these external routes,
+which the Area Border Router(<a title="inet.node.inet.Router" href="inet.node.inet.Router.html">1</a>,<a title="inet.tutorials.protocol.Router" href="inet.tutorials.protocol.Router.html">2</a>) then translates to type 5 external LSAs and floods as normal to the rest of the OSPF network</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LinkLsa" href="inet-ospfv3-Ospfv3LinkLsa.html">Ospfv3LinkLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Link-LSAs
+A link-local only LSA for OSPFv3. A Type 8 LSA is used to give
+information about link-local addresses and a list of IPv6 addresses on the link.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3IntraAreaPrefixLsa" href="inet-ospfv3-Ospfv3IntraAreaPrefixLsa.html">Ospfv3IntraAreaPrefixLsa</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Intra-Area-Prefix-LSAs</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3DdOptions" href="inet-ospfv3-Ospfv3DdOptions.html">Ospfv3DdOptions</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>options struct for Database Description packets</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3DatabaseDescriptionPacket" href="inet-ospfv3-Ospfv3DatabaseDescriptionPacket.html">Ospfv3DatabaseDescriptionPacket</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Database Description <a title="inet::Packet" href="inet-Packet.html">Packet</a></p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LsRequest" href="inet-ospfv3-Ospfv3LsRequest.html">Ospfv3LsRequest</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>identity of requested LSA - there may be multiple LSAs requested in a single LSR</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LinkStateRequestPacket" href="inet-ospfv3-Ospfv3LinkStateRequestPacket.html">Ospfv3LinkStateRequestPacket</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Link State <a title="inet::Request" href="inet-Request.html">Request</a> packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LinkStateUpdatePacket" href="inet-ospfv3-Ospfv3LinkStateUpdatePacket.html">Ospfv3LinkStateUpdatePacket</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Link State Update packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ospfv3::Ospfv3LinkStateAcknowledgementPacket" href="inet-ospfv3-Ospfv3LinkStateAcknowledgementPacket.html">Ospfv3LinkStateAcknowledgementPacket</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>Link State Acknowledgement packet</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">L3Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">contract</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv6</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">routing</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ospf_common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">OspfPacketBase</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">ospfv3</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">using</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">;
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//Common OSPFv3 packet header - this header is present in every OSPFv3 packet
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">::</span><span style="color: #232629; ">OspfPacketBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">chunkLength</span><span style="color: #232629; "> = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">version</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">int8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">instanceID</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// RFC 5340 A.3.1.  The OSPF Packet Header: Checksum:
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   OSPF uses the standard checksum calculation for IPv6 applications:
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   The 16-bit one's complement of the one's complement sum of the
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   entire contents of the packet, starting with the OSPF packet
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   header, and prepending a &quot;pseudo-header&quot; of IPv6 header fields, as
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   specified in Section 8.1 of [IPV6].  The &quot;Upper-Layer Packet
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   Length&quot; in the pseudo-header is set to the value of the OSPF
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   packet header's length field.  The Next Header value used in the
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   pseudo-header is 89.  If the packet's length is not an integral
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   number of 16-bit words, the packet is padded with a byte of zero
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   before checksumming.  Before computing the checksum, the checksum
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//   field in the OSPF packet header is set to 0.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//options for OSPFv3 packets - present in Hello, DD and certain LSAs
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">//reserved 16 bit
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reservedOne</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">//reserved for compatibility with ospfv2
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reservedTwo</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">//reserved for compatibility with ospfv2
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dcBit</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">//demand circuits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rBit</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">//router bit indicating the router originating the message is active
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">nBit</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">//the router is attached to NSSA
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">xBit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">//used for MOSPF but is deprecated now and the bit should always be zero
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">eBit</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">//AS-extarnal flooding option
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">v6Bit</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">//0=router should be excluded from IPv6 routing calculations
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+//  OSPFv3 hello packet
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3HelloPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">::</span><span style="color: #232629; ">HELLO_PACKET</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceID</span><span style="color: #232629; ">;                   </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">char</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerPriority</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">//  8 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;                  </span><span style="color: #808080; font-style: italic; ">// 24 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">helloInterval</span><span style="color: #232629; ">;                 </span><span style="color: #808080; font-style: italic; ">// [sec] 16 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">deadInterval</span><span style="color: #232629; ">;                  </span><span style="color: #808080; font-style: italic; ">// [sec] 16 bits //TODO rename to routerDeadInterval
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">designatedRouterID</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">backupDesignatedRouterID</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">neighborID</span><span style="color: #232629; ">[];               </span><span style="color: #808080; font-style: italic; ">// N*32 bits
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// LSAs
+//
+//struct OSPFv3LSAType
+//{
+//    bool uBit;    //controls action the router should take when it recieves unknown LSA Function Code
+//    bool s1Bit;
+//    bool s2Bit;
+//    uint16_t lsaFunctionCode;
+//}
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//Common LSA Header - this header is present in every LSA
+//triplet {lsType, linkStateID, advertisingRouter} uniquely identify the LSA
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaHeader</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaAge</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// [sec] 16 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// 8 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaType</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// 8 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkStateID</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">advertisingRouter</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaSequenceNumber</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaChecksum</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// 16 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">CrcMode</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsCrcMode</span><span style="color: #232629; "> = </span><span style="color: #232629; ">CRC_MODE_UNDEFINED</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaLength</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ospfv3LsaHeader</span><span style="color: #232629; "> </span><span style="color: #232629; ">header</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//LSA Function Code
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaFunctionCode</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ROUTER_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NETWORK_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">INTER_AREA_PREFIX_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">INTER_AREA_ROUTER_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">AS_EXTERNAL_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">DEPRECATED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">NSSA_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">LINK_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">INTRA_AREA_PREFIX_LSA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//used for Intra-Area-Prefix LSA
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved2</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved3</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dnBit</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">pBit</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">xBit</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">laBit</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">nuBit</span><span style="color: #232629; ">=</span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//for Intra-Area-Prefix LSA
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Address Prefix is an encoding of the prefix itself as an even multiple of 32-bit words,
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// padding with zero bits as necessary.  This encoding consumes ((PrefixLength + 31) / 32) 32-bit words.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; ">) {{
+</span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">operator</span><span style="color: #232629; "> ==(</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; ">&amp; </span><span style="color: #232629; ">b</span><span style="color: #232629; ">) </span><span style="color: #232629; ">const</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">return</span><span style="color: #232629; "> (</span><span style="color: #232629; ">dnBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">dnBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">pBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">xBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">xBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">laBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">laBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">nuBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">nuBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">metric</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">metric</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; ">)
+        ;
+}
+
+</span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">operator</span><span style="color: #232629; "> !=(</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; ">&amp; </span><span style="color: #232629; ">b</span><span style="color: #232629; ">) </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> ! (*</span><span style="color: #232629; ">this</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">); }
+
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//Address Prefix options
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved2</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved3</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">dnBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">pBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">xBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">laBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">nuBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// Address Prefix is an encoding of the prefix itself as an even multiple of 32-bit words,
+</span><span style="color: #232629; ">                                </span><span style="color: #808080; font-style: italic; ">// padding with zero bits as necessary.  This encoding consumes ((PrefixLength + 31) / 32) 32-bit words.
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; ">) {{
+</span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">operator</span><span style="color: #232629; "> ==(</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; ">&amp; </span><span style="color: #232629; ">b</span><span style="color: #232629; ">) </span><span style="color: #232629; ">const</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">return</span><span style="color: #232629; "> (</span><span style="color: #232629; ">dnBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">dnBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">pBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">pBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">xBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">xBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">laBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">laBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">nuBit</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">nuBit</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">prefixLen</span><span style="color: #232629; ">)
+        &amp;&amp; (</span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">.</span><span style="color: #232629; ">addressPrefix</span><span style="color: #232629; ">)
+        ;
+}
+
+</span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">operator</span><span style="color: #232629; "> !=(</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; ">&amp; </span><span style="color: #232629; ">b</span><span style="color: #232629; ">) </span><span style="color: #232629; ">const</span><span style="color: #232629; "> { </span><span style="color: #232629; ">return</span><span style="color: #232629; "> ! (*</span><span style="color: #232629; ">this</span><span style="color: #232629; "> == </span><span style="color: #232629; ">b</span><span style="color: #232629; ">); }
+
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//Router LSA
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3RouterLsaType</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">POINT_TO_POINT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TRANSIT_NETWORK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">RESERVED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">VIRTUAL_LINK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3RouterLsaBody</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">type</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceID</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">neighborInterfaceID</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">neighborRouterID</span><span style="color: #232629; ">;</span><span style="color: #808080; font-style: italic; ">//TODO - check if this is a number of IP address
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3RouterLsa</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ntBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">xBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">vBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">eBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">bBit</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospfOptions</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ospfv3RouterLsaBody</span><span style="color: #232629; "> </span><span style="color: #232629; ">routers</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//Network LSA
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3NetworkLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospfOptions</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">attachedRouter</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">// Inter-Area-Prefix-LSAs
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3InterAreaPrefixLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// 8 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;            </span><span style="color: #808080; font-style: italic; ">// 24 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefix</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//Inter-Area-Router-LSAs
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3InterAreaRouterLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospfOptions</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">destinationRouter</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//   AS-External-LSAs
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3AsExternalLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">eBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">tBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSType</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardingAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">externalRouteTag</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSID</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//   NSSA-LSAs
+// Routers in a Not-so-stubby-area (NSSA) do not receive external LSAs from Area Border Routers,
+// but are allowed to send external routing information for redistribution.
+// They use type 7 LSAs to tell the ABRs about these external routes,
+// which the Area Border Router then translates to type 5 external LSAs and floods as normal to the rest of the OSPF network
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3NssaLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{</span><span style="color: #808080; font-style: italic; ">//basically the same as the AS External LSA
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">eBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">tBit</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefOptions</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSType</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ipv6Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">forwardingAddress</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">externalRouteTag</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSID</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">// Link-LSAs
+// A link-local only LSA for OSPFv3. A Type 8 LSA is used to give
+// information about link-local addresses and a list of IPv6 addresses on the link.
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LinkLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">routerPriority</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">ospfOptions</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">L3Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkLocalInterfaceAdd</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">numPrefixes</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ospfv3LsaPrefix0</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixes</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">// Intra-Area-Prefix-LSAs
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3IntraAreaPrefixLsa</span><span style="color: #232629; ">  </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Lsa</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">numPrefixes</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">short</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSType</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedLSID</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">referencedAdvRtr</span><span style="color: #232629; ">;
+
+    </span><span style="color: #232629; ">Ospfv3LsaPrefixMetric</span><span style="color: #232629; "> </span><span style="color: #232629; ">prefixes</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">// options struct for Database Description packets
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3DdOptions</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// 13 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">iBit</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">//this packet is the initial DD packet
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">mBit</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">//more DD packets will follow
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">msBit</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">//1=the router is the master, 0=router is the slave
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Database Description Packet
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3DatabaseDescriptionPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">type</span><span style="color: #232629; "> = </span><span style="color: #232629; ">ospf</span><span style="color: #232629; ">::</span><span style="color: #232629; ">DATABASE_DESCRIPTION_PACKET</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint8_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">reserved1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">//  8 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ospfv3Options</span><span style="color: #232629; "> </span><span style="color: #232629; ">options</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// 24 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceMTU</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// 16 bits
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ospfv3DdOptions</span><span style="color: #232629; "> </span><span style="color: #232629; ">ddOptions</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// 16 bits
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sequenceNumber</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// 32 bits
+</span><span style="color: #232629; ">
+    </span><span style="color: #232629; ">Ospfv3LsaHeader</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaHeaders</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Link State Request
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//identity of requested LSA - there may be multiple LSAs requested in a single LSR
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LsRequest</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaType</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaID</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">advertisingRouter</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//Link State Request packet
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LinkStateRequestPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ospfv3LsRequest</span><span style="color: #232629; "> </span><span style="color: #232629; ">requests</span><span style="color: #232629; ">[];
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Link State Update
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//Link State Update packet
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LinkStateUpdatePacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaCount</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">//specifies the number of LSAs sent in a single packet
+</span><span style="color: #232629; ">
+    </span><span style="color: #232629; ">Ospfv3RouterLsa</span><span style="color: #232629; "> </span><span style="color: #232629; ">RouterLSAs</span><span style="color: #232629; ">[];
+    </span><span style="color: #232629; ">Ospfv3NetworkLsa</span><span style="color: #232629; "> </span><span style="color: #232629; ">NetworkLSAs</span><span style="color: #232629; ">[];
+    </span><span style="color: #232629; ">Ospfv3InterAreaPrefixLsa</span><span style="color: #232629; "> </span><span style="color: #232629; ">InterAreaPrefixLSAs</span><span style="color: #232629; ">[];
+    </span><span style="color: #232629; ">Ospfv3LinkLsa</span><span style="color: #232629; "> </span><span style="color: #232629; ">LinkLSAs</span><span style="color: #232629; ">[];
+    </span><span style="color: #232629; ">Ospfv3IntraAreaPrefixLsa</span><span style="color: #232629; "> </span><span style="color: #232629; ">IntraAreaPrefixLSAs</span><span style="color: #232629; ">[];
+    </span><span style="color: #808080; font-style: italic; ">// Ospfv3Lsa *LSAs[] @owned @allowReplace;
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">//TODO - see Ospfv2LinkStateUpdatePacket
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Link State Acknowledgement
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #808080; font-style: italic; ">//Link State Acknowledgement packet
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3LinkStateAcknowledgementPacket</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ospfv3Packet</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">Ospfv3LsaHeader</span><span style="color: #232629; "> </span><span style="color: #232629; ">lsaHeaders</span><span style="color: #232629; ">[];
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ProbabilisticBroadcast</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ProbabilisticBroadcast</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_networklayer_probabilistic">inet.networklayer.probabilistic</a></p>
+<h2 class="comptitle" style="float: left;">ProbabilisticBroadcast</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Multi-hop ad-hoc data dissemination protocol based on probabilistic broadcast.</p>
+<p>This method reduces the number of packets sent on the channel (reducing the
+broadcast storm problem) at the risk of some nodes not receiving the data.
+It is particularly interesting for mobile networks.
+Parameter maxNbBcast sets the maximum number of broadcast transmissions of a packet,
+parameter beta gives the transmission probability for each attempt,
+parameter bcperiod sets the time between two transmission attempts.
+Parameter maxFirstBcastBackoff sets a backoff window before first transmission attempt,
+and parameter timeInQueueAfterDeath sets the time during which a node remembers
+a packet whose time to live (TTL) expired, avoiding retransmitting it in case it comes back
+in the network because of some problem.</p>
+<img src="inet.networklayer.probabilistic.ProbabilisticBroadcast-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.networklayer.probabilistic.ProbabilisticBroadcast.html" title="ProbabilisticBroadcast" alt="ProbabilisticBroadcast" coords="0,42,252,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.networklayer.probabilistic.ProbabilisticBroadcast-inheritance.svg"></object>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.probabilistic.AdaptiveProbabilisticBroadcast" href="inet.networklayer.probabilistic.AdaptiveProbabilisticBroadcast.html">AdaptiveProbabilisticBroadcast</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Multi-hop ad-hoc data dissemination protocol based on probabilistic broadcast, with adaptive parameters.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.base.NetworkProtocolBase" href="inet.networklayer.base.NetworkProtocolBase.html">NetworkProtocolBase</a></td>
+      <td><i>simple&nbsp;module</i></td>
+      <td>
+<p>Module base for different network protocols.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>headerLength</td>
+      <td>int</td>
+      <td>96b</td>
+      <td>
+<p>length of the network packet header (in bits)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>bcperiod</td>
+      <td>double</td>
+      <td>2 s</td>
+      <td>
+<p>period between two probabilistic broadcast attempts</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>beta</td>
+      <td>double</td>
+      <td>0.8</td>
+      <td>
+<p>probability of broadcast for each attempt</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>maxNbBcast</td>
+      <td>int</td>
+      <td>1</td>
+      <td>
+<p>maximal number of broadcast attempts for each packet.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>maxFirstBcastBackoff</td>
+      <td>double</td>
+      <td>1 s</td>
+      <td>
+<p>maximal back-off before first broadcast attempt [seconds].
+if don't want to use this parameter, simply set it
+to a value that is greater than bcperiod.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>timeToLive</td>
+      <td>double</td>
+      <td>10 s</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>timeInQueueAfterDeath</td>
+      <td>double</td>
+      <td>60 s</td>
+      <td>
+<p>How many seconds the message should be kept in queue after its died.
+That way the message is known if the node receives one of its
+copy that isn't dead because of TTL de-synchronization due to
+MAC backoff, propagation delay and clock drift.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/fork</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>ProbabilisticBroadcast</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>transportIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>transportOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>queueIn</td>
+      <td>input</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>queueOut</td>
+      <td>output</td>
+      <td></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetReceivedFromLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetDropped</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToLower</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>packetSentToUpper</td>
+      <td>cPacket</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Multi-hop ad-hoc data dissemination protocol based on probabilistic broadcast.
+//
+// This method reduces the number of packets sent on the channel (reducing the
+// broadcast storm problem) at the risk of some nodes not receiving the data.
+// It is particularly interesting for mobile networks.
+// Parameter maxNbBcast sets the maximum number of broadcast transmissions of a packet,
+// parameter beta gives the transmission probability for each attempt,
+// parameter bcperiod sets the time between two transmission attempts.
+// Parameter maxFirstBcastBackoff sets a backoff window before first transmission attempt,
+// and parameter timeInQueueAfterDeath sets the time during which a node remembers
+// a packet whose time to live (TTL) expired, avoiding retransmitting it in case it comes back
+// in the network because of some problem.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProbabilisticBroadcast</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">NetworkProtocolBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">INetworkProtocol</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@class</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ProbabilisticBroadcast</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">headerLength</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">b</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">96</span><span style="color: #232629; ">b</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// length of the network packet header (in bits)
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// period between two probabilistic broadcast attempts
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">bcperiod</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">2</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// probability of broadcast for each attempt
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #800080; ">beta</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">8</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// maximal number of broadcast attempts for each packet.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxNbBcast</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// maximal back-off before first broadcast attempt [seconds].
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// if don't want to use this parameter, simply set it
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// to a value that is greater than bcperiod.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxFirstBcastBackoff</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">1</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">timeToLive</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">10</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+        </span><span style="color: #808080; font-style: italic; ">// How many seconds the message should be kept in queue after its died.
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// That way the message is known if the node receives one of its
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// copy that isn't dead because of TTL de-synchronization due to
+</span><span style="color: #232629; ">        </span><span style="color: #808080; font-style: italic; ">// MAC backoff, propagation delay and clock drift.
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">timeInQueueAfterDeath</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">60</span><span style="color: #232629; "> </span><span style="color: #232629; ">s</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-networklayer-probabilistic-ProbabilisticBroadcast.ned.html">src/inet/networklayer/probabilistic/ProbabilisticBroadcast.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

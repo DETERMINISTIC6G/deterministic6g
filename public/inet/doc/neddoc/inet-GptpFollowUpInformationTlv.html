@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>GptpFollowUpInformationTlv</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">GptpFollowUpInformationTlv</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">GptpFollowUpInformationTlv</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">class</span>
+</span><div style="clear: both;"/>
+
+<p>The fields of the Follow_Up information TLV shall be as specified in Table 11-11 and in 11.4.4.3.2 through
+11.4.4.3.9. This TLV is a standard organization extension TLV for the Follow_Up message, as specified in
+14.3 of IEEE Std 1588-2019.
+NOTE&mdash;The Follow_Up information TLV is different from the CUMULATIVE_RATE_RATIO TLV of IEEE Std 1588-
+2019 (see 16.10 and Table 52 of IEEE Std 1588-2019). While both TLVs carry cumulative rate offset information, the
+Follow_Up information TLV also carries information on the Grandmaster Clock time base, most recent phase change,
+and most recent frequency change. The CUMULATIVE_RATE_RATIO TLV is not used by gPTP.</p>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>GptpTlv</td>
+      <td><i>(unknown -- not in documented files)</i></td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>tlvType</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>lengthField</td>
+      <td>uint16_t</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>organizationId</td>
+      <td>uint32_t</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>organizationSubType</td>
+      <td>uint32_t</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>rateRatio</td>
+      <td>double</td>
+      <td>
+<p>11.4.4.3.6 The value of cumulativeScaledRateOffset is equal to (rateRatio &ndash; 1.0) / (2^41), truncated to the next smaller
+signed integer, where rateRatio is the ratio of the frequency of the Grandmaster Clock to the frequency of the
+LocalClock entity in the PTP Instance that sends the message.</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>gmTimeBaseIndicator</td>
+      <td>uint16_t</td>
+      <td>
+<p>The value of gmTimeBaseIndicator is the timeBaseIndicator of the ClockSource entity for the current
+Grandmaster PTP Instance (see 9.2.2.3).</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>lastGmPhaseChange</td>
+      <td>clocktime_t</td>
+      <td>
+<p>The value of lastGmPhaseChange is the time of the current Grandmaster Clock minus the time of the
+previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became the
+Grandmaster PTP Instance. The value is copied from the lastGmPhaseChange member of the MDSyncSend
+structure whose receipt causes the MD entity to send the Follow_Up message (see 11.2.11).</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>scaledLastGmFreqChange</td>
+      <td>int32_t</td>
+      <td>
+<p>The value of scaledLastGmFreqChange is the fractional frequency offset of the current Grandmaster Clock
+relative to the previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became
+the Grandmaster PTP Instance, or relative to itself prior to the last change in gmTimeBaseIndicator,
+multiplied by 241 and truncated to the next smaller signed integer. The value is obtained by multiplying the
+lastGmFreqChange member of MDSyncSend whose receipt causes the MD entity to send the Follow_Up
+message (see 11.2.11) by 241, and truncating to the next smaller signed integer.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">// The fields of the Follow_Up information TLV shall be as specified in Table 11-11 and in 11.4.4.3.2 through
+// 11.4.4.3.9. This TLV is a standard organization extension TLV for the Follow_Up message, as specified in
+// 14.3 of IEEE Std 1588-2019.
+// NOTE&mdash;The Follow_Up information TLV is different from the CUMULATIVE_RATE_RATIO TLV of IEEE Std 1588-
+// 2019 (see 16.10 and Table 52 of IEEE Std 1588-2019). While both TLVs carry cumulative rate offset information, the
+// Follow_Up information TLV also carries information on the Grandmaster Clock time base, most recent phase change,
+// and most recent frequency change. The CUMULATIVE_RATE_RATIO TLV is not used by gPTP.
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpFollowUpInformationTlv</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">GptpTlv</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">tlvType</span><span style="color: #232629; "> = </span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lengthField</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">) = </span><span style="color: #232629; ">B</span><span style="color: #232629; ">(</span><span style="color: #232629; ">GPTP_FOLLOW_UP_INFORMATION_TLV_BODYSIZE</span><span style="color: #232629; ">).</span><span style="color: #232629; ">get</span><span style="color: #232629; ">();
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">organizationId</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">x0080C2</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">organizationSubType</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">24</span><span style="color: #232629; ">) = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">rateRatio</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// 11.4.4.3.6 The value of cumulativeScaledRateOffset is equal to (rateRatio &ndash; 1.0) / (2^41), truncated to the next smaller
+</span><span style="color: #232629; ">                               </span><span style="color: #808080; font-style: italic; ">// signed integer, where rateRatio is the ratio of the frequency of the Grandmaster Clock to the frequency of the
+</span><span style="color: #232629; ">                               </span><span style="color: #808080; font-style: italic; ">// LocalClock entity in the PTP Instance that sends the message.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint16_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">gmTimeBaseIndicator</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">16</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of gmTimeBaseIndicator is the timeBaseIndicator of the ClockSource entity for the current
+</span><span style="color: #232629; ">                                           </span><span style="color: #808080; font-style: italic; ">// Grandmaster PTP Instance (see 9.2.2.3).
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">clocktime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">lastGmPhaseChange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">96</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of lastGmPhaseChange is the time of the current Grandmaster Clock minus the time of the
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became the
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// Grandmaster PTP Instance. The value is copied from the lastGmPhaseChange member of the MDSyncSend
+</span><span style="color: #232629; ">                                            </span><span style="color: #808080; font-style: italic; ">// structure whose receipt causes the MD entity to send the Follow_Up message (see 11.2.11).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">scaledLastGmFreqChange</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@bit</span><span style="color: #232629; ">(</span><span style="color: #008000; ">32</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// The value of scaledLastGmFreqChange is the fractional frequency offset of the current Grandmaster Clock
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// relative to the previous Grandmaster Clock, at the time that the current Grandmaster PTP Instance became
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// the Grandmaster PTP Instance, or relative to itself prior to the last change in gmTimeBaseIndicator,
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// multiplied by 241 and truncated to the next smaller signed integer. The value is obtained by multiplying the
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// lastGmFreqChange member of MDSyncSend whose receipt causes the MD entity to send the Follow_Up
+</span><span style="color: #232629; ">                                             </span><span style="color: #808080; font-style: italic; ">// message (see 11.2.11) by 241, and truncating to the next smaller signed integer.
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee8021as-GptpPacket.msg.html">src/inet/linklayer/ieee8021as/GptpPacket.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

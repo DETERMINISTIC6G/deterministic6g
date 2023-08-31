@@ -1,0 +1,949 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>AdhocHost</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">AdhocHost</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_node_inet">inet.node.inet</a></p>
+<h2 class="comptitle" style="float: left;">AdhocHost</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #00ff0040;">
+    <span class="mdl-chip__text">compound module</span>
+</span><div style="clear: both;"/>
+
+<p>A wireless host containing routing, mobility and energy components. Supports
+IPv4 network protocol, TCP, UDP, and SCTP as transport protocol.
+This is a typical mobile node which can participate in adhoc routing
+and may have TCP/UDP applications installed. Supports ICMP (ping) too.</p>
+  <ul><li>By default contains a single wireless card, however it can be configured
+  by the numWlanInterfaces parameter. Wirless card type is configured by the
+  **.wlan[*].typename parameter. see:  inet.linklayer.ieee80211 or other
+  modules implementing ~<a title="inet.linklayer.contract.IWirelessInterface" href="inet.linklayer.contract.IWirelessInterface.html">IWirelessInterface</a></li>
+  <li>Node(<a title="inet.examples.wireless.hiddennode.Node" href="inet.examples.wireless.hiddennode.Node.html">1</a>,<a title="inet.tutorials.protocol.Node" href="inet.tutorials.protocol.Node.html">2</a>) mobility can be set using **.mobility.typename
+  see: inet.mobility and ~<a title="inet.mobility.contract.IMobility" href="inet.mobility.contract.IMobility.html">IMobility</a></li></ul>
+<img src="inet.node.inet.AdhocHost-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.common.lifecycle.NodeStatus.html" title="NodeStatus" alt="NodeStatus" coords="29,63,86,119">
+<area shape="rect" href="inet.clock.contract.IClock.html" title="IClock" alt="IClock" coords="33,169,81,225">
+<area shape="rect" href="inet.power.contract.IEnergyStorage.html" title="IEnergyStorage" alt="IEnergyStorage" coords="-11,205,125,261">
+<area shape="rect" href="inet.power.contract.IEnergyManagement.html" title="IEnergyManagement" alt="IEnergyManagement" coords="-37,240,151,296">
+<area shape="rect" href="inet.power.contract.IEnergyGenerator.html" title="IEnergyGenerator" alt="IEnergyGenerator" coords="-22,276,137,332">
+<area shape="rect" href="inet.mobility.contract.IMobility.html" title="IMobility" alt="IMobility" coords="20,98,95,154">
+<area shape="rect" href="inet.common.IMeasurer.html" title="IMeasurer" alt="IMeasurer" coords="12,320,102,376">
+<area shape="rect" href="inet.common.packet.recorder.PcapRecorder.html" title="PcapRecorder" alt="PcapRecorder" coords="-105,311,220,367">
+<area shape="rect" href="inet.networklayer.common.InterfaceTable.html" title="InterfaceTable" alt="InterfaceTable" coords="-8,134,123,190">
+<area shape="rect" href="inet.linklayer.ieee8022.IIeee8022Llc.html" title="IIeee8022Llc" alt="IIeee8022Llc" coords="148,252,192,324">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,304,559,338">
+<area shape="rect" href="inet.protocolelement.contract.IProtocolLayer.html" title="IProtocolLayer" alt="IProtocolLayer" coords="295,318,373,390">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,371,559,405">
+<area shape="rect" href="inet.linklayer.ethernet.contract.IEthernetLayer.html" title="IEthernetLayer" alt="IEthernetLayer" coords="129,385,208,457">
+<area shape="rect" href="inet.linklayer.ieee8021q.IIeee8021qLayer.html" title="IIeee8021qLayer" alt="IIeee8021qLayer" coords="187,385,281,457">
+<area shape="rect" href="inet.linklayer.ieee8021r.IIeee8021rLayer.html" title="IIeee8021rLayer" alt="IIeee8021rLayer" coords="255,385,345,457">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,437,559,471">
+<area shape="rect" href="inet.linklayer.contract.ILoopbackInterface.html" title="ILoopbackInterface" alt="ILoopbackInterface" coords="239,451,429,523">
+<area shape="rect" href="inet.linklayer.contract.IWirelessInterface.html" title="IWirelessInterface" alt="IWirelessInterface" coords="47,462,289,534">
+<area shape="rect" href="inet.linklayer.contract.IPppInterface.html" title="IPppInterface" alt="IPppInterface" coords="52,451,216,523">
+<area shape="rect" href="inet.linklayer.contract.IEthernetInterface.html" title="IEthernetInterface" alt="IEthernetInterface" coords="324,451,476,523">
+<area shape="rect" href="inet.linklayer.contract.ITunnelInterface.html" title="ITunnelInterface" alt="ITunnelInterface" coords="325,462,541,534">
+<area shape="rect" href="inet.linklayer.contract.IVirtualInterface.html" title="IVirtualInterface" alt="IVirtualInterface" coords="327,462,540,534">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="148,186,201,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="214,186,267,258">
+<area shape="rect" href="inet.networklayer.contract.INetworkLayer.html" title="INetworkLayer" alt="INetworkLayer" coords="266,186,335,258">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,238,559,272">
+<area shape="rect" href="inet.transportlayer.contract.IUdp.html" title="IUdp" alt="IUdp" coords="148,119,192,191">
+<area shape="rect" href="inet.transportlayer.contract.ITcp.html" title="ITcp" alt="ITcp" coords="214,119,258,191">
+<area shape="rect" href="inet.transportlayer.contract.ISctp.html" title="ISctp" alt="ISctp" coords="280,119,324,191">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,171,559,205">
+<area shape="rect" href="inet.applications.contract.IApp.html" title="IApp" alt="IApp" coords="99,53,238,125">
+<area shape="rect" href="inet.common.MessageDispatcher.html" title="MessageDispatcher" alt="MessageDispatcher" coords="113,105,559,139">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.node.inet.AdhocHost-inheritance.svg"></object>
+<h3 class="subtitle">Used in</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.aggregation.AggregationShowcase" href="inet.showcases.wireless.aggregation.AggregationShowcase.html">AggregationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork.html">AnalogModelShowcaseDistanceNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork_" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseDistanceNetwork_.html">AnalogModelShowcaseDistanceNetwork_</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.analogmodel.AnalogModelShowcaseNoiseNetwork" href="inet.showcases.wireless.analogmodel.AnalogModelShowcaseNoiseNetwork.html">AnalogModelShowcaseNoiseNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample" href="inet.examples.wireless.antenna.AntennaDirectionalSelectivityExample.html">AntennaDirectionalSelectivityExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.blockack.BlockAckShowcase" href="inet.showcases.wireless.blockack.BlockAckShowcase.html">BlockAckShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.coexistence.CoexistenceShowcase" href="inet.showcases.wireless.coexistence.CoexistenceShowcase.html">CoexistenceShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.communicationcache.CommunicationCacheExample" href="inet.examples.communicationcache.CommunicationCacheExample.html">CommunicationCacheExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.configurator.ComplexConfiguratorNetwork" href="inet.examples.wireless.configurator.ComplexConfiguratorNetwork.html">ComplexConfiguratorNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.corruptionmode.CorruptionModeExample" href="inet.examples.wireless.corruptionmode.CorruptionModeExample.html">CorruptionModeExample</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.crosstalk.Crosstalk" href="inet.examples.wireless.crosstalk.Crosstalk.html">Crosstalk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.crosstalk.CrosstalkShowcaseBaseNetwork" href="inet.showcases.wireless.crosstalk.CrosstalkShowcaseBaseNetwork.html">CrosstalkShowcaseBaseNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerActivityLevelShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerActivityLevelShowcase.html">DataLinkVisualizerActivityLevelShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWirelessShowcase" href="inet.showcases.visualizer.canvas.datalinkactivity.DataLinkVisualizerEnablingWirelessShowcase.html">DataLinkVisualizerEnablingWirelessShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.directionalantennas.DirectionalAntennasShowcase" href="inet.showcases.wireless.directionalantennas.DirectionalAntennasShowcase.html">DirectionalAntennasShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.dynamic.DynamicRadioNetwork" href="inet.examples.wireless.dynamic.DynamicRadioNetwork.html">DynamicRadioNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.errorrate.ErrorRateShowcase" href="inet.showcases.wireless.errorrate.ErrorRateShowcase.html">ErrorRateShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.errorrate.ErrorRateTest" href="inet.examples.wireless.errorrate.ErrorRateTest.html">ErrorRateTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.fragmentation.FragmentationShowcase" href="inet.showcases.wireless.fragmentation.FragmentationShowcase.html">FragmentationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.ieee80211levelofdetail.Ieee80211LevelofDetailShowcase" href="inet.examples.wireless.ieee80211levelofdetail.Ieee80211LevelofDetailShowcase.html">Ieee80211LevelofDetailShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.instrumentfigures.InstrumentShowcase" href="inet.showcases.visualizer.canvas.instrumentfigures.InstrumentShowcase.html">InstrumentShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase" href="inet.showcases.visualizer.canvas.interfacetable.InterfaceTableVisualizationAdvancedFeaturesShowcase.html">InterfaceTableVisualizationAdvancedFeaturesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layered80211.Layered80211" href="inet.examples.wireless.layered80211.Layered80211.html">Layered80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.layeredapsk.LayeredApsk" href="inet.examples.wireless.layeredapsk.LayeredApsk.html">LayeredApsk</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.mactest.MacTest" href="inet.examples.wireless.mactest.MacTest.html">MacTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityInterferingSignalsShowcase.html">MediumActivityInterferingSignalsShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityMultipleNodesShowcase" href="inet.showcases.visualizer.canvas.radiomediumactivity.MediumActivityMultipleNodesShowcase.html">MediumActivityMultipleNodesShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.mobility.MobilityVisualizerShowcase" href="inet.showcases.visualizer.canvas.mobility.MobilityVisualizerShowcase.html">MobilityVisualizerShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.idealwireless.Net" href="inet.examples.adhoc.idealwireless.Net.html">Net</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.ieee80211.Net80211" href="inet.examples.adhoc.ieee80211.Net80211.html">Net80211</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.objectcache.ObjectCacheTest" href="inet.examples.objectcache.ObjectCacheTest.html">ObjectCacheTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.geometry.ObstacleIntersectionTest" href="inet.examples.geometry.ObstacleIntersectionTest.html">ObstacleIntersectionTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.obstacle.ObstacleTest" href="inet.examples.wireless.obstacle.ObstacleTest.html">ObstacleTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropArpResolutionFailedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropArpResolutionFailedShowcase.html">PacketDropArpResolutionFailedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.packetdrop.PacketDropMacRetryLimitReachedShowcase" href="inet.showcases.visualizer.canvas.packetdrop.PacketDropMacRetryLimitReachedShowcase.html">PacketDropMacRetryLimitReachedShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.pathloss.PathLossShowcase" href="inet.showcases.wireless.pathloss.PathLossShowcase.html">PathLossShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.general.pcaprecording.PcapRecordingShowcase" href="inet.showcases.general.pcaprecording.PcapRecordingShowcase.html">PcapRecordingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerEnablingShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerEnablingShowcase.html">PhysicalLinkVisualizerEnablingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerMobileShowcase" href="inet.showcases.visualizer.canvas.physicallinkactivity.PhysicalLinkVisualizerMobileShowcase.html">PhysicalLinkVisualizerMobileShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.power.PowerConsumptionShowcase" href="inet.showcases.wireless.power.PowerConsumptionShowcase.html">PowerConsumptionShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.power.PowerNetwork" href="inet.examples.wireless.power.PowerNetwork.html">PowerNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.qos.QosThroughput" href="inet.examples.adhoc.qos.QosThroughput.html">QosThroughput</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.tutorials.fingerprint.RegressionTestingTutorialWireless" href="inet.tutorials.fingerprint.RegressionTestingTutorialWireless.html">RegressionTestingTutorialWireless</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.adhoc.hostautoconf.Scenario" href="inet.examples.adhoc.hostautoconf.Scenario.html">Scenario</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcasePowerDensityMapNetwork.html">SpectrumShowcasePowerDensityMapNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork" href="inet.showcases.visualizer.canvas.spectrum.SpectrumShowcaseSpectrumFigureSpectrogramNetwork.html">SpectrumShowcaseSpectrumFigureSpectrogramNetwork</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPacketErrorRateShowcase" href="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPacketErrorRateShowcase.html">StatisticVisualizationPacketErrorRateShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPingRttShowcase" href="inet.showcases.visualizer.canvas.statistic.StatisticVisualizationPingRttShowcase.html">StatisticVisualizationPingRttShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.styling.StylingShowcase" href="inet.showcases.visualizer.canvas.styling.StylingShowcase.html">StylingShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.submoduleinfo.SubmoduleInformationVisualizationShowcase" href="inet.showcases.visualizer.canvas.submoduleinfo.SubmoduleInformationVisualizationShowcase.html">SubmoduleInformationVisualizationShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.wireless.synchronized.Synchronized" href="inet.examples.wireless.synchronized.Synchronized.html">Synchronized</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWirelessShowcase" href="inet.showcases.visualizer.canvas.transportpathactivity.TransportPathVisualizerSimpleWirelessShowcase.html">TransportPathVisualizerSimpleWirelessShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.showcases.wireless.txop.TxopShowcase" href="inet.showcases.wireless.txop.TxopShowcase.html">TxopShowcase</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Known subclasses</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.aodv.AodvRouter" href="inet.node.aodv.AodvRouter.html">AodvRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>It models a ~<a title="inet.node.inet.WirelessHost" href="inet.node.inet.WirelessHost.html">WirelessHost</a> extended with ~<a title="inet.routing.aodv.Aodv" href="inet.routing.aodv.Aodv.html">Aodv</a> submodule.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.dsdv.DsdvRouter" href="inet.node.dsdv.DsdvRouter.html">DsdvRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>A DSDV router.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.dymo.DymoRouter" href="inet.node.dymo.DymoRouter.html">DymoRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.gpsr.GpsrRouter" href="inet.node.gpsr.GpsrRouter.html">GpsrRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.ManetRouter" href="inet.node.inet.ManetRouter.html">ManetRouter</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Extends</h3>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.node.inet.WirelessHost" href="inet.node.inet.WirelessHost.html">WirelessHost</a></td>
+      <td><i>compound&nbsp;module</i></td>
+      <td>
+<p>Models a host with (default) one wireless (802.11) card in infrastructure mode.
+This module is basically a ~<a title="inet.node.inet.StandardHost" href="inet.node.inet.StandardHost.html">StandardHost</a> with an ~<a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">Ieee80211Interface</a> with
+mgmt.typename = ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a> added.
+It should be used in conjunction with ~<a title="inet.node.wireless.AccessPoint" href="inet.node.wireless.AccessPoint.html">AccessPoint</a>, or any other AP model
+which contains ~<a title="inet.linklayer.ieee80211.Ieee80211Interface" href="inet.linklayer.ieee80211.Ieee80211Interface.html">Ieee80211Interface</a> with mgmt.typename = ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html">Ieee80211MgmtAp</a>.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>hasStatus</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModel</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>3D model for OSG visualization, no 3D model by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>osgModelColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImage</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>image for canvas visualization, no image by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>canvasImageColor</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>tint color, no colorization by default</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>recordPcap</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numPcapRecorders</td>
+      <td>int</td>
+      <td>recordPcap ? 1 : 0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numLoInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numWlanInterfaces</td>
+      <td>int</td>
+      <td>1</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numEthInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of ethernet interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numPppInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td>
+<p>minimum number of PPP interfaces</p>
+</td>
+   </tr>
+   <tr class="inherited">
+      <td>numTunInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numVirtInterfaces</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>fcsMode</td>
+      <td>string</td>
+      <td>"declared"</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv4</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasIpv6</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasGn</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>forwarding</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>multicastForwarding</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasUdp</td>
+      <td>bool</td>
+      <td>firstAvailableOrEmpty("Udp") != ""</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasTcp</td>
+      <td>bool</td>
+      <td>firstAvailableOrEmpty("Tcp", "TcpLwip", "TcpNsc") != ""</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>hasSctp</td>
+      <td>bool</td>
+      <td>false</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>numApps</td>
+      <td>int</td>
+      <td>0</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>networkNode</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>labels</td>
+      <td>node</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>class</td>
+      <td>NodeBase</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=device/cellphone</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="inherited">
+      <td>radioIn [ ]</td>
+      <td>input</td>
+      <td>numWlanInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>pppg [ ]</td>
+      <td>inout</td>
+      <td>numPppInterfaces</td>
+      <td></td>
+   </tr>
+   <tr class="inherited">
+      <td>ethg [ ]</td>
+      <td>inout</td>
+      <td>numEthInterfaces</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Unassigned submodule parameters</h3>
+<table class="deepparamstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.common.lifecycle.NodeStatus" href="inet.common.lifecycle.NodeStatus.html">status</a>.initialStatus</td>
+      <td>string</td>
+      <td>"UP"</td>
+      <td>
+<p>TODO @signal, @statistic</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.verbose</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>whether to log packets on the module output</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.pcapFile</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>the PCAP file to be written</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.fileFormat</td>
+      <td>string</td>
+      <td>"pcapng"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.snaplen</td>
+      <td>int</td>
+      <td>65535</td>
+      <td>
+<p>maximum number of bytes to record per packet</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpBadFrames</td>
+      <td>bool</td>
+      <td>true</td>
+      <td>
+<p>enable dump of frames with hasBitError</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.moduleNamePatterns</td>
+      <td>string</td>
+      <td>"wlan[*] eth[*] ppp[*]"</td>
+      <td>
+<p>space-separated list of sibling module names to listen on</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.sendingSignalNames</td>
+      <td>string</td>
+      <td>"packetSentToLower"</td>
+      <td>
+<p>space-separated list of outbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.receivingSignalNames</td>
+      <td>string</td>
+      <td>"packetReceivedFromLower"</td>
+      <td>
+<p>space-separated list of inbound packet signals to subscribe to</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.dumpProtocols</td>
+      <td>string</td>
+      <td>"ethernetmac ppp ieee80211mac"</td>
+      <td>
+<p>space-separated list of protocol names as defined in the <a title="inet::Protocol" href="inet-Protocol.html">Protocol</a> class</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.packetFilter</td>
+      <td>object</td>
+      <td>"*"</td>
+      <td>
+<p>which packets are considered, matches all packets by default</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.helpers</td>
+      <td>string</td>
+      <td>""</td>
+      <td>
+<p>usable <a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">PcapRecorder</a>::IHelper helpers for accept packettype and store/convert packet as specified linktype
+currently available: "inet::AckingMacToEthernetPcapRecorderHelper"</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.alwaysFlush</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>flush the pcapFile after each write to ensure that all packets are captured in case of a crash</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.packet.recorder.PcapRecorder" href="inet.common.packet.recorder.PcapRecorder.html">pcapRecorder</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"rec: %n pks"</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.networklayer.common.InterfaceTable" href="inet.networklayer.common.InterfaceTable.html">interfaceTable</a>.displayAddresses</td>
+      <td>bool</td>
+      <td>false</td>
+      <td>
+<p>whether to display IP addresses on links</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">cb</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">bl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">li</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.linklayer.contract.IEthernetInterface" href="inet.linklayer.contract.IEthernetInterface.html">eth</a>.bitrate</td>
+      <td>double</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">nl</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">tn</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.displayStringTextFormat</td>
+      <td>string</td>
+      <td>"processed %p pk (%l)"</td>
+      <td>
+<p>determines the text that is written on top of the submodule</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardServiceRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+   <tr>
+      <td><a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">at</a>.forwardProtocolRegistration</td>
+      <td>bool</td>
+      <td>true</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// A wireless host containing routing, mobility and energy components. Supports
+// IPv4 network protocol, TCP, UDP, and SCTP as transport protocol.
+// This is a typical mobile node which can participate in adhoc routing
+// and may have TCP/UDP applications installed. Supports ICMP (ping) too.
+//
+// - By default contains a single wireless card, however it can be configured
+//   by the numWlanInterfaces parameter. Wirless card type is configured by the
+//   **.wlan[*].typename parameter. see:  inet.linklayer.ieee80211 or other
+//   modules implementing ~IWirelessInterface
+// - Node mobility can be set using **.mobility.typename
+//   see: inet.mobility and ~IMobility
+//
+</span><span style="color: #800000; font-weight: bold; ">module</span><span style="color: #232629; "> </span><span style="color: #232629; ">AdhocHost</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">WirelessHost</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=device/cellphone&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">mgmt</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Ieee80211MgmtAdhoc&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">wlan</span><span style="color: #232629; ">[*].</span><span style="color: #232629; ">agent</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">typename</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">forwarding</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">true</span><span style="color: #232629; ">);
+}
+
+</span></pre>
+File: <a href="src-inet-node-inet-AdhocHost.ned.html">src/inet/node/inet/AdhocHost.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

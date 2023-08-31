@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TcpConnectionState.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TcpConnectionState.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/transportlayer/tcp/TcpConnectionState.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::SackList" href="inet-tcp-SackList.html">SackList</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpState" href="inet-tcp-TcpState.html">TcpState</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>TCP FSM states</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpEventCode" href="inet-tcp-TcpEventCode.html">TcpEventCode</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>Event, strictly for the FSM state transition purposes.
+DO NOT USE outside performStateTransition()!</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::tcp::TcpStateVariables" href="inet-tcp-TcpStateVariables.html">TcpStateVariables</a></td>
+      <td><i>struct</i></td>
+      <td>
+<p>Contains state variables ("TCB") for TCP.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2022 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">transportlayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">tcp_common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TcpHeader</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">::</span><span style="color: #232629; ">tcp</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; "> {{
+</span><span style="color: #232629; ">typedef</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #232629; ">list</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">Sack</span><span style="color: #232629; ">&gt; </span><span style="color: #232629; ">SackList</span><span style="color: #232629; ">;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">SackList</span><span style="color: #232629; "> { </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">; }
+
+</span><span style="color: #808080; font-style: italic; ">//
+// TCP FSM states
+//
+// Brief descriptions (cf RFC 793, page 20):
+//
+// LISTEN - waiting for a connection request
+// SYN-SENT - part of 3-way handshake (waiting for peer's SYN+ACK or SYN)
+// SYN-RECEIVED - part of 3-way handshake (we sent SYN too, waiting for it to be acked)
+// ESTABLISHED - normal data transfer
+// FIN-WAIT-1 - FIN sent, waiting for its ACK (or peer's FIN)
+// FIN-WAIT-2 - our side of the connection closed (our FIN acked), waiting for peer's FIN
+// CLOSE-WAIT - FIN received and acked, waiting for local user to close
+// LAST-ACK - remote side closed, FIN sent, waiting for its ACK
+// CLOSING - simultaneous close: sent FIN, then got peer's FIN
+// TIME-WAIT - both FIN's acked, waiting for some time to be sure remote TCP received our ACK
+// CLOSED - represents no connection state at all.
+//
+// Note: FIN-WAIT-1, FIN-WAIT-2, CLOSING, TIME-WAIT represents active close (that is,
+// local user closes first), and CLOSE-WAIT and LAST-ACK represents passive close.
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpState</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">TCP_S_INIT</span><span style="color: #232629; ">        = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_CLOSED</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_LISTEN</span><span style="color: #232629; ">      = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_SYN_SENT</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_SYN_RCVD</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_ESTABLISHED</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_CLOSE_WAIT</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_LAST_ACK</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_FIN_WAIT_1</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_FIN_WAIT_2</span><span style="color: #232629; ">  = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_CLOSING</span><span style="color: #232629; ">     = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_S_TIME_WAIT</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">;
+};
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Event, strictly for the FSM state transition purposes.
+// DO NOT USE outside performStateTransition()!
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpEventCode</span><span style="color: #232629; "> {
+    </span><span style="color: #232629; ">TCP_E_IGNORE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// app commands
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// (Note: no RECEIVE command, data are automatically passed up)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_E_OPEN_ACTIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_OPEN_PASSIVE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_ACCEPT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_SEND</span><span style="color: #232629; "> = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_CLOSE</span><span style="color: #232629; "> = </span><span style="color: #008000; ">5</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_ABORT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">6</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_DESTROY</span><span style="color: #232629; "> = </span><span style="color: #008000; ">7</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_STATUS</span><span style="color: #232629; "> = </span><span style="color: #008000; ">8</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_QUEUE_BYTES_LIMIT</span><span style="color: #232629; "> = </span><span style="color: #008000; ">9</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_READ</span><span style="color: #232629; "> = </span><span style="color: #008000; ">10</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_SETOPTION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">11</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// TPDU types
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_E_RCV_DATA</span><span style="color: #232629; "> = </span><span style="color: #008000; ">12</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">13</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_SYN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">14</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_SYN_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">15</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_FIN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">16</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_FIN_ACK</span><span style="color: #232629; "> = </span><span style="color: #008000; ">17</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_RCV_RST</span><span style="color: #232629; "> = </span><span style="color: #008000; ">18</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// covers RST+ACK too
+</span><span style="color: #232629; ">
+    </span><span style="color: #232629; ">TCP_E_RCV_UNEXP_SYN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">19</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unexpected SYN
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// timers
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_E_TIMEOUT_2MSL</span><span style="color: #232629; "> = </span><span style="color: #008000; ">20</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// RFC 793, a.k.a. TIME-WAIT timer
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">TCP_E_TIMEOUT_CONN_ESTAB</span><span style="color: #232629; "> = </span><span style="color: #008000; ">21</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">TCP_E_TIMEOUT_FIN_WAIT_2</span><span style="color: #232629; "> = </span><span style="color: #008000; ">22</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// All other timers (REXMT, PERSIST, DELAYED-ACK, KEEP-ALIVE, etc.),
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// are handled in TcpAlgorithm.
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #808080; font-style: italic; ">//
+// Contains state variables (&quot;TCB&quot;) for TCP.
+//
+// TcpStateVariables is effectively a &quot;struct&quot; -- it only contains
+// public data members. (Only declared as a class so that we can use
+// cObject as base class and make it possible to inspect
+// it in Tkenv.)
+//
+// TcpStateVariables only contains variables needed to implement
+// the &quot;base&quot; (RFC 793) TCP. More advanced TCP variants are encapsulated
+// into TcpAlgorithm subclasses which can have their own state blocks,
+// subclassed from TcpStateVariables. See TcpAlgorithm::createStateVariables().
+//
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">TcpStateVariables</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@implements</span><span style="color: #232629; ">(</span><span style="color: #232629; ">cObject</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">active</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;            </span><span style="color: #808080; font-style: italic; ">// set if the connection was initiated by an active open
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fork</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;              </span><span style="color: #808080; font-style: italic; ">// if passive and in LISTEN: whether to fork on an incoming connection
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_mss</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// sender maximum segment size (without headers, i.e. only segment text); see RFC 2581, page 1.
+</span><span style="color: #232629; ">                                    </span><span style="color: #808080; font-style: italic; ">// This will be set to the minimum of the local smss parameter and the value specified in the
+</span><span style="color: #232629; ">                                    </span><span style="color: #808080; font-style: italic; ">// MSS option received during connection setup.
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// send sequence number variables (see RFC 793, &quot;3.2. Terminology&quot;)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_una</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// send unacknowledged
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_nxt</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// send next (drops back on retransmission)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_max</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// max seq number sent (needed because snd_nxt is re-set on retransmission)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wnd</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// send window
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_up</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;            </span><span style="color: #808080; font-style: italic; ">// send urgent pointer
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wl1</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// segment sequence number used for last window update
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wl2</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// segment ack. number used for last window update
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">iss</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;               </span><span style="color: #808080; font-style: italic; ">// initial sequence number (ISS)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// receive sequence number variables
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_nxt</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// receive next
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_wnd</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// receive window
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_up</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;            </span><span style="color: #808080; font-style: italic; ">// receive urgent pointer;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">irs</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;               </span><span style="color: #808080; font-style: italic; ">// initial receive sequence number
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_adv</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;           </span><span style="color: #808080; font-style: italic; ">// advertised window
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// SYN, SYN+ACK retransmission variables (handled separately
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// because normal rexmit belongs to TcpAlgorithm)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">syn_rexmit_count</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// number of SYN/SYN+ACK retransmissions (=1 after first rexmit)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">syn_rexmit_timeout</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// current SYN/SYN+ACK retransmission timeout
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// whether ACK of our FIN has been received. Needed in FIN bit processing
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// to decide between transition to TIME-WAIT and CLOSING (set event code
+</span><span style="color: #232629; ">    </span><span style="color: #808080; font-style: italic; ">// TCP_E_RCV_FIN or TCP_E_RCV_FIN_ACK).
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fin_ack_rcvd</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">send_fin</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// true if a user CLOSE command has been &quot;queued&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_fin_seq</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// if send_fin == true: FIN should be sent just before this sequence number
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">fin_rcvd</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// whether FIN received or not
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_fin_seq</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// if fin_rcvd: sequence number of received FIN
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">nagle_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                 </span><span style="color: #808080; font-style: italic; ">// set if Nagle's algorithm (RFC 896) is enabled
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">delayed_acks_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// set if delayed ACK algorithm (RFC 1122) is enabled
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">limited_transmit_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// set if Limited Transmit algorithm (RFC 3042) is enabled
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">increased_IW_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// set if Increased Initial Window (RFC 3390) is enabled
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">full_sized_segment_counter</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// this counter is needed for delayed ACK
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ack_now</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                       </span><span style="color: #808080; font-style: italic; ">// send ACK immediately, needed if delayed_acks_enabled is set
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">// Based on [Stevens, W.R.: TCP/IP Illustrated, Volume 2, page 861].
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">// ack_now should be set when:
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">//   - delayed ACK timer expires
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">//   - an out-of-order segment is received
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">//   - SYN is received during the three-way handshake
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">//   - a persist probe is received
+</span><span style="color: #232629; ">                                                </span><span style="color: #808080; font-style: italic; ">//   - FIN is received
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">afterRto</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                      </span><span style="color: #808080; font-style: italic; ">// set at RTO, reset when snd_nxt == snd_max or snd_una == snd_max
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// WINDOW_SCALE related variables
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ws_support</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// set if the host supports Window Scale (header option) (RFC 1322)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ws_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                    </span><span style="color: #808080; font-style: italic; ">// set if the connection uses Window Scale (header option)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; ">  </span><span style="color: #232629; ">ws_manual_scale</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;                  </span><span style="color: #808080; font-style: italic; ">// the value of scale parameter if it was set manually (-1 otherwise)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_ws</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                        </span><span style="color: #808080; font-style: italic; ">// set if initial WINDOW_SCALE has been sent
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_ws</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;                        </span><span style="color: #808080; font-style: italic; ">// set if initial WINDOW_SCALE has been received
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_wnd_scale</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;             </span><span style="color: #808080; font-style: italic; ">// RFC 1323, page 31: &quot;Receive window scale power&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_wnd_scale</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;             </span><span style="color: #808080; font-style: italic; ">// RFC 1323, page 31: &quot;Send window scale power&quot;
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// TIMESTAMP related variables
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ts_support</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// set if the host supports Timestamps (header option) (RFC 1322)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ts_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;        </span><span style="color: #808080; font-style: italic; ">// set if the connection uses Window Scale (header option)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_initial_ts</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// set if initial TIMESTAMP has been sent
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_initial_ts</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// set if initial TIMESTAMP has been received
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">ts_recent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// RFC 1323, page 31: &quot;Latest received Timestamp&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">last_ack_sent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// RFC 1323, page 31: &quot;Last ACK field sent&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">time_last_data_sent</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// time at which the last data segment was sent (needed to compute the IDLE time for PAWS)
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// SACK related variables
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sack_support</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// set if the host supports selective acknowledgment (header option) (RFC 2018, 2883, 3517)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sack_enabled</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;      </span><span style="color: #808080; font-style: italic; ">// set if the connection uses selective acknowledgment (header option)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_sack_perm</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// set if SACK_PERMITTED has been sent
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_sack_perm</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// set if SACK_PERMITTED has been received
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">start_seqno</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// start sequence number of last received out-of-order segment
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">end_seqno</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// end sequence number of last received out-of-order segment
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_sack</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;          </span><span style="color: #808080; font-style: italic; ">// set if received vaild out-of-order segment or rcv_nxt changed, but receivedQueue is not empty
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_dsack</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;         </span><span style="color: #808080; font-style: italic; ">// set if received duplicated segment (sequenceNo+PLength &lt; rcv_nxt) or (segment is not acceptable)
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">SackList</span><span style="color: #232629; "> </span><span style="color: #232629; ">sacks_array</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// MAX_SACK_BLOCKS is set to 60
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">highRxt</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RFC 3517, page 3: &quot;&quot;HighRxt&quot; is the highest sequence number which has been retransmitted during the current loss recovery phase.&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">pipe</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RFC 3517, page 3: &quot;&quot;Pipe&quot; is a sender's estimate of the number of bytes outstanding in the network.&quot;
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">recoveryPoint</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// RFC 3517
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sackedBytes</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of sackedBytes
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sackedBytes_old</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// old number of sackedBytes - needed for RFC 3042 to check if last dupAck contained new sack information
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">lossRecovery</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// indicates if algorithm is in loss recovery phase
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// queue management
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">sendQueueLimit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;
+    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">queueUpdate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">true</span><span style="color: #232629; ">;
+
+    </span><span style="color: #808080; font-style: italic; ">// those counters would logically belong to TcpAlgorithm, but it's a lot easier to manage them here
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dupacks</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// current number of received consecutive duplicate ACKs
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">snd_sacks</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of sent sacks
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_sacks</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of received sacks
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_oooseg</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of received out-of-order segments
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">rcv_naseg</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of received not acceptable segments
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// receiver buffer / receiver queue related variables
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">maxRcvBuffer</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// maximal amount of bytes in tcp receive queue
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">usedRcvBuffer</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// current amount of used bytes in tcp receive queue
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">freeRcvBuffer</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// current amount of free bytes in tcp receive queue
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">tcpRcvQueueDrops</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// number of drops in tcp receive queue
+</span><span style="color: #232629; ">
+    </span><span style="color: #808080; font-style: italic; ">// ECN
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ecnEchoState</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// indicates if connection is in echo mode (got CE indication from IP and didn't get CWR from sender yet)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sndCwr</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if ECE was handled
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">gotEce</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if packet with ECE arrived
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">gotCeIndication</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if CE was set in controlInfo from IP
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ect</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if this connection is ECN Capable (ECT stands for ECN-Capable transport - rfc-3168)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">endPointIsWillingECN</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if the other end-point is willing to use ECN
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ecnSynSent</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if ECN-setup SYN packet was sent
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">ecnWillingness</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if current host is willing to use ECN
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">sndAck</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if sending Ack packet, used to set relevant info in controlInfo.
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">rexmit</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// set if retransmitting data, used to send not-ECT codepoint (rfc3168, p. 20)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">eceReactionTime</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// records the time of the last ECE reaction
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">uint32_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">dupthresh</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// used for TcpTahoe, TcpReno and SACK (RFC 3517)
+</span><span style="color: #232629; ">};
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">TcpStateVariables</span><span style="color: #232629; ">) {{
+  </span><span style="color: #232629; ">public</span><span style="color: #232629; ">:
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> ~</span><span style="color: #232629; ">TcpStateVariables</span><span style="color: #232629; ">();
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">str</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">override</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">virtual</span><span style="color: #232629; "> </span><span style="color: #232629; ">std</span><span style="color: #232629; ">::</span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">detailedInfo</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; ">;
+}}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>TeLinkStateInfo</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">TeLinkStateInfo</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Namespace <code>inet</code></p>
+<h2 class="comptitle" style="float: left;">TeLinkStateInfo</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #dedede;">
+    <span class="mdl-chip__text">struct</span>
+</span><div style="clear: both;"/>
+
+<p>Represents a link in the ~<a title="inet.networklayer.ted.Ted" href="inet.networklayer.ted.Ted.html">Ted</a> and in ~<a title="inet::LinkStateMsg" href="inet-LinkStateMsg.html">LinkStateMsg</a> packets.</p>
+<h3 class="subtitle">Fields</h3>
+<table class="fieldstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>advrouter</td>
+      <td>Ipv4Address</td>
+      <td>
+<p>routerId of originator of this link state entry</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>linkid</td>
+      <td>Ipv4Address</td>
+      <td>
+<p>identifies link within advrouter; set to peer's address</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>local</td>
+      <td>Ipv4Address</td>
+      <td>
+<p>address of local interface of this link</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>remote</td>
+      <td>Ipv4Address</td>
+      <td>
+<p>address of "gateway" to peer</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>metric</td>
+      <td>double</td>
+      <td>
+<p>link metric</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>MaxBandwidth</td>
+      <td>double</td>
+      <td>
+<p>maximum bandwidth (<a title="inet::bps" href="inet-bps.html">bps</a>)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>UnResvBandwidth</td>
+      <td>double[8]</td>
+      <td>
+<p>unreserved bandwidths --FIXME indexed by what?</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>timestamp</td>
+      <td>simtime_t</td>
+      <td>
+<p>time of originating this entry</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>sourceId</td>
+      <td>unsigned int</td>
+      <td>
+<p>FIXME looks like this is the same as advrouter -- really needed?</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>messageId</td>
+      <td>unsigned int</td>
+      <td>
+<p>id assigned to originating ~<a title="inet::LinkStateMsg" href="inet-LinkStateMsg.html">LinkStateMsg</a> (FIXME or?)</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>state</td>
+      <td>bool</td>
+      <td>
+<p>false = down, true = up</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Represents a link in the ~Ted and in ~LinkStateMsg packets.
+//
+</span><span style="color: #800000; font-weight: bold; ">struct</span><span style="color: #232629; "> </span><span style="color: #232629; ">TeLinkStateInfo</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@packetData</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">advrouter</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// routerId of originator of this link state entry
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">linkid</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// identifies link within advrouter; set to peer's address
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">local</span><span style="color: #232629; ">;     </span><span style="color: #808080; font-style: italic; ">// address of local interface of this link
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">Ipv4Address</span><span style="color: #232629; "> </span><span style="color: #232629; ">remote</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// address of &quot;gateway&quot; to peer
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">metric</span><span style="color: #232629; ">;       </span><span style="color: #808080; font-style: italic; ">// link metric
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">MaxBandwidth</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// maximum bandwidth (bps)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">UnResvBandwidth</span><span style="color: #232629; ">[</span><span style="color: #008000; ">8</span><span style="color: #232629; ">]; </span><span style="color: #808080; font-style: italic; ">// unreserved bandwidths --FIXME indexed by what?
+</span><span style="color: #232629; ">
+    </span><span style="color: #000080; font-weight: bold; ">simtime_t</span><span style="color: #232629; "> </span><span style="color: #232629; ">timestamp</span><span style="color: #232629; ">;    </span><span style="color: #808080; font-style: italic; ">// time of originating this entry
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">sourceId</span><span style="color: #232629; ">;  </span><span style="color: #808080; font-style: italic; ">// FIXME looks like this is the same as advrouter -- really needed?
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">unsigned</span><span style="color: #232629; "> </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">messageId</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// id assigned to originating ~LinkStateMsg (FIXME or?)
+</span><span style="color: #232629; ">    </span><span style="color: #000080; font-weight: bold; ">bool</span><span style="color: #232629; "> </span><span style="color: #232629; ">state</span><span style="color: #232629; ">;             </span><span style="color: #808080; font-style: italic; ">// false = down, true = up
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-networklayer-ted-Ted.msg.html">src/inet/networklayer/ted/Ted.msg</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

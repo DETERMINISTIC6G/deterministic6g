@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>Ieee80211MgmtAp</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Ieee80211MgmtAp</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <p>Package: <a class="reference-ned" href="packages.html#inet_linklayer_ieee80211_mgmt">inet.linklayer.ieee80211.mgmt</a></p>
+<h2 class="comptitle" style="float: left;">Ieee80211MgmtAp</h2>
+<span class="mdl-chip" style="float: right; margin-top: 6pt; background-color: #ff000040;">
+    <span class="mdl-chip__text">simple module</span>
+</span><div style="clear: both;"/>
+
+<p>Used in 802.11 infrastructure mode in an access point (AP).</p>
+<p>This module expects ~<a title="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtSta.html">Ieee80211MgmtSta</a> modules to be resent in the stations.</p>
+<p>This module never switches channels, that is, it will operate on the channel
+the physical layer is configured for (see channelNumber in ~<a title="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio" href="inet.physicallayer.wireless.ieee80211.packetlevel.Ieee80211Radio.html">Ieee80211Radio</a>).</p>
+<p>This module relies on a connected ~<a title="inet.linklayer.ieee80211.mac.Ieee80211Mac" href="inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a> for actual
+reception and transmission of frames.</p>
+<img src="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp-type.svg" ismap="yes" usemap="#type-diagram"/><map name="type-diagram">
+<area shape="rect" href="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp.html" title="Ieee80211MgmtAp" alt="Ieee80211MgmtAp" coords="0,42,220,82">
+</map>
+<h3 class="subtitle">Inheritance diagram</h3>
+<p>The following diagram shows inheritance relationships for this type.
+Unresolved types are missing from the diagram.</p>
+<object type="image/svg+xml" data="inet.linklayer.ieee80211.mgmt.Ieee80211MgmtAp-inheritance.svg"></object>
+<h3 class="subtitle">Parameters</h3>
+<table class="paramstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="defaultvalue">Default value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>ssid</td>
+      <td>string</td>
+      <td>"SSID"</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>beaconInterval</td>
+      <td>double</td>
+      <td>100ms</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>numAuthSteps</td>
+      <td>int</td>
+      <td>4</td>
+      <td>
+<p>use 2 for Open System auth, 4 for WEP</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>interfaceTableModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>radioModule</td>
+      <td>string</td>
+      <td>"^.radio"</td>
+      <td>
+<p>The path to the <a title="inet.physicallayer.wireless.common.radio.packetlevel.Radio" href="inet.physicallayer.wireless.common.radio.packetlevel.Radio.html">Radio</a> module  //FIXME remove default value</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>mibModule</td>
+      <td>string</td>
+      <td></td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>macModule</td>
+      <td>string</td>
+      <td></td>
+      <td>
+<p>The path to the MAC module</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Properties</h3>
+<table class="propertiestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="value">Value</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td>display</td>
+      <td>i=block/cogwheel</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Gates</h3>
+<table class="gatestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Direction</th>
+      <th class="gatesize">Size</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr class="local">
+      <td>macIn</td>
+      <td>input</td>
+      <td></td>
+      <td>
+<p>from ~<a title="inet.linklayer.ieee80211.mac.Ieee80211Mac" href="inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a></p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>macOut</td>
+      <td>output</td>
+      <td></td>
+      <td>
+<p>to ~<a title="inet.linklayer.ieee80211.mac.Ieee80211Mac" href="inet.linklayer.ieee80211.mac.Ieee80211Mac.html">Ieee80211Mac</a></p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>agentIn</td>
+      <td>input</td>
+      <td></td>
+      <td>
+<p>unused dummy to statisfy the <a title="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt" href="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt.html">IIeee80211Mgmt</a> interface</p>
+</td>
+   </tr>
+   <tr class="local">
+      <td>agentOut</td>
+      <td>output</td>
+      <td></td>
+      <td>
+<p>unused dummy to statisfy the <a title="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt" href="inet.linklayer.ieee80211.mgmt.IIeee80211Mgmt.html">IIeee80211Mgmt</a> interface</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Signals</h3>
+<table class="signalstable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="unit">Unit</th>
+   </tr>
+   <tr class="local">
+      <td>l2ApDisassociated</td>
+      <td>inet::ieee80211::Ieee80211MgmtAp::NotificationInfoSta</td>
+      <td></td>
+   </tr>
+   <tr class="local">
+      <td>l2ApAssociated</td>
+      <td>inet::ieee80211::Ieee80211MgmtAp::NotificationInfoSta</td>
+      <td></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Used in 802.11 infrastructure mode in an access point (AP).
+//
+// This module expects ~Ieee80211MgmtSta modules to be resent in the stations.
+//
+// This module never switches channels, that is, it will operate on the channel
+// the physical layer is configured for (see channelNumber in ~Ieee80211Radio).
+//
+// This module relies on a connected ~Ieee80211Mac for actual
+// reception and transmission of frames.
+//
+</span><span style="color: #800000; font-weight: bold; ">simple</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ieee80211MgmtAp</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">like</span><span style="color: #232629; "> </span><span style="color: #232629; ">IIeee80211Mgmt</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">ssid</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;SSID&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">double</span><span style="color: #232629; "> </span><span style="color: #232629; ">beaconInterval</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@unit</span><span style="color: #232629; ">(</span><span style="color: #232629; ">s</span><span style="color: #232629; ">) = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">100</span><span style="color: #232629; ">ms</span><span style="color: #232629; ">);
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numAuthSteps</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">4</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// use 2 for Open System auth, 4 for WEP
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">interfaceTableModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">radioModule</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;^.radio&quot;</span><span style="color: #232629; ">);   </span><span style="color: #808080; font-style: italic; ">// The path to the Radio module  //FIXME remove default value
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">mibModule</span><span style="color: #232629; ">;
+        </span><span style="color: #000080; font-weight: bold; ">string</span><span style="color: #232629; "> </span><span style="color: #232629; ">macModule</span><span style="color: #232629; ">;               </span><span style="color: #808080; font-style: italic; ">// The path to the MAC module
+</span><span style="color: #232629; ">        </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;i=block/cogwheel&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">l2ApAssociated</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;inet::ieee80211::Ieee80211MgmtAp::NotificationInfoSta&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; font-weight: bold; ">@signal</span><span style="color: #232629; ">[</span><span style="color: #232629; ">l2ApDisassociated</span><span style="color: #232629; ">](</span><span style="color: #232629; ">type</span><span style="color: #232629; ">=</span><span style="color: #008000; ">&quot;inet::ieee80211::Ieee80211MgmtAp::NotificationInfoSta&quot;</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">gates</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">macIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ieee80211MacHeader</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// from ~Ieee80211Mac
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">macOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@labels</span><span style="color: #232629; ">(</span><span style="color: #232629; ">Ieee80211MacHeader</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// to ~Ieee80211Mac
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">input</span><span style="color: #232629; "> </span><span style="color: #232629; ">agentIn</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@loose</span><span style="color: #232629; ">;   </span><span style="color: #808080; font-style: italic; ">// unused dummy to statisfy the IIeee80211Mgmt interface
+</span><span style="color: #232629; ">        </span><span style="color: #000080; font-weight: bold; ">output</span><span style="color: #232629; "> </span><span style="color: #232629; ">agentOut</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@loose</span><span style="color: #232629; ">; </span><span style="color: #808080; font-style: italic; ">// unused dummy to statisfy the IIeee80211Mgmt interface
+</span><span style="color: #232629; ">}
+
+</span></pre>
+File: <a href="src-inet-linklayer-ieee80211-mgmt-Ieee80211MgmtAp.ned.html">src/inet/linklayer/ieee80211/mgmt/Ieee80211MgmtAp.ned</a>
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

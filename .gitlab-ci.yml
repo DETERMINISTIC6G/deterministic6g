@@ -18,10 +18,11 @@
 
 stages:          # List of stages for jobs, and their order of execution
   - build
+  - deploy
 
 build-docker:
   only:
-    - ergerg
+    - disabled
   image: docker:latest
   stage: build
   services:
@@ -34,6 +35,8 @@ build-docker:
     - docker push $IMAGE_TAG
 
 build-doc:
+  only:
+    - disabled
   image: ghcr.io/omnetpp/omnetpp-gui:u22.05-6.0.1
   stage: build
   script:
@@ -45,3 +48,13 @@ build-doc:
     - make neddoc
     - ls doc
 
+publish-pages:
+  stage: deploy
+  only:
+    - main
+    - documentation
+  artifacts:
+    paths:
+      - public
+  script:
+    - echo "Publishing to $CI_PAGES_URL"

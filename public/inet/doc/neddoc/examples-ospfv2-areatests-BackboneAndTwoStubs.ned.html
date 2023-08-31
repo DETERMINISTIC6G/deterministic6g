@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>BackboneAndTwoStubs.ned</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">BackboneAndTwoStubs.ned</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">NED File examples/ospfv2/areatests/BackboneAndTwoStubs.ned</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest" href="inet.examples.ospfv2.areatests.OSPF_BackboneAndTwoStubsTest.html">OSPF_BackboneAndTwoStubsTest</a></td>
+      <td><i>network</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #232629; ">
+
+</span><span style="color: #800000; font-weight: bold; ">package</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">examples</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ospfv2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">areatests</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">misc</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ThruputMeteringChannel</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">scenario</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ScenarioManager</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">networklayer</span><span style="color: #232629; ">.</span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ipv4</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">node</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ospfv2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">OspfRouter</span><span style="color: #232629; ">;
+
+
+</span><span style="color: #800000; font-weight: bold; ">network</span><span style="color: #232629; "> </span><span style="color: #232629; ">OSPF_BackboneAndTwoStubsTest</span><span style="color: #232629; ">
+{
+    </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+        </span><span style="color: #000080; font-weight: bold; ">int</span><span style="color: #232629; "> </span><span style="color: #232629; ">numBBRouters</span><span style="color: #232629; "> = </span><span style="color: #800000; font-weight: bold; ">default</span><span style="color: #232629; ">(</span><span style="color: #008000; ">3</span><span style="color: #232629; ">);
+    </span><span style="color: #800000; font-weight: bold; ">types</span><span style="color: #232629; ">:
+        </span><span style="color: #800000; font-weight: bold; ">channel</span><span style="color: #232629; "> </span><span style="color: #232629; ">C</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ThruputMeteringChannel</span><span style="color: #232629; ">
+        {
+            </span><span style="color: #232629; ">delay</span><span style="color: #232629; "> = </span><span style="color: #008000; ">0</span><span style="color: #232629; ">.</span><span style="color: #008000; ">1</span><span style="color: #232629; ">us</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">datarate</span><span style="color: #232629; "> = </span><span style="color: #008000; ">100</span><span style="color: #232629; ">Mbps</span><span style="color: #232629; ">;
+            </span><span style="color: #232629; ">thruputDisplayFormat</span><span style="color: #232629; "> = </span><span style="color: #008000; ">&quot;#N&quot;</span><span style="color: #232629; ">;
+        }
+    </span><span style="color: #800000; font-weight: bold; ">submodules</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">BBR</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numBBRouters</span><span style="color: #232629; ">]: </span><span style="color: #232629; ">OspfRouter</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=450,150,col,90&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">Stub1</span><span style="color: #232629; ">: </span><span style="color: #232629; ">TestArea</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">numHosts</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">extGates</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=300,150;b=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">Stub2</span><span style="color: #232629; ">: </span><span style="color: #232629; ">TestArea</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">numHosts</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">extGates</span><span style="color: #232629; "> = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=600,150;b=100,100&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">configurator</span><span style="color: #232629; ">: </span><span style="color: #232629; ">Ipv4NetworkConfigurator</span><span style="color: #232629; "> {
+            </span><span style="color: #800000; font-weight: bold; ">parameters</span><span style="color: #232629; ">:
+                </span><span style="color: #232629; ">config</span><span style="color: #232629; "> = </span><span style="color: #000080; font-weight: bold; ">xml</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;&lt;config&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;interface among='BBR[*]' address='192.168.100.x' netmask='255.255.255.x' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;interface hosts='Stub1.*' address='192.168.91.x' netmask='255.255.255.x' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;interface hosts='BBR[*]' towards='Stub1.*' address='192.168.91.x' netmask='255.255.255.x' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;interface hosts='Stub2.*' address='192.168.92.x' netmask='255.255.255.x' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;interface hosts='BBR[*]' towards='Stub2.*' address='192.168.92.x' netmask='255.255.255.x' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;multicast-group hosts='**.R[*] **.B[*] BBR[*]' address='224.0.0.5 224.0.0.6' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;route hosts='**.H[*]' destination='*' netmask='0.0.0.0' interface='eth0' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;route hosts='**.B[*] BBR[*]' destination='224.0.0.0' netmask='240.0.0.0' interface='eth0' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;route hosts='**.R[*] **.B[*] BBR[*]' destination='224.0.0.0' netmask='240.0.0.0' interface='eth1' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;route hosts='**.R[*] **.B[*]' destination='224.0.0.0' netmask='240.0.0.0' interface='eth2' /&gt;&quot;</span><span style="color: #232629; ">+
+                            </span><span style="color: #008000; ">&quot;&lt;/config&gt;&quot;</span><span style="color: #232629; ">);
+                </span><span style="color: #232629; ">addStaticRoutes</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; ">addDefaultRoutes</span><span style="color: #232629; "> = </span><span style="color: #008000; ">false</span><span style="color: #232629; ">;
+                </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,100;is=s&quot;</span><span style="color: #232629; ">);
+        }
+        </span><span style="color: #232629; ">scenarioManager</span><span style="color: #232629; ">: </span><span style="color: #232629; ">ScenarioManager</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; font-weight: bold; ">@display</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;p=100,200;is=s&quot;</span><span style="color: #232629; ">);
+        }
+    </span><span style="color: #800000; font-weight: bold; ">connections</span><span style="color: #232629; ">:
+        </span><span style="color: #232629; ">BBR</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">C</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Stub1</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">];
+        </span><span style="color: #232629; ">BBR</span><span style="color: #232629; ">[</span><span style="color: #232629; ">numBBRouters</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">C</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">Stub2</span><span style="color: #232629; ">.</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">[</span><span style="color: #008000; ">0</span><span style="color: #232629; ">];
+        </span><span style="color: #800000; font-weight: bold; ">for</span><span style="color: #232629; "> </span><span style="color: #232629; ">i</span><span style="color: #232629; ">=</span><span style="color: #008000; ">1</span><span style="color: #232629; ">..</span><span style="color: #232629; ">numBBRouters</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; "> {
+            </span><span style="color: #232629; ">BBR</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++ </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">C</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">&lt;--&gt;</span><span style="color: #232629; "> </span><span style="color: #232629; ">BBR</span><span style="color: #232629; ">[</span><span style="color: #232629; ">i</span><span style="color: #232629; ">-</span><span style="color: #008000; ">1</span><span style="color: #232629; ">].</span><span style="color: #232629; ">ethg</span><span style="color: #232629; ">++;
+        }
+        </span><span style="color: #808080; font-style: italic; ">//BBR[0].ethg++ &lt;--&gt; C &lt;--&gt; BBR[numBBRouters-1].ethg++;
+</span><span style="color: #232629; ">}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>

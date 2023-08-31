@@ -1,0 +1,424 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="OMNeT++ NED doc generator"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" href="material-icons.css">
+<link rel="stylesheet" href="material.blue-light_blue.min.css">
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<title>ProtocolTag.msg</title>
+</head>
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div id="top" class="mdl-layout__header-row">
+      <span class="mdl-layout-title">ProtocolTag.msg</span>
+      <div class="mdl-layout-spacer"></div>
+<!--
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+        <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+          <i class="material-icons">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder">
+          <input class="mdl-textfield__input" type="text" id="search" />
+          <label class="mdl-textfield__label" for="search">Enter your query...</label>
+        </div>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons">code</i>
+      </button>
+      <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+        <li class="mdl-menu__item">OMNeT++ Website</li>
+      </ul>
+-->
+    </div>
+  </header>
+
+  <div class="drawer mdl-layout__drawer">
+    <nav id="side-nav" class="mdl-navigation">
+      <div id="nav-tree">
+        <div id="nav-tree-contents">
+          <div id="nav-sync" class="sync"></div>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <script type="text/javascript">
+  $(document).ready(function(){initNavTree(location.pathname.split("/").slice(-1).toString(),'');});
+  </script>
+
+  <main class="mdl-layout__content">
+    <div id="doc-content">
+
+    <h2 class="comptitle">Msg File src/inet/common/ProtocolTag.msg</h2>
+<table class="typestable">
+   <tr>
+      <th class="name">Name</th>
+      <th class="type">Type</th>
+      <th class="description">Description</th>
+   </tr>
+   <tr>
+      <td><a title="inet::ChunkPtr" href="inet-ChunkPtr.html">ChunkPtr</a></td>
+      <td><i>class</i></td>
+      <td><i>(no description)</i></td>
+   </tr>
+   <tr>
+      <td><a title="inet::ProtocolTagBase" href="inet-ProtocolTagBase.html">ProtocolTagBase</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This is an abstract base class that should not be directly added as a tag.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ProtocolListTagBase" href="inet-ProtocolListTagBase.html">ProtocolListTagBase</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This is an abstract base class that should not be directly added as a tag.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::ServicePrimitive" href="inet-ServicePrimitive.html">ServicePrimitive</a></td>
+      <td><i>enum</i></td>
+      <td>
+<p>OSI layered service primitives</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::DispatchProtocolReq" href="inet-DispatchProtocolReq.html">DispatchProtocolReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This request determines the destination protocol of the message or packet
+when it's sent from one protocol module to another using the ~<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">MessageDispatcher</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::DispatchProtocolInd" href="inet-DispatchProtocolInd.html">DispatchProtocolInd</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This indication specifies the sending protocol of the message or packet
+when it's sent from one protocol module to another using the ~<a title="inet.common.MessageDispatcher" href="inet.common.MessageDispatcher.html">MessageDispatcher</a>.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::EncapsulationProtocolReq" href="inet-EncapsulationProtocolReq.html">EncapsulationProtocolReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This request determines the expected protocol encapsulation order of the
+packet. If this tag is attached to a packet, then the first encapsulation
+protocol specifies the next dispatch protocol. Otherwise the individual
+protocol modules are expected to request dispatching to their default
+following encapsulation protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::EncapsulationProtocolInd" href="inet-EncapsulationProtocolInd.html">EncapsulationProtocolInd</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This indication determines the original protocol encapsulation order of the
+packet. If this tag is attached to the packet, then the protocols specify the
+order of encapsulation as it seen by the protocol modules when the packet was
+processed and decapsulated.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::PacketProtocolTag" href="inet-PacketProtocolTag.html">PacketProtocolTag</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This tag specifies the protocol of the packet.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TransportProtocolReq" href="inet-TransportProtocolReq.html">TransportProtocolReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This request determines the transport protocol that should be used to send the packet.
+It may be present from the application to the transport protocol.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::TransportProtocolInd" href="inet-TransportProtocolInd.html">TransportProtocolInd</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This indication specifies the transport protocol that was used to receive
+the packet. It may be present from the transport protocol to the application
+and from the transport protocol to the physical layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::NetworkProtocolReq" href="inet-NetworkProtocolReq.html">NetworkProtocolReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This request determines the network protocol that should be used to send the
+packet. It may be present from the application to the network protocol and
+from the network protocol to the physical layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::NetworkProtocolInd" href="inet-NetworkProtocolInd.html">NetworkProtocolInd</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This indication specifies the network protocol that was used to receive the
+packet. It may be present from the network protocol to the application.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::MacProtocolReq" href="inet-MacProtocolReq.html">MacProtocolReq</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This request determines the mac protocol that should be used to send the
+packet. It may be present from the application to the mac protocol and from
+the mac protocol to the physical layer.</p>
+</td>
+   </tr>
+   <tr>
+      <td><a title="inet::MacProtocolInd" href="inet-MacProtocolInd.html">MacProtocolInd</a></td>
+      <td><i>class</i></td>
+      <td>
+<p>This indication specifies the mac protocol that was used to receive the
+packet. It may be present from the mac protocol to the application.</p>
+</td>
+   </tr>
+</table>
+<h3 class="subtitle">Source code</h3>
+<pre class="src">
+<span style="color: #808080; font-style: italic; ">//
+// Copyright (C) 2020 OpenSim Ltd.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+</span><span style="color: #232629; ">
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">INETDefs</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Protocol</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">;
+</span><span style="color: #800000; font-weight: bold; ">import</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">common</span><span style="color: #232629; ">.</span><span style="color: #800000; font-weight: bold; ">packet</span><span style="color: #232629; ">.</span><span style="color: #232629; ">chunk</span><span style="color: #232629; ">.</span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">namespace</span><span style="color: #232629; "> </span><span style="color: #232629; ">inet</span><span style="color: #232629; ">;
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">{{
+</span><span style="color: #232629; ">typedef</span><span style="color: #232629; "> </span><span style="color: #232629; ">Ptr</span><span style="color: #232629; ">&lt;</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Chunk</span><span style="color: #232629; ">&gt; </span><span style="color: #232629; ">ChunkPtr</span><span style="color: #232629; ">;
+}}
+
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ChunkPtr</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; font-weight: bold; ">@existingClass</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; font-weight: bold; ">@descriptor</span><span style="color: #232629; ">(</span><span style="color: #232629; ">readonly</span><span style="color: #232629; ">);
+    </span><span style="color: #232629; ">Chunk</span><span style="color: #232629; "> *</span><span style="color: #232629; ">content</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">get</span><span style="color: #232629; ">);
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This is an abstract base class that should not be directly added as a tag.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Protocol</span><span style="color: #232629; "> *</span><span style="color: #232629; ">protocol</span><span style="color: #232629; "> </span><span style="color: #232629; font-weight: bold; ">@getter</span><span style="color: #232629; ">(</span><span style="color: #232629; ">findProtocol</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// specifies a protocol (internal class with an artificial identifier)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">) {{
+    </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Protocol</span><span style="color: #232629; "> *</span><span style="color: #232629; ">getProtocol</span><span style="color: #232629; ">() </span><span style="color: #232629; ">const</span><span style="color: #232629; "> {
+        </span><span style="color: #232629; ">if</span><span style="color: #232629; "> (</span><span style="color: #232629; ">protocol</span><span style="color: #232629; "> == </span><span style="color: #008000; ">nullptr</span><span style="color: #232629; ">)
+            </span><span style="color: #232629; ">throw</span><span style="color: #232629; "> </span><span style="color: #232629; ">cRuntimeError</span><span style="color: #232629; ">(</span><span style="color: #008000; ">&quot;Protocol is not specified&quot;</span><span style="color: #232629; ">);
+        </span><span style="color: #232629; ">return</span><span style="color: #232629; "> </span><span style="color: #232629; ">protocol</span><span style="color: #232629; ">;
+    }
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This is an abstract base class that should not be directly added as a tag.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolListTagBase</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">TagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Protocol</span><span style="color: #232629; "> *</span><span style="color: #232629; ">protocol</span><span style="color: #232629; ">[]; </span><span style="color: #808080; font-style: italic; ">// specifies a list of protocols (internal class with an artificial identifier)
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// OSI layered service primitives
+//
+</span><span style="color: #800000; font-weight: bold; ">enum</span><span style="color: #232629; "> </span><span style="color: #232629; ">ServicePrimitive</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">SP_UNSPECIFIED</span><span style="color: #232629; "> = -</span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SP_REQUEST</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">1</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SP_INDICATION</span><span style="color: #232629; "> = </span><span style="color: #008000; ">2</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SP_RESPONSE</span><span style="color: #232629; ">   = </span><span style="color: #008000; ">3</span><span style="color: #232629; ">;
+    </span><span style="color: #232629; ">SP_CONFIRM</span><span style="color: #232629; ">    = </span><span style="color: #008000; ">4</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This request determines the destination protocol of the message or packet
+// when it's sent from one protocol module to another using the ~MessageDispatcher.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">DispatchProtocolReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ServicePrimitive</span><span style="color: #232629; "> </span><span style="color: #232629; ">servicePrimitive</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This indication specifies the sending protocol of the message or packet
+// when it's sent from one protocol module to another using the ~MessageDispatcher.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">DispatchProtocolInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This request determines the expected protocol encapsulation order of the
+// packet. If this tag is attached to a packet, then the first encapsulation
+// protocol specifies the next dispatch protocol. Otherwise the individual
+// protocol modules are expected to request dispatching to their default
+// following encapsulation protocol.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">EncapsulationProtocolReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolListTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This indication determines the original protocol encapsulation order of the
+// packet. If this tag is attached to the packet, then the protocols specify the
+// order of encapsulation as it seen by the protocol modules when the packet was
+// processed and decapsulated.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">EncapsulationProtocolInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolListTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This tag specifies the protocol of the packet.
+//
+// Packet processing at the sender
+// ===============================
+//
+// | ApplicationData |
+//     whole packet has no protocol
+//     data part has no protocol
+//
+// | UdpHeader ApplicationData |
+//     whole packet has UDP protocol
+//     data part has UDP protocol
+//
+// | Ipv4Header UdpHeader ApplicationData |
+//     whole packet has IPv4 protocol
+//     data part has IPv4 protocol
+//
+// EthernetMacHeader | Ipv4Header UdpHeader ApplicationData |
+//     whole packet has incomplete Ethernet protocol
+//     data part has IPv4 protocol
+//
+// EthernetMacHeader | Ipv4Header UdpHeader ApplicationData | EthernetPadding EthernetFcs
+//     whole packet has Ethernet protocol
+//     data part has IPv4 protocol
+//
+// | EthernetMacHeader Ipv4Header UdpHeader ApplicationData EthernetPadding EthernetFcs |
+//     whole packet has Ethernet protocol
+//     data part has Ethernet protocol
+//
+// Packet processing at the receiver
+// =================================
+//
+// | EthernetMacHeader Ipv4Header UdpHeader ApplicationData EthernetPadding EthernetFcs |
+//     whole packet has Ethernet protocol
+//     data part has Ethernet protocol
+//
+// EthernetMacHeader Ipv4Header UdpHeader ApplicationData EthernetPadding | EthernetFcs
+//     whole packet has Ethernet protocol
+//     data part has no protocol
+//
+// EthernetMacHeader | Ipv4Header UdpHeader ApplicationData | EthernetPadding EthernetFcs
+//     whole packet has Ethernet protocol
+//     data part has IPv4 protocol
+//
+// EthernetMacHeader Ipv4Header | UdpHeader ApplicationData | EthernetPadding EthernetFcs
+//     whole packet has Ethernet protocol
+//     data part has UDP protocol
+//
+// EthernetMacHeader Ipv4Header UdpHeader | ApplicationData | EthernetPadding EthernetFcs
+//     whole packet has Ethernet protocol
+//     data part has no protocol
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">PacketProtocolTag</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">frontOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// extra offset relative to the packet data part front offset
+</span><span style="color: #232629; ">    </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">backOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">); </span><span style="color: #808080; font-style: italic; ">// extra offset relative to the packet data part back offset
+</span><span style="color: #232629; ">}
+
+</span><span style="color: #800000; font-weight: bold; ">cplusplus</span><span style="color: #232629; ">(</span><span style="color: #232629; ">PacketProtocolTag</span><span style="color: #232629; ">) {{
+    </span><span style="color: #232629; ">void</span><span style="color: #232629; "> </span><span style="color: #232629; ">set</span><span style="color: #232629; ">(</span><span style="color: #232629; ">const</span><span style="color: #232629; "> </span><span style="color: #232629; ">Protocol</span><span style="color: #232629; "> *</span><span style="color: #232629; ">protocol</span><span style="color: #232629; ">, </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">frontOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">), </span><span style="color: #232629; ">b</span><span style="color: #232629; "> </span><span style="color: #232629; ">backOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">b</span><span style="color: #232629; ">(</span><span style="color: #008000; ">0</span><span style="color: #232629; ">)) {
+        </span><span style="color: #232629; ">this</span><span style="color: #232629; ">-&gt;</span><span style="color: #232629; ">protocol</span><span style="color: #232629; "> = </span><span style="color: #232629; ">protocol</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">this</span><span style="color: #232629; ">-&gt;</span><span style="color: #232629; ">frontOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">frontOffset</span><span style="color: #232629; ">;
+        </span><span style="color: #232629; ">this</span><span style="color: #232629; ">-&gt;</span><span style="color: #232629; ">backOffset</span><span style="color: #232629; "> = </span><span style="color: #232629; ">backOffset</span><span style="color: #232629; ">;
+    }
+}}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This request determines the transport protocol that should be used to send the packet.
+// It may be present from the application to the transport protocol.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TransportProtocolReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This indication specifies the transport protocol that was used to receive
+// the packet. It may be present from the transport protocol to the application
+// and from the transport protocol to the physical layer.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">TransportProtocolInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ChunkPtr</span><span style="color: #232629; "> </span><span style="color: #232629; ">transportProtocolHeader</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This request determines the network protocol that should be used to send the
+// packet. It may be present from the application to the network protocol and
+// from the network protocol to the physical layer.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">NetworkProtocolReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This indication specifies the network protocol that was used to receive the
+// packet. It may be present from the network protocol to the application.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">NetworkProtocolInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ChunkPtr</span><span style="color: #232629; "> </span><span style="color: #232629; ">networkProtocolHeader</span><span style="color: #232629; ">;
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This request determines the mac protocol that should be used to send the
+// packet. It may be present from the application to the mac protocol and from
+// the mac protocol to the physical layer.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">MacProtocolReq</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+}
+
+</span><span style="color: #808080; font-style: italic; ">//
+// This indication specifies the mac protocol that was used to receive the
+// packet. It may be present from the mac protocol to the application.
+//
+</span><span style="color: #800000; font-weight: bold; ">class</span><span style="color: #232629; "> </span><span style="color: #232629; ">MacProtocolInd</span><span style="color: #232629; "> </span><span style="color: #800000; font-weight: bold; ">extends</span><span style="color: #232629; "> </span><span style="color: #232629; ">ProtocolTagBase</span><span style="color: #232629; ">
+{
+    </span><span style="color: #232629; ">ChunkPtr</span><span style="color: #232629; "> </span><span style="color: #232629; ">macProtocolHeader</span><span style="color: #232629; ">;
+}
+</span></pre>
+
+<hr><p class="footer"><a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top"><img src="by-sa.svg"></a> This documentation is released under the <a href="http://creativecommons.org/licenses/by-sa/3.0" target="_top">Creative Commons license</a></p>
+
+
+    </div><!-- doc-content -->
+  </main>
+</div>
+
+<script type="text/javascript" src="material.min.js"></script>
+</body>
+</html>
