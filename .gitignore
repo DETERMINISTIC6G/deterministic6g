@@ -12,6 +12,8 @@ simulations/**/results/
 omnetpp-gui
 src/Makefile
 .settings/
+public/**
+!public/index.html
 
 doc/src/_build
 doc/
