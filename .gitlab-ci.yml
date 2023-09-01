@@ -24,27 +24,15 @@ build-docker-omnetpp-gui-xvfb:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
     - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
+  tags:
+    - d6g
+    - docker
 
-
-build-docker:
-  only:
-    - disabled
-  image: docker:latest
-  stage: build
-  services:
-    - docker:dind
-  variables:
-    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
-  script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $IMAGE_TAG .
-    - docker push $IMAGE_TAG
 
 build-doc:
   only:
     - documentation
     - main
-  image: $IMAGE_TAG_OMNETPP_GUI_XVFB
   stage: build
   script:
     - ls
@@ -59,6 +47,9 @@ build-doc:
   artifacts:
     paths:
       - public
+  tags:
+    - d6g
+    - shell
 
 publish-pages:
   stage: deploy
