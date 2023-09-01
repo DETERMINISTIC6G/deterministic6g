@@ -25,5 +25,5 @@ checkmakefiles:
 	fi
 
 doc:
-	cd .. && opp_neddoc --doxygen deterministic6g/ inet/
+	cd .. && opp_neddoc --verbose --doxygen deterministic6g/ inet/
 	mv doc public
