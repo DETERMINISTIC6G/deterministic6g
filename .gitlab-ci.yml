@@ -4,14 +4,13 @@ stages:
   - deploy
 
 variables:
+  IMAGE_TAG_OMNETPP_GUI_XVFB: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb-latest
   # Tell 'docker:dind' to enable TLS (recommended)
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
 build-docker-omnetpp-gui-xvfb:
   stage: docker-base
-  variables:
-    IMAGE_TAG_PREFIX: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb
   rules:
     - changes:
         - dockerfiles/omnetpp-gui-xvfb/*
@@ -23,8 +22,8 @@ build-docker-omnetpp-gui-xvfb:
     - cd dockerfiles/omnetpp-gui-xvfb
     - echo $CI_REGISTRY
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $IMAGE_TAG_PREFIX-latest .
-    - docker push $IMAGE_TAG_PREFIX-latest
+    - docker build -t IMAGE_TAG_OMNETPP_GUI_XVFB .
+    - docker push IMAGE_TAG_OMNETPP_GUI_XVFB
 
 
 build-docker:
