@@ -54,6 +54,7 @@ build-doc:
     - ls ..
     - xvfb-run make doc
     - ls public
+  after_script:
     - rm -rf ../inet
   artifacts:
     paths:
