@@ -52,7 +52,7 @@ build-doc:
     - pwd
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - ls ..
-    - make neddoc
+    - xvfb-run make doc
     - ls public
     - rm -rf ../inet
   artifacts:
