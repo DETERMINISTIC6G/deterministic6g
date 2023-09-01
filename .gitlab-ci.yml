@@ -30,11 +30,11 @@ variables:
 #    - docker
 
 
-build-doc:
+pages:
   only:
     - documentation
     - main
-  stage: build
+  stage: deploy
   script:
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - xvfb-run make doc
@@ -46,14 +46,3 @@ build-doc:
   tags:
     - d6g
     - shell
-
-
-publish-pages:
-  stage: deploy
-  only:
-    - disabled
-  artifacts:
-    paths:
-      - public
-  script:
-    - echo "Publishing to $CI_PAGES_URL"
