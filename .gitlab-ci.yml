@@ -41,24 +41,25 @@ variables:
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
-build-docker-omnetpp-gui-xvfb:
-  stage: docker-base
-  rules:
-    - changes:
-        - dockerfiles/omnetpp-gui-xvfb/*
-        - .gitlab-ci.yml
-  image: docker:latest
-  services:
-    - docker:dind
-  script:
-    - cd dockerfiles/omnetpp-gui-xvfb
-    - echo $CI_REGISTRY
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
-    - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
-  tags:
-    - d6g
-    - docker
+# Disable for now until docker registry is enabled
+#build-docker-omnetpp-gui-xvfb:
+#  stage: docker-base
+#  rules:
+#    - changes:
+#        - dockerfiles/omnetpp-gui-xvfb/*
+#        - .gitlab-ci.yml
+#  image: docker:latest
+#  services:
+#    - docker:dind
+#  script:
+#    - cd dockerfiles/omnetpp-gui-xvfb
+#    - echo $CI_REGISTRY
+#    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#    - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
+#    - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
+#  tags:
+#    - d6g
+#    - docker
 
 
 build-doc:
@@ -67,13 +68,8 @@ build-doc:
     - main
   stage: build
   script:
-    - ls
-    - ls ..
-    - pwd
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - ls ..
     - xvfb-run make doc
-    - ls public
   after_script:
     - rm -rf ../inet
   artifacts:
