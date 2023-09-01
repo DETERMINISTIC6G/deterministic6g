@@ -1,12 +1,11 @@
 stages:
-  - manage-vm
   - docker-base
   - build
   - deploy
 
 build-Virtual-Machine-omnetpp:
   stage: manage-vm
-  
+
   script:
     # Attempt to cleanup any pre-existing VM
     - VBoxManage controlvm "omnetpp-vm" poweroff || true
@@ -21,16 +20,16 @@ build-Virtual-Machine-omnetpp:
     - VBoxManage startvm "omnetpp-vm" --type headless
     - mkdir ./public_vm
     - cp ./omnetpp-vm.vdi ./public_vm
-    
+
   after_script:
     # Cleanup VM commands
     - VBoxManage controlvm "omnetpp-vm" poweroff
     - VBoxManage unregistervm "omnetpp-vm" --delete
-    
+
   artifacts:
     paths:
       - public_vm/omnetpp-vm.vdi
-        
+
   tags:
     - d6g
     - shell
@@ -62,11 +61,11 @@ variables:
 #    - docker
 
 
-build-doc:
+pages:
   only:
     - documentation
     - main
-  stage: build
+  stage: deploy
   script:
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - xvfb-run make doc
