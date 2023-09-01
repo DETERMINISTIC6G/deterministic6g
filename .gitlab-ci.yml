@@ -22,8 +22,8 @@ build-docker-omnetpp-gui-xvfb:
     - cd dockerfiles/omnetpp-gui-xvfb
     - echo $CI_REGISTRY
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t IMAGE_TAG_OMNETPP_GUI_XVFB .
-    - docker push IMAGE_TAG_OMNETPP_GUI_XVFB
+    - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
+    - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
 
 
 build-docker:
@@ -42,8 +42,9 @@ build-docker:
 
 build-doc:
   only:
-    - disabled
-  image: ghcr.io/omnetpp/omnetpp-gui:u22.05-6.0.1
+    - documentation
+    - main
+  image: $IMAGE_TAG_OMNETPP_GUI_XVFB
   stage: build
   script:
     - ls
@@ -52,7 +53,11 @@ build-doc:
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - ls ..
     - make neddoc
-    - ls doc
+    - ls public
+    - rm -rf ../inet
+  artifacts:
+    paths:
+      - public
 
 publish-pages:
   stage: deploy
