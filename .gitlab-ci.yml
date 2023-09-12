@@ -8,8 +8,8 @@ stages:
 build-Virtual-Machine-omnetpp:
   stage: create-vm
   script:
-    - sudo apt-get update
-    - sudo apt-get install -y virtualbox
+    - apt-get update
+    - apt-get install -y virtualbox
     - VBoxManage --version
     - VBoxManage createvm --name "omnetpp-vm" --register
     - VBoxManage modifyvm "omnetpp-vm" --memory 1024 --cpus 2
