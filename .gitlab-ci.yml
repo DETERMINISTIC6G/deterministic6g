@@ -7,6 +7,9 @@ stages:
 build-Virtual-Machine-omnetpp:
   stage: manage-vm
   script:
+    # Attempt to cleanup any pre-existing VM
+    - VBoxManage controlvm "omnetpp-vm" poweroff || true
+    - VBoxManage unregistervm "omnetpp-vm" --delete || true
     # Create VM commands
     - VBoxManage --version
     - VBoxManage createvm --name "omnetpp-vm" --register
