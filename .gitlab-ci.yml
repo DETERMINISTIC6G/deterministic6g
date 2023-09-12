@@ -1,13 +1,13 @@
 stages:
-  - create-vm
+  - manage-vm
   - docker-base
   - build
   - deploy
-  - cleanup
 
 build-Virtual-Machine-omnetpp:
-  stage: create-vm
+  stage: manage-vm
   script:
+    # Create VM commands
     - VBoxManage --version
     - VBoxManage createvm --name "omnetpp-vm" --register
     - VBoxManage modifyvm "omnetpp-vm" --memory 1024 --cpus 2
@@ -15,6 +15,21 @@ build-Virtual-Machine-omnetpp:
     - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
     - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
     - VBoxManage startvm "omnetpp-vm" --type headless
+    
+    # Attach the Ubuntu ISO for installation
+    - VBoxManage storagectl "omnetpp-vm" --name "IDE Controller" --add ide
+    - VBoxManage storageattach "omnetpp-vm" --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium /home/dan/Downloads/ubuntu-22.04.3-desktop-amd64.iso
+
+    # Start VM
+    - VBoxManage startvm "omnetpp-vm" --type headless
+
+    # Sleep/wait to allow installation (this might need to be adjusted based on your setup)
+    - sleep 3600
+
+
+    # Cleanup VM commands
+    - VBoxManage controlvm "omnetpp-vm" poweroff
+    - VBoxManage unregistervm "omnetpp-vm" --delete
   tags:
     - d6g
     - shell
@@ -77,12 +92,3 @@ publish-pages:
   script:
     - echo "Publishing to $CI_PAGES_URL"
 
-cleanup-vm:
-  stage: cleanup
-  script:
-    - VBoxManage controlvm "omnetpp-vm" poweroff
-    - VBoxManage unregistervm "omnetpp-vm" --delete
-  when: always
-  tags:
-    - d6g
-    - shell
