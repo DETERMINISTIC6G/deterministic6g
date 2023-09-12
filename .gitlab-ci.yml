@@ -1,7 +1,9 @@
 stages:
+  - create-vm
   - docker-base
   - build
   - deploy
+  - cleanup
 
 variables:
   IMAGE_TAG_OMNETPP_GUI_XVFB: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb-latest
@@ -27,6 +29,22 @@ build-docker-omnetpp-gui-xvfb:
   tags:
     - d6g
     - docker
+
+build-Virtual-Machine-omnetpp:
+  stage: create-vm
+  script:
+    - sudo apt-get update
+    - sudo apt-get install -y virtualbox
+    - VBoxManage --version
+    - VBoxManage createvm --name "omnetpp-vm" --register
+    - VBoxManage modifyvm "omnetpp-vm" --memory 1024 --cpus 2
+    - VBoxManage createhd --filename "omnetpp-vm.vdi" --size 10000
+    - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
+    - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
+    - VBoxManage startvm "omnetpp-vm" --type headless
+  tags:
+    - d6g
+    - shell
 
 
 build-doc:
@@ -60,3 +78,13 @@ publish-pages:
       - public
   script:
     - echo "Publishing to $CI_PAGES_URL"
+
+cleanup-vm:
+  stage: cleanup
+  script:
+    - VBoxManage controlvm "omnetpp-vm" poweroff
+    - VBoxManage unregistervm "omnetpp-vm" --delete
+  when: always
+  tags:
+    - d6g
+    - shell
