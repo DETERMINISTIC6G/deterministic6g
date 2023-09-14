@@ -6,6 +6,11 @@ stages:
 
 build-Virtual-Machine-omnetpp:
   stage: manage-vm
+  
+  artifacts:
+    paths:
+      - vm
+  
   script:
     # Attempt to cleanup any pre-existing VM
     - VBoxManage controlvm "omnetpp-vm" poweroff || true
@@ -18,10 +23,12 @@ build-Virtual-Machine-omnetpp:
     - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
     - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
     - VBoxManage startvm "omnetpp-vm" --type headless
-
+    
+    
     # Cleanup VM commands
     - VBoxManage controlvm "omnetpp-vm" poweroff
     - VBoxManage unregistervm "omnetpp-vm" --delete
+    
   tags:
     - d6g
     - shell
