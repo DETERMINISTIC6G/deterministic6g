@@ -15,7 +15,7 @@ build-Virtual-Machine-omnetpp:
     - VBoxManage --version
     - VBoxManage createvm --name "omnetpp-vm" --register
     - VBoxManage modifyvm "omnetpp-vm" --memory 1024 --cpus 2
-    - VBoxManage createhd --filename "/vm/omnetpp-vm.vdi" --size 10000
+    - VBoxManage createhd --filename "omnetpp-vm.vdi" --size 10000
     - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
     - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
     - VBoxManage startvm "omnetpp-vm" --type headless
