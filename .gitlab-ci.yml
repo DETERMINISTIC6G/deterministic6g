@@ -19,11 +19,17 @@ build-Virtual-Machine-omnetpp:
     - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
     - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
     - VBoxManage startvm "omnetpp-vm" --type headless
+    - mkdir ./public_vm
+    - cp ./omnetpp-vm.vdi ./public_vm
     
   after_script:
     # Cleanup VM commands
     - VBoxManage controlvm "omnetpp-vm" poweroff
     - VBoxManage unregistervm "omnetpp-vm" --delete
+    
+  artifacts:
+    paths:
+      - public_vm/omnetpp-vm.vdi
         
   tags:
     - d6g
@@ -77,17 +83,6 @@ build-doc:
     - d6g
     - shell
 
-deploy-vm:
-  stage: deploy
-  script:
-    - mkdir ./public_vm
-    - cp ./omnetpp-vm.vdi ./public_vm
-  artifacts:
-    paths:
-      - public_vm/omnetpp-vm.vdi
-  tags:
-    - d6g
-    - shell
 
 publish-pages:
   stage: deploy
