@@ -28,7 +28,8 @@ build-Virtual-Machine-omnetpp:
   
   artifacts:
     paths:
-      - vm  
+      - /vm/omnetpp-vm.vdi  
+ 
       
   tags:
     - d6g
