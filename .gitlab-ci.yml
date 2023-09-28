@@ -3,37 +3,6 @@ stages:
   - build
   - deploy
 
-build-Virtual-Machine-omnetpp:
-  stage: manage-vm
-
-  script:
-    # Attempt to cleanup any pre-existing VM
-    - VBoxManage controlvm "omnetpp-vm" poweroff || true
-    - VBoxManage unregistervm "omnetpp-vm" --delete || true
-    # Create VM commands
-    - VBoxManage --version
-    - VBoxManage createvm --name "omnetpp-vm" --register
-    - VBoxManage modifyvm "omnetpp-vm" --memory 4096 --cpus 2
-    - VBoxManage createhd --filename "omnetpp-vm.vdi" --size 30000
-    - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
-    - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
-    - VBoxManage startvm "omnetpp-vm" --type headless
-    - mkdir ./public_vm
-    - cp ./omnetpp-vm.vdi ./public_vm
-
-  after_script:
-    # Cleanup VM commands
-    - VBoxManage controlvm "omnetpp-vm" poweroff
-    - VBoxManage unregistervm "omnetpp-vm" --delete
-
-  artifacts:
-    paths:
-      - public_vm/omnetpp-vm.vdi
-
-  tags:
-    - d6g
-    - shell
-
 variables:
   IMAGE_TAG_OMNETPP_GUI_XVFB: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb-latest
   # Tell 'docker:dind' to enable TLS (recommended)
@@ -61,22 +30,40 @@ variables:
 #    - docker
 
 
-pages:
-  only:
-    - documentation
-    - main
+#pages:
+#  only:
+#    - documentation
+#    - main
+#  stage: deploy
+#  script:
+#    - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
+#    - xvfb-run make doc
+#  after_script:
+#    - rm -rf ../inet
+#  artifacts:
+#    paths:
+#      - public
+#  tags:
+#    - d6g
+#    - shell
+
+test:
   stage: deploy
+  dependencies:
+    - pages
+  environment:
+    name: production
+    url: "https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/$CI_PROJECT_PATH"
+  only:
+    - main
+    - documentation
   script:
-    - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - xvfb-run make doc
-  after_script:
-    - rm -rf ../inet
-  artifacts:
-    paths:
-      - public
+    - echo "$CI_PROJECT_PATH"
+    - ls /mnt
   tags:
     - d6g
     - shell
+    - web
 
 
 publish-pages:

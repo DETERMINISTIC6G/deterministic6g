@@ -4,16 +4,15 @@
 
 package d6g.simulations.baseline;
 
-import inet.networks.base.TsnNetworkBase;
-import inet.node.contract.IEthernetNetworkNode;
-import inet.node.ethernet.EthernetLink;
 import d6g.devices.sixg.DetCom;
 import d6g.devices.sixg.DetComAdapter;
 import d6g.devices.sixg.NNIChannel;
 import d6g.networks.DetComNetworkBase;
+import inet.node.ethernet.EthernetLink;
 import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
-import ned.DatarateChannel;
+import inet.queueing.common.PacketDelayer;
+
 
 //
 // The network is to evaluate the data communication from a talker (sender) through multiple 
@@ -23,7 +22,7 @@ import ned.DatarateChannel;
 network Baseline extends DetComNetworkBase
 {
     parameters:
-        
+
     submodules:
         talker: TsnDevice { // A TSN device acting as a talker (data sender).
             @display("p=350,200");
@@ -31,7 +30,7 @@ network Baseline extends DetComNetworkBase
         bridge1: TsnSwitch { // A TSN switch with a bridge function.
             @display("p=350,300");
         }
-        bridge2: DetComAdapter  { // A DetCom Adapter.
+        bridge2: DetComAdapter { // A DetCom Adapter.
             @display("p=350,400");
         }
         detcom: DetCom { // DetCom module (deterministic communication).
