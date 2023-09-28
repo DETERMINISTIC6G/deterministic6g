@@ -9,6 +9,7 @@ variables:
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
+
 # Disable for now until docker registry is enabled
 #build-docker-omnetpp-gui-xvfb:
 #  stage: docker-base
@@ -47,7 +48,9 @@ pages:
     - d6g
     - shell
 
-test:
+deploy_ipvs_pages:
+  variables:
+    DEPLOYMENT_PATH: /mnt/www_d6g/$CI_PROJECT_PATH
   stage: deploy
   dependencies:
     - pages
@@ -58,11 +61,9 @@ test:
     - main
     - documentation
   script:
-    - ls /mnt
-    - ls /mnt/www_d6g
-    - mkdir -p /mnt/www_d6g/$CI_PROJECT_PATH
-    - cp -r public /mnt/www_d6g/$CI_PROJECT_PATH
-    - ls /mnt/d6g
+    - rm -rf $DEPLOYMENT_PATH
+    - mkdir -p $DEPLOYMENT_PATH
+    - cp -r public/. $DEPLOYMENT_PATH
   tags:
     - d6g
     - docker
