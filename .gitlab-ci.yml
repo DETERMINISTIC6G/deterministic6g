@@ -61,7 +61,7 @@ deploy_ipvs_pages:
     - main
     - documentation
   script:
-    - rm -rf $DEPLOYMENT_PATH
+    - rm -rf $DEPLOYMENT_PATH || true
     - mkdir -p $DEPLOYMENT_PATH
     - cp -r public/. $DEPLOYMENT_PATH
   tags:
