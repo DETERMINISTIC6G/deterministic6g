@@ -59,7 +59,7 @@ test:
     - documentation
   script:
     - mkdir -p /mnt/www_deterministic6g/$CI_PROJECT_PATH
-    - cp public $CI_PROJECT_PATH
+    - cp -r public $CI_PROJECT_PATH
     - ls
   tags:
     - d6g
