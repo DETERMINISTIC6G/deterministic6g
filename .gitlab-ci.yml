@@ -60,5 +60,5 @@ test:
     - ls /mnt
   tags:
     - d6g
-    - shell
+    - docker
     - web
