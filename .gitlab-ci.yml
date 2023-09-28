@@ -54,20 +54,10 @@ test:
   environment:
     name: production
     url: "https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/$CI_PROJECT_PATH"
-pages:
   only:
     - main
     - documentation
-    - main
-  stage: deploy
   script:
-    - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - xvfb-run make doc
-  after_script:
-    - rm -rf ../inet
-  artifacts:
-    paths:
-      - public
     - echo "$CI_PROJECT_PATH"
     - ls /mnt
   tags:
