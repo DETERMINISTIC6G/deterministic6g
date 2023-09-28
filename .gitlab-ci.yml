@@ -49,8 +49,6 @@ variables:
 
 test:
   stage: deploy
-  dependencies:
-    - pages
   environment:
     name: production
     url: "https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/$CI_PROJECT_PATH"
