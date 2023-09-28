@@ -58,9 +58,11 @@ test:
     - main
     - documentation
   script:
-    - mkdir -p /mnt/www_deterministic6g/$CI_PROJECT_PATH
-    - cp -r public /mnt/www_deterministic6g/$CI_PROJECT_PATH
-    - ls
+    - ls /mnt
+    - ls /mnt/www_d6g
+    - mkdir -p /mnt/www_d6g/$CI_PROJECT_PATH
+    - cp -r public /mnt/www_d6g/$CI_PROJECT_PATH
+    - ls /mnt/d6g
   tags:
     - d6g
     - docker
