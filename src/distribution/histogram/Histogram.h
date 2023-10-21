@@ -26,24 +26,29 @@ namespace d6g {
 using namespace inet;
 
 /**
- * TODO - Generated class
+ * Histogram is a module that provides a random number based on a histogram configuration.
+ * The histogram configuration is provided in the NED file as a parameter.
+ * For more information on the histogram configuration, see the NED documentation.
  */
 class INET_API Histogram : public cSimpleModule, public IRandomNumberProvider {
+    /**
+     * BinEntry is a class that represents a bin in the histogram.
+     */
     class INET_API BinEntry {
     public:
         explicit BinEntry(cXMLElement *binEntity, cModule *context = nullptr);
 
-        cValue leftBoundary = -INFINITY;
-        cValue rightBoundary = INFINITY;
-        int count = 0;
-        int accumulatedCount = 0;  // new member to hold the cumulative count
+        // Left boundary
+        cValue leftBoundary = -INFINITY; ///< Left boundary
+        cValue rightBoundary = INFINITY; ///< Right boundary
+        int count = 0; ///< Count of elements in the bin
+        int accumulatedCount = 0; ///< Accumulated count from beginning of the histogram including this bin
         ~BinEntry() = default;
     };
 
 private:
-    // Vector to store the bins
-    std::vector<BinEntry *> bins;
-    int totalCount;
+    std::vector<BinEntry *> bins; ///< Vector to store the bins
+    int totalCount; ///< Total count of elements in all bins
 
 protected:
     void initialize(int stage) override;
@@ -51,19 +56,33 @@ protected:
     void parseHistogramConfig(cXMLElement *histogramEntity);
 
 public:
-
-    // Get Total count of elements in all bins
+    /*!
+     * Get total count of elements in all bins
+     *
+     * @return total count of elements in all bins
+     */
     int getTotalCount() const;
 
-    // Get Number of bins
+    /*!
+     * Get number of bins
+     *
+     * @return number of bins
+     */
     size_t getNumberBins() const;
 
-    // Get a random bin with the probability corresponding to the count
+    /*!
+     * Get a random bin, based on the number of elements in each bin
+     *
+     * @return random bin
+     */
     BinEntry *randomBin() const;
 
-    // Binary Search
-    BinEntry *BinarySearch(int target) const;
-
+    /*!
+     * Get a random number from the histogram.
+     * This function uses the randomBin() function to get a random bin, and then returns a random number from that bin's range.
+     *
+     * @return random number from the histogram
+     */
     cValue getRand() const override;
 };
 

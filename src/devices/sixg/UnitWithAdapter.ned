@@ -17,7 +17,7 @@ module UnitWithAdapter {
     gates:
         inout adapterGate; //interface for adapter's functionality
     submodules:
-        detComAdapter: DetComAdapter {
+        detComAdapter: UETsnSwitch {
             @display("p=350,200");
         }
     connections:

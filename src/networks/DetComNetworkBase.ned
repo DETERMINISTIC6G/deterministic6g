@@ -11,15 +11,14 @@ import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 
 //
-// The network is a specialized network type designed for deterministic communications.
-// It extends TsnNetworkBase, a network designed for Time-Sensitive Networking.
+// This network extends the TsnNetworkBase but predefines some parameters.
 //
 network DetComNetworkBase extends TsnNetworkBase 
 {
     parameters:
         // Setting the bitrate of all Ethernet interfaces to a default value of 100Mbps.
         // If not explicitly defined elsewhere, the default value will be used.
-        *.eth[*].bitrate = default(100Mbps);
+        *.eth[*].bitrate = default(1Gbps);
         
         
 		**.hasEgressTrafficShaping = true; // Enabling egress traffic shaping for all nodes in the network.

@@ -24,7 +24,7 @@ import inet.linklayer.contract.IEthernetInterface;
 // and PHY layers. These parameters include options for frame preemption, egress traffic shaping, and 
 // cut-through switching, thus allowing a flexible setup to emulate real-world networking scenarios.
 //
-module DetComAdapter extends TsnSwitch
+module UETsnSwitch extends TsnSwitch
 {
     parameters:
         int numUeInterfaces = default(0); // Specifies the minimum number of user equipment (UE) Ethernet interfaces that the adapter supports.
