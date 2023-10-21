@@ -1,39 +1,7 @@
 stages:
-  - manage-vm
   - docker-base
   - build
   - deploy
-
-build-Virtual-Machine-omnetpp:
-  stage: manage-vm
-  
-  script:
-    # Attempt to cleanup any pre-existing VM
-    - VBoxManage controlvm "omnetpp-vm" poweroff || true
-    - VBoxManage unregistervm "omnetpp-vm" --delete || true
-    # Create VM commands
-    - VBoxManage --version
-    - VBoxManage createvm --name "omnetpp-vm" --register
-    - VBoxManage modifyvm "omnetpp-vm" --memory 1024 --cpus 2
-    - VBoxManage createhd --filename "omnetpp-vm.vdi" --size 70000
-    - VBoxManage storagectl "omnetpp-vm" --name "SATA Controller" --add sata --controller IntelAhci
-    - VBoxManage storageattach "omnetpp-vm" --storagectl "SATA Controller" --port 0 --device 0 --type hdd --medium "omnetpp-vm.vdi"
-    - VBoxManage startvm "omnetpp-vm" --type headless
-    - mkdir ./public_vm
-    - cp ./omnetpp-vm.vdi ./public_vm
-    
-  after_script:
-    # Cleanup VM commands
-    - VBoxManage controlvm "omnetpp-vm" poweroff
-    - VBoxManage unregistervm "omnetpp-vm" --delete
-    
-  artifacts:
-    paths:
-      - public_vm/omnetpp-vm.vdi
-        
-  tags:
-    - d6g
-    - shell
 
 variables:
   IMAGE_TAG_OMNETPP_GUI_XVFB: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb-latest
@@ -41,39 +9,36 @@ variables:
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
-build-docker-omnetpp-gui-xvfb:
-  stage: docker-base
-  rules:
-    - changes:
-        - dockerfiles/omnetpp-gui-xvfb/*
-        - .gitlab-ci.yml
-  image: docker:latest
-  services:
-    - docker:dind
-  script:
-    - cd dockerfiles/omnetpp-gui-xvfb
-    - echo $CI_REGISTRY
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
-    - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
-  tags:
-    - d6g
-    - docker
+
+# Disable for now until docker registry is enabled
+#build-docker-omnetpp-gui-xvfb:
+#  stage: docker-base
+#  rules:
+#    - changes:
+#        - dockerfiles/omnetpp-gui-xvfb/*
+#        - .gitlab-ci.yml
+#  image: docker:latest
+#  services:
+#    - docker:dind
+#  script:
+#    - cd dockerfiles/omnetpp-gui-xvfb
+#    - echo $CI_REGISTRY
+#    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+#    - docker build -t $IMAGE_TAG_OMNETPP_GUI_XVFB .
+#    - docker push $IMAGE_TAG_OMNETPP_GUI_XVFB
+#  tags:
+#    - d6g
+#    - docker
 
 
-build-doc:
+pages:
   only:
     - documentation
     - main
   stage: build
   script:
-    - ls
-    - ls ..
-    - pwd
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - ls ..
     - xvfb-run make doc
-    - ls public
   after_script:
     - rm -rf ../inet
   artifacts:
@@ -83,14 +48,23 @@ build-doc:
     - d6g
     - shell
 
-
-publish-pages:
+deploy_ipvs_pages:
+  variables:
+    DEPLOYMENT_PATH: /mnt/www_d6g/$CI_PROJECT_PATH
   stage: deploy
+  dependencies:
+    - pages
+  environment:
+    name: production
+    url: "https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/$CI_PROJECT_PATH"
   only:
-    - disabled
-  artifacts:
-    paths:
-      - public
+    - main
+    - documentation
   script:
-    - echo "Publishing to $CI_PAGES_URL"
-
+    - rm -rf $DEPLOYMENT_PATH || true
+    - mkdir -p $DEPLOYMENT_PATH
+    - cp -r public/. $DEPLOYMENT_PATH
+  tags:
+    - d6g
+    - docker
+    - web

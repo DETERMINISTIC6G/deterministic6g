@@ -8,7 +8,7 @@ import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.NNIChannel;
+import d6g.devices.sixg.UEChannel;
 import d6g.networks.DetComNetworkBase;
 
 //
@@ -34,8 +34,8 @@ network CooperativeManufacturing extends DetComNetworkBase
             @display("p=550,250");
         }
     connections:
-        agv1.adapterGate <--> NNIChannel <--> detcom.ueg++;
-        agv2.adapterGate <--> NNIChannel <--> detcom.ueg++;
+        agv1.adapterGate <--> UEChannel <--> detcom.ueg++;
+        agv2.adapterGate <--> UEChannel <--> detcom.ueg++;
         processingCell.adapterGate <--> EthernetLink <--> detcom.ethg++;
 }
 

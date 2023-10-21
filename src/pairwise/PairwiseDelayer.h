@@ -15,29 +15,43 @@ using namespace inet;
 
 using namespace queueing;
 
+/**
+ * PairwiseDelayer implements a delayer allowing to specify delays based on the input/output pair of interfaces.
+ * For a detailed description of the module, see the NED file.
+ */
 class INET_API PairwiseDelayer : public PacketDelayerBase {
-    static const short PAIRWISE_ACTIVATE_KIND = 3495;
+    static const short PAIRWISE_ACTIVATE_KIND = 3495; ///< Kind for activate message, used to distinguish from other messages
 
+    /**!
+     * DelayEntry is a class that represents a delay entry in the pairwise delayer.
+     */
     class INET_API DelayEntry {
     public:
         DelayEntry(cXMLElement *delayEntity, cModule *context);
 
-        int in = -1;
-        int out = -1;
-        simtime_t activateAt = 0;
-        cDynamicExpression delay;
+        int in = -1; ///< Input interface ID
+        int out = -1; ///< Output interface ID
+        simtime_t activateAt = 0; ///< Time to activate the delay entry
+        cDynamicExpression delay; ///< Delay expression
 
         ~DelayEntry() = default;
     };
 
 private:
-    std::map<int, std::map<int, DelayEntry *>> delays;
+    std::map<int, std::map<int, DelayEntry *>> delays; ///< Map of in and out interfaces to delay entries
 
 protected:
     void initialize(int stage) override;
+    /**!
+     * Compute the delay for the given packet.
+     * Uses the InterfaceInd and InterfaceReq tags to determine the input and output interfaces.
+     *
+     * @param packet Packet to delay
+     * @return delay for the packet
+     */
     clocktime_t computeDelay(Packet *packet) const override;
     virtual void handleMessage(cMessage *message) override;
-    void activateEntry(DelayEntry *delayEntry);
+    void activateEntry(DelayEntry *delayEntry); ///< Activate a delay entry
 };
 
 

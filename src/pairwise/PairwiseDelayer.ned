@@ -10,17 +10,19 @@ import inet.queueing.base.PacketDelayerBase;
 import inet.queueing.contract.IPacketDelayer;
 
 //
-// The module is designed to delay packets based on pairwise configurations. 
-// This module works by accepting packets and applying a delay according to the specified 
-// delayConfig. This can be particularly useful in scenarios where varying delays are required 
-// for different packet pairs or flows. It's an extension of PacketDelayerBase and adheres to 
-// the IPacketDelayer contract. Users can provide custom delay configurations using the 
-// delayConfig XML parameter.
+// The module is designed to delay packets based on pairwise configurations of input/output interfaces.
 //
+// The configuration is defined in XML format as follows:<br>
+// <delays><br>
+//     <delay in="[cModule]" out="[cModule]" activateAt="[opt. cValue]">[cDynamicExpression]</delay><br>
+//     ...
+// </delays><br>
+// Where in and out are the cModules connected to the in and out interface respectively.
+// activateAt is the time when the delay is activated. If not specified, the delay is activated immediately.
+// cFunction is the function that defines the delay. It can be a constant value or a function of time.
 simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:
         xml delayConfig = default(xml("<delays></delays>")); // XML configuration definition for delay
         @class(PairwiseDelayer);
 }
-

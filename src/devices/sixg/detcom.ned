@@ -17,12 +17,11 @@ package d6g.devices.sixg;
 
 import inet.node.tsn.TsnSwitch;
 
+// The DetCom node is used to simulate 6G behavior by providing a given delay distribution (e.g. from real world measurements)
+// This behavior is implemented in the BridgingLayerWithPairwiseDelay module.
 //
-// DetCom extends the DetComAdapter module.
-// This module depicts a simulated network device involved in communication.
-// It defines specific parameters which provide bridging mechanism.
-//
-module DetCom extends DetComAdapter
+// Besides the delay distribution, the DetCom node provides the same functionality as a TsnSwitch.
+module DetCom extends UETsnSwitch
 {
     parameters:
         bridging.typename = default("BridgingLayerWithPairwiseDelay"); // type of bridging layer
