@@ -19,11 +19,9 @@ import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.DetComAdapter;
+import d6g.devices.sixg.UETsnDevice;
+import d6g.devices.sixg.UETsnSwitch;
 import d6g.networks.DetComNetworkBase;
-import inet.node.tsn.TsnClock;
-import inet.node.tsn.TsnDevice;
-import inet.node.tsn.TsnSwitch;
 import d6g.distribution.histogram.Histogram;
 
 // 
@@ -33,22 +31,23 @@ network timesyncshowcase extends TsnNetworkBase
 {
     @display("bgb=1388.9,812.098");
     submodules:
-        tsnClock1: TsnClock {
+        
+        tsnClock: DetCom { // Need to be corrected and changed
             @display("p=500,150");
         }
-        detcom: DetCom {
+        detcom: UETsnSwitch { // Need to be corrected and changed
             @display("p=500,300");
         }
-        talker: TsnDevice {
+        talker: UETsnDevice {
             @display("p=400,450");
         }
-        receiver: TsnDevice {
+        receiver: UETsnDevice {
             @display("p=600,450");
         }
 
 
     connections:
-          tsnClock1.ethg++ <--> EthernetLink <--> detcom.ethg++;
+          tsnClock.ethg++ <--> EthernetLink <--> detcom.ethg++;
           detcom.ethg++ <--> EthernetLink <--> talker.ethg++;
           detcom.ethg++ <--> EthernetLink <--> receiver.ethg++;
 }
