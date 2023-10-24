@@ -18,7 +18,7 @@ package d6g.simulations.timesync;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import inet.linklayer.ieee8021as.Gptp;
+import inet.linklayer.ieee8021as.GptpMaster;
 import d6g.devices.sixg.DetCom;
 import d6g.devices.sixg.UETsnDevice;
 import d6g.devices.sixg.UETsnSwitch;
@@ -36,7 +36,7 @@ network timesyncshowcase extends TsnNetworkBase
         detcomclock: DetCom { // Need to be corrected and changed
             @display("p=500,150");
         }
-        gptp: Gptp { // Need to be corrected and changed
+        gptp: GptpMaster { // Need to be corrected and changed
             @display("p=500,300");
         }
         talker: UETsnDevice {
@@ -49,6 +49,6 @@ network timesyncshowcase extends TsnNetworkBase
 
     connections:
           detcomclock.ethg++ <--> EthernetLink <--> gptp.ethg++;
-          gptp <--> EthernetLink <--> talker.ethg++;
-          gptp <--> EthernetLink <--> receiver.ethg++;
+          gptp.ethg++ <--> EthernetLink <--> talker.ethg++;
+          gptp.ethg++ <--> EthernetLink <--> receiver.ethg++;
 }
