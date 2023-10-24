@@ -52,6 +52,6 @@ network timesyncshowcase extends TsnNetworkBase
     connections:
           masterClock.ethg++ <--> EthernetLink <--> detcom.ethg++;
           detcom.ueg++ <--> UEChannel <--> tsnDevice1.ueg++;
-          detcom.ethg++ <--> UEChannel <--> tsnDevice2.ethg++;
+          detcom.ueg++ <--> UEChannel <--> tsnDevice2.ueg++;
 
 }
