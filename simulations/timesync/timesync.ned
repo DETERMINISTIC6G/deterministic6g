@@ -19,7 +19,9 @@ import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 import inet.linklayer.ieee8021as.GptpMaster;
+import inet.node.tsn.TsnClock;
 import d6g.devices.sixg.DetCom;
+import d6g.devices.sixg.UEChannel;
 import d6g.devices.sixg.UETsnDevice;
 import d6g.devices.sixg.UETsnSwitch;
 import d6g.networks.DetComNetworkBase;
@@ -32,11 +34,11 @@ network timesyncshowcase extends TsnNetworkBase
 {
     @display("bgb=1388.9,812.098");
     submodules:
-        
-        detcomclock: tsnNetwork { // Need to be corrected and changed
+
+        masterClock: TsnClock { // Need to be corrected and changed
             @display("p=500,150");
         }
-        DetCom: DetCom { // Need to be corrected and changed
+        detcom: DetCom { // Need to be corrected and changed
             @display("p=500,300");
         }
         tsnDevice1: UETsnDevice {
@@ -48,7 +50,8 @@ network timesyncshowcase extends TsnNetworkBase
 
 
     connections:
-          detcomclock.ethg++ <--> EthernetLink <--> Detcom.ethg++;
-          Detcom.ethg++ <--> UEChannel <--> tsnDevice1.ethg++;
-          Detcom.ethg++ <--> UEChannel <--> tsnDevice2.ethg++;
+          masterClock.ethg++ <--> EthernetLink <--> detcom.ethg++;
+          detcom.ueg++ <--> UEChannel <--> tsnDevice1.ueg++;
+          detcom.ethg++ <--> UEChannel <--> tsnDevice2.ethg++;
+
 }
