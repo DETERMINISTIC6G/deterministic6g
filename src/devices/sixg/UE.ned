@@ -12,9 +12,11 @@ import inet.linklayer.contract.IEthernetInterface;
 // The underlying simulation model is still based on INETs wired Ethernet communication.
 //
 // To this end, the gNB <-> UE communication is modelled using the PairwiseDelayer module within the DetCom node.
-// However, we don't want any further delays to be introduced by the underlying wired Ethernet communication.
+// However, we don't want any further delays to be introduced by the underlying wired Ethernet communication in the simulation framework.
 // Thus, we provide a UE interface with the same functionality as the LayeredEthernetInterface, but without additional delays.
 // The UE interface shall be connected to another UE interface using the optimal UEChannel.
+//
+// In the future, this UE interface might add additional functionality to further implement wireless behavior.
 module UE extends LayeredEthernetInterface {
     parameters:
     	phyLayer.interFrameGapInserter.duration = default(0s); // duration of the inter frame gap inserter 

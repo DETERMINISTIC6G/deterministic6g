@@ -17,9 +17,9 @@ import inet.queueing.contract.IPacketDelayer;
 //     <delay in="[cModule]" out="[cModule]" activateAt="[opt. cValue]">[cDynamicExpression]</delay><br>
 //     ...
 // </delays><br>
-// Where in and out are the cModules connected to the in and out interface respectively.
+// in and out are the cModules connected to the in and out interface respectively (i.e. the name of the module connected)
 // activateAt is the time when the delay is activated. If not specified, the delay is activated immediately.
-// cFunction is the function that defines the delay. It can be a constant value or a function of time.
+// cDynamicExpression is the function that defines the delay. It can be a constant value or a function of time (i.e. 10us or truncnormal(40us,5us))
 simple PairwiseDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:

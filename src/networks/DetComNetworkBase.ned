@@ -12,7 +12,7 @@ import inet.node.ethernet.EthernetLink;
 
 //
 // This network extends the TsnNetworkBase but predefines some parameters.
-//
+// This might need some changes!
 network DetComNetworkBase extends TsnNetworkBase 
 {
     parameters:

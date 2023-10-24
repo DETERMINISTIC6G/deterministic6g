@@ -18,12 +18,9 @@ package d6g.devices.sixg;
 import inet.node.tsn.TsnDevice;
 import inet.linklayer.contract.IEthernetInterface;
 
-//
-// The module extends the TsnSwitch module to offer advanced Ethernet communication capabilities.
-// It provides a variety of configurable parameters to simulate different networking behaviors at both the MAC
-// and PHY layers. These parameters include options for frame preemption, egress traffic shaping, and 
-// cut-through switching, thus allowing a flexible setup to emulate real-world networking scenarios.
-//
+// The module extends the TsnDevice module, and provides the same functionality.
+// Additionally it provides one ore multiple UE interfaces.
+// See UE for more information
 module UETsnDevice extends TsnDevice
 {
     parameters:

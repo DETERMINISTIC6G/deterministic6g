@@ -3,12 +3,14 @@ package d6g.distribution.histogram;
 //
 // This module provides an interface to read Histograms from XML files.
 // It can be used to generate random numbers following the distribution of this interface using the IRandomNumberProvider interface.
-//
-// File format:<br>
-// <histogram><br>
-//     <bin low="[lower bound of type cValue]"/>[count: int]</bin><br>
-//     ...<br>
+// 
+// <pre>
+// File format:
+// <histogram>
+//     <bin low="[lower bound of type cValue]"/>[count: int]</bin>
+//     ...
 // </histogram>
+// </pre>
 simple Histogram
 {
     parameters:
