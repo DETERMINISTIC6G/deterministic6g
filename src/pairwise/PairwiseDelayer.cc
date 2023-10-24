@@ -126,6 +126,20 @@ PairwiseDelayer::DelayEntry::DelayEntry(cXMLElement *delayEntity, cModule *conte
     const char *activateAtAttr = delayEntity->getAttribute("activateAt");
     const char *delayAttr = delayEntity->getNodeValue();
 
+    // --------------------- For Time Sync ---------------------
+//    const char *toAppAttr = delayEntity->getAttribute("toApp");
+//    if (toAppAttr != nullptr && strcmp(toAppAttr, "true") == 0) {
+//        toApp = true;
+//    }
+//    EV << toApp << endl;
+//
+//    const char *fromAppAttr = delayEntity->getAttribute("fromApp");
+//    if (fromAppAttr != nullptr && strcmp(fromAppAttr, "true") == 0) {
+//        fromApp = true;
+//    }
+//    EV << fromApp << endl;
+    // --------------------- ------------- ---------------------
+
     L3NetworkConfiguratorBase::Matcher inMatcher(inAttr);
     L3NetworkConfiguratorBase::Matcher outMatcher(outAttr);
 

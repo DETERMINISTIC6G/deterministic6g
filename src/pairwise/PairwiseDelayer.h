@@ -31,6 +31,8 @@ class INET_API PairwiseDelayer : public PacketDelayerBase {
 
         int in = -1; ///< Input interface ID
         int out = -1; ///< Output interface ID
+        bool toApp = false; // determines if the packet is destined for an internal app
+        bool fromApp = false; // determines if the packet is originating from an internal app.
         simtime_t activateAt = 0; ///< Time to activate the delay entry
         cDynamicExpression delay; ///< Delay expression
 
