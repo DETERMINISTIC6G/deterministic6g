@@ -33,22 +33,22 @@ network timesyncshowcase extends TsnNetworkBase
     @display("bgb=1388.9,812.098");
     submodules:
         
-        detcomclock: DetCom { // Need to be corrected and changed
+        detcomclock: tsnNetwork { // Need to be corrected and changed
             @display("p=500,150");
         }
-        gptp: GptpMaster { // Need to be corrected and changed
+        DetCom: DetCom { // Need to be corrected and changed
             @display("p=500,300");
         }
-        talker: UETsnDevice {
+        tsnDevice1: UETsnDevice {
             @display("p=400,450");
         }
-        receiver: UETsnDevice {
+        tsnDevice2: UETsnDevice {
             @display("p=600,450");
         }
 
 
     connections:
-          detcomclock.ethg++ <--> EthernetLink <--> gptp.ethg++;
-          gptp.ethg++ <--> EthernetLink <--> talker.ethg++;
-          gptp.ethg++ <--> EthernetLink <--> receiver.ethg++;
+          detcomclock.ethg++ <--> EthernetLink <--> Detcom.ethg++;
+          Detcom.ethg++ <--> UEChannel <--> tsnDevice1.ethg++;
+          Detcom.ethg++ <--> UEChannel <--> tsnDevice2.ethg++;
 }
