@@ -16,7 +16,8 @@ public/**
 !public/index.html
 
 doc/src/_build
-doc/
+doc/*
+!doc/res/
 
 # ignore binary files
 out/

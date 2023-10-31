@@ -3,7 +3,7 @@ package d6g.distribution.histogram;
 //
 // This module provides an interface to read Histograms from XML files.
 // It can be used to generate random numbers following the distribution of this interface using the IRandomNumberProvider interface.
-// 
+//
 // <pre>
 // File format:
 // <histogram>
@@ -14,7 +14,7 @@ package d6g.distribution.histogram;
 simple Histogram
 {
     parameters:
-        xml histogramConfig = default(xml("<histrogram></histogram>"));
+        xml histogramConfig = default(xml("<histogram></histogram>"));
         @class(Histogram);
         @display("i=block/delay");
 }

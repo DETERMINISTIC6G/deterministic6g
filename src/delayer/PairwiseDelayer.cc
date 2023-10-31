@@ -22,7 +22,7 @@ Define_Module(PairwiseDelayer);
 
 void PairwiseDelayer::initialize(int stage) {
     PacketDelayerBase::initialize(stage);
-    if (stage == INITSTAGE_NETWORK_CONFIGURATION) {
+    if (stage == INITSTAGE_LAST) {
         cXMLElement *configEntity = par("delayConfig");
         // parse XML config
         if (strcmp(configEntity->getTagName(), "delays") != 0) {
@@ -72,8 +72,6 @@ clocktime_t PairwiseDelayer::computeDelay(Packet *packet) const {
     if (outInterface != nullptr)
         outInterfaceID = outInterface->getInterfaceId();
 
-    // TODO: implement pairwise delay
-
     EV << "PairwiseDelayer:" << endl;
 
     // Select outInterfaceID from delays, otherwise select entry for -1
@@ -112,7 +110,7 @@ clocktime_t PairwiseDelayer::computeDelay(Packet *packet) const {
 
 void PairwiseDelayer::handleMessage(cMessage *message) {
     if (message->getKind() == PAIRWISE_ACTIVATE_KIND) {
-        auto *delayEntry = static_cast<DelayEntry*>(message->getContextPointer());
+        auto *delayEntry = static_cast<DelayEntry *>(message->getContextPointer());
         activateEntry(delayEntry);
         delete message;
     } else {
@@ -126,30 +124,39 @@ PairwiseDelayer::DelayEntry::DelayEntry(cXMLElement *delayEntity, cModule *conte
     const char *activateAtAttr = delayEntity->getAttribute("activateAt");
     const char *delayAttr = delayEntity->getNodeValue();
 
-    L3NetworkConfiguratorBase::Matcher inMatcher(inAttr);
-    L3NetworkConfiguratorBase::Matcher outMatcher(outAttr);
+    // --------------------- For Time Sync ---------------------
+//    const char *toAppAttr = delayEntity->getAttribute("toApp");
+//    if (toAppAttr != nullptr && strcmp(toAppAttr, "true") == 0) {
+//        toApp = true;
+//    }
+//    EV << toApp << endl;
+//
+//    const char *fromAppAttr = delayEntity->getAttribute("fromApp");
+//    if (fromAppAttr != nullptr && strcmp(fromAppAttr, "true") == 0) {
+//        fromApp = true;
+//    }
+//    EV << fromApp << endl;
+    // --------------------- ------------- ---------------------
 
-    for (int i = 0; i < context->getSubmoduleVectorSize("eth"); i++) {
-        auto *eth = dynamic_cast<inet::NetworkInterface *>(context->getSubmodule("eth", i));
-        std::string name = eth->getRxTransmissionChannel()->getSourceGate()->getOwnerModule()->getFullName();
-        if (inAttr != nullptr && inMatcher.matches(name.c_str())) {
-            in = eth->getInterfaceId();
+    addInterfaceIdFromName(context, inAttr, outAttr, "eth");
+    addInterfaceIdFromName(context, inAttr, outAttr, "ue");
+
+    try {
+        if (inAttr != nullptr && in == -1) {
+            // Convert inAttr to an int
+            std::string inAttrString(inAttr);
+            in = std::stoi(inAttrString);
         }
-        if (outAttr != nullptr && outMatcher.matches(name.c_str())) {
-            out = eth->getInterfaceId();
+
+        if (outAttr != nullptr && out == -1) {
+            // Convert outAttr to an int
+            std::string outAttrString(outAttr);
+            out = std::stoi(outAttrString);
         }
-    }
-
-    if (inAttr != nullptr && in == -1) {
-        // Convert inAttr to an int
-        std::string inAttrString(inAttr);
-        in = std::stoi(inAttrString);
-    }
-
-    if (outAttr != nullptr && out == -1) {
-        // Convert outAttr to an int
-        std::string outAttrString(outAttr);
-        out = std::stoi(outAttrString);
+    } catch (std::exception &e) {
+        throw cRuntimeError("parser error '%s' in 'in' or 'out' attribute of '%s' entity at %s\n"
+                            "No attribute or interface id called %s found", e.what(),
+                            delayEntity->getTagName(), delayEntity->getSourceLocation(), inAttr);
     }
 
     if (activateAtAttr != nullptr) {
@@ -166,6 +173,28 @@ PairwiseDelayer::DelayEntry::DelayEntry(cXMLElement *delayEntity, cModule *conte
     catch (std::exception &e) {
         throw cRuntimeError("parser error '%s' in 'delay' attribute of '%s' entity at %s", e.what(),
                             delayEntity->getTagName(), delayEntity->getSourceLocation());
+    }
+}
+
+void PairwiseDelayer::DelayEntry::addInterfaceIdFromName(const cModule *context, const char *inAttr,
+                                                         const char *outAttr, const char *interfaceType) {
+    // Check if context has submodule with name interfaceType
+    if (!context->hasSubmoduleVector(interfaceType)) {
+        return;
+    }
+
+    L3NetworkConfiguratorBase::Matcher inMatcher(inAttr);
+    L3NetworkConfiguratorBase::Matcher outMatcher(outAttr);
+
+    for (int i = 0; i < context->getSubmoduleVectorSize(interfaceType); i++) {
+        auto *eth = dynamic_cast<NetworkInterface *>(context->getSubmodule(interfaceType, i));
+        std::string name = eth->getRxTransmissionChannel()->getSourceGate()->getOwnerModule()->getFullName();
+        if (inAttr != nullptr && inMatcher.matches(name.c_str())) {
+            in = eth->getInterfaceId();
+        }
+        if (outAttr != nullptr && outMatcher.matches(name.c_str())) {
+            out = eth->getInterfaceId();
+        }
     }
 }
 }//namespace pairwisedelayer
