@@ -18,7 +18,7 @@
 // Showcases:
 //   - <a href="baseline.html">Baseline</a>
 //   - <a href="agv.html">Adaptive Manufacturing</a>
-//   - <a href="edgeclou.html">Edge Cloud</a>
+//   - <a href="edgecloud.html">Edge Cloud</a>
 //   - <a href="timesync.html">Time Synchronization</a>
 //
 // Related documentation:
