@@ -5,17 +5,18 @@
 //
 
 
-//
+//*
 // @titlepage
 //
 // <center><h1>Deterministic6G Framework</h1></center>
 //
-// The Deterministic 6G Framework is an ambitious, open-source simulation environment aimed at 
-// advancing research and development in the emerging domain of 6th Generation (6G) communications. 
-// Based on the well-established INET Framework, this project extends its capabilities to accurately model, 
-// simulate, and analyze deterministic networking behaviors specifically catered for 6G networks. 
+// The Deterministic 6G Framework is an extension to the <a href="https://inet.omnetpp.org/">INET</a> framework.
+// It's purpose it to allow the simulation of networks with a Packet Delay Variation (PDV).
+// This will mainly be used for simulating wireless behavior, but can also be used to simulate a variable processing delay in TSN switches.
+// It allows to configure delays for up- and downlink and different pairs of devices.
 //
-//
+// Showcases:
+// 
 //
 // Related documentation:
 //   - <a href="https://inet.omnetpp.org/docs/users-guide/index.html" target="_top">INET User's Guide</a>

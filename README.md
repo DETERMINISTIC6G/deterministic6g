@@ -12,6 +12,7 @@ Your workspace should have the following structure:
 ```
 [path_to_your_workspace]
 ├── deterministic6g
+├── deterministic6g_data (optional)
 └── inet
 ```
 
@@ -50,5 +51,3 @@ make -j$(nproc)
 ### Using the IDE
 1. Open the `omnetpp.ini` file of the simulation you want to run.
 2. Click on the green run button in the top toolbar.
-
-### Using the command line

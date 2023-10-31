@@ -5,21 +5,32 @@
 package d6g.simulations.baseline;
 
 import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.UETsnSwitch;
-import d6g.devices.sixg.UETsnDevice;
 import d6g.devices.sixg.UEChannel;
+import d6g.devices.sixg.UETsnDevice;
+import d6g.devices.sixg.UETsnSwitch;
+import d6g.distribution.histogram.Histogram;
 import d6g.networks.DetComNetworkBase;
 import inet.node.ethernet.EthernetLink;
 import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
-import inet.queueing.common.PacketDelayer;
 
 
 //
-// The network is to evaluate the data communication from a talker (sender) through multiple 
-// bridges and adapters to a listener (receiver).
-//
-network BaselineWirelessDeviceWirelessBridge extends DetComNetworkBase
+// Base network for Baseline scenario.
+// Includes two histograms, one for uplink and one for downlink.
+network BaselineBase extends DetComNetworkBase
+{
+    submodules:
+        histogramUplink: Histogram {
+            @display("p=100,800");
+        }
+        histogramDownlink: Histogram {
+            @display("p=100,900");
+        }
+}
+
+
+network BaselineWirelessDeviceWirelessBridge extends BaselineBase
 {
     parameters:
 
@@ -46,7 +57,7 @@ network BaselineWirelessDeviceWirelessBridge extends DetComNetworkBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
-network BaselineWirelessDeviceWirelessDevice extends DetComNetworkBase
+network BaselineWirelessDeviceWirelessDevice extends BaselineBase
 {
     parameters:
 
@@ -65,7 +76,7 @@ network BaselineWirelessDeviceWirelessDevice extends DetComNetworkBase
         detcom.ueg++ <--> UEChannel <--> device2.ueg++;
 }
 
-network BaselineWirelessBridgeWirelessBridge extends DetComNetworkBase
+network BaselineWirelessBridgeWirelessBridge extends BaselineBase
 {
     parameters:
 
@@ -100,7 +111,7 @@ network BaselineWirelessBridgeWirelessBridge extends DetComNetworkBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
-network BaselineWirelessDeviceWiredBridge extends DetComNetworkBase
+network BaselineWirelessDeviceWiredBridge extends BaselineBase
 {
     parameters:
 
@@ -127,7 +138,7 @@ network BaselineWirelessDeviceWiredBridge extends DetComNetworkBase
         bridge2.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
-network BaselineWirelessBridgeWiredBridge extends DetComNetworkBase
+network BaselineWirelessBridgeWiredBridge extends BaselineBase
 {
     parameters:
 
@@ -162,7 +173,7 @@ network BaselineWirelessBridgeWiredBridge extends DetComNetworkBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
-network BaselineWirelessDeviceWiredDevice extends DetComNetworkBase
+network BaselineWirelessDeviceWiredDevice extends BaselineBase
 {
     parameters:
 
@@ -181,7 +192,7 @@ network BaselineWirelessDeviceWiredDevice extends DetComNetworkBase
         detcom.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
-network BaselineWirelessBridgeWiredDevice extends DetComNetworkBase
+network BaselineWirelessBridgeWiredDevice extends BaselineBase
 {
     parameters:
 

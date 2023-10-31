@@ -28,8 +28,8 @@ import d6g.networks.DetComNetworkBase;
 import d6g.distribution.histogram.Histogram;
 
 // 
-// The module extends from DetComNetworkBase. This network is meant to simulate deterministic communications in an edge cloud setting. 
-// 
+// Timesync showcase
+// TODO: Add Link to description
 network timesyncshowcase extends TsnNetworkBase
 {
     @display("bgb=1388.9,812.098");
