@@ -16,7 +16,9 @@
 // It allows to configure delays for up- and downlink and different pairs of devices.
 //
 // Showcases:
-// 
+//   - <a href="baseline.html">Baseline</a>
+//   - <a href="agv.html">Adaptive Manufacturing</a>
+//   - <a href="timesync.html">Time Synchronization</a>
 //
 // Related documentation:
 //   - <a href="https://inet.omnetpp.org/docs/users-guide/index.html" target="_top">INET User's Guide</a>
