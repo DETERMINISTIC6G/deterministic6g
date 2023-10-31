@@ -28,8 +28,9 @@ import d6g.networks.DetComNetworkBase;
 import d6g.distribution.histogram.Histogram;
 
 // 
-// Timesync showcase
-// TODO: Add Link to description
+// This is still work in progress, not working yet.
+// Might need more discussion.
+//
 network timesyncshowcase extends TsnNetworkBase
 {
     @display("bgb=1388.9,812.098");

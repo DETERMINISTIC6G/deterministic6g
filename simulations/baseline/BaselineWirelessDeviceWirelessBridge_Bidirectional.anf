@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<analysis version="2">
+    <inputs>
+        <input pattern="/deterministic6g/simulations/baseline/results/BaselineWirelessDeviceWirelessBridge_Bidirectional-*.vec"/>
+        <input pattern="/deterministic6g/simulations/baseline/results/BaselineWirelessDeviceWirelessBridge_Bidirectional-*.sca"/>
+    </inputs>
+    <charts/>
+</analysis>

@@ -4,7 +4,7 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 //
 
-package d6g.pairwise;
+package d6g.delayer;
 
 import inet.queueing.base.PacketDelayerBase;
 import inet.queueing.contract.IPacketDelayer;

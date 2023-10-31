@@ -5,6 +5,9 @@
 #ifndef DETERMINISTIC6G_IRANDOMNUMBERPROVIDER_H
 #define DETERMINISTIC6G_IRANDOMNUMBERPROVIDER_H
 
+#include <omnetpp.h>
+#include "inet/common/INETDefs.h"
+
 namespace d6g {
 using namespace inet;
 /**
@@ -17,6 +20,7 @@ public:
      * @return random number provided by subclass.
      */
     virtual cValue getRand() const = 0;
+    static cNEDValue randomNumberProviderNED(cComponent *context, cNEDValue argv[], int argc);
 };
 }
 

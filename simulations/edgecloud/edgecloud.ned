@@ -24,8 +24,11 @@ network EdgeCloudNetwork extends DetComNetworkBase
     parameters:
    
     submodules:
-        histogram: Histogram {
-            @display("p=100,400;is=s");
+        histogramCloud: Histogram {
+            @display("p=100,900;is=s");
+        }
+        histogramUplink: Histogram {
+            @display("p=100,800;is=s");
         }
  		talker: UETsnDevice {
             @display("p=300,200");  
