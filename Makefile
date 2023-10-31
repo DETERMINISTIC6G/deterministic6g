@@ -1,5 +1,7 @@
 INET ?= ../../inet
 
+.PHONY: doc
+
 all: checkmakefiles
 	cd src && $(MAKE)
 
