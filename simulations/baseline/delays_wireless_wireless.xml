@@ -1,0 +1,4 @@
+<delays>
+	<delay in="100" out="101">rngProvider("histogramUplink")+rngProvider("histogramDownlink")</delay>
+	<delay in="101" out="100">rngProvider("histogramDownlink")+rngProvider("histogramUplink")</delay>
+</delays>
