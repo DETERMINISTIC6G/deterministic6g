@@ -26,7 +26,7 @@ cValue randomWalk::ned_randomWalk(cComponent *context, cNEDValue argv[], int arg
 
     std::string key = context->getFullPath();
     if (argc == 3) {
-        key += argv[2].stringValue();
+        key = argv[2].stringValue();
     }
 
     // Check if the key is already in the map
