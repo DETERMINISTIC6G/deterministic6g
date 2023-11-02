@@ -4,7 +4,7 @@
 This version of the D6G framework is compatible with OMNeT++ 6.0 and INET 4.5.2.
 
 ## Getting Started
-The following guide assumes you already have a working OMNeT++ installation (see [here](https://doc.omnetpp.org/omnetpp/InstallGuide.pdf) for instructions).
+The following guide assumes you already have a working OMNeT++ installation (see [here](doc/install-omnetpp.md) for instructions).
 
 
 ### Workspace Setup
