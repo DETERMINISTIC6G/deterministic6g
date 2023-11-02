@@ -28,8 +28,7 @@ void HistogramContainer::initialize(int stage) {
 }
 
 Histogram* HistogramContainer::getHistogram(const std::string& name) {
-    auto it = histograms.find(name);
-    if (it != histograms.end()) {
+    if (histograms.find(name) != histograms.end()) {
         return it->second;
     } else {
         throw cRuntimeError("Histogram not found: %s", name.c_str());
