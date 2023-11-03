@@ -1,1 +1,6 @@
-TODO: Needs more information
+This showcase contains the TimeSyncNetwork for simulating time synchronization in a mixed TSN/5G domain.
+From the description in D2.2, we can handle the intermediate 5G as one gPTP bridge clock using the TSi and TSe timestamps, with the following differences:
+
+- In contrast to the INET gPTP implementation the TSi and TSe timestamps don't originate from the same clock.
+  This needs discussion on how to simulate this behavior, as these timestamps are relevant for the correctionField
+- Currently, there seems to be a problem with the correctionField implementation of INET: <a href="https://github.com/inet-framework/inet/issues/920">See here</a>

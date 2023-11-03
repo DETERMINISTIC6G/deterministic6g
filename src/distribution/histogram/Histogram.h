@@ -48,7 +48,7 @@ class INET_API Histogram : public cSimpleModule, public IRandomNumberProvider {
 
 private:
     std::vector<BinEntry *> bins; ///< Vector to store the bins
-    int totalCount; ///< Total count of elements in all bins
+    int totalCount = 0; ///< Total count of elements in all bins
 
 protected:
     void initialize(int stage) override;
@@ -84,6 +84,16 @@ public:
      * @return random number from the histogram
      */
     cValue getRand() const override;
+
+    BinEntry *getBinFromTargetValue(int target) const;
+
+private:
+    /*!
+     * Self check to make sure that the histogram is correct
+     *
+     * This was used for debugging purposes, not needed anymore hopefully but keeping it just in case.
+     */
+    void selfCheck() const;
 };
 
 } //namespace

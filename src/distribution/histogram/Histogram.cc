@@ -62,11 +62,30 @@ void Histogram::parseHistogramConfig(cXMLElement *histogramEntity) {
         previousBinEntry->rightBoundary = std::numeric_limits<double>::infinity();
     }
 
-    // Check the bins
+    // Print the bins
     for (const auto *bin: bins) {
         EV << "Left boundary: " << bin->leftBoundary.str()
            << "  --  Right boundary: " << bin->rightBoundary.str()
-           << "  --  Count: " << bin->count << endl;
+           << "  --  Count: " << bin->count
+           << "  --  Accumulated count: " << bin->accumulatedCount << endl;
+    }
+}
+
+/**
+ * Self check to make sure that the histogram is correct
+ *
+ * This was used for debugging purposes, not needed anymore hopefully but keeping it just in case.
+ */
+void Histogram::selfCheck() const {
+    EV << "Histogram self check" << endl;
+    for (int i = 0; i < totalCount; i++) {
+        auto bin = getBinFromTargetValue(i);
+        /*EV << "Target: " << i << "  --  Bin: " << bin->leftBoundary.str() << " - " << bin->rightBoundary.str() << " - "
+           << bin->accumulatedCount << endl;*/
+        if (bin->accumulatedCount <= i) {
+            throw cRuntimeError("Histogram self check failed for target %d, accumulatedCount: %d", i,
+                                bin->accumulatedCount);
+        }
     }
 }
 
@@ -84,7 +103,13 @@ Histogram::BinEntry *Histogram::randomBin() const {
     }
 
     auto target = intrand(totalCount);
+    auto bin = getBinFromTargetValue(target);
+    EV_DEBUG << "Random bin: " << bin->leftBoundary.str() << " - " << bin->rightBoundary.str() << " - "
+             << bin->accumulatedCount << endl;
+    return bin;
+}
 
+Histogram::BinEntry *Histogram::getBinFromTargetValue(int target) const {
     // Perform binary search to find the bin that contains the target
     auto bin = std::upper_bound(bins.begin(), bins.end(), target,
                                 [](int value, const BinEntry *bin) {
@@ -94,7 +119,8 @@ Histogram::BinEntry *Histogram::randomBin() const {
     if (bin != bins.end()) {
         return *bin;
     } else {
-        throw cRuntimeError("random number greater than actual total count. This should never happen, check your totalCount calculation");
+        throw cRuntimeError(
+                "random number greater than actual total count. This should never happen, check your totalCount calculation");
     }
 }
 

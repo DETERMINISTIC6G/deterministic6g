@@ -31,15 +31,13 @@ import d6g.distribution.histogram.Histogram;
 // This is still work in progress, not working yet.
 // Might need more discussion.
 //
-network timesyncshowcase extends TsnNetworkBase
+network TimeSyncNetwork extends TsnNetworkBase
 {
-    @display("bgb=1388.9,812.098");
     submodules:
-
-        masterClock: TsnClock { // Need to be corrected and changed
+        masterClock: TsnClock {
             @display("p=500,150");
         }
-        detcom: DetCom { // Need to be corrected and changed
+        detcom: DetCom {
             @display("p=500,300");
         }
         tsnDevice1: UETsnDevice {

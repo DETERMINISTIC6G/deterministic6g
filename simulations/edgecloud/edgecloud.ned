@@ -52,5 +52,5 @@ network EdgeCloudNetwork extends DetComNetworkBase
         detcom.ethg++ <--> EthernetLink <--> bridge.ethg++;
         bridge.ethg++ <--> EthernetLink <--> cloud.ethg++;
         
-        detcom.ueg++ <--> EthernetLink <--> receiver.ueg++;
+        detcom.ueg++ <--> UEChannel <--> receiver.ueg++;
 }
