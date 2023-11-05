@@ -28,18 +28,18 @@ import d6g.devices.sixg.UnitWithAdapter;
 module AGV extends UnitWithAdapter
 {
     parameters:
-    	@display("i=device/cellphone");
-    	isWireless = true; // Indicates that the AGV can communicate wirelessly
+        @display("i=device/cellphone");
+        isWireless = true; // Indicates that the AGV can communicate wirelessly
         *.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
     submodules:
         // For communication between AGVs
         interAgv: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=300,100");
+            @display("p=50,100");
         }
-        
+
         // For communication to a processing cell
-        interToCell: <default("TsnDevice")> like IEthernetNetworkNode { 
-            @display("p=400,100");
+        interToCell: <default("TsnDevice")> like IEthernetNetworkNode {
+            @display("p=250,100");
         }
     connections:
         detComAdapter.ethg++ <--> EthernetLink <--> interAgv.ethg++;

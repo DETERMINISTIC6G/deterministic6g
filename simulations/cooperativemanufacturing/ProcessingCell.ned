@@ -34,7 +34,7 @@ module ProcessingCell extends UnitWithAdapter
     submodules:
         // Bridge for Ethernet frames
         bridge: <default("TsnSwitch")> like IEthernetNetworkNode {
-            @display("p=350,100");
+            @display("p=150,100");
         }
         
         // Device for monitoring the status of the swarm

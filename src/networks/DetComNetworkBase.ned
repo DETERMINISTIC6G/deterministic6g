@@ -31,15 +31,4 @@ network DetComNetworkBase extends TsnNetworkBase
 		
 		
 		**.eth[*].macLayer.queue.numTrafficClasses = 2; // Specifying the number of traffic classes at the MAC layer for all Ethernet interfaces.
-		
-		// Defining a mapping between different traffic stream types and their respective PCP values.
-        // PCP: Priority Code Point (used in VLAN tags for traffic prioritization).
-		**.bridging.streamCoder.*.mapping = [{stream: "BK", pcp: 0},
-									         {stream: "BE", pcp: 1},
-							                 {stream: "EE", pcp: 2},
-									         {stream: "CA", pcp: 3},
-									         {stream: "VI", pcp: 4},
-                                             {stream: "VO", pcp: 5},
-                                             {stream: "IC", pcp: 6},
-                                             {stream: "NV", pcp: 7}];
 }

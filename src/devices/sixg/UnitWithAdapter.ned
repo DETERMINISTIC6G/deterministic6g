@@ -18,13 +18,13 @@ module UnitWithAdapter {
         inout adapterGate; //interface for adapter's functionality
     submodules:
         detComAdapter: UETsnSwitch {
-            @display("p=350,200");
+            @display("p=150,200");
         }
     connections:
         if (isWireless) {
         	detComAdapter.ueg++ <--> {@display("ls=,,da");} <--> adapterGate;
         }
         if (!isWireless) {
-            detComAdapter.ethg++ <--> {@display("ls=,,da");} <--> adapterGate;
+            detComAdapter.ethg++ <--> adapterGate;
         }
 }
