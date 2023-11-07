@@ -8,7 +8,8 @@
 #include "HistogramContainer.h"
 #include "inet/common/XMLUtils.h"
 #include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
-#include "iostream"
+#include "fstream"
+
 
 namespace d6g {
 
@@ -18,32 +19,38 @@ Define_Module(HistogramContainer);
 
 void HistogramContainer::initialize(int stage) {
     if (stage == INITSTAGE_LOCAL) {
-        // Get the histogram configurations from the parameters
-        auto histogramsXml = check_and_cast<cValueMap *>(par("histograms").objectValue());
-        cXMLElement* histogramXml = nullptr;
+        histograms.clear();
 
-        if (histogramsXml != nullptr) {
-            // Iterate over all children elements which are histograms
-            histogramXml = histogramsXml->getFirstChild();
-            while (histogramXml != nullptr) {
-                const char* histName = histogramXml->getTagName();
-                // Here you would create your Histogram objects based on the XML data
-                // For example, if your Histogram constructor takes an XML element:
-                histograms[histName] = new Histogram();
-                histograms[histName]->parseHistogramConfig(histogramXml);
-                // Move to the next histogram element
-                histogramXml = histogramXml->getNextSibling();
-            }
+        auto histogramsMap = check_and_cast<cValueMap *>(par("histograms").objectValue());
+        auto histogramsFields = histogramsMap->getFields();
+
+        for (auto &histogramsField: histogramsFields) {
+            auto streamName = histogramsField.first;
+            auto xmlFile = histogramsField.second.stringValue();
+            histograms[streamName] = getHistogram(xmlFile);
+
         }
     }
 }
 
-Histogram* HistogramContainer::getHistogram(const std::string& name) {
-    if (histograms.find(name) != histograms.end()) {
-        return histograms.find(name)->second;
-    } else {
-        throw cRuntimeError("Histogram not found: %s", name.c_str());
+Histogram* HistogramContainer::getHistogram(const char* xmlName) {
+    std::ifstream infile(xmlName);
+    if (!infile) {
+        throw cRuntimeError("File '%s' not found", xmlName);
     }
+
+    cXMLElement* xmlData = par(xmlName).xmlValue();
+    if (!xmlData || strcmp(xmlData->getTagName(), "histogram") != 0) {
+            throw cRuntimeError("Invalid XML data for histogram");
+        }
+
+     // Create a new Histogram instance
+     Histogram* histogram = new Histogram();
+
+     // Parse the histogram configuration
+     histogram->parseHistogramConfig(xmlData);
+
+     return histogram;
 }
 
 } /* namespace d6g */

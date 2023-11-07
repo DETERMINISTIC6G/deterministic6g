@@ -19,6 +19,8 @@ doc/src/_build
 doc/doxy
 doc/neddoc
 
+.idea
+
 # ignore binary files
 out/
 *.so
