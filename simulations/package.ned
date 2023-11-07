@@ -7,6 +7,7 @@ import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 
 import d6g.distribution.histogram.Histogram;
+import d6g.distribution.container.HistogramContainer;
 
 //
 // An extension of the TsnNetworkBase from the INET framework.
@@ -19,7 +20,7 @@ network TsnTestNetwork extends TsnNetworkBase
         *.eth[*].bitrate = default(100Mbps); // Default bitrate for all Ethernet interfaces is set to 100Mbps.
     submodules:
         // Histogram for capturing statistical data.
-        histogram: Histogram {
+        histogram: HistogramContainer {
             @display("p=100,400;is=s");
         }
         
