@@ -17,12 +17,10 @@ package d6g.distribution.container;
 
 simple HistogramContainer
 {
-     parameters:
+    parameters:
         object histograms = default({
-            hist1: xml("<histrogram></histogram>"),
-            hist2: xml("<histrogram></histogram>")
-            
-            });
-            @class(HistogramContainer);
-            @display("i=block/delay");
+            hist1: "example-hist.xml"
+        });
+        @class(HistogramContainer);
+        @display("i=block/delay");
 }
