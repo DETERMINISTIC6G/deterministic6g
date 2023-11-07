@@ -8,5 +8,15 @@
         </build>
       </configuration>
     </target>
+    <target id="290c1917-5eb1-4f34-9e95-6d8223e74e78" name="d6g" defaultType="MAKE">
+      <configuration id="d1bcf7db-40e9-41bf-b43a-8931703ad742" name="d6g">
+        <build type="MAKE">
+          <make targetName="make -j $(nproc) MODE=release all" />
+        </build>
+        <clean type="MAKE">
+          <make targetName="make clean" />
+        </clean>
+      </configuration>
+    </target>
   </component>
 </project>

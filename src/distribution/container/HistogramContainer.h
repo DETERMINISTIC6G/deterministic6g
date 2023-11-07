@@ -26,7 +26,7 @@ private:
 protected:
     virtual void initialize(int stage) override;
 public:
-    Histogram* getHistogram(const std::string& name);
+    Histogram* getHistogram(const char* xmlName);
 };
 
 } /* namespace d6g */

@@ -18,6 +18,8 @@ public/**
 doc/src/_build
 doc/
 
+.idea
+
 # ignore binary files
 out/
 *.so
