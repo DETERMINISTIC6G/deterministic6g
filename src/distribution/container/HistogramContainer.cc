@@ -52,6 +52,8 @@ Histogram* HistogramContainer::getHistogram(const char* xmlName) {
      // Parse the histogram configuration
      histogram->parseHistogramConfig(xmlData);
 
+     infile.close();
+
      return histogram;
 }
 
