@@ -28,6 +28,7 @@ void HistogramContainer::initialize(int stage) {
             auto streamName = histogramsField.first;
             auto xmlFile = histogramsField.second.stringValue();
             histograms[streamName] = getHistogram(xmlFile);
+            EV << histograms[streamName] << std::endl;
 
         }
     }
@@ -39,10 +40,11 @@ Histogram* HistogramContainer::getHistogram(const char* xmlName) {
         throw cRuntimeError("File '%s' not found", xmlName);
     }
 
-    cXMLElement* xmlData = par(xmlName).xmlValue();
+
+    cXMLElement* xmlData = getEnvir()->getXMLDocument(xmlName);
     if (!xmlData || strcmp(xmlData->getTagName(), "histogram") != 0) {
             throw cRuntimeError("Invalid XML data for histogram");
-        }
+    }
 
      // Create a new Histogram instance
      Histogram* histogram = new Histogram();
