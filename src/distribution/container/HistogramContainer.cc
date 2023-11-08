@@ -40,8 +40,8 @@ Histogram* HistogramContainer::getHistogram(const char* xmlName) {
         throw cRuntimeError("File '%s' not found", xmlName);
     }
 
-
     cXMLElement* xmlData = getEnvir()->getXMLDocument(xmlName);
+
     if (!xmlData || strcmp(xmlData->getTagName(), "histogram") != 0) {
             throw cRuntimeError("Invalid XML data for histogram");
     }
