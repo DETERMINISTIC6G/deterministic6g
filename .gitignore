@@ -21,6 +21,8 @@ doc/neddoc
 
 .idea
 
+.idea
+
 # ignore binary files
 out/
 *.so

@@ -19,7 +19,9 @@ simple HistogramContainer
 {
     parameters:
         object histograms = default({
-            hist1: "example-hist.xml"
+            hist1: "example-hist.xml",
+            hist2: "example-hist.xml",
+            hist3: "example-hist.xml"
         });
         @class(HistogramContainer);
         @display("i=block/delay");
