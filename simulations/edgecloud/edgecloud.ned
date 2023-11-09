@@ -36,7 +36,7 @@ network EdgeCloudNetwork extends DetComNetworkBase
         detcom: DetCom {
             @display("p=400,300");  
         }
-        cloud: TsnDevice {
+        cloudServer: TsnDevice {
             @display("p=600,300");  
         }
         bridge: TsnSwitch {
@@ -50,7 +50,7 @@ network EdgeCloudNetwork extends DetComNetworkBase
         talker.ueg++ <--> UEChannel <--> detcom.ueg++;
         
         detcom.ethg++ <--> EthernetLink <--> bridge.ethg++;
-        bridge.ethg++ <--> EthernetLink <--> cloud.ethg++;
+        bridge.ethg++ <--> EthernetLink <--> cloudServer.ethg++;
         
         detcom.ueg++ <--> UEChannel <--> receiver.ueg++;
 }
