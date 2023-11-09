@@ -1,44 +1,16 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+
 package d6g.simulations;
-
-@license(LGPL);
-
-import inet.networks.base.TsnNetworkBase;
-import inet.node.contract.IEthernetNetworkNode;
-import inet.node.ethernet.EthernetLink;
-
-import d6g.distribution.histogram.Histogram;
-import d6g.distribution.container.HistogramContainer;
-
-//
-// An extension of the TsnNetworkBase from the INET framework.
-// The network consists of a client, a switch, and a server.
-// A Histogram submodule is also included for statistical analysis, with data sourced from example-hist.xml.
-//
-network TsnTestNetwork extends TsnNetworkBase
-{
-    parameters:
-        *.eth[*].bitrate = default(100Mbps); // Default bitrate for all Ethernet interfaces is set to 100Mbps.
-    submodules:
-        // Histogram for capturing statistical data.
-        histogram: HistogramContainer {
-            @display("p=100,400;is=s");
-        }
-        
-        // Client node in the network, likely generating TSN traffic.
-        client: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=350,200");
-        }
-        
-        // Switch node for routing and handling TSN traffic.
-        switch: <default("TsnSwitch")> like IEthernetNetworkNode {
-            @display("p=550,200");
-        }
-        
-        // Server node in the network, typically a recipient of TSN traffic.
-        server: <default("TsnDevice")> like IEthernetNetworkNode {
-            @display("p=750,200");
-        }
-    connections:
-        client.ethg++ <--> EthernetLink <--> switch.ethg++;
-        switch.ethg++ <--> EthernetLink <--> server.ethg++;
-}

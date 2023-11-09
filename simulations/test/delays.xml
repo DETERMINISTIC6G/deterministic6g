@@ -1,6 +1,4 @@
 <delays>
-	<delay in="client" out="server">truncnormal(10us,5us)</delay>
-	<delay in="client" out="server" activateAt="15000ms">uniform(0us,5us)</delay>
-	<delay in="server" out="client">truncnormal(20us,5us)</delay>
-	<delay in="server" out="client" activateAt="30000ms">truncnormal(20us,10us)</delay>
+	<delay in="client">rngProvider("histogramContainer","hist1")</delay>
+	<delay in="server">rngProvider("histogramContainer","hist2")</delay>
 </delays>

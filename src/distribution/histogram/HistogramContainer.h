@@ -18,15 +18,20 @@ using namespace omnetpp;
 namespace d6g {
 using namespace inet;
 
-class INET_API HistogramContainer : public cSimpleModule {
+class INET_API HistogramContainer : public cSimpleModule, public IRandomNumberProvider {
 
 private:
     std::map<std::string, Histogram*> histograms;
 
 protected:
     virtual void initialize(int stage) override;
+    static Histogram* loadHistogramFromFile(const char* fileName);
 public:
-    Histogram* getHistogram(const char* xmlName);
+    Histogram* getHistogram(std::string key) const;
+    cValue getRand() const override {
+        throw cRuntimeError("HistogramContainer requires a key (name of histogram)");
+    }
+    cValue getRand(std::string key) const override;
 };
 
 } /* namespace d6g */

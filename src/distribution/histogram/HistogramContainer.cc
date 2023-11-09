@@ -27,27 +27,27 @@ void HistogramContainer::initialize(int stage) {
         for (auto &histogramsField: histogramsFields) {
             auto streamName = histogramsField.first;
             auto xmlFile = histogramsField.second.stringValue();
-            histograms[streamName] = getHistogram(xmlFile);
+            histograms[streamName] = loadHistogramFromFile(xmlFile);
             EV << histograms[streamName] << std::endl;
 
         }
     }
 }
 
-Histogram* HistogramContainer::getHistogram(const char* xmlName) {
-    std::ifstream infile(xmlName);
+Histogram* HistogramContainer::loadHistogramFromFile(const char* fileName) {
+    std::ifstream infile(fileName);
     if (!infile) {
-        throw cRuntimeError("File '%s' not found", xmlName);
+        throw cRuntimeError("File '%s' not found", fileName);
     }
 
-    cXMLElement* xmlData = getEnvir()->getXMLDocument(xmlName);
+    cXMLElement* xmlData = getEnvir()->getXMLDocument(fileName);
 
     if (!xmlData || strcmp(xmlData->getTagName(), "histogram") != 0) {
             throw cRuntimeError("Invalid XML data for histogram");
     }
 
      // Create a new Histogram instance
-     Histogram* histogram = new Histogram();
+     auto* histogram = new Histogram();
 
      // Parse the histogram configuration
      histogram->parseHistogramConfig(xmlData);
@@ -55,6 +55,19 @@ Histogram* HistogramContainer::getHistogram(const char* xmlName) {
      infile.close();
 
      return histogram;
+}
+
+cValue HistogramContainer::getRand(std::string key) const {
+    auto histogram = getHistogram(key);
+    return histogram->getRand();
+}
+
+Histogram *HistogramContainer::getHistogram(std::string key) const {
+    auto it = histograms.find(key);
+    if (it == histograms.end()) {
+        throw cRuntimeError("Histogram '%s' not found", key.c_str());
+    }
+    return it->second;
 }
 
 } /* namespace d6g */

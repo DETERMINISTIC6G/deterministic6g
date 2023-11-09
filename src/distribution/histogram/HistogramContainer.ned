@@ -13,16 +13,12 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package d6g.distribution.container;
+package d6g.distribution.histogram;
 
 simple HistogramContainer
 {
     parameters:
-        object histograms = default({
-            hist1: "example-hist.xml",
-            hist2: "example-hist.xml",
-            hist3: "example-hist.xml"
-        });
+        object histograms = default({});
         @class(HistogramContainer);
         @display("i=block/delay");
 }
