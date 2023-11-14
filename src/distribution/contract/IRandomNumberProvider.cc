@@ -8,7 +8,7 @@ namespace d6g {
 using namespace inet;
 
 cNEDValue IRandomNumberProvider::randomNumberProviderNED(omnetpp::cComponent *context, omnetpp::cNEDValue *argv, int argc) {
-    if (argc != 1) {
+    if (argc < 1 || argc > 2) {
         // handle error: wrong number of arguments
         throw cRuntimeError("Wrong number of arguments: %d", argc);
     }
@@ -22,9 +22,15 @@ cNEDValue IRandomNumberProvider::randomNumberProviderNED(omnetpp::cComponent *co
     // Cast to IRandomNumberProvider
     auto rng = check_and_cast<IRandomNumberProvider *>(rngModule);
 
-    return rng->getRand();
+    if (argc == 2) {
+        // Get the key
+        const char* key = argv[1].stringValue();
+        return rng->getRand(key);
+    } else {
+        return rng->getRand();
+    }
 }
 
-Define_NED_Function(IRandomNumberProvider::randomNumberProviderNED, "quantity rngProvider(string histogramModule)");
+Define_NED_Function(IRandomNumberProvider::randomNumberProviderNED, "quantity rngProvider(string rngProviderModule, string key?)");
 
 } /* namespace d6g */

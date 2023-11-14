@@ -34,6 +34,7 @@ class INET_API Histogram : public cSimpleModule, public IRandomNumberProvider {
     /**
      * BinEntry is a class that represents a bin in the histogram.
      */
+public:
     class INET_API BinEntry {
     public:
         explicit BinEntry(cXMLElement *binEntity, cModule *context = nullptr);
@@ -52,7 +53,9 @@ private:
 
 protected:
     void initialize(int stage) override;
-
+public:
+    Histogram();
+    ~Histogram();
     void parseHistogramConfig(cXMLElement *histogramEntity);
 
 public:
@@ -84,6 +87,9 @@ public:
      * @return random number from the histogram
      */
     cValue getRand() const override;
+    cValue getRand(std::string key) const override {
+        throw cRuntimeError("Histogram does not support random number generation with a key, but %s was provided", key.c_str());
+    }
 
     BinEntry *getBinFromTargetValue(int target) const;
 
