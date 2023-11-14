@@ -25,7 +25,6 @@ import d6g.devices.sixg.UEChannel;
 import d6g.devices.sixg.UETsnDevice;
 import d6g.devices.sixg.UETsnSwitch;
 import d6g.networks.DetComNetworkBase;
-import d6g.distribution.histogram.Histogram;
 
 // 
 // This is still work in progress, not working yet.
