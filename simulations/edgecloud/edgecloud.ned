@@ -24,7 +24,7 @@ network EdgeCloudNetwork extends DetComNetworkBase
 {
     parameters:
    
-    submodules:<
+    submodules:
         histogramContainer:HistogramContainer{
             @display("p=100,800;is=s");
         }
