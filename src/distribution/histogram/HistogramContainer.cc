@@ -70,4 +70,10 @@ Histogram *HistogramContainer::getHistogram(std::string key) const {
     return it->second;
 }
 
+HistogramContainer::~HistogramContainer() {
+    for (auto &histogram: histograms) {
+        delete histogram.second;
+    }
+}
+
 } /* namespace d6g */

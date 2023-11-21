@@ -32,6 +32,9 @@ public:
         throw cRuntimeError("HistogramContainer requires a key (name of histogram)");
     }
     cValue getRand(std::string key) const override;
+
+    // Deconstructor
+    ~HistogramContainer() override;
 };
 
 } /* namespace d6g */
