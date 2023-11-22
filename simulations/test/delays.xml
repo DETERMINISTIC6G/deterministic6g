@@ -1,4 +1,4 @@
 <delays>
-	<delay in="client">rngProvider("histogramContainer","hist1")</delay>
-	<delay in="server">rngProvider("histogramContainer","hist2")</delay>
+	<delay in="client">rngProvider("delayreplayerContainer","delrep1")</delay>
+	<delay in="server">rngProvider("delayreplayerContainer","delrep2")</delay>
 </delays>

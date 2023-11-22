@@ -125,7 +125,7 @@ Histogram::BinEntry *Histogram::getBinFromTargetValue(int target) const {
     }
 }
 
-cValue Histogram::getRand() const {
+cValue Histogram::getRand() {
     auto bin = randomBin();
     auto unit = bin->leftBoundary.getUnit();
     auto leftBoundaryDbl = bin->leftBoundary.doubleValueInUnit(unit);

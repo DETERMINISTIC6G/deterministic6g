@@ -1,12 +1,13 @@
 package d6g.simulations.test;
 
-@license(LGPL);
-
+import d6g.distribution.delayreplayer.DelayReplayerContainer;
+import d6g.distribution.histogram.HistogramContainer;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
 
-import d6g.distribution.histogram.HistogramContainer;
+
+@license(LGPL);
 
 //
 // An extension of the TsnNetworkBase from the INET framework.
@@ -21,6 +22,10 @@ network TsnTestNetwork extends TsnNetworkBase
         // Histogram for capturing statistical data.
         histogramContainer: HistogramContainer {
             @display("p=100,400;is=s");
+        }
+
+        delayreplayerContainer: DelayReplayerContainer{
+            @display("p=100,500;is=s");
         }
 
         // Client node in the network, likely generating TSN traffic.
