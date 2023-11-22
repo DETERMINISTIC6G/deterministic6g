@@ -28,12 +28,12 @@ protected:
     static Histogram* loadHistogramFromFile(const char* fileName);
 public:
     Histogram* getHistogram(std::string key) const;
-    cValue getRand() const override {
+    cValue getRand() override {
         throw cRuntimeError("HistogramContainer requires a key (name of histogram)");
     }
-    cValue getRand(std::string key) const override;
+    cValue getRand(std::string key) override;
 
-    // Deconstructor
+    // Destructor
     ~HistogramContainer() override;
 };
 

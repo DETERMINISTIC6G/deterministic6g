@@ -86,8 +86,8 @@ public:
      *
      * @return random number from the histogram
      */
-    cValue getRand() const override;
-    cValue getRand(std::string key) const override {
+    cValue getRand() override;
+    cValue getRand(std::string key) override {
         throw cRuntimeError("Histogram does not support random number generation with a key, but %s was provided", key.c_str());
     }
 

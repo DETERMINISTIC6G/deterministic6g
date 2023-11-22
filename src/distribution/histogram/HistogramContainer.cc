@@ -57,7 +57,7 @@ Histogram* HistogramContainer::loadHistogramFromFile(const char* fileName) {
      return histogram;
 }
 
-cValue HistogramContainer::getRand(std::string key) const {
+cValue HistogramContainer::getRand(std::string key) {
     auto histogram = getHistogram(key);
     return histogram->getRand();
 }
