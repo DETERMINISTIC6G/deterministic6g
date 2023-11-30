@@ -23,7 +23,8 @@ using namespace inet::xmlutils;
 
 /// Test for D6G
 Define_Module(Histogram);
-
+Histogram::Histogram(){}
+Histogram::~Histogram(){}
 void Histogram::initialize(int stage) {
     // Parse the histogram configuration
     if (stage == INITSTAGE_LOCAL) {
@@ -124,7 +125,7 @@ Histogram::BinEntry *Histogram::getBinFromTargetValue(int target) const {
     }
 }
 
-cValue Histogram::getRand() const {
+cValue Histogram::getRand() {
     auto bin = randomBin();
     auto unit = bin->leftBoundary.getUnit();
     auto leftBoundaryDbl = bin->leftBoundary.doubleValueInUnit(unit);

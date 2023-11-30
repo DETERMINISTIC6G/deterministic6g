@@ -20,5 +20,5 @@
   <component name="MakefileWorkspace" PROJECT_DIR="$PROJECT_DIR$">
     <contentRoot DIR="$PROJECT_DIR$/src" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" project-jdk-name="20" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="20" project-jdk-type="JavaSDK" />
 </project>

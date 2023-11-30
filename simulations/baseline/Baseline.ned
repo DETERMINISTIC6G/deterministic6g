@@ -9,6 +9,7 @@ import d6g.devices.sixg.UEChannel;
 import d6g.devices.sixg.UETsnDevice;
 import d6g.devices.sixg.UETsnSwitch;
 import d6g.distribution.histogram.Histogram;
+import d6g.distribution.histogram.HistogramContainer;
 import d6g.networks.DetComNetworkBase;
 import inet.node.ethernet.EthernetLink;
 import inet.node.tsn.TsnDevice;
@@ -21,12 +22,11 @@ import inet.node.tsn.TsnSwitch;
 network BaselineBase extends DetComNetworkBase
 {
     submodules:
-        histogramUplink: Histogram {
+        
+        histogramContainer: HistogramContainer{
             @display("p=100,800");
         }
-        histogramDownlink: Histogram {
-            @display("p=100,900");
-        }
+
 }
 
 

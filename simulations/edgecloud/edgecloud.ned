@@ -15,6 +15,7 @@ import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 import ned.DatarateChannel;
 import d6g.distribution.histogram.Histogram;
+import d6g.distribution.histogram.HistogramContainer;
 
 // 
 // The module extends from DetComNetworkBase. This network is meant to simulate deterministic communications in an edge cloud setting. 
@@ -24,10 +25,7 @@ network EdgeCloudNetwork extends DetComNetworkBase
     parameters:
    
     submodules:
-        histogramCloud: Histogram {
-            @display("p=100,900;is=s");
-        }
-        histogramUplink: Histogram {
+        histogramContainer:HistogramContainer{
             @display("p=100,800;is=s");
         }
  		talker: UETsnDevice {

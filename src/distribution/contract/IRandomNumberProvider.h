@@ -19,7 +19,8 @@ public:
      * Returns a random number.
      * @return random number provided by subclass.
      */
-    virtual cValue getRand() const = 0;
+    virtual cValue getRand() = 0;
+    virtual cValue getRand(std::string key) = 0;
     static cNEDValue randomNumberProviderNED(cComponent *context, cNEDValue argv[], int argc);
 };
 }
