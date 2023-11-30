@@ -11,6 +11,15 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
+// 
 
-package d6g.simulations;
+package d6g.distribution.delayreplayer;
+
+simple DelayReplayer
+{
+    parameters:
+        string csvFilename;
+        @class(DelayReplayer);
+        @display("i=block/delay");
+}
+

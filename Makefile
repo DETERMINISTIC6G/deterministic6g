@@ -1,5 +1,4 @@
 INET ?= ../../inet
-
 .PHONY: doc
 
 all: checkmakefiles

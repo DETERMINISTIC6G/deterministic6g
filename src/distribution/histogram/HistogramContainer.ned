@@ -11,6 +11,14 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
+// 
 
-package d6g.simulations;
+package d6g.distribution.histogram;
+
+simple HistogramContainer
+{
+    parameters:
+        object histograms = default({});
+        @class(HistogramContainer);
+        @display("i=block/delay");
+}
