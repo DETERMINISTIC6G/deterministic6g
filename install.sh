@@ -185,6 +185,11 @@ if [ -d "$install_path" ] && [ "$(ls -A "$install_path")" ]; then
     # Check Omnet++ version
     if "$install_path/bin/opp_run" -v 2>&1 | grep -q "Version: $version"; then
         echo "OMNeT++ version $version is already installed at $install_path. Continuing without installation"
+        echo "Setting environment variables..."
+        if ! source "$install_path/setenv"; then
+            echo "Failed to set environment variables. Exiting."
+            return 1
+        fi
     else
         echo "$install_path exists but does not contain OMNeT++ version $version. Please chose another path or remove the existing installation."
         exit 1
