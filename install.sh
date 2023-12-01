@@ -377,6 +377,11 @@ if [ -d "$workspace_path/deterministic6g_data_internal" ]; then
 else
   echo "deterministic6g_data repository not found at $workspace_path/deterministic6g_data_internal"
   read -p "Do you want to clone the deterministic6g_data repository? [y/n] " response
+  if [[ "$response" =~ ^[Yy]$ ]]; then
+    setup_data_repo
+  else
+    echo "Skipping cloning of the deterministic6g_data repository."
+  fi
 fi
 
 printf "\n=== Setup completed ===\n"
