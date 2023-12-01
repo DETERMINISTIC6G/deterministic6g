@@ -396,5 +396,6 @@ echo "Then close the 'Welcome' tab and you're ready to go"
 read -p "Do you want to open the workspace now? [y/n] " response
 if [[ "$response" =~ ^[Yy]$ ]]; then
     cd "$workspace_path" || exit 1
+    omnetpp -data .
     bash
 fi
