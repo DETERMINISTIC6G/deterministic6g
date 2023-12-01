@@ -18,9 +18,9 @@ install_package() {
 }
 
 # List of required packages
-required_packages=("build-essential" "clang" "lld" "gdb" "bison" "flex" "perl" "python3" "python3-pip" "qtbase5-dev"
-"qtchooser" "qt5-qmake" "qtbase5-dev-tools" "libqt5opengl5-dev" "libxml2-dev" "zlib1g-dev" "doxygen" "graphviz"
-"libwebkit2gtk-4.0-37" "curl" "tar") # Replace with actual package names
+required_packages=("build-essential" "clang" "lld" "gdb" "bison" "flex" "perl" "python3" "python3-pip" "python3-venv"
+"qtbase5-dev" "qtchooser" "qt5-qmake" "qtbase5-dev-tools" "libqt5opengl5-dev" "libxml2-dev" "zlib1g-dev" "doxygen"
+"graphviz" "libwebkit2gtk-4.0-37" "curl" "tar") # Replace with actual package names
 
 # Check for required packages
 missing_packages=()
