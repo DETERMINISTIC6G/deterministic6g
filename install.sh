@@ -155,7 +155,7 @@ install_omnetpp() {
     read -p "Do you want to configure the OMNeT++ environment automatically by adding the configuration to .profile for permanent setup? (y/n) " add_to_profile
     if [[ "$add_to_profile" =~ ^[Yy]$ ]]; then
         echo "Adding OMNeT++ environment setup to .profile..."
-        echo '[ -f "'"$install_dir"'/setenv" ] && source "'"$install_dir"'/setenv"' >> "$HOME/.profile"
+        echo '[ -f "'"$install_path"'/setenv" ] && source "'"$install_path"'/setenv"' >> "$HOME/.profile"
         echo "Environment variables added to .profile."
     else
         echo "Skipping the addition of environment variables to .profile."
