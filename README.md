@@ -27,7 +27,7 @@ git clone --branch v4.5.2 https://github.com/inet-framework/inet.git
 2. Build INET:
 ```shell
 cd inet
-src setenv
+source setenv
 make makefiles
 make -j$(nproc)
 ```
