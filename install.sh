@@ -60,7 +60,7 @@ is_python_module_installed() {
 # Function to install a Python module and check if installation was successful
 install_and_check_python_module() {
     echo "Installing $1..."
-    python3 -m pip install --user --upgrade "$1"
+    python3 -m pip install --upgrade "$1"
     if is_python_module_installed "$1"; then
         echo "$1 installed successfully."
     else
@@ -77,12 +77,22 @@ for module in "${required_python_modules[@]}"; do
     fi
 done
 
+create_venv() {
+  echo "Creating venv..."
+  default_venv_path="$HOME/venv/deterministic6g"
+  read -p "Enter the venv path [$default_venv_path]: " venv_path
+  venv_path=${venv_path:-$default_venv_path}
+  python3 -m venv "$venv_path"
+  source "$venv_path/bin/activate"
+}
+
 # Ask to install missing Python modules
 failed_installations=()
 if [ ${#missing_python_modules[@]} -ne 0 ]; then
     echo "The following Python modules are missing: ${missing_python_modules[*]}"
-    read -p "Do you want to install them now (note, this may not work when using conda)? (y/n/skip) " response
+    read -p "Do you want to create a venv and install them now? (y/n/skip) " response
     if [[ "$response" =~ ^[Yy]$ ]]; then
+      create_venv
         for module in "${missing_python_modules[@]}"; do
             install_and_check_python_module "$module"
         done
@@ -279,6 +289,7 @@ existing_d6g_repo() {
       # Check version
       if [ "$actual_inet_version" == "$inet_version" ]; then
         echo "INET version $inet_version is already installed at $parent_dir/inet."
+        workspace_path=$parent_dir
         return
       else
         echo "Wrong INET version $actual_inet_version in $parent_dir/inet."
@@ -344,7 +355,31 @@ else
     fi
 fi
 
+setup_data_repo() (
+  if [[ "$workspace_path" =~ ^[Yy]$ ]]; then
+    cd "$workspace_path" || exit 1
+    echo "You will pre prompted with a username and password. Please enter your credentials for the DETERMINISTIC6G data repository."
+    if ! git clone https://deterministic6g.informatik.uni-stuttgart.de/d6g/deterministic6g_data_internal.git; then
+        echo "Failed cloning DETERMINISTIC6G data repository. Exiting."
+        echo "Still continuing with the setup..."
+    fi
+  fi
+)
+
+printf "\n=== Data repository setup ===\n"
+if [ -d "$workspace_path/deterministic6g_data_internal" ]; then
+  echo "deterministic6g_data_internal repository found at $workspace_path/deterministic6g_data_internal"
+else
+  echo "deterministic6g_data repository not found at $workspace_path/deterministic6g_data_internal"
+  read -p "Do you want to clone the deterministic6g_data repository? [y/n] " response
+fi
+
 printf "\n=== Setup completed ===\n"
+
+# If venv is set, remind user to activate it
+if [ -n "$venv_path" ]; then
+  echo "In the future, please activate the venv by running 'source $venv_path/bin/activate' before opening the workspace"
+fi
 
 echo "When opening the workspace the first time make sure to import the inet and deterministic6g project from $workspace_path"
 echo "You can do this by going to File -> Import -> General -> Existing Projects into Workspace"
