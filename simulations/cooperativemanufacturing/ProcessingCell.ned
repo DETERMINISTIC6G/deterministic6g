@@ -14,9 +14,9 @@ import d6g.devices.sixg.UnitWithAdapter;
 
 //
 // The module is designed to simulate a processing unit in a cooperative manufacturing environment. 
-// It extends UnitWithAdapter, adding specific configurations like Ethernet bitrate and submodules 
-// for controlling swarm operations and status.
-//
+// It extends UnitWithAdapter, and has two modules for communication with the swarm:
+// - swarmStatus: receives information from AGV
+// - swarmControl: sends commands to AGV
 module ProcessingCell extends UnitWithAdapter
 {
     parameters:

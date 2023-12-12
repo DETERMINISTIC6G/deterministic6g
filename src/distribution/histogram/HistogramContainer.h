@@ -24,7 +24,7 @@ using namespace inet;
  * This class is particularly useful in simulations of the real-world scenarios,
  * enabling the representation of complex or varied statistical patterns.
  *
- * For detailed usage and configuration, refer to the NED documentation.
+ * For detailed usage and configuration, refer to the NED doc.
  */
 class INET_API HistogramContainer : public cSimpleModule, public IRandomNumberProvider {
 
