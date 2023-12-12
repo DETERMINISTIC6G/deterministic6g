@@ -13,6 +13,7 @@
 
 namespace d6g {
 using namespace inet;
+
 /**
  * Generic Interface for providing random numbers to the simulation.
  */
@@ -22,8 +23,14 @@ public:
      * Returns a random number.
      * @return random number provided by subclass.
      */
-    virtual cValue getRand() = 0;
-    virtual cValue getRand(std::string key) = 0;
+    virtual cValue getRand() {
+        throw cRuntimeError("IRandomNumberProvider::getRand() not implemented");
+    };
+
+    virtual cValue getRand(const std::string &key) {
+        throw cRuntimeError("IRandomNumberProvider::getRand(key) not implemented (called with key %s)", key.c_str());
+    };
+
     static cNEDValue randomNumberProviderNED(cComponent *context, cNEDValue argv[], int argc);
 };
 }

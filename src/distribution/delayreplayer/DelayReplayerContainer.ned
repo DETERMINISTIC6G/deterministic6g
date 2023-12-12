@@ -7,6 +7,16 @@
 
 package d6g.distribution.delayreplayer;
 
+//
+// This module extends the DelayReplayer module to support multiple delayreplayer from various CSV files.
+// It allows for the aggregation and management of multiple delayreplayer objects, each configured with its own CSV file.
+//
+// <pre>
+// delayreplayers object:
+// {"key for the first delayreplayer": "the csv of the delayreplayer",
+//  "key for the second delayreplayer": "the csv of the delayreplayer",
+// ...}
+// </pre>
 simple DelayReplayerContainer
 {
     parameters:

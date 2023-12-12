@@ -7,6 +7,16 @@
 
 package d6g.distribution.delayreplayer;
 
+//
+// This module is designed for replaying delay patterns.
+// It reads delay values from a specified CSV file and replicates these delays within the simulation environment.
+// It can be used to generate random delays following the distribution of this interface using the IRandomNumberProvider interface.
+//
+// <pre>
+// File format:
+// delay time, start time
+// ...
+// <pre>
 simple DelayReplayer
 {
     parameters:

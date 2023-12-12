@@ -25,13 +25,20 @@ cNEDValue IRandomNumberProvider::randomNumberProviderNED(omnetpp::cComponent *co
     // Cast to IRandomNumberProvider
     auto rng = check_and_cast<IRandomNumberProvider *>(rngModule);
 
-    if (argc == 2) {
-        // Get the key
-        const char* key = argv[1].stringValue();
-        return rng->getRand(key);
-    } else {
-        return rng->getRand();
+    // Wrap in try catch
+    try {
+        if (argc == 2) {
+            // Get the key
+            std::string key = argv[1].stdstringValue();
+            return rng->getRand(key);
+        } else {
+            return rng->getRand();
+        }
+    } catch (cRuntimeError &e) {
+        // handle error: wrong number of arguments
+        throw cRuntimeError("%s: %s", pathToRNG, e.what());
     }
+
 }
 
 Define_NED_Function(IRandomNumberProvider::randomNumberProviderNED, "quantity rngProvider(string rngProviderModule, string key?)");
