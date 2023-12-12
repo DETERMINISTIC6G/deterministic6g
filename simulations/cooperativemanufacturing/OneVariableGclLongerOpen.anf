@@ -604,7 +604,7 @@ utils.export_data_if_needed(df, props)
             <property name="legend_prefer_result_titles" value="true"/>
             <property name="legend_manual" value="false"/>
             <property name="yaxis_title" value="delay in s"/>
-            <property name="legend_replacements" value="/.*app\[0\].*/swarmStatus1/&#10;/.*app\[1\].*/swarmStatus2/"/>
+            <property name="legend_replacements" value="/.*app\[0\].*/Stream 1/&#10;/.*app\[1\].*/Stream 2/"/>
             <property name="Legend.Border" value="false"/>
             <property name="title" value="End-To-End Delay (Adapted GCL)"/>
             <property name="legend_automatic" value="true"/>
@@ -1220,11 +1220,15 @@ except results.ResultQueryError as e:
 if df.empty:
     raise chart.ChartScriptError("The result filter returned no data.")
 
+props["color"] = "orange"
+
 # plot
 utils.plot_histograms(df, props)
 utils.postconfigure_plot(props)
 
 props["xaxis_min"] = 4.2e-4
+props["xaxis_max"] = 4.34e-4
+props["yaxis_max"] = 5500
 
 utils.export_image_if_needed(props)
 utils.export_data_if_needed(df, props)
@@ -1725,7 +1729,7 @@ Show over_underflow cell?
             <property name="legend_prefer_result_titles" value="true"/>
             <property name="legend_manual" value="false"/>
             <property name="yaxis_title" value="count"/>
-            <property name="legend_replacements" value="/.*app\[0\].*/swarmStatus1/&#10;/.*app\[1\].*/swarmStatus2/"/>
+            <property name="legend_replacements" value="/.*app\[0\].*/Stream 1/&#10;/.*app\[1\].*/Stream 2/"/>
             <property name="Legend.Border" value="false"/>
             <property name="title" value="End-To-End Delay (Adapted GCL)"/>
             <property name="legend_automatic" value="true"/>
@@ -1737,7 +1741,7 @@ Show over_underflow cell?
             <property name="image_export_height" value="4"/>
             <property name="Axis.Label.Font" value="Arial-regular-8"/>
             <property name="legend_placement" value="upper right"/>
-            <property name="plot.properties" value="Hist.Color/1 : orange"/>
+            <property name="plot.properties" value=""/>
             <property name="data_export_filename" value=""/>
             <property name="xaxis_title" value="delay in s"/>
             <property name="Plot.BackgroundColor" value="white"/>

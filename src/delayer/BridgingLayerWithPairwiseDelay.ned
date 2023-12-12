@@ -70,7 +70,7 @@ module BridgingLayerWithPairwiseDelay like IProtocolLayer
         }
         
         // Adds delays to the packet on a pairwise basis, mainly for egress traffic.
-        pairwiseDelayLayer: <default("ProcessingDelayLayer")> like IProcessingDelayLayer {
+        pairwiseDelayer: <default("ProcessingDelayLayer")> like IProcessingDelayLayer {
             @display("p=300,1350");
             ingress.typename = default("");
             egress.typename = default("PairwiseDelayer");
@@ -84,11 +84,11 @@ module BridgingLayerWithPairwiseDelay like IProtocolLayer
         streamFilter.lowerLayerOut --> streamCoder.upperLayerIn;
         streamCoder.lowerLayerOut --> interfaceRelay.upperLayerIn;
         interfaceRelay.lowerLayerOut --> vlanPolicy.upperLayerIn;
-        vlanPolicy.lowerLayerOut --> pairwiseDelayLayer.upperLayerIn;
-        pairwiseDelayLayer.lowerLayerOut --> lowerLayerOut;
+        vlanPolicy.lowerLayerOut --> pairwiseDelayer.upperLayerIn;
+        pairwiseDelayer.lowerLayerOut --> lowerLayerOut;
 
-		lowerLayerIn --> pairwiseDelayLayer.lowerLayerIn;
-        pairwiseDelayLayer.upperLayerOut --> vlanPolicy.lowerLayerIn;
+		lowerLayerIn --> pairwiseDelayer.lowerLayerIn;
+        pairwiseDelayer.upperLayerOut --> vlanPolicy.lowerLayerIn;
         vlanPolicy.upperLayerOut --> interfaceRelay.lowerLayerIn;
         interfaceRelay.upperLayerOut --> streamCoder.lowerLayerIn;
         streamCoder.upperLayerOut --> streamFilter.lowerLayerIn;

@@ -1,4 +1,4 @@
 <delays>
-	<delay in="agv1">min(100us+33us,max(100us-33us,normal(100us,10us)))</delay>
+	<delay in="agv1">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
 	<delay in="agv2">100us</delay>
 </delays>

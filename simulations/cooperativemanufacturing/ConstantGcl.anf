@@ -5,7 +5,7 @@
         <input pattern="/deterministic6g/simulations/cooperativemanufacturing/results/ConstantGcl-*.sca"/>
     </inputs>
     <charts>
-        <chart icon="icons/full/obj/linechart.png" id="617543299" name="end to end delay constant" template="linechart_native" type="LINE">
+        <chart icon="icons/full/obj/linechart.png" id="1060158697" name="end to end delay constant" template="linechart_native" type="LINE">
             <script><![CDATA[import math
 from omnetpp.scave import results, chart, utils
 
@@ -604,9 +604,9 @@ utils.export_data_if_needed(df, props)
             <property name="legend_prefer_result_titles" value="true"/>
             <property name="legend_manual" value="false"/>
             <property name="yaxis_title" value="delay in s"/>
-            <property name="legend_replacements" value="/.*app\[0\].*/swarmStatus1/&#10;/.*app\[1\].*/swarmStatus2/"/>
+            <property name="legend_replacements" value="/.*app\[0\].*/Stream 1/&#10;/.*app\[1\].*/Stream 2/"/>
             <property name="Legend.Border" value="false"/>
-            <property name="title" value="End To End Delay (Constant)"/>
+            <property name="title" value="End-to-End Delay (Constant)"/>
             <property name="legend_automatic" value="true"/>
             <property name="Plot.Title.Font" value="Arial-regular-10"/>
             <property name="vector_operations" value=""/>

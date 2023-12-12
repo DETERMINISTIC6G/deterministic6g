@@ -33,7 +33,7 @@ import d6g.networks.DetComNetworkBase;
 network TimeSyncNetwork extends TsnNetworkBase
 {
     submodules:
-        masterClock: TsnClock {
+        timeTransmitter: TsnClock {
             @display("p=500,150");
         }
         detcom: DetCom {
@@ -48,7 +48,7 @@ network TimeSyncNetwork extends TsnNetworkBase
 
 
     connections:
-          masterClock.ethg++ <--> EthernetLink <--> detcom.ethg++;
+          timeTransmitter.ethg++ <--> EthernetLink <--> detcom.ethg++;
           detcom.ueg++ <--> UEChannel <--> tsnDevice1.ueg++;
           detcom.ueg++ <--> UEChannel <--> tsnDevice2.ueg++;
 

@@ -31,11 +31,12 @@ if df.empty:
 df = utils.perform_vector_ops(df, props["vector_operations"])
 
 # plot
-utils.plot_vectors(df, props)
+props["yaxis_min"] = 3.7e-4
+props["xaxis_max"] = 0.01
 
+utils.plot_vectors(df, props)
 utils.postconfigure_plot(props)
 
-props["yaxis_min"] = 3.7e-4
 
 utils.export_image_if_needed(props)
 utils.export_data_if_needed(df, props)
@@ -604,9 +605,9 @@ utils.export_data_if_needed(df, props)
             <property name="legend_prefer_result_titles" value="true"/>
             <property name="legend_manual" value="false"/>
             <property name="yaxis_title" value="delay in s"/>
-            <property name="legend_replacements" value="/.*app\[0\].*/swarmStatus1/&#10;/.*app\[1\].*/swarmStatus2/"/>
+            <property name="legend_replacements" value="/.*app\[0\].*/Stream 1/&#10;/.*app\[1\].*/Stream 2/"/>
             <property name="Legend.Border" value="false"/>
-            <property name="title" value="End to End Delay (One PDV)"/>
+            <property name="title" value="End-to-End Delay (One PDV)"/>
             <property name="legend_automatic" value="true"/>
             <property name="Plot.Title.Font" value="Arial-regular-10"/>
             <property name="vector_operations" value=""/>
