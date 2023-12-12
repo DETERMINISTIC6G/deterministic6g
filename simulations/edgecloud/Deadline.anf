@@ -5,7 +5,7 @@
         <input pattern="/deterministic6g/simulations/edgecloud/results/Deadline-*.sca"/>
     </inputs>
     <charts>
-        <chart icon="icons/full/obj/histogramchart.png" id="926185430" name="final e2e delay" template="histogramchart_native" type="HISTOGRAM">
+        <chart icon="icons/full/obj/histogramchart.png" id="789164685" name="final e2e delay" template="histogramchart_native" type="HISTOGRAM">
             <script><![CDATA[from omnetpp.scave import results, chart, utils
 
 # get chart properties
@@ -563,7 +563,7 @@ Show over_underflow cell?
             <property name="image_export_width" value="6"/>
             <property name="include_fields" value="false"/>
         </chart>
-        <chart icon="icons/full/obj/histogramchart.png" id="2120032089" name="Deadline Scheduling" template="histogramchart_native" type="HISTOGRAM">
+        <chart icon="icons/full/obj/histogramchart.png" id="1671156392" name="Deadline Scheduling" template="histogramchart_native" type="HISTOGRAM">
             <script><![CDATA[from omnetpp.scave import results, chart, utils
 
 # get chart properties
@@ -1123,7 +1123,7 @@ Show over_underflow cell?
             <property name="image_export_width" value="6"/>
             <property name="include_fields" value="false"/>
         </chart>
-        <chart icon="icons/full/obj/linechart.png" id="1300110192" name="mean bit life time per packet in EdgeCloudNetwork.receiver.app[0].sink" template="linechart_native" type="LINE">
+        <chart icon="icons/full/obj/linechart.png" id="760172018" name="mean bit life time per packet in EdgeCloudNetwork.receiver.app[0].sink" template="linechart_native" type="LINE">
             <script><![CDATA[import math
 from omnetpp.scave import results, chart, utils
 
