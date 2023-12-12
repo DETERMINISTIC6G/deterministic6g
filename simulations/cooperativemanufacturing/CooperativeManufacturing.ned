@@ -16,8 +16,8 @@ import d6g.networks.DetComNetworkBase;
 
 //
 // This network focuses on a cooperative manufacturing environment.
-// The network simulates communication between AGVs (Automated Guided Vehicles) and a processing cell
-// via a DetCom (Deterministic Communication) module to ensure reliable and timely data transmission.
+// The network simulates communication between AGV (Automated Guided Vehicles) and a processing cell
+// via our DetCom module.
 //
 network CooperativeManufacturing extends DetComNetworkBase
 {

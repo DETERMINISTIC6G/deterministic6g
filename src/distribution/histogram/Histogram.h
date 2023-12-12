@@ -20,7 +20,7 @@ using namespace inet;
 /**
  * Histogram is a module that provides a random number based on a histogram configuration.
  * The histogram configuration is provided in the NED file as a parameter.
- * For more information on the histogram configuration, see the NED documentation.
+ * For more information on the histogram configuration, see the NED doc.
  */
 class INET_API Histogram : public cSimpleModule, public IRandomNumberProvider {
     /**

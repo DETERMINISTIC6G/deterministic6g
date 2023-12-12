@@ -19,20 +19,18 @@ import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 
 
-//
 // Base network for Baseline scenario.
-// Includes two histograms, one for uplink and one for downlink.
+// Includes a HistogramContainer.
 network BaselineBase extends DetComNetworkBase
 {
     submodules:
-        
         histogramContainer: HistogramContainer{
             @display("p=100,800");
         }
 
 }
 
-
+// Baseline network with a wireless device on the left and a wireless bridge on the right.
 network BaselineWirelessDeviceWirelessBridge extends BaselineBase
 {
     parameters:
@@ -60,6 +58,7 @@ network BaselineWirelessDeviceWirelessBridge extends BaselineBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
+// Baseline network with a wireless device on the left and a wireless device on the right.
 network BaselineWirelessDeviceWirelessDevice extends BaselineBase
 {
     parameters:
@@ -79,6 +78,7 @@ network BaselineWirelessDeviceWirelessDevice extends BaselineBase
         detcom.ueg++ <--> UEChannel <--> device2.ueg++;
 }
 
+// Baseline network with a wireless bridge on the left and a wireless bridge on the right.
 network BaselineWirelessBridgeWirelessBridge extends BaselineBase
 {
     parameters:
@@ -114,6 +114,7 @@ network BaselineWirelessBridgeWirelessBridge extends BaselineBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
+// Baseline network with a wireless device on the left and a wired bridge on the right.
 network BaselineWirelessDeviceWiredBridge extends BaselineBase
 {
     parameters:
@@ -141,6 +142,7 @@ network BaselineWirelessDeviceWiredBridge extends BaselineBase
         bridge2.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
+// Baseline network with a wireless bridge on the left and a wired bridge on the right.
 network BaselineWirelessBridgeWiredBridge extends BaselineBase
 {
     parameters:
@@ -176,6 +178,7 @@ network BaselineWirelessBridgeWiredBridge extends BaselineBase
         bridge4.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
+// Baseline network with a wireless device on the left and a wired device on the right.
 network BaselineWirelessDeviceWiredDevice extends BaselineBase
 {
     parameters:
@@ -195,6 +198,7 @@ network BaselineWirelessDeviceWiredDevice extends BaselineBase
         detcom.ethg++ <--> EthernetLink <--> device2.ethg++;
 }
 
+// Baseline network with a wireless bridge on the left and a wired device on the right.
 network BaselineWirelessBridgeWiredDevice extends BaselineBase
 {
     parameters:

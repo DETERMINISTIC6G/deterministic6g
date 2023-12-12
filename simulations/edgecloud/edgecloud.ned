@@ -21,7 +21,7 @@ import d6g.distribution.histogram.Histogram;
 import d6g.distribution.histogram.HistogramContainer;
 
 // 
-// The module extends from DetComNetworkBase. This network is meant to simulate deterministic communications in an edge cloud setting. 
+// The network is used to showcase our UdpEdgeCloudApp.
 // 
 network EdgeCloudNetwork extends DetComNetworkBase
 {
