@@ -1,6 +1,9 @@
+// This file is part of Deliverable D4.1 DetCom Simulator Framework Release 1
+// of the DETERMINISTIC6G project receiving funding from the
+// European Union’s Horizon Europe research and innovation programme
+// under Grant Agreement No. 101096504.
 //
-// Created by haugls on 31.10.23.
-//
+// SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "IRandomNumberProvider.h"
 
@@ -22,13 +25,20 @@ cNEDValue IRandomNumberProvider::randomNumberProviderNED(omnetpp::cComponent *co
     // Cast to IRandomNumberProvider
     auto rng = check_and_cast<IRandomNumberProvider *>(rngModule);
 
-    if (argc == 2) {
-        // Get the key
-        const char* key = argv[1].stringValue();
-        return rng->getRand(key);
-    } else {
-        return rng->getRand();
+    // Wrap in try catch
+    try {
+        if (argc == 2) {
+            // Get the key
+            std::string key = argv[1].stdstringValue();
+            return rng->getRand(key);
+        } else {
+            return rng->getRand();
+        }
+    } catch (cRuntimeError &e) {
+        // handle error: wrong number of arguments
+        throw cRuntimeError("%s: %s", pathToRNG, e.what());
     }
+
 }
 
 Define_NED_Function(IRandomNumberProvider::randomNumberProviderNED, "quantity rngProvider(string rngProviderModule, string key?)");

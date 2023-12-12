@@ -1,13 +1,12 @@
-/*
- * HistogramContainer.cpp
- *
- *  Created on: Oct 31, 2023
- *      Author: dan
- */
+// This file is part of Deliverable D4.1 DetCom Simulator Framework Release 1
+// of the DETERMINISTIC6G project receiving funding from the
+// European Union’s Horizon Europe research and innovation programme
+// under Grant Agreement No. 101096504.
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
 
 #include "HistogramContainer.h"
 #include "inet/common/XMLUtils.h"
-#include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
 #include "fstream"
 
 
@@ -34,35 +33,35 @@ void HistogramContainer::initialize(int stage) {
     }
 }
 
-Histogram* HistogramContainer::loadHistogramFromFile(const char* fileName) {
+Histogram *HistogramContainer::loadHistogramFromFile(const char *fileName) {
     std::ifstream infile(fileName);
     if (!infile) {
         throw cRuntimeError("File '%s' not found", fileName);
     }
 
-    cXMLElement* xmlData = getEnvir()->getXMLDocument(fileName);
+    cXMLElement *xmlData = getEnvir()->getXMLDocument(fileName);
 
     if (!xmlData || strcmp(xmlData->getTagName(), "histogram") != 0) {
-            throw cRuntimeError("Invalid XML data for histogram");
+        throw cRuntimeError("Invalid XML data for histogram");
     }
 
-     // Create a new Histogram instance
-     auto* histogram = new Histogram();
+    // Create a new Histogram instance
+    auto *histogram = new Histogram();
 
-     // Parse the histogram configuration
-     histogram->parseHistogramConfig(xmlData);
+    // Parse the histogram configuration
+    histogram->parseHistogramConfig(xmlData);
 
-     infile.close();
+    infile.close();
 
-     return histogram;
+    return histogram;
 }
 
-cValue HistogramContainer::getRand(std::string key) {
+cValue HistogramContainer::getRand(const std::string &key) {
     auto histogram = getHistogram(key);
     return histogram->getRand();
 }
 
-Histogram *HistogramContainer::getHistogram(std::string key) const {
+Histogram *HistogramContainer::getHistogram(const std::string &key) const {
     auto it = histograms.find(key);
     if (it == histograms.end()) {
         throw cRuntimeError("Histogram '%s' not found", key.c_str());
