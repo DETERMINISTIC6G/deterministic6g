@@ -7,7 +7,7 @@
 
 #include "Histogram.h"
 #include "inet/common/XMLUtils.h"
-#include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
+#include <algorithm>
 
 namespace d6g {
 

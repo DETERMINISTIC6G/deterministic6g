@@ -7,6 +7,16 @@
 
 package d6g.distribution.histogram;
 
+//
+// This module extends the Histograms module to support multiple Histograms from various XML files.
+// It allows for the aggregation and management of multiple Histogram objects, each configured with its own XML file.
+//
+// <pre>
+// histograms object:
+// {"key for the first histogram": "the xml of the histogram",
+//  "key for the second histogram": "the xml of the histogram",
+// ...}
+// </pre>
 simple HistogramContainer
 {
     parameters:

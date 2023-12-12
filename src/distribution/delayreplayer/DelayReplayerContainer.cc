@@ -8,8 +8,6 @@
 #include "DelayReplayerContainer.h"
 
 #include <omnetpp.h>
-#include "inet/common/XMLUtils.h"
-#include "inet/networklayer/configurator/base/L3NetworkConfiguratorBase.h"
 #include "fstream"
 
 namespace d6g {
@@ -38,7 +36,7 @@ DelayReplayer* DelayReplayerContainer::loadDelayReplayerFromFile(const char* fil
     return delayreplayer;
 }
 
-DelayReplayer *DelayReplayerContainer::getDelayreplayer(std::string key) const {
+DelayReplayer *DelayReplayerContainer::getDelayreplayer(const std::string& key) const {
     auto it = delayreplayers.find(key);
     if (it == delayreplayers.end()) {
         throw cRuntimeError("DelayReplayer '%s' not found", key.c_str());
@@ -46,7 +44,7 @@ DelayReplayer *DelayReplayerContainer::getDelayreplayer(std::string key) const {
     return it->second;
 }
 
-cValue DelayReplayerContainer::getRand(std::string key) {
+cValue DelayReplayerContainer::getRand(const std::string &key) {
     auto delayreplayer = getDelayreplayer(key);
     return delayreplayer->getRand();
 }
