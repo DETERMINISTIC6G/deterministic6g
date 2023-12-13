@@ -1,5 +1,6 @@
 stages:
-  - build
+  - neddoc
+  - doc
   - deploy
 
 variables:
@@ -8,13 +9,17 @@ variables:
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
-pages:
+neddoc:
   only:
     - develop
-  stage: build
+    - documentation
+  stage: neddoc
+  before_script:
+    - rm -rf public/neddoc
+    - rm -rf public/doxy
   script:
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - xvfb-run make doc
+    - xvfb-run make neddoc
   after_script:
     - rm -rf ../inet
   artifacts:
@@ -24,17 +29,39 @@ pages:
     - d6g
     - shell
 
+doc:
+  image: ghcr.io/omnetpp/docker-sphinx:200610
+  only:
+    - develop
+    - documentation
+  stage: doc
+  dependencies:
+    - neddoc
+  before_script:
+    - rm -rf public/doc
+  script:
+    - cd doc/src
+    - make html
+    - mv _build/html ../../public/doc
+  artifacts:
+    paths:
+      - public
+  tags:
+    - d6g
+    - docker
+
 deploy_ipvs_pages:
   variables:
     DEPLOYMENT_PATH: /mnt/www_d6g/$CI_PROJECT_PATH
   stage: deploy
   dependencies:
-    - pages
+    - doc
   environment:
     name: production
     url: "https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/$CI_PROJECT_PATH"
   only:
     - develop
+    - documentation
   script:
     - rm -rf $DEPLOYMENT_PATH || true
     - mkdir -p $DEPLOYMENT_PATH

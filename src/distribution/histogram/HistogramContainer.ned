@@ -13,8 +13,8 @@ package d6g.distribution.histogram;
 //
 // <pre>
 // histograms object:
-// {"key for the first histogram": "the xml of the histogram",
-//  "key for the second histogram": "the xml of the histogram",
+// {"key1": "path/to/histogram1.xml",
+//  "key2": "path/to/histogram2.xml",
 // ...}
 // </pre>
 simple HistogramContainer

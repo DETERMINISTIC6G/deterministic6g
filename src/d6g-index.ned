@@ -16,11 +16,9 @@
 // This will mainly be used for simulating wireless behavior, but can also be used to simulate a variable processing delay in TSN switches.
 // It allows to configure delays for up- and downlink and different pairs of devices.
 //
-// Showcases:
-//   - <a href="baseline.html">Baseline</a>
-//   - <a href="agv.html">Adaptive Manufacturing</a>
-//   - <a href="edgecloud.html">Edge Cloud</a>
-//   - <a href="timesync.html">Time Synchronization</a>
+// Useful links:
+//   - <a href="https://deterministic6g.eu/">Project Website</a>.
+//   - <a href="../doc/index.html">Showcases</a>.
 //
 // Related documentation:
 //   - <a href="https://inet.omnetpp.org/docs/users-guide/index.html" target="_top">INET User's Guide</a>

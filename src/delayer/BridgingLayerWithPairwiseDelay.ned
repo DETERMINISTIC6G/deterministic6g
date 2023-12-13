@@ -10,9 +10,7 @@ package d6g.delayer;
 import inet.protocolelement.contract.IProtocolLayer;
 import inet.protocolelement.processing.IProcessingDelayLayer;
 
-//
-// This module extends INETs BridgingLayer but additionally adds our PairwiseDalyer.
-
+// This module extends INETs BridgingLayer but additionally adds our PairwiseDelayer.
 module BridgingLayerWithPairwiseDelay like IProtocolLayer
 {
     parameters:

@@ -19,9 +19,8 @@ import d6g.devices.sixg.UETsnSwitch;
 import d6g.networks.DetComNetworkBase;
 
 // 
-// This is still work in progress, not working yet.
-// Might need more discussion.
-//
+// Base network derived from INETs gPTP example.
+// We will use this network in the future to simulate time synchronization.
 network TimeSyncNetwork extends TsnNetworkBase
 {
     submodules:
