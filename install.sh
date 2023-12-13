@@ -209,8 +209,7 @@ default_workspace_path="$HOME/workspaces/deterministic6g_workspace"
 install_d6g() (
   echo "Cloning DETERMINISTIC6G repository..."
   cd "$workspace_path" || exit 1
-  ACCESS_TOKEN="glpat-hSLdyd1RMduD3tyhSqEM"
-  if ! git clone "https://vm-image:${ACCESS_TOKEN}@deterministic6g.informatik.uni-stuttgart.de/d6g/deterministic6g.git"; then
+  if ! git clone "https://github.com/DETERMINISTIC6G/deterministic6g.git"; then
       echo "Failed cloning DETERMINISTIC6G repository. Exiting."
       exit 1
   fi

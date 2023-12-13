@@ -11,5 +11,5 @@ Table of Contents
    :name: mastertoc
 
    simulations/index
-   NED documentation <https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/d6g/deterministic6g/neddoc/>
+   NED documentation <https://deterministic6g.github.io/deterministic6g/doc/neddoc/>
    ← Deterministic6G project website <https://deterministic6g.eu/>

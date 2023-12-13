@@ -19,7 +19,10 @@ neddoc:
     - rm -rf public/doxy
   script:
     - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
-    - xvfb-run make neddoc
+    - xvfb-run -a make neddoc
+    - mkdir -p public/doc
+    - mv doc/neddoc public/doc/neddoc
+    - mv doc/doxy public/doc/doxy
   after_script:
     - rm -rf ../inet
   artifacts:
@@ -38,11 +41,12 @@ doc:
   dependencies:
     - neddoc
   before_script:
-    - rm -rf public/doc
+    - mkdir -p doc/neddoc
+    - cp public/doc/neddoc/nedtags.xml doc/neddoc
   script:
     - cd doc/src
     - make html
-    - mv _build/html ../../public/doc
+    - cp -r _build/html/* ../../public/doc
   artifacts:
     paths:
       - public

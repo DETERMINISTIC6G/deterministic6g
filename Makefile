@@ -26,13 +26,7 @@ checkmakefiles:
 	fi
 
 neddoc:
-	rm -rf public/neddoc
-	rm -rf public/doxy
 	cd .. && opp_neddoc --verbose --doxygen deterministic6g/ inet/
-	mv doc/neddoc public
-	mv doc/doxy public
 
 doc:
-	rm -rf public/doc
 	cd doc/src && ./docker-make html && echo "===> file:$$(pwd)/_build/html/index.html"
-	mv doc/src/_build/html public/doc

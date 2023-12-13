@@ -205,8 +205,8 @@ images_config = {
 
 doxylink = {
     #        'cpp' : ('doxytags.xml', 'https://doc.omnetpp.org/inet/api-current/doxy/'),
-    'ned': ('../../public/neddoc/nedtags.xml',
-            'https://ipvs.informatik.uni-stuttgart.de/vs/deterministic6g/d6g/deterministic6g/neddoc/'),
+    'ned': ('../neddoc/nedtags.xml',
+            './neddoc/'),
 }
 
 # -- Extension configuration -------------------------------------------------

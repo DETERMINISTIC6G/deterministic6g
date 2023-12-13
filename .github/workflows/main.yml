@@ -1,0 +1,110 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  neddoc:
+    name: "Generate NED-Documentation and Doxy"
+    runs-on: self-hosted
+    steps:
+      - name: checkout deterministic6g repo
+        uses: actions/checkout@main
+        with:
+          path: deterministic6g
+      - name: checkout inet repo
+        uses: actions/checkout@main
+        with:
+          repository: inet-framework/inet
+          path: inet
+          ref: 'v4.5.0'
+      - name: "Build Neddoc"
+        run: |
+          cd deterministic6g
+          xvfb-run -a make neddoc
+      - name: "Upload NEDdoc artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: neddoc
+          path: |
+            deterministic6g/doc/neddoc
+          retention-days: 7
+      - name: "Upload Doxy artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: doxy
+          path: |
+            deterministic6g/doc/doxy
+          retention-days: 7
+      - name: "Upload nedtags.xml artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: nedtags
+          path: |
+            deterministic6g/doc/neddoc/nedtags.xml
+          retention-days: 7
+
+  doc:
+    name: "Generate Showcase documentation"
+    runs-on: ubuntu-latest
+    container: ghcr.io/omnetpp/docker-sphinx:200610
+    needs: neddoc
+    steps:
+      - name: checkout deterministic6g repo
+        uses: actions/checkout@main
+      - name: "Download nedtags.xml artifact"
+        uses: actions/download-artifact@v3
+        with:
+          name: nedtags
+          path: doc/neddoc/
+      - name: "Build documentation"
+        run: |
+          cd doc/src
+          ls ../neddoc
+          make html
+      - name: "Upload Documentation artifact"
+        uses: actions/upload-artifact@v3
+        with:
+          name: doc
+          path: |
+            doc/src/_build/html
+          retention-days: 7
+
+
+  deploy:
+    name: "Deploy Documentation"
+    runs-on: ubuntu-latest
+    needs: [neddoc, doc]
+    steps:
+      - name: "Enable GitHub Pages"
+        uses: actions/configure-pages@v3
+      - name: checkout deterministic6g repo
+        uses: actions/checkout@main
+      - name: "Download Documentation artifact"
+        uses: actions/download-artifact@v3
+        with:
+          name: doc
+          path: public/doc
+      - name: "Download neddoc artifact"
+        uses: actions/download-artifact@v3
+        with:
+          name: neddoc
+          path: public/doc/neddoc
+      - name: "Download doxy artifact"
+        uses: actions/download-artifact@v3
+        with:
+          name: doxy
+          path: public/doc/doxy
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # upload entire directory
+          path: public/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
