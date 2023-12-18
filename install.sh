@@ -361,18 +361,17 @@ fi
 
 setup_data_repo() (
     cd "$workspace_path" || exit 1
-    echo "You will be prompted with a username and password. Please enter your credentials for the DETERMINISTIC6G data repository."
-    if ! git clone https://deterministic6g.informatik.uni-stuttgart.de/d6g/deterministic6g_data_internal.git; then
+    if ! git clone https://github.com/DETERMINISTIC6G/deterministic6g_data; then
         echo "Failed cloning DETERMINISTIC6G data repository. Exiting."
         echo "Still continuing with the setup..."
     fi
 )
 
 printf "\n=== Data repository setup ===\n"
-if [ -d "$workspace_path/deterministic6g_data_internal" ]; then
-  echo "deterministic6g_data_internal repository found at $workspace_path/deterministic6g_data_internal"
+if [ -d "$workspace_path/deterministic6g_data" ]; then
+  echo "deterministic6g_data repository found at $workspace_path/deterministic6g_data"
 else
-  echo "deterministic6g_data repository not found at $workspace_path/deterministic6g_data_internal"
+  echo "deterministic6g_data repository not found at $workspace_path/deterministic6g_data"
   read -p "Do you want to clone the deterministic6g_data repository? [y/n] " response
   if [[ "$response" =~ ^[Yy]$ ]]; then
     setup_data_repo
