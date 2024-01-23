@@ -320,7 +320,10 @@ existing_d6g_repo() {
         echo "Workspace setup at $workspace_path completed successfully."
         read -p "Do you want to remove the existing DETERMINISTIC6G repository at $current_script_dir? [y/n] " response
         if [[ "$response" =~ ^[Yy]$ ]]; then
-          rm -rf "$current_script_dir"
+          # This line is too scary if $current_script_dir contains something important.
+          # Decided to remove this for now, might add later with additional checks again.
+          # rm -rf "$current_script_dir"
+          echo "Please delete $current_script_dir manually"
         fi
       elif [[ "$response" =~ ^[2]$ ]]; then
         workspace_path=$parent_dir
