@@ -61,10 +61,12 @@ For your convenience, you can also create a start script, say `omnetpp.sh`, to a
 start OMNeT++ from within this environment:
 
 ```
-#!/bin/sh
+#!/usr/bin/bash
 
 source ~/venv-omnetpp/bin/activate
-~/omnetpp-6.0.1/bin/omnetpp
+cd ~/omnetpp-6.0.1
+source setenv
+./bin/omnetpp
 ```
 
 Select a directory for your OMNeT++ workspace. In the following, we refer to this directory as `~/workspace`.
@@ -93,6 +95,13 @@ $ git checkout tags/v4.5.2 -b mybranch
 
 You can change the branch name `mybranch` as you like. You could even leave it out, but it is good style not to work
 with a so-called detached head if you plan to make changes.
+
+Import the project into the workspace in the OMNeT++ IDE using the menu: 
+
+File | Import | General | Existing projects into Workspace
+
+Then select the workspace dir as the root directory, and be sure NOT to check the
+"Copy projects into workspace" box. Click Finish.
 
 Select as root directory the directory to which you have checked out INET above: `~/workspace/inet`. Do not check the
 option Copy Project into Workspace. Click Finish. Note that OMNet++ might take a while to check the project showing some
