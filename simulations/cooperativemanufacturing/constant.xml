@@ -1,4 +1,0 @@
-<delays>
-	<delay in="agv1">100us</delay>
-	<delay in="agv2">100us</delay>
-</delays>

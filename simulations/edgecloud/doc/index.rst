@@ -24,14 +24,14 @@ In order to specify different delays for different sources, one can create multi
     *.cloudServer.app[0].destAddress = "receiver"
     *.cloudServer.app[0].destPort = 1002
     *.cloudServer.app[0].localPort = 1001
-    *.cloudServer.app[0].delay = rngProvider("histogramCloud")
+    *.cloudServer.app[0].delay = rngProvider("histogramContainer","Cloud")
 
 
 Results
 -------
 
 If we execute a simulation using the first figure as an input distribution histogramCloud, we can see the resulting end-to-end delay of this stream follows the same distribution (second figure), i.e., the delay is added as intended.
-Note, that the only network delay simulated in this simulation is the constant delay of Ethernet links, i.e. there is no PDV simulated by our :ned:`PairwiseDelayer`.
+Note, that the only network delay simulated in this simulation is the constant delay of Ethernet links, i.e. there is no PDV simulated by our :ned:`DetComDelayer`.
 
 +----------+----------+
 | |input|  | |output| |

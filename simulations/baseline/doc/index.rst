@@ -2,7 +2,7 @@ Baseline Showcase
 =================
 
 The baseline scenario simulates a simple line topology with a single 6GDetCom node and further wired TSN bridges.
-Despite its simplicity, it can be used to showcase and test the core functions of the simulator framework, such as the :ned:`PairwiseDelayer` component and the :ned:`Histogram` module.
+Despite its simplicity, it can be used to showcase and test the core functions of the simulator framework, such as the :ned:`DetComDelayer` component and the :ned:`Histogram` module.
 
 Showcase Design and Implementation
 ----------------------------------
@@ -10,7 +10,7 @@ Showcase Design and Implementation
 In more detail, it is a set of scenarios with a :ned:`DetCom` node in the center and a wired or wirelessly connected device or bridge on either side.
 This is one example scenario:
 
-.. image:: BaselineWirelessDeviceWiredBridge_pic.png
+.. image:: BaselineWirelessDeviceWiredBridge_NewPic.png
 
 In this scenario, we use two different histograms shown below to configure PDs, one for the uplink direction of the wireless network and one for the downlink direction, respectively.
 
@@ -29,7 +29,7 @@ In this scenario, we use two different histograms shown below to configure PDs, 
 Results
 -------
 
-We mainly use the Baseline scenario to explore the capabilities of our implemented components of the simulation framework, in particular, the :ned:`PairwiseDelayer`.
+We mainly use the Baseline scenario to explore the capabilities of our implemented components of the simulation framework, in particular, the :ned:`DetComDelayer`.
 This includes analyzing how the resulting simulated packet delay corresponds to the given input histograms above.
 
 Histogram
@@ -43,7 +43,7 @@ By comparing the distribution of the result of the simulation to the configured 
 +---------------+----------------+
 
 .. |uplink_res| image:: uplink_result.png
-   :width: 100%
+   :width: 100% 
 
 .. |downlink_res| image:: downlink_result.png
    :width: 100%
@@ -54,9 +54,9 @@ Random Walk
 Additionally, we use the Baseline scenario to showcase our random walk distribution as described in Section 2.2.3.
 As an exemplary configuration, we replace the downlink distribution with following the random walk configuration:
 
-.. code-block:: xml
+.. code-block:: ini
 
-   <delay in="101" out="100">randomWalk(5.5ms,normal(0ms,100us))</delay>
+   *.detCom.dstt[0].bridging.delayLayer.delayDownlink = randomWalk(5.5ms,normal(0ms,100us))
 
 
 The following figure shows the resulting end-to-end delay in uplink and downlink directions. The orange line depicting the downlink delay shows the characteristic random walk pattern centered around the mean value of 5.5 ms.

@@ -1,0 +1,4 @@
+<delays>
+	<uplink device="device1">rngProvider("histogramContainer","Uplink")</uplink>
+	<downlink device="device1">rngProvider("histogramContainer","Downlink")</downlink>
+</delays>
