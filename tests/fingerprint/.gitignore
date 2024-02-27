@@ -1,0 +1,4 @@
+results/
+*.csv.ERROR
+*.csv.FAILED
+*.csv.UPDATED
