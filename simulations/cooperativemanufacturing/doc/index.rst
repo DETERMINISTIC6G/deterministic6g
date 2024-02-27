@@ -27,7 +27,7 @@ It consists of one :ned:`DetCom` node which connects wirelessly to two :ned:`AGV
 
 .. |cell| image:: cell.png
    :width: 100%
-   
+
 
 Moreover, the :ned:`DetCom` has a wired connection to a :ned:`ProcessingCell`.
 Note that the processing cell contains a wired TSN network segment as shown in the figure above, which illustrates the details of the :ned:`ProcessingCell` component (right figure) to show the sub-components implemented by processing cell.
