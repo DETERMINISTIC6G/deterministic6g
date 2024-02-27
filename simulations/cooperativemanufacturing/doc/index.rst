@@ -36,12 +36,12 @@ The processing cell consists of two TsnSwitches (detComAdapter and bridge) and t
 
 The traffic in this showcase includes six different streams:
 
-#. Stream 1: From agv1.interToCell to processingCell.swarmStatus
-#. Stream 2: From agv2.interToCell to processingCell.swarmStatus
+#. Stream 1: From agv1 to processingCell.swarmStatus
+#. Stream 2: From agv2 to processingCell.swarmStatus
 #. From agv1 to agv2
 #. From agv2 to agv1
-#. From processingCell.swarmControl to agv1.interToCell
-#. From processingCell.swarmControl to agv2.interToCell
+#. From processingCell.swarmControl to agv1
+#. From processingCell.swarmControl to agv2
 
 This setup allows for analyzing the influence of PDVs onto streams and explore the capabilities of common and wireless-friendly scheduling algorithms as shown in the next sub-section.
 
@@ -63,12 +63,9 @@ First, we assume constant transmission and propagation delay for both streams us
 Note, that these delay values include all delay components of the wireless links (dotted lines in the network), i.e., also the propagation delay, transmission delay, delay because of retransmissions, etc.
 All other links (solid lines in Figure 21) behave like default EthernetLinks in INET.
 
-.. code-block:: xml
+.. code-block:: ini
 
-    <delays>
-    	<delay interface="agv1" direction="ind">100us</delay>
-    	<delay interface="agv2" direction="ind">100us</delay>
-    </delays>
+    *.detCom.dstt[*].delayUplink = 100us
 
 We then use a “non-wireless-friendly” scheduling approach similar to [DN16], designed for wired TSN networks, assuming very small and constant delay, i.e. zero PDV.
 This approach aims to minimize the end-to-end delay and keeps the streams close together in time (“back-to-back” scheduling) to minimize the required number of GCL entries.
@@ -116,14 +113,14 @@ The calculated schedule leads to the GCL configuration for the detCom node as sh
 
 .. code-block:: ini
 
-    [GCL]
-    *.detCom.eth[*].macLayer.queue.transmissionGate[0].initiallyOpen = false
-    *.detCom.eth[*].macLayer.queue.transmissionGate[0].offset = 0s
-    *.detCom.eth[*].macLayer.queue.transmissionGate[0].durations = []
+    [Gcl]
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[0].initiallyOpen = false
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[0].offset = 0s
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[0].durations = []
 
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].initiallyOpen = true
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].offset = 819.95us
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].durations = [161us,839us]
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].initiallyOpen = true
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].offset = 819.95us
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].durations = [161us,839us]
 
 
 The simulation results below show that all packets arrive at their pre-calculated time with the expected end-to-end delay of 420.2 μs.
@@ -141,9 +138,10 @@ To this end, we re-run the simulation with the following delay configuration:
 .. code-block:: xml
 
     <delays>
-        <delay in="agv1">normal(100us,10us)</delay>
-        <delay in="agv2">100us</delay>
+	    <uplink device="agv1">normal(100us,10us)</uplink>
+	    <uplink device="agv2">100us</uplink>
     </delays>
+
 
 Without any changes to our schedule or the GCL this leads to the simulation results in the following figure.
 The figure shows, that the streams only arrive within their calculated time in the first cycle.
@@ -173,17 +171,18 @@ Then no packets are sent that have delays outside the filtering time window.
 .. code-block:: xml
 
     <delays>
-    	<delay interface="agv1" direction="ind">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-    	<delay interface="agv2" direction="ind">100us</delay>
+    	<uplink device="agv1">min(100us+30us,max(100us-30us,normal(100us,10us)))</uplink>
+    	<uplink device="agv2">100us</uplink>
     </delays>
+
 
 We now need to reconfigure the GCL to open 30 μs earlier and stay open for an additional 30 μs:
 
 .. code-block:: ini
 
     [OneVariableGclLongerOpen]
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].durations = [221us,779us]
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].offset = 849.95us
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].durations = [221us,779us]
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].offset = 849.95us
 
 The following figure shows the simulation results of this simulation.
 We can see that the end-to-end delay of all streams stay within the cycle time.
@@ -250,10 +249,9 @@ The adapted GCL for this schedule looks like this:
 
 .. code-block:: ini
 
-    [OneVariableGclLongerOpen]
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].initiallyOpen = true
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].durations = [140us,390us,80us,390us]
-    *.detCom.eth[*].macLayer.queue.transmissionGate[1].offset = 849.95us
+    [OneVariableGclMaximizeGap]
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].offset = 849.95us
+    *.detCom.nwtt.eth[*].macLayer.queue.transmissionGate[1].durations = [140us,390us,80us,390us]
 
 In the following figure we can see that the PDV of Stream 1 now does not have an influence on the end-to-end delay of Stream 2 anymore.
 
