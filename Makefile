@@ -14,6 +14,9 @@ cleanall: checkmakefiles
 
 makefiles:
 	cd src && opp_makemake -f --deep -KINET_PROJ=$(INET) -DINET_IMPORT -I'$$(INET_PROJ)/src' -L'$$(INET_PROJ)/src' -l'INET$$(D)'
+	
+makefiles-so:
+	cd src && opp_makemake --make-so -f --deep -KINET_PROJ=$(INET) -DINET_IMPORT -I'$$(INET_PROJ)/src' -L'$$(INET_PROJ)/src' -l'INET$$(D)'
 
 checkmakefiles:
 	@if [ ! -f src/Makefile ]; then \

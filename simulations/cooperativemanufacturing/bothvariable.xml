@@ -1,8 +1,0 @@
-<delays>
-	<delay in="agv1" out="agv2">min(100us+30us,max(100us-30us,normal(100us,10us)))+min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-	<delay in="agv2" out="agv1">min(100us+30us,max(100us-30us,normal(100us,10us)))+min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-	<delay in="agv1">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-	<delay in="agv2">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-	<delay out="agv1">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-	<delay out="agv2">min(100us+30us,max(100us-30us,normal(100us,10us)))</delay>
-</delays>
