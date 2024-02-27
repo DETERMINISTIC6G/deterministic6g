@@ -30,6 +30,7 @@ neddoc:
     - documentation
   stage: neddoc
   before_script:
+    - !reference [".link_repos", "before_script"]
     - rm -rf public/neddoc
     - rm -rf public/doxy
   script:
