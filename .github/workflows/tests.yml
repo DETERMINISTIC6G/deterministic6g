@@ -23,8 +23,6 @@ jobs:
       - name: "Run fingerprint test"
         shell: bash -ileo pipefail {0}
         run: |
-          cat /root/.bashrc
-          source /root/.bashrc
           which omnetpp
           echo $PATH
           cd inet
