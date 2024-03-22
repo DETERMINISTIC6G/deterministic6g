@@ -26,6 +26,7 @@ jobs:
       - name: Download data for tests
         run: |
           cd deterministic6g_data/PD-Wireless-5G-1
+          export PYTHONPATH=$PYTHONPATH:..
           python3 main.py
       - name: Checkout INET repository
         uses: actions/checkout@main
