@@ -6,6 +6,9 @@ on:
 permissions:
   contents: read
 
+env:
+  INET_VERSION: v4.5.2
+
 jobs:
   fingerprint_test:
     name: "Fingerprint Test"
@@ -51,7 +54,7 @@ jobs:
         with:
           repository: inet-framework/inet
           path: inet
-          ref: 'v4.5.2'
+          ref: ${{ env.INET_VERSION }}
 
       - name: ls
         run: |
@@ -63,7 +66,7 @@ jobs:
           path: |
             inet/out
             inet/.cache
-          key: ${{ runner.os }}-inet-${{ hashFiles('inet/**') }}
+          key: ${{ runner.os }}-inet-${{ env.INET_VERSION }}
           restore-keys: |
             ${{ runner.os }}-inet-
           save-always: true
