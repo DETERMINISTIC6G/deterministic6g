@@ -10,6 +10,7 @@ jobs:
   fingerprint_test:
     name: "Fingerprint Test"
     runs-on: ubuntu-latest
+    container: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
     steps:
       - name: "Checkout deterministic6g repo"
         uses: actions/checkout@main
@@ -20,8 +21,9 @@ jobs:
           path: inet
           ref: 'v4.5.2'
       - name: "Run fingerprint test"
-        uses: docker://ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
+        shell: bash
         run: |
+          source "$HOME/omnetpp/setenv"
           which omnetpp
           echo $PATH
           cd inet
