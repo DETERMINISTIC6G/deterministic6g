@@ -20,9 +20,15 @@ jobs:
           repository: inet-framework/inet
           path: inet
           ref: 'v4.5.2'
-      - name: "Run fingerprint test"
-        shell: sh
+      - name: "Test"
         run: |
+          which omnetpp
+          echo $PATH
+      - name: "Run fingerprint test"
+        shell: bash
+        run: |
+          which omnetpp
+          echo $PATH
           cd inet
           source setenv
           make makefiles
