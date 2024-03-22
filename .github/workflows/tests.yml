@@ -10,7 +10,9 @@ jobs:
   fingerprint_test:
     name: "Fingerprint Test"
     runs-on: ubuntu-latest
-    container: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
+    container:
+      image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
+      options: --user root
     steps:
       - name: "Checkout deterministic6g repo"
         uses: actions/checkout@main
