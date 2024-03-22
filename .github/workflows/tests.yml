@@ -25,7 +25,7 @@ jobs:
       - name: "Run fingerprint test"
         shell: bash
         run: |
-          source "$HOME/omnetpp/setenv"
+          source "/root/omnetpp/setenv"
           which omnetpp
           echo $PATH
           cd inet
