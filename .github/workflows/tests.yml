@@ -14,9 +14,11 @@ jobs:
       image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
       options: --user root
     steps:
-      - name: "Checkout deterministic6g repo"
+      - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
-      - name: "Checkout inet repo"
+        with:
+          path: deterministic6g
+      - name: Checkout INET repository
         uses: actions/checkout@main
         with:
           repository: inet-framework/inet
