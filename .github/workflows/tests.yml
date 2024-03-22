@@ -35,6 +35,15 @@ jobs:
           repository: inet-framework/inet
           path: inet
           ref: 'v4.5.2'
+      - name: Cache INET build
+        uses: actions/cache@v2
+        with:
+          path: |
+            inet/out
+            inet/.cache
+          key: ${{ runner.os }}-inet-${{ hashFiles('inet/**') }}
+          restore-keys: |
+            ${{ runner.os }}-inet-
       - name: "Run fingerprint test"
         shell: bash
         run: |
