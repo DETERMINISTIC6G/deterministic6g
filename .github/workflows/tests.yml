@@ -23,6 +23,7 @@ jobs:
       - name: "Run fingerprint test"
         shell: bash --init-file /root/.bashrc {0}
         run: |
+          cat /root/.bashrc
           source /root/.bashrc
           which omnetpp
           echo $PATH
