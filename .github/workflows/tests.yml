@@ -44,12 +44,10 @@ jobs:
           key: ${{ runner.os }}-inet-${{ hashFiles('inet/**') }}
           restore-keys: |
             ${{ runner.os }}-inet-
-      - name: "Run fingerprint test"
+      - name: "Build projects"
         shell: bash
         run: |
           source "/root/omnetpp/setenv"
-          which omnetpp
-          echo $PATH
           cd inet
           source setenv
           make makefiles
@@ -57,5 +55,10 @@ jobs:
           cd ../deterministic6g
           make makefiles
           make
-          cd tests/fingerprint
+      - name: "Run fingerprint test"
+        shell: bash
+        run: |
+          source "/root/omnetpp/setenv"
+          source inet/setenv
+          cd deterministic6g/tests/fingerprint
           inet_fingerprinttest
