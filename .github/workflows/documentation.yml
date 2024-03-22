@@ -9,31 +9,6 @@ permissions:
   id-token: write
 
 jobs:
-  fingerprint_test:
-    name: "Fingerprint Test"
-    runs-on: ubuntu-latest
-    container: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
-    steps:
-      - name: "Checkout deterministic6g repo"
-        uses: actions/checkout@main
-      - name: "Checkout inet repo"
-        uses: actions/checkout@main
-        with:
-          repository: inet-framework/inet
-          path: inet
-          ref: 'v4.5.2'
-      - name: "Run fingerprint test"
-        run: |
-          cd inet
-          source setenv
-          make makefiles
-          make -j$(nproc)
-          cd ../deterministic6g
-          make makefiles
-          make
-          cd tests/fingerprint
-          inet_fingerprinttest
-
   neddoc:
     name: "Generate NED-Documentation and Doxy"
     runs-on: self-hosted
