@@ -18,6 +18,15 @@ jobs:
         uses: actions/checkout@main
         with:
           path: deterministic6g
+      - name: Checkout deterministic6g_data repository
+        uses: actions/checkout@main
+        with:
+          repository: DETERMINISTIC6G/deterministic6g_data
+          path: deterministic6g_data
+      - name: Download data for tests
+        run: |
+          cd deterministic6g_data/PD-Wireless-5G-1
+          python3 main.py
       - name: Checkout INET repository
         uses: actions/checkout@main
         with:
