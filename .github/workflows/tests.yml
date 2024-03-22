@@ -18,35 +18,53 @@ jobs:
         uses: actions/checkout@main
         with:
           path: deterministic6g
+
       - name: Checkout deterministic6g_data repository
         uses: actions/checkout@main
         with:
           repository: DETERMINISTIC6G/deterministic6g_data
           path: deterministic6g_data
-      - name: Download data for tests
+
+      - name: ls
+        run: |
+          ls -la
+
+      - name: Cache Data Repo
+        uses: actions/cache@v2
+        with:
+          path: |
+            deterministic6g_data/PD-Wireless-5G-1/tmp
+          key: ${{ runner.os }}-deterministic6g_data-${{ hashFiles('deterministic6g_data/PD-Wireless-5G-1/**') }}
+
+      - name: Build PD
         run: |
           cd deterministic6g_data/PD-Wireless-5G-1
           pip install requests pyarrow
           export PYTHONPATH=$PYTHONPATH:..
           python3 main.py
+          cd ../ProcessingDelayDistribution2
+          python3 main.py
+
       - name: Checkout INET repository
         uses: actions/checkout@main
         with:
           repository: inet-framework/inet
           path: inet
           ref: 'v4.5.2'
+
       - name: ls
         run: |
           ls -la
+
       - name: Cache INET build
         uses: actions/cache@v2
         with:
           path: |
             inet/out
             inet/.cache
-          key: ${{ runner.os }}-inet-${{ hashFiles('inet/**') }}
           restore-keys: |
             ${{ runner.os }}-inet-
+
       - name: "Build projects"
         shell: bash
         run: |
@@ -58,6 +76,7 @@ jobs:
           cd ../deterministic6g
           make makefiles
           make
+
       - name: "Run fingerprint test"
         shell: bash
         run: |
