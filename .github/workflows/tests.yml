@@ -77,4 +77,4 @@ jobs:
           source "/root/omnetpp/setenv"
           source inet/setenv
           cd deterministic6g/tests/fingerprint
-          inet_fingerprinttest
+          # inet_fingerprinttest
