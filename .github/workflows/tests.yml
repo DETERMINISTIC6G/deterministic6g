@@ -59,15 +59,17 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /home/runner/work/ccache
-          key: native-${{ matrix.mode }}-ccache-${{ github.run_id }}
+          key: native-ccache-${{ github.run_id }}
           # See: https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
-          restore-keys: native-${{ matrix.mode }}-ccache
+          restore-keys: native-ccache
 
       - name: "Build projects"
         shell: bash
         env:
           MODE: release
         run: |
+          apt update
+          apt install -y ccache
           source "/root/omnetpp/setenv"
           cd inet
           source setenv
