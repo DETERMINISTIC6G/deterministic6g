@@ -69,7 +69,16 @@ jobs:
           MODE: release
         run: |
           source "/root/omnetpp/setenv"
-          source inet/_scripts/github/build-inet.sh
+          cd inet
+          source setenv
+          export PATH=/usr/lib/ccache:$PATH
+          export CCACHE_DIR=/home/runner/work/ccache
+          opp_featuretool disable SelfDoc
+          make makefiles
+          make -j$(nproc)
+          cd ../deterministic6g
+          make makefiles
+          make
 
       - name: "Run fingerprint test"
         shell: bash
