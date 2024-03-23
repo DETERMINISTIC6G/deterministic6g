@@ -15,7 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
-      options: --user root
     steps:
       - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
@@ -28,19 +27,17 @@ jobs:
           repository: DETERMINISTIC6G/deterministic6g_data
           path: deterministic6g_data
 
-      - name: ls
-        run: |
-          ls -la
-
       - name: Cache Data Repo
+        id: cache-data
         uses: actions/cache@v4
         with:
           path: |
-            deterministic6g_data/PD-Wireless-5G-1/tmp
+            deterministic6g_data/PD-Wireless-5G-1/**.xml
           key: ${{ runner.os }}-deterministic6g_data-${{ hashFiles('deterministic6g_data/PD-Wireless-5G-1/**') }}
           save-always: true
 
       - name: Build PD
+        if: steps.cache-data.outputs.cache-hit != 'true'
         run: |
           cd deterministic6g_data/PD-Wireless-5G-1
           pip install requests pyarrow
@@ -56,32 +53,23 @@ jobs:
           path: inet
           ref: ${{ env.INET_VERSION }}
 
-      - name: ls
-        run: |
-          ls -la
+      - run: mkdir -p /home/runner/work/ccache
 
-      - name: Cache INET build
+      - name: "Cache ccache"
         uses: actions/cache@v4
         with:
-          path: |
-            inet/out
-            inet/.cache
-          key: ${{ runner.os }}-inet-${{ env.INET_VERSION }}
-          restore-keys: |
-            ${{ runner.os }}-inet-
-          save-always: true
+          path: /home/runner/work/ccache
+          key: native-${{ matrix.mode }}-ccache-${{ github.run_id }}
+          # See: https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
+          restore-keys: native-${{ matrix.mode }}-ccache
 
       - name: "Build projects"
         shell: bash
+        env:
+          MODE: release
         run: |
           source "/root/omnetpp/setenv"
-          cd inet
-          source setenv
-          make makefiles
-          make -j$(nproc)
-          cd ../deterministic6g
-          make makefiles
-          make
+          source inet/_scripts/github/build-inet.sh
 
       - name: "Run fingerprint test"
         shell: bash
