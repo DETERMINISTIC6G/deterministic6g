@@ -59,7 +59,7 @@ jobs:
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           ls -la /home
 
-      - run: mkdir -p /home/runner/work/ccache
+      - run: mkdir -p /__w/deterministic6g/deterministic6g/ccache
 
       - run: |
           ls -la /home/runner/work
@@ -68,7 +68,7 @@ jobs:
       - name: "Cache ccache"
         uses: actions/cache@v4
         with:
-          path: /home/runner/work/ccache
+          path: /__w/deterministic6g/deterministic6g/ccache
           key: native-ccache-${{ github.run_id }}
           # See: https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
           restore-keys: native-ccache
@@ -84,10 +84,10 @@ jobs:
           cd inet
           source setenv
           export PATH=/usr/lib/ccache:$PATH
-          export CCACHE_DIR=/home/runner/work/ccache
+          export CCACHE_DIR=/__w/deterministic6g/deterministic6g/ccache
           opp_featuretool disable SelfDoc
           make makefiles
-          make -j$(nproc)
+          make MODE=release -j $(nproc)
           cd ../deterministic6g
           make makefiles
           make
