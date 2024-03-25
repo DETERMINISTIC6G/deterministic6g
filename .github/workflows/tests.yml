@@ -13,6 +13,9 @@ jobs:
   fingerprint_test:
     name: "Fingerprint Test"
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        split: [ 0, 1, 2, 3 ]
     container:
       image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
     steps:
@@ -94,4 +97,6 @@ jobs:
           source "/root/omnetpp/setenv"
           source inet/setenv
           cd deterministic6g/tests/fingerprint
-          # inet_fingerprinttest
+          SPLIT_N=4
+          SPLIT_I=${{ matrix.split }}
+          inet_fingerprinttest -n $SPLIT_N -i $SPLIT_I
