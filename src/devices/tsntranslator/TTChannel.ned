@@ -9,7 +9,7 @@ package d6g.devices.tsntranslator;
 
 import inet.node.ethernet.EthernetLink;
 
-// A perfect channel, see UE for more details.
+// A perfect channel used to connected the TTInterface of dstts and the nwtt TsnTranslator modules within a DetCom node.
 channel TTChannel extends EthernetLink {
     length = default(0m); // length of channel
     datarate = 0bps; // data transmission rate

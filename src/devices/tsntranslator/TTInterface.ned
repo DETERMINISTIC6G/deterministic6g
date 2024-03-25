@@ -11,15 +11,12 @@ import inet.linklayer.ethernet.LayeredEthernetInterface;
 import inet.node.tsn.TsnSwitch;
 import inet.linklayer.contract.IEthernetInterface;
 
-// The simulation approach followed in this project uses given delay distributions to simulate wireless behavior.
-// The underlying simulation model is still based on INETs wired Ethernet communication.
+// This module extends the LayeredEthernetInterface module.
+// However, as its purpose is to connect multiple TsnTranslator modules within a DetCom node, no additional delay and
+// no ifg should be used there. Thus, the interFrameGapInserter is set to 0s and the bitrate is set to inf Mbps.
+// This module only works in combination when connecting it with another TTInterface using the TTChannel module.
 //
-// To this end, the gNB <-> UE communication is modelled using the DetComDelayer module within the DetCom node.
-// However, we don't want any further delays to be introduced by the underlying wired Ethernet communication in the simulation framework.
-// Thus, we provide a UE interface with the same functionality as the LayeredEthernetInterface, but without additional delays.
-// The UE interface shall be connected to another UE interface using the optimal UEChannel.
-//
-// In the future, this UE interface might add additional functionality to further implement wireless behavior.
+// See the DetCom to see how this module is implemented.
 module TTInterface extends LayeredEthernetInterface {
     parameters:
     	phyLayer.interFrameGapInserter.duration = default(0s); // duration of the inter frame gap inserter 

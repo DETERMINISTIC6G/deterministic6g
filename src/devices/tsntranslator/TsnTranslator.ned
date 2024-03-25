@@ -10,13 +10,15 @@ package d6g.devices.tsntranslator;
 import inet.node.tsn.TsnSwitch;
 import inet.linklayer.contract.IEthernetInterface;
 
-// The module extends the TsnSwitch module, and provides the same functionality.
-// Additionally it provides one ore multiple UE interfaces.
-// See UE for more information
+// This module extends the TsnSwitch module and is to be used within the DetCom node.
+// It provides all functionality a full TsnSwitch provides.
+//
+// Additionally it provides the possibility to specify an uplink and downlink delay.
+// It has multiple TTInterface modules, which are connected to the other dstts and the nwtt within the same DetCom node.
 module TsnTranslator extends TsnSwitch
 {
     parameters:
-        int numTtInterfaces = default(0); // Specifies the minimum number of user equipment (UE) Ethernet interfaces that the adapter supports.
+        int numTtInterfaces = default(0); // Number of other TT interfaces connected to this TSN Translator.
         bool isDstt = default(false); // Specifies whether the TSN Translator is a DS-TT (otherwise it is a NW-TT).
         
         volatile double delayUplink @mutable @unit(s) = default(0s); // Uplink Delay

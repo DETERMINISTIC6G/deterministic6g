@@ -13,16 +13,22 @@ import d6g.devices.tsntranslator.TTChannel;
 import d6g.devices.tsntranslator.TsnTranslator;
 
 
-// The DetCom node is used to simulate 6G behavior by providing a given delay distribution (e.g. from real world measurements)
-// This behavior is implemented in the DetComDelayer module, which is already included in the DetComBridgingLayer.
+// The DetCom node is used as a 6G TSN bridge.
+// It consists of multiple TsnTranslator modules, one network TsnTranslator (nwtt) and multiple device side
+// TsnTranslators (dstt), specifically one for every UE.
+// The behavior of the DetCom node is defined by the TsnTranslator modules, especially using the uplink and downlink
+// delay parameters.
 //
-// Besides the delay distribution, the DetCom node provides the same functionality as a TsnSwitch.
+// Every dstt module is connected to the network TsnTranslator (nwtt) and to the other dstt modules using a TTChannel
+// module.
+// The TTChannel is a perfect channel with no delay, jitter or loss, as the delay should be defined in the TsnTranslator
+// modules.
 module DetCom
 {
     parameters:
         @display("i=device/antennatower");
-        int numUEs = default(0);
-        xml delayConfig = default(xml("<delays></delays>")); // XML delay configuration
+        int numUEs = default(0); // Number of connected UEs (specifies number of dstt modules).
+        xml delayConfig = default(xml("<delays></delays>")); // XML delay configuration, alternative way to specify the uplink and downlink delays for dstts.
         @class(DetCom);
     gates:
         inout dsttg[numUEs];

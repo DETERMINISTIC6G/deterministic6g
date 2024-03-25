@@ -10,7 +10,21 @@ package d6g.delayer;
 import inet.protocolelement.processing.IProcessingDelayLayer;
 import inet.protocolelement.processing.ProcessingDelayLayer;
 
-
+// This module is to be used as the delayLayer within a TsnTranslator.
+//
+// The delayDownlink parameter is used to specify the delay in the downlink direction (from the network to the UE).
+// This means, we delay every frame at the earliest possible point in the TsnTranslator
+// (directly after arriving from another TsnTranslator), which is at the ingress direction of the parent bridging layer.
+// We know that all frames arriving from another TsnTranslator (i.e. a tt interface) are downlink frames.
+// Therefore, we set the ingress interface type to "tt" and the delay to delayDownlink.
+//
+// The delayUplink parameter is used to specify the delay in the uplink direction (from the UE to the network).
+// This means, we delay every frame at the latest possible point in the TsnTranslator
+// (directly before leaving to another TsnTranslator), which is at the egress direction of the parent bridging layer.
+// We know that all frames coming from the UE (i.e. an eth interface) and leaving to another TsnTranslator
+// (i.e. a tt interface) are uplink frames.
+// Therefore, we set the ingress interface type to "eth" and the egress interface type to "tt"
+// and the delay to delayUplink.
 module TTDelayLayer extends ProcessingDelayLayer like IProcessingDelayLayer
 {
     parameters:

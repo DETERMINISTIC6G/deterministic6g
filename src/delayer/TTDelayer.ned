@@ -11,21 +11,9 @@ import inet.queueing.base.PacketDelayerBase;
 import inet.queueing.contract.IPacketDelayer;
 
 //
-// The module is designed to delay packets based on it's ingress and egress interfaces.
-//
-// The configuration is defined in XML format as follows:
-// <pre>
-// <delays>
-//     <delay interface="[cModule]" direction="opt. (req|ind)" activateAt="[opt. cValue]">[cDynamicExpression]</delay>
-//     ...
-// </delays>
-// </pre>
-// Where in and out are the cModules connected to the in and out interface respectively. Alternatively you can directly specify the interface ID.
-// activateAt is the time when the delay is activated. If not specified, the delay is activated immediately.
-// cDynamicExpression is the function that defines the delay. It can be a constant value or a function of time (i.e. 10us or truncnormal(40us,5us))
-// direction defines whether the delay is applied to incoming or outgoing packets (see mode parameter). If direction is not defined it applies to both.
-// Note: If multiple delays are defined for the same interface, the latest configuration overrides previous ones.
-
+// The module is designed to delay packets based on the type of involved interfaces.
+// It can be used in combination with the DetCom node to specify an uplink and downlink delay for a given device.
+// See DetCom, TsnTranslator and TTDelayLayer module description for configuration details.
 simple TTDelayer extends PacketDelayerBase like IPacketDelayer
 {
     parameters:

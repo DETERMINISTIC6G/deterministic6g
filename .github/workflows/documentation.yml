@@ -29,21 +29,21 @@ jobs:
           cd deterministic6g
           xvfb-run -a make neddoc
       - name: "Upload NEDdoc artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: neddoc
           path: |
             deterministic6g/doc/neddoc
           retention-days: 7
       - name: "Upload Doxy artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: doxy
           path: |
             deterministic6g/doc/doxy
           retention-days: 7
       - name: "Upload nedtags.xml artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nedtags
           path: |
@@ -59,7 +59,7 @@ jobs:
       - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
       - name: "Download nedtags.xml artifact"
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: nedtags
           path: doc/neddoc/
@@ -69,7 +69,7 @@ jobs:
           ls ../neddoc
           make html
       - name: "Upload Documentation artifact"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: doc
           path: |
@@ -83,29 +83,29 @@ jobs:
     needs: [neddoc, doc]
     steps:
       - name: "Enable GitHub Pages"
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
       - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
       - name: "Download Documentation artifact"
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: doc
           path: public/doc
       - name: "Download neddoc artifact"
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: neddoc
           path: public/doc/neddoc
       - name: "Download doxy artifact"
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: doxy
           path: public/doc/doxy
       - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           # upload entire directory
           path: public/
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4

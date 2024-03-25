@@ -12,8 +12,9 @@ import inet.protocolelement.contract.IProtocolLayer;
 import inet.protocolelement.processing.IProcessingDelayLayer;
 
 //
-// This module provides various layer 2 services such as packet forwarding,
-// interface selection, virtual LAN handling, stream handling.
+// This module is a copy from the BridgingLayer module of the INET Framework
+// However, it additionally includes the delayLayer, which is used to specify the uplink and downlink delays for its
+// parent TsnTranslator module
 //
 module TTBridgingLayer like IProtocolLayer
 {
