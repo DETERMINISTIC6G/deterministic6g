@@ -53,7 +53,16 @@ jobs:
           path: inet
           ref: ${{ env.INET_VERSION }}
 
+      - run: |
+          echo $PWD
+          ls -la /home/runner/work
+          ls -la /home
+
       - run: mkdir -p /home/runner/work/ccache
+
+      - run: |
+          ls -la /home/runner/work
+          ls -la /home
 
       - name: "Cache ccache"
         uses: actions/cache@v4
