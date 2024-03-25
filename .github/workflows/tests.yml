@@ -55,7 +55,7 @@ jobs:
 
       - run: |
           echo $PWD
-          ls -la /home/runner/work
+          echo "$USER"
           ls -la /home
 
       - run: mkdir -p /home/runner/work/ccache
