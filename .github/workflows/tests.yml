@@ -55,7 +55,8 @@ jobs:
 
       - run: |
           echo $PWD
-          echo "$USER"
+          whoami
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           ls -la /home
 
       - run: mkdir -p /home/runner/work/ccache
