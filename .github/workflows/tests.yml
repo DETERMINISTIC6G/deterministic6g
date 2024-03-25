@@ -61,10 +61,6 @@ jobs:
 
       - run: mkdir -p /__w/deterministic6g/deterministic6g/ccache
 
-      - run: |
-          ls -la /home/runner/work
-          ls -la /home
-
       - name: "Cache ccache"
         uses: actions/cache@v4
         with:
