@@ -39,7 +39,8 @@ jobs:
         with:
           path: |
             deterministic6g_data/PD-Wireless-5G-1/**.xml
-          key: ${{ runner.os }}-deterministic6g_data-${{ hashFiles('deterministic6g_data/PD-Wireless-5G-1/**') }}
+            deterministic6g_data/ProcessingDelayDistribution2/**.xml
+          key: ${{ runner.os }}-deterministic6g_data-${{ hashFiles('deterministic6g_data/PD-Wireless-5G-1/**') }}-{{ hashFiles('deterministic6g_data/ProcessingDelayDistribution2/**') }}
           save-always: true
 
       - name: Build PD
