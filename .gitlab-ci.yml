@@ -2,6 +2,7 @@ stages:
   - neddoc
   - doc
   - deploy
+  - test
 
 variables:
   IMAGE_TAG_OMNETPP_GUI_XVFB: $CI_REGISTRY_IMAGE:omnetpp-gui-xvfb-latest
@@ -9,22 +10,34 @@ variables:
   # and generate certificates in the specified directory.
   DOCKER_TLS_CERTDIR: "/certs"
 
+.link_repos:
+  before_script:
+    - echo "Linking INET"
+    - ln -s "/home/gitlab-runner/prebuilt/inet" "../inet"
+    - echo "Linking Data"
+    - ln -s "/home/gitlab-runner/prebuilt/deterministic6g_data" "../deterministic6g_data"
+  after_script:
+    - echo "Unlinking Data"
+    - rm ../deterministic6g_data
+    - echo "Unlinking INET"
+    - rm ../inet
+
 neddoc:
+  extends:
+    - .link_repos
   only:
     - develop
     - documentation
   stage: neddoc
   before_script:
+    - !reference [".link_repos", "before_script"]
     - rm -rf public/neddoc
     - rm -rf public/doxy
   script:
-    - (cd ..; git clone --depth 1 --branch v4.5.0 https://github.com/inet-framework/inet.git;)
     - xvfb-run -a make neddoc
     - mkdir -p public/doc
     - mv doc/neddoc public/doc/neddoc
     - mv doc/doxy public/doc/doxy
-  after_script:
-    - rm -rf ../inet
   artifacts:
     paths:
       - public
@@ -74,3 +87,21 @@ deploy_ipvs_pages:
     - d6g
     - docker
     - web
+
+fingerprint:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  extends:
+    - .link_repos
+  stage: test
+  script:
+    - source ../inet/setenv
+    - make makefiles
+    - make
+    - cd tests/fingerprint
+    - inet_fingerprinttest
+  tags:
+    - d6g
+    - shell

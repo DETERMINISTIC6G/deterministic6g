@@ -7,12 +7,11 @@
 
 package d6g.simulations.cooperativemanufacturing;
 
-import inet.networks.base.TsnNetworkBase;
-import inet.node.contract.IEthernetNetworkNode;
-import inet.node.ethernet.EthernetLink;
-import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.UEChannel;
+import d6g.devices.DetCom;
 import d6g.networks.DetComNetworkBase;
+import inet.node.ethernet.EthernetLink;
+import inet.node.tsn.TsnDevice;
+
 
 //
 // This network focuses on a cooperative manufacturing environment.
@@ -22,23 +21,23 @@ import d6g.networks.DetComNetworkBase;
 network CooperativeManufacturing extends DetComNetworkBase
 {
     parameters:
-        *.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
+        **.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
     submodules:
-        agv1: AGV { // AGV (Automated Guided Vehicle) 1
+        agv1: TsnDevice { // AGV (Automated Guided Vehicle) 1
             @display("p=350,200");
         }
-        agv2: AGV { // AGV (Automated Guided Vehicle) 2
+        agv2: TsnDevice { // AGV (Automated Guided Vehicle) 2
             @display("p=350,300");
         }
-        detcom: DetCom { // DetCom module for deterministic communication
+        detCom: DetCom { // DetCom module for deterministic communication
             @display("p=450,250");
         }
         processingCell: ProcessingCell { // Processing cell in the manufacturing setup
             @display("p=550,250");
         }
     connections:
-        agv1.adapterGate <--> UEChannel <--> detcom.ueg++;
-        agv2.adapterGate <--> UEChannel <--> detcom.ueg++;
-        processingCell.adapterGate <--> EthernetLink <--> detcom.ethg++;
+        agv1.ethg++ <--> EthernetLink <--> detCom.dsttg++;
+        agv2.ethg++ <--> EthernetLink <--> detCom.dsttg++;
+        processingCell.detComConnection <--> EthernetLink <--> detCom.nwttg;
 }
 

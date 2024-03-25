@@ -36,7 +36,7 @@ void HistogramContainer::initialize(int stage) {
 Histogram *HistogramContainer::loadHistogramFromFile(const char *fileName) {
     std::ifstream infile(fileName);
     if (!infile) {
-        throw cRuntimeError("File '%s' not found", fileName);
+        throw cRuntimeError("File '%s' not found, pwd is %s", fileName, getcwd(NULL, 0));
     }
 
     cXMLElement *xmlData = getEnvir()->getXMLDocument(fileName);

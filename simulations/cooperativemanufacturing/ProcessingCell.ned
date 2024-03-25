@@ -10,22 +10,25 @@ package d6g.simulations.cooperativemanufacturing;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import d6g.devices.sixg.UnitWithAdapter;
 
 //
 // The module is designed to simulate a processing unit in a cooperative manufacturing environment. 
 // It extends UnitWithAdapter, and has two modules for communication with the swarm:
 // - swarmStatus: receives information from AGV
 // - swarmControl: sends commands to AGV
-module ProcessingCell extends UnitWithAdapter
+network ProcessingCell
 {
     parameters:
-        isWireless = false; // Specifies that the module does not use wireless communication
     	@display("i=status/execute");
-        *.eth[*].bitrate = default(100Mbps); // Default bitrate for Ethernet interfaces
+    gates:
+        inout detComConnection;
     submodules:
         // Bridge for Ethernet frames
-        bridge: <default("TsnSwitch")> like IEthernetNetworkNode {
+        bridge1: <default("TsnSwitch")> like IEthernetNetworkNode {
+            @display("p=150,200");
+        }
+        
+        bridge2: <default("TsnSwitch")> like IEthernetNetworkNode {
             @display("p=150,100");
         }
         
@@ -39,7 +42,8 @@ module ProcessingCell extends UnitWithAdapter
             @display("p=250,200");
         }
     connections:
-        swarmControl.ethg++ <--> EthernetLink <--> detComAdapter.ethg++;
-        swarmStatus.ethg++ <--> EthernetLink <--> bridge.ethg++;
-        bridge.ethg++ <--> EthernetLink <--> detComAdapter.ethg++;
+        swarmControl.ethg++ <--> EthernetLink <--> bridge1.ethg++;
+        swarmStatus.ethg++ <--> EthernetLink <--> bridge2.ethg++;
+        bridge2.ethg++ <--> EthernetLink <--> bridge1.ethg++;
+        bridge1.ethg++ <--> detComConnection;
 }

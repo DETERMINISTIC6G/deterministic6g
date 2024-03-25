@@ -1,4 +1,0 @@
-<delays>
-	<delay in="100" out="101">rngProvider("histogramContainer","Uplink")</delay>
-	<delay in="101" out="100">randomWalk(5.5ms,normal(0ms,100us))</delay>
-</delays>

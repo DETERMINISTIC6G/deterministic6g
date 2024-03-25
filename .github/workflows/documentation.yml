@@ -13,16 +13,16 @@ jobs:
     name: "Generate NED-Documentation and Doxy"
     runs-on: self-hosted
     steps:
-      - name: checkout deterministic6g repo
+      - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
         with:
           path: deterministic6g
-      - name: checkout inet repo
+      - name: Checkout INET repository
         uses: actions/checkout@main
         with:
           repository: inet-framework/inet
           path: inet
-          ref: 'v4.5.0'
+          ref: 'v4.5.2'
       - name: "Build Neddoc"
         run: |
           cd deterministic6g
@@ -55,7 +55,7 @@ jobs:
     container: ghcr.io/omnetpp/docker-sphinx:200610
     needs: neddoc
     steps:
-      - name: checkout deterministic6g repo
+      - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
       - name: "Download nedtags.xml artifact"
         uses: actions/download-artifact@v3
@@ -83,7 +83,7 @@ jobs:
     steps:
       - name: "Enable GitHub Pages"
         uses: actions/configure-pages@v3
-      - name: checkout deterministic6g repo
+      - name: Checkout Deterministic6G repository
         uses: actions/checkout@main
       - name: "Download Documentation artifact"
         uses: actions/download-artifact@v3

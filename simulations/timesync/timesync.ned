@@ -7,16 +7,12 @@
 
 package d6g.simulations.timesync;
 
+import d6g.devices.DetCom;
 import inet.networks.base.TsnNetworkBase;
-import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import inet.linklayer.ieee8021as.GptpMaster;
 import inet.node.tsn.TsnClock;
-import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.UEChannel;
-import d6g.devices.sixg.UETsnDevice;
-import d6g.devices.sixg.UETsnSwitch;
-import d6g.networks.DetComNetworkBase;
+import inet.node.tsn.TsnDevice;
+
 
 // 
 // Base network derived from INETs gPTP example.
@@ -27,20 +23,20 @@ network TimeSyncNetwork extends TsnNetworkBase
         timeTransmitter: TsnClock {
             @display("p=500,150");
         }
-        detcom: DetCom {
+        detCom: DetCom {
             @display("p=500,300");
         }
-        tsnDevice1: UETsnDevice {
+        tsnDevice1: TsnDevice {
             @display("p=400,450");
         }
-        tsnDevice2: UETsnDevice {
+        tsnDevice2: TsnDevice {
             @display("p=600,450");
         }
 
 
     connections:
-          timeTransmitter.ethg++ <--> EthernetLink <--> detcom.ethg++;
-          detcom.ueg++ <--> UEChannel <--> tsnDevice1.ueg++;
-          detcom.ueg++ <--> UEChannel <--> tsnDevice2.ueg++;
+        timeTransmitter.ethg++ <--> EthernetLink <--> detCom.nwttg;
+        tsnDevice1.ethg++ <--> EthernetLink <--> detCom.dsttg++;
+        tsnDevice2.ethg++ <--> EthernetLink <--> detCom.dsttg++;
 
 }

@@ -18,7 +18,7 @@
 //
 // Useful links:
 //   - <a href="https://deterministic6g.eu/">Project Website</a>.
-//   - <a href="../index.html">Showcases</a>.
+//   - <a href="../simulations/index.html">Showcases</a>.
 //
 // Related documentation:
 //   - <a href="https://inet.omnetpp.org/docs/users-guide/index.html" target="_top">INET User's Guide</a>

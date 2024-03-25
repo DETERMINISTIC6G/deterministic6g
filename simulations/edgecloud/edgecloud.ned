@@ -10,9 +10,10 @@ package d6g.simulations.edgecloud;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
 import inet.node.ethernet.EthernetLink;
-import d6g.devices.sixg.DetCom;
-import d6g.devices.sixg.UETsnDevice;
-import d6g.devices.sixg.UEChannel;
+import d6g.devices.DetCom;
+import d6g.devices.tsntranslator.TTInterface;
+import d6g.devices.tsntranslator.TTChannel;
+import d6g.devices.tsntranslator.TsnTranslator;
 import d6g.networks.DetComNetworkBase;
 import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
@@ -31,10 +32,10 @@ network EdgeCloudNetwork extends DetComNetworkBase
         histogramContainer:HistogramContainer{
             @display("p=100,800;is=s");
         }
- 		talker: UETsnDevice {
+ 		talker: TsnDevice {
             @display("p=300,200");  
         }
-        detcom: DetCom {
+        detCom: DetCom {
             @display("p=400,300");  
         }
         cloudServer: TsnDevice {
@@ -43,15 +44,15 @@ network EdgeCloudNetwork extends DetComNetworkBase
         bridge: TsnSwitch {
             @display("p=500,300");
         }
-        receiver: UETsnDevice {
+        receiver: TsnDevice {
             @display("p=300,400");  
         }
         
     connections:
-        talker.ueg++ <--> UEChannel <--> detcom.ueg++;
+        talker.ethg++ <--> EthernetLink <--> detCom.dsttg++;
         
-        detcom.ethg++ <--> EthernetLink <--> bridge.ethg++;
+        detCom.nwttg <--> EthernetLink <--> bridge.ethg++;
         bridge.ethg++ <--> EthernetLink <--> cloudServer.ethg++;
         
-        detcom.ueg++ <--> UEChannel <--> receiver.ueg++;
+        detCom.dsttg++ <--> EthernetLink <--> receiver.ethg++;
 }

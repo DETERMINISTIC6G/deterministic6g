@@ -1,0 +1,101 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+env:
+  INET_VERSION: v4.5.2
+
+jobs:
+  fingerprint_test:
+    name: "Fingerprint Test"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        split: [ 0, 1, 2, 3 ]
+      fail-fast: false
+    container:
+      image: ghcr.io/omnetpp/omnetpp:u22.04-6.0.1
+    steps:
+      - name: Checkout Deterministic6G repository
+        uses: actions/checkout@main
+        with:
+          path: deterministic6g
+
+      - name: Checkout deterministic6g_data repository
+        uses: actions/checkout@main
+        with:
+          repository: DETERMINISTIC6G/deterministic6g_data
+          path: deterministic6g_data
+
+      - name: Cache Data Repo
+        id: cache-data
+        uses: actions/cache@v4
+        with:
+          path: |
+            deterministic6g_data/PD-Wireless-5G-1/**.xml
+            deterministic6g_data/ProcessingDelayDistribution2/**.xml
+          key: ${{ runner.os }}-deterministic6g_data-${{ hashFiles('deterministic6g_data/PD-Wireless-5G-1/**') }}-${{ hashFiles('deterministic6g_data/ProcessingDelayDistribution2/**') }}
+          save-always: true
+
+      - name: Build PD
+        if: steps.cache-data.outputs.cache-hit != 'true'
+        run: |
+          cd deterministic6g_data/PD-Wireless-5G-1
+          pip install requests pyarrow
+          export PYTHONPATH=$PYTHONPATH:..
+          python3 main.py
+          cd ../ProcessingDelayDistribution2
+          python3 main.py
+
+      - name: Checkout INET repository
+        uses: actions/checkout@main
+        with:
+          repository: inet-framework/inet
+          path: inet
+          ref: ${{ env.INET_VERSION }}
+
+      - run: mkdir -p /__w/deterministic6g/deterministic6g/ccache
+
+      - name: "Cache ccache"
+        uses: actions/cache@v4
+        with:
+          path: /__w/deterministic6g/deterministic6g/ccache
+          key: native-ccache-${{ github.run_id }}
+          # See: https://github.com/actions/cache/blob/main/tips-and-workarounds.md#update-a-cache
+          restore-keys: native-ccache
+
+      - name: "Build projects"
+        shell: bash
+        env:
+          MODE: release
+        run: |
+          apt update
+          apt install -y ccache
+          source "/root/omnetpp/setenv"
+          cd inet
+          source setenv
+          export PATH=/usr/lib/ccache:$PATH
+          export CCACHE_DIR=/__w/deterministic6g/deterministic6g/ccache
+          opp_featuretool disable SelfDoc
+          make makefiles
+          make MODE=release -j $(nproc)
+          cd ../deterministic6g
+          make makefiles
+          make
+
+      - name: "Run fingerprint test"
+        shell: bash
+        run: |
+          source "/root/omnetpp/setenv"
+          source inet/setenv
+          cd deterministic6g/tests/fingerprint
+          SPLIT_N=4
+          SPLIT_I=${{ matrix.split }}
+          inet_fingerprinttest -n $SPLIT_N -i $SPLIT_I
