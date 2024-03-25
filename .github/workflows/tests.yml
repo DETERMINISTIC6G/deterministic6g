@@ -1,7 +1,10 @@
 on:
   push:
     branches:
-      - '*'
+      - main
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -55,12 +58,6 @@ jobs:
           repository: inet-framework/inet
           path: inet
           ref: ${{ env.INET_VERSION }}
-
-      - run: |
-          echo $PWD
-          whoami
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          ls -la /home
 
       - run: mkdir -p /__w/deterministic6g/deterministic6g/ccache
 
