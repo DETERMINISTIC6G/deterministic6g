@@ -3,7 +3,7 @@
 printf "\n=== Check dependencies ===\n"
 
 version="6.0.2"
-inet_version="4.5.2"
+inet_version="4.5.3"
 
 # Function to check if a package is installed
 is_package_installed() {
