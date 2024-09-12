@@ -1,5 +1,6 @@
 package d6g.simulations.training_day.tutorial2;
 
+import d6g.distribution.histogram.HistogramContainer;
 import inet.networks.base.TsnNetworkBase;
 import inet.node.ethernet.EthernetLink;
 import inet.node.tsn.TsnDevice;
@@ -12,6 +13,9 @@ network NetworkTutorial2 extends TsnNetworkBase
         *.eth[*].bitrate = default(100Mbps);
         detCom.*.eth[*].bitrate = default(100Mbps);
     submodules:
+        histogramContainer: HistogramContainer {
+            @display("p=100,800");
+        }
         talker1: TsnDevice {
             @display("p=400,300");
         }
